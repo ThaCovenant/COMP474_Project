@@ -1,1 +1,66 @@
+UNIVERSITIES
+
+
+
+
+
+COURSES
+
+
+
+
+
+
+LECTURES
+
+
+
+
+
+TOPICS
+
+
+
+
+
+
+
+STUDENTS
+1) Huy-Long Tran
+2) 40076313
+3) huy-longtran@hotmail.com
+
+4) AERO 417 
+Assignments:
+Tests:
+5) Final Grade: B
+6) Competencies:
+
+COMP 472 
+Assignments:
+Tests:
+Final Grade: B-
+Competencies:
+
+COEN 451
+Assignments:
+Tests: 
+Final Grade: D+
+Competencies:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
