@@ -1,10 +1,16 @@
 UNIVERSITIES
-
-
-
+Concordia University
+https://www.wikidata.org/wiki/Q326342
+https://dbpedia.org/page/Concordia_University
 
 
 COURSES
+Intelligent Systems
+COMP
+474/6741
+4 Credits
+Rule-based expert systems, blackboard architecture, and agent-based. Knowledge acquisition and representation. Uncertainty and conflict resolution. Reasoning and explanation. Design of intelligent systems. Project.
+Knowledge represenation and reasoning. Uncertainty and conflct resolution. Design intelligent systems. Grammar-based, rule-based, and blackboard architecture. A project is required.
 
 
 
