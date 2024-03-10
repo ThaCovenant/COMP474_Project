@@ -18,8 +18,12 @@ Knowledge represenation and reasoning. Uncertainty and conflct resolution. Desig
 
 
 LECTURES
-
-
+1 Intellgient Systems Introduction
+2 Knowledge Graph
+3 Knowledge Graph: Vocabularies and Ontologies
+4 Knowledge Base Queries and Linked Open Data
+5 Recommender Systems
+6 Machine Learning for Intelligent Systems
 
 
 
