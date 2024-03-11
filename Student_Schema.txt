@@ -24,7 +24,7 @@ ex:PhilippeBertrand a ex:Student;
     ex:hasEmail "emailexample@gmail.com";
     ex:hasCompletedCourse ex:COMP474;
     ex:hasGrade ex:A;
-    ex:hasCompetency ex:Databases.
+    ex:hasCompetency ex:Knowledge Graphs.
 
 ex:Course1 a ex:Course;
     rdfs:label "COMP474";
