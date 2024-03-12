@@ -35,3 +35,6 @@ ex:Grade1 a ex:Grade;
 
 ex:Competency1 a ex:Competency;
     ex:competentInTopic "Knowledge Graphs".
+
+
+
