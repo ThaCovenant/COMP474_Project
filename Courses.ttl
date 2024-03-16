@@ -30,7 +30,35 @@ course:Course a rdfs:Class ;
     rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
 
+ course:courseCredit a rdf:Property
+    rdfs:label "Course Credits" ;
+    rdfs:comment "The number of credits assigned to the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
 
+ course:courseDescription a rdf:Property
+    rdfs:label "Course Description" ;
+    rdfs:comment "Description of the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
+
+course:courseLink a rdf:Property
+    rdfs:label "Course Link to a webpage" ;
+    rdfs:comment "Webpage of the course."@en ;
+    rdfs:seeAlso foaf:Document ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Document .
+
+course:courseOutline a rdf:Property
+    rdfs:label "Course Outline" ;
+    rdfs:comment "Outline of the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Document .
+
+# Example of a course
+<https://moodle.concordia.ca/moodle/course/view.php?id=162041> a course:Course ;
+    course:courseName "Intelligent Systems (COMP 474/6741)" ;
+    course:courseWebpage <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .
 
 
 
