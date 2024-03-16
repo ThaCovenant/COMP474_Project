@@ -47,13 +47,13 @@ course:courseLink a rdf:Property
     rdfs:comment "Webpage of the course."@en ;
     rdfs:seeAlso foaf:Document ;
     rdfs:domain course:Course ;
-    rdfs:range rdfs:Document .
+    rdfs:range foaf:Document .
 
 course:courseOutline a rdf:Property
     rdfs:label "Course Outline" ;
     rdfs:comment "Outline of the course."@en ;
     rdfs:domain course:Course ;
-    rdfs:range rdfs:Document .
+    rdfs:range foaf:Document .
 
 # Example of a course
 <https://moodle.concordia.ca/moodle/course/view.php?id=162041> a course:Course ;
