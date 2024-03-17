@@ -1,6 +1,6 @@
-import os
-
 import rdflib
+import csv
+
 from rdflib.namespace import FOAF
 
 g1 = rdflib.Graph()
@@ -30,9 +30,9 @@ print(len(g4))
 print(len(g5))
 
 # Loop through each triple in the graph (subj, pred, obj)
-for s, p, o in g1:
+#for s, p, o in g1:
     # Print the subject, predicate and the object
-    print(s, p, o)
+#    print(s, p, o)
 
 #print(g1.serialize(format='turtle'))
 #print(g2.serialize(format='turtle'))
@@ -41,14 +41,28 @@ for s, p, o in g1:
 #print(g5.serialize(format='turtle'))
 
 g6 = g1 + g2 + g3 + g4 + g5
-print(len(g6))
+#print(len(g6))
 
 # Write the merged graph to a file in Turtle format
 with open(file_path6, "w", encoding="utf-8") as f:
     f.write(g6.serialize(format="turtle"))
 
 
-# Which city is Joe studing in? First define the namespaces:
+# Open the CSV file
+with open('CU_SR_OPEN_DATA_CATALOG.csv', newline='') as csvfile:
+    # Create a CSV reader object
+    reader = csv.reader(csvfile)
+
+    # Iterate over each row in the CSV file
+    for row in reader:
+        # Access elements of each row by index
+        print(row)
+
+
+
+
+
+# Which city is Joe studying in? First define the namespaces:
 #user = rdflib.Namespace("http://example.org/")
 #wdt = rdflib.Namespace("http://www.wikidata.org/prop/direct/")
 
