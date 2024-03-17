@@ -1,41 +1,47 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix foaf <http://xmlns.com/foaf/.1/>.
-@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix foaf: <http://xmlns.com/foaf/.1/>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix wd: <https://wwww.wikidata.org/wiki/>.
+
 
 
 # Define Vocabulary for Lectures
-@prefix topic: <http://example.org/vocab/topic#>
+@prefix topic: <http://example.org/vocab/topic#>.
 
 # Topic Class
 topic:Topic a rdfs:Topic ;
-    rdfs:label "Topic" ;
-    rdfs:comment "Information about the topics that are covered in a course."@en .
+    rdfs:label "Topic Name" ;
+    rdfs:comment "Topic names within a course outline."@en .
 
 # Topic Properties
-topic:topicName a rdf:Property ;
-    rdfs:label "topicName" ;
-    rdfs:comment "Topic names within a course outline."@en ;
-    rdfs:domain topic:Topic ;
-    rdfs:range rdfs:Literal .
-
 topic:topicProvenanceInformation a rdf:Property ;
     rdfs:label "Provenance Information" ;
     rdfs:comment "record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a specific lecture)."@en ;
     rdfs:domain topic:Topic ;
-    rdfs:range rdfs:Literal .
+    rdfs:range rdfs:Literal . # "course outline"
 
-topic:topicLink a rdf:Property ;
-    rdfs:label "linked To" ;
-    rdfs:comment "A link to DBpedia and/or Wikidata of specified topic."@en ;
+#Links
+topic:wikidataEntry a rdf:Property;
+    rdfs:label "has Wikidata Entry";
     rdfs:domain topic:Topic ;
-    rdfs:range dbo:Topic .
+    rdfs:range rdfs:Resource ;
+    rdfs:comment "Link to topic wikidata entry."@en .
+
+
+topic:dbpediaEntry a rdf:Property;
+    rdfs:label "has DBpedia Entry";
+    rdfs:domain topic:Topic ;
+    rdfs:range rdfs:Resource ;
+    rdfs:comment "Link to topic DBpedia enrty."@en .
+
 
 # Example topic link to DBpedia and/or Wikidata
 <http://example.org/topics/KnowledgeGraph> a topic:Topic ;
-    topic:topicName "Knowledge Graph" ;
+    rdfs:label "Knowledge Graph" ;
     topic:provenanceInformation "Course outline" ;
-    topic:linkedTo dbo:KnowledgeGraph .
+    topic:wikidataEntry wd:Q33002955 ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> .
 
 # Topics. Information about the topics that are covered in a course:
 # 1. The topic’s name
