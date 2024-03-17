@@ -2,38 +2,57 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix ex: <http://example.org/>.
+@prefix course: <http://example.org/vocab/course#>.
+@prefix topic: <http://example.org/vocab/topic#>.
+
 
 #Student class
-ex:Student a rdfs:Class.
+ex:Student a rdfs:Class;
+    rdfs:label "Student" ;
+    rdfs:comment "This is a Student Class."@en.
 
 #Properties
 ex:hasFirstName a rdf:Property;
     rdfs:label "hasFirstName";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range xsd:string;
+    rdfs:comment "Student First Name."@en.
 
 ex:hasLastName a rdf:Property;
     rdfs:label "hasLastName";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range xsd:string;
+    rdfs:comment "Student Last Name."@en.
 
 ex:hasIDNumber a rdf:Property;
     rdfs:label "hasIDNumber";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range xsd:string;
+    rdfs:comment "Student ID."@en.
 
 ex:hasEmail a rdf:Property;
     rdfs:label "hasEmail";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range xsd:string;
+    rdfs:comment "Student Email."@en.
 
 ex:hasCompletedCourse a rdf:Property;
     rdfs:label "hasCompletedCourse";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range course:Course;
+    rdfs:comment "Student has completed course."@en.
 
 ex:hasGrade a rdf:Property;
     rdfs:label "hasGrade";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range xsd:string;
+    rdfs:comment "Student received a letter grade."@en.
 
 ex:hasCompetency a rdf:Property;
     rdfs:label "hasCompetency";
-    rdfs:domain ex:Student.
+    rdfs:domain ex:Student;
+    rdfs:range topic:Topic;
+    rdfs:comment "Student has Completed."@en.
 
 #examples
 #Person
@@ -43,18 +62,5 @@ ex:PhilippeBertrand a ex:Student;
     ex:hasIDNumber "11111";
     ex:hasEmail "emailexample@gmail.com";
     ex:hasCompletedCourse ex:COMP474;
-    ex:hasGrade ex:A;
-    ex:hasCompetency ex:Knowledge Graphs.
-
-ex:Course1 a ex:Course;
-    rdfs:label "COMP474";
-    ex:includesTopic "Knowledge Graphs".
-
-ex:Grade1 a ex:Grade;
-    rdfs:label "A".
-
-ex:Competency1 a ex:Competency;
-    ex:competentInTopic "Knowledge Graphs".
-
-
-
+    ex:hasGrade "A";
+    ex:hasCompetency ex:KnowledgeGraphs.
