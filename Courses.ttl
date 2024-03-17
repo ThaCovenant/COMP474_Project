@@ -1,0 +1,72 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf <http://xmlns.com/foaf/.1/>.
+
+# Define Vocabulary for Courses
+@prefix course: <http://example.org/vocab/course#>
+
+
+# Courses
+course:Course a rdfs:Class ;
+    rdfs:label "Course" ;
+    rdfs:comment "A course offered by the university."@en
+
+ # Properties
+ course:courseName a rdf:Property ;
+    rdfs:label "Course name" ;
+    rdfs:comment "Name of the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
+
+  course:courseSubject a rdf:Property ;
+    rdfs:label "Course Subject" ;
+    rdfs:comment "Subject of the Course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
+
+ course:courseNumber a rdf:Property
+    rdfs:label "Course name" ;
+    rdfs:comment "Name of the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
+
+ course:courseCredit a rdf:Property
+    rdfs:label "Course Credits" ;
+    rdfs:comment "The number of credits assigned to the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
+
+ course:courseDescription a rdf:Property
+    rdfs:label "Course Description" ;
+    rdfs:comment "Description of the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range rdfs:Literal .
+
+course:courseLink a rdf:Property
+    rdfs:label "Course Link to a webpage" ;
+    rdfs:comment "Webpage of the course."@en ;
+    rdfs:seeAlso foaf:Document ;
+    rdfs:domain course:Course ;
+    rdfs:range foaf:Document .
+
+course:courseOutline a rdf:Property
+    rdfs:label "Course Outline" ;
+    rdfs:comment "Outline of the course."@en ;
+    rdfs:domain course:Course ;
+    rdfs:range foaf:Document .
+
+# Example of a course
+<https://moodle.concordia.ca/moodle/course/view.php?id=162041> a course:Course ;
+    course:courseName "Intelligent Systems (COMP 474/6741)" ;
+    course:courseWebpage <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .
+
+
+
+#1. Course name (e.g., “Intelligent Systems”)
+#2. Course subject (e.g., “COMP”, “SOEN”)
+#3. Course number (e.g., “474”)
+#4. Course credits
+#5. Course description (e.g., “Knowledge representation and reasoning. Uncertainty and conflict
+#                        resolution . . . ”)
+#6. A link (rdfs:seeAlso) to a webpage with the course information, if available.
+#7. Course outline, if available.
