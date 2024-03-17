@@ -5,7 +5,47 @@
 # Define Vocabulary for Courses
 @prefix course: <http://example.org/vocab/course#>.
 
+#Query 1
+
 SELECT ?course
 WHERE {
-  ?course <offered_by> <university_URI>.
+  ?course <offeredBy> <university_URI>.
 }
+
+#Query 2
+
+SELECT ?course
+WHERE {
+  ?course <hasTopic> <Topic>.
+}
+
+#Query 3
+
+SELECT ?topic
+WHERE {
+  ?course rdf:type :Course ;
+          :hasTopic ?topic .
+  ?lecture rdf:type :Lecture ;
+           :partOf ?course ;
+           :lectureNumber <> .
+}
+
+#Query 4
+
+#Query 5
+
+#Query 6
+
+#Query 7
+
+#Query 8
+
+#Query 9
+
+#Query 10
+
+#Query 11
+
+#Query 12
+
+#Query 13
