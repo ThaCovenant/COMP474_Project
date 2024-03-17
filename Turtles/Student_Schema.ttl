@@ -7,13 +7,33 @@
 ex:Student a rdfs:Class.
 
 #Properties
-ex:hasFirstName a rdf:Property; rdfs:label "hasFirstName"; rdfs:domain ex:Student.
-ex:hasLastName a rdf:Property; rdfs:label "hasLastName"; rdfs:domain ex:Student.
-ex:hasIDNumber a rdf:Property; rdfs:label "hasIDNumber"; rdfs:domain ex:Student.
-ex:hasEmail a rdf:Property; rdfs:label "hasEmail"; rdfs:domain ex:Student.
-ex:hasCompletedCourse a rdf:Property; rdfs:label "hasCompletedCourse"; rdfs:domain ex:Student.
-ex:hasGrade a rdf:Property; rdfs:label "hasGrade"; rdfs:domain ex:Student.
-ex:hasCompetency a rdf:Property; rdfs:label "hasCompetency"; rdfs:domain ex:Student.
+ex:hasFirstName a rdf:Property;
+    rdfs:label "hasFirstName";
+    rdfs:domain ex:Student.
+
+ex:hasLastName a rdf:Property;
+    rdfs:label "hasLastName";
+    rdfs:domain ex:Student.
+
+ex:hasIDNumber a rdf:Property;
+    rdfs:label "hasIDNumber";
+    rdfs:domain ex:Student.
+
+ex:hasEmail a rdf:Property;
+    rdfs:label "hasEmail";
+    rdfs:domain ex:Student.
+
+ex:hasCompletedCourse a rdf:Property;
+    rdfs:label "hasCompletedCourse";
+    rdfs:domain ex:Student.
+
+ex:hasGrade a rdf:Property;
+    rdfs:label "hasGrade";
+    rdfs:domain ex:Student.
+
+ex:hasCompetency a rdf:Property;
+    rdfs:label "hasCompetency";
+    rdfs:domain ex:Student.
 
 #examples
 #Person
