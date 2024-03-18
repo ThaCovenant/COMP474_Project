@@ -1,22 +1,28 @@
+#Setting variables that would potentially be inputted by the user
+@prefix university: <https://www.wikidata.org/entity/Q326342>.
+@prefix topic: "Knowledge Graphs".
+@prefix course: "COMP474".
+@prefix subject: "COMP".
+@prefix material: "slides".
+@prefix lecture_number: "3".
+@prefix student: "Philippe Bertrand".
+
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix foaf: <http://xmlns.com/foaf/.1/>.
 
-# Define Vocabulary for Courses
-@prefix course: <http://example.org/vocab/course#>.
-
 #Query 1
 
-SELECT ?course
+SELECT ?courses
 WHERE {
-  ?course <offeredBy> <university_URI>.
+  university ex:offersCourse ?courses.
 }
 
 #Query 2
 
 SELECT ?course
 WHERE {
-  ?course <hasTopic> <Topic>.
+  ?course <hasTopic> ?topic.
 }
 
 #Query 3
