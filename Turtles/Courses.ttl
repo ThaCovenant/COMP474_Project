@@ -6,6 +6,10 @@
 # Define Vocabulary for Courses
 @prefix course: <http://example.org/vocab/course#>.
 
+# Topics Class
+ex:Topic a rdfs:Class ;
+    rdfs:label "Topic";
+    rdfs:comment "A subject or theme of study"@en .
 
 # Courses
 course:Course a rdfs:Class ;
@@ -16,6 +20,12 @@ course:Course a rdfs:Class ;
 ex:offersCourse a rdf:Property ; #to review, trying to add a property that would allow us to indicate that a course is offered by a university
     rdfs:domain ex:University ;
     rdfs:range ex:Course .
+
+ex:hasTopic a rdf:Property ; # property that allows to say that a topic is taught in a course
+    rdfs:label "has topic"@en ;
+    rdfs:comment "Specifies the topic of a course"@en ;
+    rdfs:domain ex:Course ;
+    rdfs:range ex:Topic .
 
  course:courseName a rdf:Property ;
     rdfs:label "Course name" ;
