@@ -11,47 +11,95 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix foaf: <http://xmlns.com/foaf/.1/>.
 
-#Query 1
+#Query 1 (list all courses offered by a university)
 
 SELECT ?courses
 WHERE {
-  university ex:offersCourse ?courses.
+  ?courses course:offeredBy university.
 }
 
-#Query 2
+#Query 2 (list all courses that have a specific topic)
 
 SELECT ?course
 WHERE {
-  ?course <hasTopic> ?topic.
+  ?course course:hasTopic topic.
 }
 
-#Query 3
+#Query 3 (list all topics covered in a class filtered by lecture number)
+
+SELECT ?topic ?lecture_number
+WHERE {
+  course course:hasTopic ?topic.
+  FILTER (?lecture_number = 3)
+}
+
+#Query 4 (list all courses offered by the university filtered by subject)
+
+SELECT ?course ?subject
+WHERE {
+  ?course course:offeredBy university.
+  FILTER (?subject = "COMP")
+}
+
+#Query 5 (list all materials of a course filtered by topic)
+
+SELECT ?material ?topic
+WHERE {
+  course ex:hasMaterial ?material. #missing property hasMaterial
+  FILTER (?topic = "Knowledge Graphs")
+}
+
+#Query 6 (give amount of credits a course is worth)
+
+SELECT ?credit
+WHERE {
+  course course:courseCredit ?credit.
+}
+
+#Query 7 (list course resources)
+
+SELECT ?resources
+WHERE {
+  course course:courseLink ?resources.
+}
+
+#Query 8 (list all material covered in the course filtered by lecture number)
+
+SELECT ?material
+WHERE {
+  course ex:hasMaterial ?material. #missing property hasMaterial
+  FILTER (?lecture_number = 3)
+}
+
+#Query 9 (same as query 5?)
+
+SELECT ?material ?topic
+WHERE {
+  course ex:hasMaterial ?material. #missing property hasMaterial
+  FILTER (?topic = "Knowledge Graphs")
+}
+
+#Query 10 (list all topics affered by the course)
 
 SELECT ?topic
 WHERE {
-  ?course rdf:type :Course ;
-          :hasTopic ?topic .
-  ?lecture rdf:type :Lecture ;
-           :partOf ?course ;
-           :lectureNumber <> .
+  course course:hasTopic ?topic.
 }
 
-#Query 4
+#Query 11 (list all grades obtained in the course filtered by student)
 
-#Query 5
+SELECT ?student ?grades
+WHERE {
+  course course:hasGrades ?grades. #missing property "hasGrades"
+  FILTER (?student = "Philippe Bertrand")
+}
 
-#Query 6
+#Query 12 (list all students that have completed a course)
 
-#Query 7
-
-#Query 8
-
-#Query 9
-
-#Query 10
-
-#Query 11
-
-#Query 12
+SELECT ?student
+WHERE {
+  ?student course:hasCompleted course.
+}
 
 #Query 13
+
