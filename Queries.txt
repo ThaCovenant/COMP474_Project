@@ -13,23 +13,27 @@
 
 #Query 1 (list all courses offered by a university)
 
-SELECT ?courses
+SELECT ?courses 
 WHERE {
-  ?courses course:offeredBy university.
+  ?courses a course:Course;
+    course:offeredBy university.
 }
 
 #Query 2 (list all courses that have a specific topic)
 
 SELECT ?course
 WHERE {
-  ?course course:hasTopic topic.
+  ?course a course:Course; 
+    course:hasTopic topic.
 }
 
 #Query 3 (list all topics covered in a class filtered by lecture number)
 
 SELECT ?topic ?lecture_number
 WHERE {
-  course course:hasTopic ?topic.
+  ?course a course:Course;
+    course:hasTopic ?topic.
+    course:hasLacture ?Lecture.
   FILTER (?lecture_number = 3)
 }
 
@@ -37,12 +41,14 @@ WHERE {
 
 SELECT ?course ?subject
 WHERE {
-  ?course course:offeredBy university.
-  FILTER (?subject = "COMP")
+  ?course a course:Course;
+    course:offeredBy university.
+    course:courseSubject ?subject. #?subject will be user input
+  FILTER (?subject = "COMP") 
 }
 
 #Query 5 (list all materials of a course filtered by topic)
-
+# lecture:LectureContent a rdf:Class ; for slides, readings, etc
 SELECT ?material ?topic
 WHERE {
   course ex:hasMaterial ?material. #missing property hasMaterial
@@ -51,16 +57,18 @@ WHERE {
 
 #Query 6 (give amount of credits a course is worth)
 
-SELECT ?credit
+SELECT ?course ?credit
 WHERE {
-  course course:courseCredit ?credit.
+  ?course a course:Course;
+    course:courseCredit ?credit.
 }
 
 #Query 7 (list course resources)
 
-SELECT ?resources
+SELECT ?course ?resources
 WHERE {
-  course course:courseLink ?resources.
+  ?course a course:Course;
+    course course:courseLink ?resources.
 }
 
 #Query 8 (list all material covered in the course filtered by lecture number)
@@ -101,5 +109,8 @@ WHERE {
   ?student course:hasCompleted course.
 }
 
-#Query 13
+#Query 13 list all courses and grades of a student 
+
+#Query 13 Print a transcript for a student [student], listing all the course taken with their grades.
+
 
