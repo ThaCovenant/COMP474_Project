@@ -18,6 +18,8 @@ course:Course a rdfs:Class ;
 
  # Properties
 course:offeredBy a rdf:Property ; #to review, trying to add a property that would allow us to indicate that a course is offered by a university
+    rdfs:label "offered by"@en;
+    rdfs:comment "Specifies that a class is offered by a university"@en;
     rdfs:domain ex:Course ;
     rdfs:range ex:University .
 
