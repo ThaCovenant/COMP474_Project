@@ -9,6 +9,8 @@ g3 = rdflib.Graph()
 g4 = rdflib.Graph()
 g5 = rdflib.Graph()
 
+
+#Load RDF data from turtle files
 file_path1 = "Turtles/Courses.ttl"
 file_path2 = "Turtles/Lectures.ttl"
 file_path3 = "Turtles/Student_Schema.ttl"
@@ -74,6 +76,10 @@ with open('CU_SR_OPEN_DATA_CATALOG.csv', newline='') as csvfile:
         
 
 
+
+
+
+
 """
 TO DO:
 List all courses offered by [university]
@@ -95,15 +101,10 @@ Print a transcript for a [student], listing all the course taken with their grad
 ##################################
 university_name = "Concordia Univerity"
 
-query ="""
-    SELECT ?course
-    WWHERE{
-        ?course rdf:type university.Course;
-                university:offeredBy ?university.
-        ?unversity foaf:name ?name.
-        FILTER(str(?name) = "%s")
-    }
-    """% university_name
+
+
+
+
 
 results = g.query(query)
 print(f"The following courses are offered at {university_name}")
@@ -113,8 +114,7 @@ for row in results:
 
 
 ########################## How many credits is [course] [id] worth?
-user_input = input()
-words = user_input.split()
+
 
 course_code = None
 course_id = None
@@ -125,13 +125,7 @@ for word in words:
         course_id = word 
 
 
-query = f"""
-    SELECT ?credits
-    WHERE{{
-        <{full_course_uri}> rdfLtype university:Course;
-            universoty credits ?credits.
-    }}
-    """
+
 results = g.query(query)
 for row in results:
     print(f"{course_code} {course_id} is worth {row.credits} credits.")
