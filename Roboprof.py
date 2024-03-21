@@ -71,3 +71,76 @@ with open('CU_SR_OPEN_DATA_CATALOG.csv', newline='') as csvfile:
     # Find the city where this university is located using Wikidata Property:P276
 #    for city in g.objects(subject=uni, predicate=wdt.P276):
 #        print(f"Joe studies in the city: {city}")
+        
+
+
+"""
+TO DO:
+List all courses offered by [university]
+In which course is [topic] discussed?
+Which [topics] are covered in [course] during [lecture number]?
+List all [courses] orffered by [university] within the [subject]
+What [materials] are recommended for [topic] in [course][number]?
+How many credits is [course] [number] worth?
+For [course][number], what additional resources are available?
+Detail the content available for [lecture number] in [course][number]
+What reading materials are recommended for studying [topic] in [course]?
+What competencies [topics] does a student gain after completing [course][number]?
+What grades did [student] achieve in [course][number]?
+Which [students] have completed [course][number]?
+Print a transcript for a [student], listing all the course taken with their grades
+
+"""
+
+##################################
+university_name = "Concordia Univerity"
+
+query ="""
+    SELECT ?course
+    WWHERE{
+        ?course rdf:type university.Course;
+                university:offeredBy ?university.
+        ?unversity foaf:name ?name.
+        FILTER(str(?name) = "%s")
+    }
+    """% university_name
+
+results = g.query(query)
+print(f"The following courses are offered at {university_name}")
+for row in results:
+    print(row.course)
+
+
+
+########################## How many credits is [course] [id] worth?
+user_input = input()
+words = user_input.split()
+
+course_code = None
+course_id = None
+for word in words:
+    if word.isalpha():
+        course_code = word
+    elif word.isdigit():
+        course_id = word 
+
+
+query = f"""
+    SELECT ?credits
+    WHERE{{
+        <{full_course_uri}> rdfLtype university:Course;
+            universoty credits ?credits.
+    }}
+    """
+results = g.query(query)
+for row in results:
+    print(f"{course_code} {course_id} is worth {row.credits} credits.")
+
+
+
+
+
+
+
+
+
