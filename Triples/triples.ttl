@@ -12,8 +12,12 @@
 # URI that uniquely identifies your data.
 
 ####################################
-@prefix ex:<example.org/>
-
+@prefix ex:<example.org/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix wd: <https://wwww.wikidata.org/wiki/>.
 
 <http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
     rdfs:label "Knowledge Graph" ;
@@ -28,7 +32,7 @@ rdfs:JimmyTran a rdfs:Student ;
     rdfs:hasFirstName "Jimmy" ;
     rdfs:hasGrade "B-" ;
     rdfs:hasIDNumber "40076313" ;
-    rdfs:hasLastName "Tran"
+    rdfs:hasLastName "Tran".
 
 rdfs:PhilippeBertrand a rdfs:Student ;
     rdfs:hasCompetency rdfs:KnowledgeGraphs ;
@@ -79,14 +83,14 @@ ex:IntroductiontoTheoryofComputation a rdfs:Lecture;
     rdfs:label "Introduction to Theory of Computation";
     rdfs:LectureNumber 1;
     rdfs:LectureContent "Theory of Computation";
-    rdfs:comment "First lecture of the class."@en
+    rdfs:comment "First lecture of the class."@en;
     rdfs:hasTopic ex:TheoryofComputation.
 
 ex:DeterministicFiniteStateAutomata a rdfs:Lecture;
     rdfs:label "(Deterministic) Finite State Automata";
     rdfs:LectureNumber 2;
     rdfs:LectureContent "Finite State Automata";
-    rdfs:comment "Second lecture of the class."@en
+    rdfs:comment "Second lecture of the class."@en;
     rdfs:hasTopic ex:DeterministicFiniteStateAutomata.
 
 #topics
@@ -95,7 +99,7 @@ ex:TheoryofComputation a rdfs:Topic;
     rdfs:comment "This topic was covered in the first lecture."@en;
     rdfs:topicProvenanceInformation "Course Outline";
     rdfs:wikidataEntry <https://www.wikidata.org/entity/Q844718>;
-    rdfs:dbpediaEntry <https://dbpedia.org/resource/Theory of Computation>.
+    rdfs:dbpediaEntry <https://dbpedia.org/resource/Theory_of_Computation>.
 
 ex:DeterministicFiniteStateAutomata a rdfs:Topic;
     rdfs:label "(Deterministic) Finite State Automata";
@@ -112,4 +116,6 @@ ex:COMP474 a rdfs:Course ;
     rdfs:offeredBy "Concordia" ;
     rdfs:hasTopic "Blob" ;
     rdfs:hasDescription "Knowledge representation and reasoning. Uncertainty and conflict resolution." ;
-    rdfs:courseLink http://example.org/COMP474 .
+    rdfs:courseLink "http://example.org/COMP474" ;
+    rdfs:hasLecture ex:IntroductiontoTheoryofComputation;
+    rdfs:hasLecture ex:DeterministicFiniteStateAutomata.
