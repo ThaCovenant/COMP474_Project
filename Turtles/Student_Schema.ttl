@@ -6,71 +6,72 @@
 
 
 #Student class
-student:Student a rdfs:Class;
+rdfs:Student a rdfs:Class;
     rdfs:label "Student" ;
     rdfs:comment "This is a Student Class."@en.
 
 #Properties
-student:hasFirstName a rdf:Property;
+rdfs:hasFirstName a rdf:Property;
     rdfs:label "hasFirstName";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range xsd:string;
     rdfs:comment "Student First Name."@en.
 
-student:hasLastName a rdf:Property;
+rdfs:hasLastName a rdf:Property;
     rdfs:label "hasLastName";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range xsd:string;
     rdfs:comment "Student Last Name."@en.
 
-student:hasIDNumber a rdf:Property;
+rdfs:hasIDNumber a rdf:Property;
     rdfs:label "hasIDNumber";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range xsd:string;
     rdfs:comment "Student ID."@en.
 
-student:hasEmail a rdf:Property;
+rdfs:hasEmail a rdf:Property;
     rdfs:label "hasEmail";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range xsd:string;
     rdfs:comment "Student Email."@en.
 
-student:hasCompletedCourse a rdf:Property;
+rdfs:hasCompletedCourse a rdf:Property;
     rdfs:label "hasCompletedCourse";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range course:Course;
     rdfs:comment "Student has completed course."@en.
 
-student:hasGrade a rdf:Property;
+rdfs:hasGrade a rdf:Property;
     rdfs:label "hasGrade";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range xsd:string;
     rdfs:comment "Student received a letter grade."@en.
 
-student:hasCompetency a rdf:Property;
+rdfs:hasCompetency a rdf:Property;
     rdfs:label "hasCompetency";
-    rdfs:domain student:Student;
+    rdfs:domain rdfs:Student;
     rdfs:range topic:Topic;
     rdfs:comment "Student has Completed."@en.
 
 #examples
 #Person
-student:PhilippeBertrand a student:Student;
-    student:hasFirstName "Philippe";
-    student:hasLastName "Bertrand";
-    student:hasIDNumber "11111";
-    student:hasEmail "emailexample@gmail.com";
-    student:hasCompletedCourse student:COMP474;
-    student:hasGrade "A";
-    student:hasCompetency student:KnowledgeGraphs.
+rdfs:PhilippeBertrand a rdfs:Student;
+    rdfs:hasFirstName "Philippe";
+    rdfs:hasLastName "Bertrand";
+    rdfs:hasIDNumber "11111";
+    rdfs:hasEmail "emailexample@gmail.com";
+    rdfs:hasCompletedCourse rdfs:COMP474;
+    rdfs:hasGrade "A";
+    rdfs:hasCompetency rdfs:KnowledgeGraphs.
 
 
-student:JimmyTran a student:Student;
-    student:hasFirstName "Jimmy";
-    student:hasLastName "Tran";
-    student:hasIDNumber "40076313";
-    student:hasEmail "huy-longtran@hotmail.com";
-    student:hasCompletedCourse student:COMP472;
-    student:hasGrade "B-";
-    student:hasCompetency student:KnowledgeGraphs.
+rdfs:JimmyTran a rdfs:Student;
+    rdfs:hasFirstName "Jimmy";
+    rdfs:hasLastName "Tran";
+    rdfs:hasIDNumber "40076313";
+    rdfs:hasEmail "huy-longtran@hotmail.com";
+    rdfs:hasCompletedCourse student:COMP472;
+    rdfs:hasGrade "B-";
+    rdfs:hasCompetency rdfs:KnowledgeGraphs.
+
 
