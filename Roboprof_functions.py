@@ -37,16 +37,21 @@ def createGraphs():
 
 def URIGenerator(course,filetype,nb):
     if nb < 9:
-        if filetype == "Lecture":
-            x = "file:///home/roboprof/" +course + "/lectures/slides0" + str(nb) +".pdf"
-        elif filetype == "Worksheet":
-            x = "file:///home/roboprof/" +course + "/worksheet/worksheet0" + str(nb) +".pdf"
+        match filetype:
+            case "Lecture":
+                x = "file:///home/roboprof/" +course + "/lectures/slides0" + str(nb) +".pdf"
+                return x
+            case "Worksheet":
+                x = "file:///home/roboprof/" +course + "/worksheet/worksheet0" + str(nb) +".pdf"
+                return x
     else:
-        if filetype == "Lecture":
-            x = "file:///home/roboprof/" +course + "/lectures/slides" + str(nb) +".pdf"
-        elif filetype == "Worksheet":
-            x = "file:///home/roboprof/" +course + "/worksheet/worksheet" + str(nb) +".pdf"
-    return x
+        match filetype:
+            case "Lecture":
+                x = "file:///home/roboprof/" + course + "/lectures/slides" + str(nb) + ".pdf"
+                return x
+            case "Worksheet":
+                x = "file:///home/roboprof/" + course + "/worksheet/worksheet" + str(nb) + ".pdf"
+                return x
 
 
 
