@@ -1,5 +1,6 @@
 import rdflib
 import csv
+import pandas as pd
 
 from rdflib.namespace import FOAF
 
@@ -53,7 +54,19 @@ def URIGenerator(course,filetype,nb):
                 x = "file:///home/roboprof/" + course + "/worksheet/worksheet" + str(nb) + ".pdf"
                 return x
 
+def load_grades():
+    file_path = "data/students_grades.csv"
+    df = pd.read_csv(file_path)
 
+    df_fname = df['First Name']
+    df_lname = df['Last Name']
+    df_id = df['ID']
+    df_mail = df['Email']
+    df_subject = df['Subject']
+    df_subject_id = df['Subject_ID']
+    df_grade = df['Grade']
+
+    return
 
 
 
