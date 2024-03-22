@@ -47,9 +47,26 @@ rdfs:RandomName a rdfs:Student ;
     rdfs:hasIDNumber "22222" ;
     rdfs:hasLastName "Name" .
 
+rdfs:JohnTravolta a rdfs:Student ;
+    rdfs:hasCompetency rdfs:TuringMachines ;
+    rdfs:hasCompletedCourse rdfs:COMP335 ;
+    rdfs:hasEmail "john@gmail.com" ;
+    rdfs:hasFirstName "John" ;
+    rdfs:hasGrade "C-" ;
+    rdfs:hasIDNumber "09876" ;
+    rdfs:hasLastName "Travolta" .
+
 <https://moodle.concordia.ca/moodle/course/view.php?id=162041> a rdfs:Course ;
     rdfs:label "Intelligent Systems (COMP 474/6741)" ;
     rdfs:courseLink <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .
 
 rdfs:COMP474 rdfs:hasGrade "A",
         "B" .
+
+<https://www.wikidata.org/entity/Q201492> a rdfs:University ;
+    rdfs:hasName "McGill University" ;
+    rdfs:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
+
+<https://www.wikidata.org/entity/Q326342> a rdfs:University ;
+    rdfs:hasName "Concordia University" ;
+    rdfs:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> .
