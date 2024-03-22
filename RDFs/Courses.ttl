@@ -19,6 +19,12 @@ rdfs:hasTopic rdf:type rdf:Property ;
     rdfs:domain rdfs:Course ;
     rdfs:range <../Topics.ttl> . #not sure how to refer to another file
 
+rdfs:hasLecture rdf:type rdf:Property ;
+    rdfs:label "has lecture"@en ;
+    rdfs:comment "Specifies the lecture of a course"@en ;
+    rdfs:domain rdfs:Course ;
+    rdfs:range <../Lectures.ttl> . #not sure how to refer to another file
+
 rdfs:courseName rdf:type rdf:Property ;
     rdfs:label "Course name" ;
     rdfs:comment "Name of the course."@en ;

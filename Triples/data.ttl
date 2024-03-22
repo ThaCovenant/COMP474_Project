@@ -41,7 +41,7 @@ This course covers the following topics: finite state automata and regular langu
 
 
 LECTURES COMP 474/6741
-1 Intellgient Systems Introduction
+1 Intelligent Systems Introduction
 2 Knowledge Graph
 3 Knowledge Graph: Vocabularies and Ontologies
 4 Knowledge Base Queries and Linked Open Data
