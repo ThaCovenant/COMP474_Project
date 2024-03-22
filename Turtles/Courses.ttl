@@ -7,27 +7,27 @@
 @prefix course: <http://example.org/vocab/course#>.
 
 # Topics Class
-topic:Topic a rdfs:Class ;
+rdfs:Topic a rdfs:Class ;
     rdfs:label "Topic";
     rdfs:comment "A subject or theme of study"@en .
 
 # Courses
-course:Course a rdfs:Class ;
-    rdfs:label "Course" ;
+rdfs:Course a rdfs:Class ;
+    rdfs:label "course" ;
     rdfs:comment "A course offered by the university."@en .
 
  # Properties
 course:offeredBy a rdf:Property ; #to review, trying to add a property that would allow us to indicate that a course is offered by a university
     rdfs:label "offered by"@en;
     rdfs:comment "Specifies that a class is offered by a university"@en;
-    rdfs:domain ex:Course ;
-    rdfs:range ex:University .
+    rdfs:domain rdfs:Course ;
+    rdfs:range rdfs:University .
 
 course:hasTopic a rdf:Property ; # property that allows to say that a topic is taught in a course
     rdfs:label "has topic"@en ;
     rdfs:comment "Specifies the topic of a course"@en ;
-    rdfs:domain ex:Course ;
-    rdfs:range ex:Topic .
+    rdfs:domain rdfs:Course ;
+    rdfs:range rdfs:Topic .
 
  course:courseName a rdf:Property ;
     rdfs:label "Course name" ;
