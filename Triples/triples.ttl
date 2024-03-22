@@ -103,3 +103,13 @@ ex:DeterministicFiniteStateAutomata a rdfs:Topic;
     rdfs:topicProvenanceInformation "Course Outline";
     rdfs:wikidataEntry <https://www.wikidata.org/entity/Q837528>;
     rdfs:dbpediaEntry <https://dbpedia.org/resource/Deterministic_Finite_Automata>.
+
+ex:COMP474 a rdfs:Course ;
+    rdfs:hasCourseName "Intelligent Systems" ;
+    rdfs:hasSubject "COMP" ;
+    rdfs:hasCourseNumber "474" ;
+    rdfs:hasCredits 3 ;
+    rdfs:offeredBy "Concordia" ;
+    rdfs:hasTopic "Blob" ;
+    rdfs:hasDescription "Knowledge representation and reasoning. Uncertainty and conflict resolution." ;
+    rdfs:courseLink http://example.org/COMP474 .
