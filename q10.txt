@@ -1,0 +1,5 @@
+#Query 10 (list all topics affered by the course)
+SELECT ?topic
+WHERE {
+  course course:hasTopic ?topic.
+}

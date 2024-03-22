@@ -1,0 +1,6 @@
+#Query 9 (same as query 5?)
+SELECT ?material ?topic
+WHERE {
+  course ex:hasMaterial ?material. #missing property hasMaterial
+  FILTER (?topic = "Knowledge Graphs")
+}

@@ -110,6 +110,15 @@ WHERE {
 }
 
 #Query 13 list all courses and grades of a student 
+SELECT ?hasFirstName ?hasLastName ?hasIDNumber ?hasCompletedCourse ?hasGrade
+WHERE{{
+    <{student_uri}> ?hasFirstName ?value.
+    <{student_uri}> ?hasLastName ?value.
+    <{student_uri}> ?hasIDNumber ?value.
+    <{student_uri}> ?hasCompletedCourse ?value.
+    <{student_uri}> ?hasGrade ?value.
+}}
+
 
 #Query 13 Print a transcript for a student [student], listing all the course taken with their grades.
 

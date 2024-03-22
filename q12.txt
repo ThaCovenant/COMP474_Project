@@ -1,0 +1,5 @@
+#Query 12 (list all students that have completed a course)
+SELECT ?student
+WHERE {
+  ?student course:hasCompleted course.
+}

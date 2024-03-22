@@ -1,0 +1,6 @@
+#Query 7 (list course resources)
+SELECT ?course ?resources
+WHERE {
+  ?course a course:Course;
+    course course:courseLink ?resources.
+}

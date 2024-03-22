@@ -1,0 +1,6 @@
+#Query 6 (give amount of credits a course is worth)
+SELECT ?course ?credit
+WHERE {
+  ?course a course:Course;
+    course:courseCredit ?credit.
+}

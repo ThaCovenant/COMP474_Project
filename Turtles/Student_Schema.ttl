@@ -63,3 +63,14 @@ student:PhilippeBertrand a student:Student;
     student:hasCompletedCourse student:COMP474;
     student:hasGrade "A";
     student:hasCompetency student:KnowledgeGraphs.
+
+
+student:JimmyTran a student:Student;
+    student:hasFirstName "Jimmy";
+    student:hasLastName "Tran";
+    student:hasIDNumber "40076313";
+    student:hasEmail "huy-longtran@hotmail.com";
+    student:hasCompletedCourse student:COMP472;
+    student:hasGrade "B-";
+    student:hasCompetency student:KnowledgeGraphs.
+

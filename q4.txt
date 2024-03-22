@@ -1,0 +1,9 @@
+
+#Query 4 (list all courses offered by the university filtered by subject)
+SELECT ?course ?subject
+WHERE {
+  ?course a course:Course;
+    course:offeredBy university.
+    course:courseSubject ?subject. #?subject will be user input
+  FILTER (?subject = "COMP") 
+}

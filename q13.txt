@@ -1,0 +1,12 @@
+
+
+
+#Query 13 list all courses and grades of a student 
+SELECT ?hasFirstName ?hasLastName ?hasIDNumber ?hasCompletedCourse ?hasGrade
+WHERE{{
+    <{student_uri}> ?hasFirstName ?value.
+    <{student_uri}> ?hasLastName ?value.
+    <{student_uri}> ?hasIDNumber ?value.
+    <{student_uri}> ?hasCompletedCourse ?value.
+    <{student_uri}> ?hasGrade ?value.
+}}

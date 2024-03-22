@@ -1,0 +1,6 @@
+#Query 8 (list all material covered in the course filtered by lecture number)
+SELECT ?material
+WHERE {
+  course ex:hasMaterial ?material. #missing property hasMaterial
+  FILTER (?lecture_number = 3)
+}

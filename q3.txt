@@ -1,0 +1,8 @@
+#Query 3 (list all topics covered in a class filtered by lecture number)
+SELECT ?topic ?lecture_number
+WHERE {
+  ?course a course:Course;
+    course:hasTopic ?topic.
+    course:hasLacture ?Lecture.
+  FILTER (?lecture_number = 3)
+}
