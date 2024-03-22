@@ -1,18 +1,20 @@
 ####################################
             To Do
-# 1. convert this data to ttl
+# 1. convert this data to ttl for modeling topic
 # 2. reformat file name to comp474
 # 3. make another for comp 335
+####################################
+
 
 ## Follow this format
 
-# Triples for class definitions
-rdfs:Course rdf:type rdfs:Class ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
+rdfs:Topic1 a rdfs:Topic ;
+    rdfs:hasTopicName "Knowledge Representation" ;
+    rdfs:hasProvenance ex:Lecture1 ;
+    rdfs:linkedToDBpedia <http://dbpedia.org/resource/Knowledge_representation> .
 
 
-####################################
+
 
 
 

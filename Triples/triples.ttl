@@ -1,3 +1,19 @@
+####################################
+#   Sample Triples
+
+# See Sample Triples CHAT GPT ###
+
+# For example, in the triples provided earlier,
+# the namespace for the vocabulary is represented
+# by the prefix rdfs: (e.g., rdfs:Course, rdfs:hasCourseName).
+# If you have other triples representing actual data
+# (e.g., universities, courses, students), they should use a
+# different namespace, such as ex: (for "example") or any other
+# URI that uniquely identifies your data.
+
+####################################
+
+
 <http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
     rdfs:label "Knowledge Graph" ;
     rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
