@@ -12,6 +12,7 @@
 # URI that uniquely identifies your data.
 
 ####################################
+@prefix ex:<example.org/>
 
 
 <http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
@@ -63,6 +64,7 @@ rdfs:JohnTravolta a rdfs:Student ;
 rdfs:COMP474 rdfs:hasGrade "A",
         "B" .
 
+#universities
 <https://www.wikidata.org/entity/Q201492> a rdfs:University ;
     rdfs:hasName "McGill University" ;
     rdfs:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
@@ -70,3 +72,34 @@ rdfs:COMP474 rdfs:hasGrade "A",
 <https://www.wikidata.org/entity/Q326342> a rdfs:University ;
     rdfs:hasName "Concordia University" ;
     rdfs:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> .
+
+
+#lectures
+ex:IntroductiontoTheoryofComputation a rdfs:Lecture;
+    rdfs:label "Introduction to Theory of Computation";
+    rdfs:LectureNumber 1;
+    rdfs:LectureContent "Theory of Computation";
+    rdfs:comment "First lecture of the class."@en
+    rdfs:hasTopic ex:TheoryofComputation.
+
+ex:DeterministicFiniteStateAutomata a rdfs:Lecture;
+    rdfs:label "(Deterministic) Finite State Automata";
+    rdfs:LectureNumber 2;
+    rdfs:LectureContent "Finite State Automata";
+    rdfs:comment "Second lecture of the class."@en
+    rdfs:hasTopic ex:DeterministicFiniteStateAutomata.
+
+#topics
+ex:TheoryofComputation a rdfs:Topic;
+    rdfs:label "Theory of Computation";
+    rdfs:comment "This topic was covered in the first lecture."@en;
+    rdfs:topicProvenanceInformation "Course Outline";
+    rdfs:wikidataEntry <https://www.wikidata.org/entity/Q844718>;
+    rdfs:dbpediaEntry <https://dbpedia.org/resource/Theory of Computation>.
+
+ex:DeterministicFiniteStateAutomata a rdfs:Topic;
+    rdfs:label "(Deterministic) Finite State Automata";
+    rdfs:comment "This topic was covered in the second lecture."@en;
+    rdfs:topicProvenanceInformation "Course Outline";
+    rdfs:wikidataEntry <https://www.wikidata.org/entity/Q837528>;
+    rdfs:dbpediaEntry <https://dbpedia.org/resource/Deterministic_Finite_Automata>.
