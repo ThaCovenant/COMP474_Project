@@ -1,0 +1,40 @@
+### Sample Triples CHAT GPT ###
+
+
+rdfs:McGillUniversity a rdfs:University ;
+    rdfs:hasName "McGill University" ;
+    rdfs:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
+
+rdfs:COMP474 a rdfs:Course ;
+    rdfs:hasCourseName "Intelligent Systems" ;
+    rdfs:hasSubject "COMP" ;
+    rdfs:hasCourseNumber "474" ;
+    rdfs:hasCredits 3 ;
+    rdfs:hasDescription "Knowledge representation and reasoning. Uncertainty and conflict resolution." ;
+    rdfs:seeAlso <http://example.org/COMP474> .
+
+rdfs:Lecture1 a rdfs:Lecture ;
+    rdfs:hasLectureNumber 1 ;
+    rdfs:hasLectureName "Introduction to Intelligent Systems" ;
+    rdfs:hasLectureContent rdfs:Slides ;
+    rdfs:seeAlso <http://example.org/COMP474/lecture1> .
+
+rdfs:Topic1 a rdfs:Topic ;
+    rdfs:hasTopicName "Knowledge Representation" ;
+    rdfs:hasProvenance rdfs:Lecture1 ;
+    rdfs:linkedToDBpedia <http://dbpedia.org/resource/Knowledge_representation> .
+
+### Sample Student Data ###
+rdfs:JohnDoe a rdfs:Student ;
+    rdfs:hasFirstName "John" ;
+    rdfs:hasLastName "Doe" .
+
+rdfs:COMP474_grade1 a rdf:Statement ;
+    rdf:subject rdfs:JohnDoe ;
+    rdf:predicate rdfs:hasGrade ;
+    rdf:object "A" .
+
+rdfs:COMP474_grade2 a rdf:Statement ;
+    rdf:subject rdfs:JohnDoe ;
+    rdf:predicate rdfs:hasGrade ;
+    rdf:object "B" .

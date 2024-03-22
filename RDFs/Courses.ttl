@@ -7,7 +7,6 @@ rdfs:Course a rdfs:Class ;
     rdfs:label "course" ;
     rdfs:comment "A course offered by the university."@en .
 
-# Properties
 rdfs:offeredBy rdf:type rdf:Property ;
     rdfs:label "offered by"@en;
     rdfs:comment "Specifies that a class is offered by a university"@en;
@@ -63,7 +62,3 @@ rdfs:courseOutline rdf:type rdf:Property ;
     rdfs:domain rdfs:Course ;
     rdfs:range foaf:Document .
 
-# Example of a course
-<https://moodle.concordia.ca/moodle/course/view.php?id=162041> rdf:type rdfs:Course ;
-    rdfs:label "Intelligent Systems (COMP 474/6741)" ;
-    rdfs:courseLink <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .

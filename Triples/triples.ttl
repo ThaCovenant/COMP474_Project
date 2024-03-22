@@ -1,0 +1,55 @@
+####################################
+#   Sample Triples
+
+# See Sample Triples CHAT GPT ###
+
+# For example, in the triples provided earlier,
+# the namespace for the vocabulary is represented
+# by the prefix rdfs: (e.g., rdfs:Course, rdfs:hasCourseName).
+# If you have other triples representing actual data
+# (e.g., universities, courses, students), they should use a
+# different namespace, such as ex: (for "example") or any other
+# URI that uniquely identifies your data.
+
+####################################
+
+
+<http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
+    rdfs:label "Knowledge Graph" ;
+    rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    rdfs:provenanceInformation "Course outline" ;
+    rdfs:wikidataEntry wd:Q33002955 .
+
+rdfs:JimmyTran a rdfs:Student ;
+    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
+    rdfs:hasCompletedCourse rdfs:COMP472 ;
+    rdfs:hasEmail "huy-longtran@hotmail.com" ;
+    rdfs:hasFirstName "Jimmy" ;
+    rdfs:hasGrade "B-" ;
+    rdfs:hasIDNumber "40076313" ;
+    rdfs:hasLastName "Tran"
+
+rdfs:PhilippeBertrand a rdfs:Student ;
+    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
+    rdfs:hasCompletedCourse rdfs:COMP474 ;
+    rdfs:hasEmail "emailexample@gmail.com" ;
+    rdfs:hasFirstName "Philippe" ;
+    rdfs:hasGrade "A" ;
+    rdfs:hasIDNumber "11111" ;
+    rdfs:hasLastName "Bertrand" .
+
+rdfs:RandomName a rdfs:Student ;
+    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
+    rdfs:hasCompletedCourse rdfs:COMP474 ;
+    rdfs:hasEmail "example@gmail.com" ;
+    rdfs:hasFirstName "Random" ;
+    rdfs:hasGrade "B" ;
+    rdfs:hasIDNumber "22222" ;
+    rdfs:hasLastName "Name" .
+
+<https://moodle.concordia.ca/moodle/course/view.php?id=162041> a rdfs:Course ;
+    rdfs:label "Intelligent Systems (COMP 474/6741)" ;
+    rdfs:courseLink <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .
+
+rdfs:COMP474 rdfs:hasGrade "A",
+        "B" .

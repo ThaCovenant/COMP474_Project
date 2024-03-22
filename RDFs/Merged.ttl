@@ -13,43 +13,10 @@ rdfs:Student a rdfs:Class ;
     rdfs:label "Student" ;
     rdfs:comment "This is a Student Class."@en .
 
-<http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
-    rdfs:label "Knowledge Graph" ;
-    rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
-    rdfs:provenanceInformation "Course outline" ;
-    rdfs:wikidataEntry wd:Q33002955 .
-
-rdfs:JimmyTran a rdfs:Student ;
-    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
-    rdfs:hasCompletedCourse rdfs:COMP472 ;
-    rdfs:hasEmail "huy-longtran@hotmail.com" ;
-    rdfs:hasFirstName "Jimmy" ;
-    rdfs:hasGrade "B-" ;
-    rdfs:hasIDNumber "40076313" ;
-    rdfs:hasLastName "Tran" .
-
 rdfs:Other a rdf:Class ;
     rdfs:label "Other Materials" ;
     rdfs:comment "Other materials related to Lecture Content."@en ;
     rdfs:subClassOf rdfs:LectureContent .
-
-rdfs:PhilippeBertrand a rdfs:Student ;
-    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
-    rdfs:hasCompletedCourse rdfs:COMP474 ;
-    rdfs:hasEmail "emailexample@gmail.com" ;
-    rdfs:hasFirstName "Philippe" ;
-    rdfs:hasGrade "A" ;
-    rdfs:hasIDNumber "11111" ;
-    rdfs:hasLastName "Bertrand" .
-
-rdfs:RandomName a rdfs:Student ;
-    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
-    rdfs:hasCompletedCourse rdfs:COMP474 ;
-    rdfs:hasEmail "example@gmail.com" ;
-    rdfs:hasFirstName "Random" ;
-    rdfs:hasGrade "B" ;
-    rdfs:hasIDNumber "22222" ;
-    rdfs:hasLastName "Name" .
 
 rdfs:Readings a rdf:Class ;
     rdfs:label "Lecture Readings" ;
@@ -199,13 +166,6 @@ rdfs:lectureContent a rdf:Property ;
     rdfs:comment "Content of lecture."@en ;
     rdfs:domain rdfs:Lecture ;
     rdfs:range rdfs:lectureContent .
-
-<https://moodle.concordia.ca/moodle/course/view.php?id=162041> a rdfs:Course ;
-    rdfs:label "Intelligent Systems (COMP 474/6741)" ;
-    rdfs:courseLink <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .
-
-rdfs:COMP474 rdfs:hasGrade "A",
-        "B" .
 
 rdfs:LectureContent a rdf:Class ;
     rdfs:label "Lecture Content" ;

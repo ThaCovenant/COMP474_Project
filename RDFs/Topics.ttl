@@ -32,12 +32,6 @@ rdfs:dbpediaEntry a rdf:Property;
     rdfs:comment "Link to topic DBpedia enrty."@en .
 
 
-# Example topic link to DBpedia and/or Wikidata
-<http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
-    rdfs:label "Knowledge Graph" ;
-    rdfs:provenanceInformation "Course outline" ;
-    rdfs:wikidataEntry wd:Q33002955 ;
-    rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> .
 
 # Topics. Information about the topics that are covered in a course:
 # 1. The topic’s name
