@@ -63,7 +63,3 @@ rdfs:courseOutline rdf:type rdf:Property ;
     rdfs:domain rdfs:Course ;
     rdfs:range foaf:Document .
 
-# Example of a course
-<https://moodle.concordia.ca/moodle/course/view.php?id=162041> rdf:type rdfs:Course ;
-    rdfs:label "Intelligent Systems (COMP 474/6741)" ;
-    rdfs:courseLink <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .

@@ -1,3 +1,21 @@
+####################################
+            To Do
+# 1. convert this data to ttl
+# 2. reformat file name to comp474
+# 3. make another for comp 335
+
+## Follow this format
+
+# Triples for class definitions
+rdfs:Course rdf:type rdfs:Class ;
+    rdfs:label "course" ;
+    rdfs:comment "A course offered by the university."@en .
+
+
+####################################
+
+
+
 UNIVERSITIES
 Concordia University
 https://www.wikidata.org/wiki/Q326342
@@ -61,29 +79,6 @@ TOPICS
 
 
 
-
-STUDENTS
-1) Huy-Long Tran
-2) 40076313
-3) huy-longtran@hotmail.com
-
-4) AERO 417 
-Assignments:
-Tests:
-5) Final Grade: B
-6) Competencies:
-
-COMP 472 
-Assignments:
-Tests:
-Final Grade: B-
-Competencies:
-
-COEN 451
-Assignments:
-Tests: 
-Final Grade: D+
-Competencies:
 
 
 

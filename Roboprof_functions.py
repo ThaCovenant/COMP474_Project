@@ -44,6 +44,8 @@ def createGraphs():
 
 
 
+
+
 # ##################################
 # university_name = "Concordia Univerity"
 #
@@ -66,3 +68,5 @@ def createGraphs():
 # results = g.query(query)
 # for row in results:
 #     print(f"{course_code} {course_id} is worth {row.credits} credits.")
+
+
