@@ -1,8 +1,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix course: <http://example.org/vocab/course#>.
-@prefix topic: <http://example.org/vocab/topic#>.
 
 
 #Student class
@@ -38,7 +36,7 @@ rdfs:hasEmail a rdf:Property;
 rdfs:hasCompletedCourse a rdf:Property;
     rdfs:label "hasCompletedCourse";
     rdfs:domain rdfs:Student;
-    rdfs:range course:Course;
+    rdfs:range rdfs:Course;
     rdfs:comment "Student has completed course."@en.
 
 rdfs:hasGrade a rdf:Property;
@@ -50,7 +48,7 @@ rdfs:hasGrade a rdf:Property;
 rdfs:hasCompetency a rdf:Property;
     rdfs:label "hasCompetency";
     rdfs:domain rdfs:Student;
-    rdfs:range topic:Topic;
+    rdfs:range <../Topics.ttl>;
     rdfs:comment "Student has Completed."@en.
 
 #examples
