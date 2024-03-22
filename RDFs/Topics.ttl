@@ -1,0 +1,51 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix foaf: <http://xmlns.com/foaf/.1/>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix wd: <https://wwww.wikidata.org/wiki/>.
+
+
+# Topic Class
+rdfs:Topic a rdfs:Topic ;
+    rdfs:label "Topic Name" ;
+    rdfs:comment "Topic names within a course outline."@en .
+
+# Topic Properties
+rdfs:topicProvenanceInformation a rdf:Property ;
+    rdfs:label "Provenance Information" ;
+    rdfs:comment "record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a specific lecture)."@en ;
+    rdfs:domain rdfs:Topic ;
+    rdfs:range rdfs:Literal . # "course outline"
+
+#Links
+rdfs:wikidataEntry a rdf:Property;
+    rdfs:label "has Wikidata Entry";
+    rdfs:domain rdfs:Topic ;
+    rdfs:range rdfs:Resource ;
+    rdfs:comment "Link to topic wikidata entry."@en .
+
+
+rdfs:dbpediaEntry a rdf:Property;
+    rdfs:label "has DBpedia Entry";
+    rdfs:domain rdfs:Topic ;
+    rdfs:range rdfs:Resource ;
+    rdfs:comment "Link to topic DBpedia enrty."@en .
+
+
+# Example topic link to DBpedia and/or Wikidata
+<http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
+    rdfs:label "Knowledge Graph" ;
+    rdfs:provenanceInformation "Course outline" ;
+    rdfs:wikidataEntry wd:Q33002955 ;
+    rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> .
+
+# Topics. Information about the topics that are covered in a course:
+# 1. The topic’s name
+#            as mentioned in the source material (e.g., “DL” might be mentioned in an
+#            outline, referring to “deep learning”)
+# 2. Topics must have provenance information,
+#            that is, you must record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a
+#            specific lecture)
+# 3. A topic must be linked to DBpedia and/or Wikidata.
+#            For example, the topic “Knowledge graph” in a course description
+#            could be linked to https://dbpedia.org/resource/Knowledge graph.
