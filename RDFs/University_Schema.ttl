@@ -1,0 +1,36 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dbo: <http://dbpedia.org/ontology>.
+@prefix foaf: <http://xmlns.com/foaf/.1/>.
+@prefix wd: <https://wwww.wikidata.org/wiki/>.
+@prefix university: <http://example.org/vocab/university#>.
+
+
+#University class
+dbo:University a rdfs:Class;
+    rdfs:label "University";
+    rdfs:comment "This represents a University."@en .
+
+#Properties
+university:wikidataEntry a rdf:Property;
+    rdfs:label "has Wikidata Entry";
+    rdfs:domain dbo:University;
+    rdfs:range foaf:Document;
+    rdfs:comment "Link to university wikidata entry."@en .
+
+
+university:dbpediaEntry a rdf:Property;
+    rdfs:label "has DBpedia Entry";
+    rdfs:domain dbo:University; # permit only Universities
+    rdfs:range foaf:Document;
+    rdfs:comment "Link to university DBpedia enrty."@en .
+
+#Linking Wikidata and DBpedia
+<https://www.example.org/university/ConcordiaUniversity> a dbo:University;
+    rdfs:label "Concordia University";
+    university:WikidataEntry wd:Q326342;
+    university:DBpediaEntry <https://dbpedia.org/page/Concordia_University>.
+
+
+
+
