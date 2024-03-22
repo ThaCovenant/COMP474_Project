@@ -5,43 +5,39 @@
 @prefix wd: <https://wwww.wikidata.org/wiki/>.
 
 
-
-# Define Vocabulary for Lectures
-@prefix topic: <http://example.org/vocab/topic#>.
-
 # Topic Class
-topic:Topic a rdfs:Topic ;
+rdfs:Topic a rdfs:Topic ;
     rdfs:label "Topic Name" ;
     rdfs:comment "Topic names within a course outline."@en .
 
 # Topic Properties
-topic:topicProvenanceInformation a rdf:Property ;
+rdfs:topicProvenanceInformation a rdf:Property ;
     rdfs:label "Provenance Information" ;
     rdfs:comment "record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a specific lecture)."@en ;
-    rdfs:domain topic:Topic ;
+    rdfs:domain rdfs:Topic ;
     rdfs:range rdfs:Literal . # "course outline"
 
 #Links
-topic:wikidataEntry a rdf:Property;
+rdfs:wikidataEntry a rdf:Property;
     rdfs:label "has Wikidata Entry";
-    rdfs:domain topic:Topic ;
+    rdfs:domain rdfs:Topic ;
     rdfs:range rdfs:Resource ;
     rdfs:comment "Link to topic wikidata entry."@en .
 
 
-topic:dbpediaEntry a rdf:Property;
+rdfs:dbpediaEntry a rdf:Property;
     rdfs:label "has DBpedia Entry";
-    rdfs:domain topic:Topic ;
+    rdfs:domain rdfs:Topic ;
     rdfs:range rdfs:Resource ;
     rdfs:comment "Link to topic DBpedia enrty."@en .
 
 
 # Example topic link to DBpedia and/or Wikidata
-<http://example.org/topics/KnowledgeGraph> a topic:Topic ;
+<http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
     rdfs:label "Knowledge Graph" ;
-    topic:provenanceInformation "Course outline" ;
-    topic:wikidataEntry wd:Q33002955 ;
-    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> .
+    rdfs:provenanceInformation "Course outline" ;
+    rdfs:wikidataEntry wd:Q33002955 ;
+    rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> .
 
 # Topics. Information about the topics that are covered in a course:
 # 1. The topic’s name

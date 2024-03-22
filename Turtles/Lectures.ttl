@@ -4,61 +4,58 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 
-# Define Vocabulary for Lectures
-@prefix lecture: <http://example.org/vocab/lecture#>.
-
 # Lectures Class
-lecture:Lecture a rdfs:Lecture ;
+rdfs:Lecture a rdfs:Lecture ;
     rdfs:label "Lecture Name" ;
     rdfs:comment "Name of lecture, if available."@en .
 
 # Lecture Properties
-lecture:lectureNumber a rdf:Property ;
+rdfs:lectureNumber a rdf:Property ;
     rdfs:label "lectureNumber" ;
     rdfs:comment "Sequential count of lecture within a course."@en ;
-    rdfs:domain lecture:Lecture ;
+    rdfs:domain rdfs:Lecture ;
     rdfs:range xsd:integer .
 
- lecture:lectureContent a rdf:Property ;
+ rdfs:lectureContent a rdf:Property ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Content of lecture."@en ;
-    rdfs:domain lecture:Lecture ;
-    rdfs:range lecture:lectureContent .
+    rdfs:domain rdfs:Lecture ;
+    rdfs:range rdfs:lectureContent .
 
- lecture:lectureLink a rdf:Property ;
+ rdfs:lectureLink a rdf:Property ;
     rdfs:label "Lecture Link to a webpage" ;
     rdfs:comment "Webpage of the lecture."@en ;
-    rdfs:domain lecture:Lecture ;
+    rdfs:domain rdfs:Lecture ;
     rdfs:seeAlso foaf:Document ;
     rdfs:range foaf:Document .
 
 # Lecture Content Class
- lecture:LectureContent a rdf:Class ;
+ rdfs:LectureContent a rdf:Class ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:domain lecture:Lecture ;
+    rdfs:domain rdfs:Lecture ;
     rdfs:range foaf:Document .
 
 # Subclass of LectureContent
-  lecture:Slides a rdf:Class ;
+  rdfs:Slides a rdf:Class ;
     rdfs:label "Lecture Slides" ;
     rdfs:comment "Slides of lecture."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf rdfs:LectureContent .
 
-   lecture:Worksheets a rdf:Class ;
+   rdfs:Worksheets a rdf:Class ;
     rdfs:label "Lecture Worksheets" ;
     rdfs:comment "Worksheets of lecture."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf rdfs:LectureContent .
 
-   lecture:Readings a rdf:Class ;
+   rdfs:Readings a rdf:Class ;
     rdfs:label "Lecture Readings" ;
     rdfs:comment "Readings of lecture: book chapters, web pages, etc."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf rdfs:LectureContent .
 
-   lecture:Other a rdf:Class ;
+   rdfs:Other a rdf:Class ;
     rdfs:label "Other Materials" ;
     rdfs:comment "Other materials related to Lecture Content."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf rdfs:LectureContent .
 
 
 # 1. Lecture number (sequential count)

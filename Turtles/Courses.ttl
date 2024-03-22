@@ -12,7 +12,7 @@ rdfs:offeredBy rdf:type rdf:Property ;
     rdfs:label "offered by"@en;
     rdfs:comment "Specifies that a class is offered by a university"@en;
     rdfs:domain rdfs:Course ;
-    rdfs:range rdfs:University .
+    rdfs:range <rdfs:../University_Schema.ttl> . #not sure how to refer to another file
 
 rdfs:hasTopic rdf:type rdf:Property ;
     rdfs:label "has topic"@en ;
