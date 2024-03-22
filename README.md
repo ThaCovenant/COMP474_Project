@@ -11,3 +11,4 @@ Build an intelligent agent that can answer university course and student related
 - Students
 
 ## steps to execute code for building knowledge base
+Run the "Roboprof.py" file
