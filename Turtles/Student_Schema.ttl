@@ -43,7 +43,7 @@ rdfs:hasCompletedCourse a rdf:Property;
 
 rdfs:hasGrade a rdf:Property;
     rdfs:label "hasGrade";
-    rdfs:domain rdfs:Student;
+    rdfs:domain rdfs:hasCompletedCourse;
     rdfs:range xsd:string;
     rdfs:comment "Student received a letter grade."@en.
 
@@ -75,3 +75,17 @@ rdfs:JimmyTran a rdfs:Student;
     rdfs:hasCompetency rdfs:KnowledgeGraphs.
 
 
+rdfs:PhilippeBertrand rdfs:hasCompletedCourse rdfs:COMP474.
+rdfs:COMP474 rdfs:hasGrade "A".
+
+rdfs:RandomName a rdfs:Student;
+    rdfs:hasFirstName "Random";
+    rdfs:hasLastName "Name";
+    rdfs:hasIDNumber "22222";
+    rdfs:hasEmail "example@gmail.com";
+    rdfs:hasCompletedCourse rdfs:COMP474;
+    rdfs:hasGrade "B";
+    rdfs:hasCompetency rdfs:KnowledgeGraphs.
+
+rdfs:RandomName rdfs:hasCompletedCourse rdfs:COMP474.
+rdfs:COMP474 rdfs:hasGrade "B".
