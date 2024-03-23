@@ -1,121 +1,46 @@
-####################################
-#   Sample Triples
-
-# See Sample Triples CHAT GPT ###
-
-# For example, in the triples provided earlier,
-# the namespace for the vocabulary is represented
-# by the prefix rdfs: (e.g., rdfs:Course, rdfs:hasCourseName).
-# If you have other triples representing actual data
-# (e.g., universities, courses, students), they should use a
-# different namespace, such as ex: (for "example") or any other
-# URI that uniquely identifies your data.
-
-####################################
-@prefix ex:<example.org/>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix dbo: <http://dbpedia.org/ontology/>.
-@prefix wd: <https://wwww.wikidata.org/wiki/>.
-
-<http://example.org/topics/KnowledgeGraph> a rdfs:Topic ;
-    rdfs:label "Knowledge Graph" ;
-    rdfs:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
-    rdfs:provenanceInformation "Course outline" ;
-    rdfs:wikidataEntry wd:Q33002955 .
-
-rdfs:JimmyTran a rdfs:Student ;
-    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
-    rdfs:hasCompletedCourse rdfs:COMP472 ;
-    rdfs:hasEmail "huy-longtran@hotmail.com" ;
-    rdfs:hasFirstName "Jimmy" ;
-    rdfs:hasGrade "B-" ;
-    rdfs:hasIDNumber "40076313" ;
-    rdfs:hasLastName "Tran".
-
-rdfs:PhilippeBertrand a rdfs:Student ;
-    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
-    rdfs:hasCompletedCourse rdfs:COMP474 ;
-    rdfs:hasEmail "emailexample@gmail.com" ;
-    rdfs:hasFirstName "Philippe" ;
-    rdfs:hasGrade "A" ;
-    rdfs:hasIDNumber "11111" ;
-    rdfs:hasLastName "Bertrand" .
-
-rdfs:RandomName a rdfs:Student ;
-    rdfs:hasCompetency rdfs:KnowledgeGraphs ;
-    rdfs:hasCompletedCourse rdfs:COMP474 ;
-    rdfs:hasEmail "example@gmail.com" ;
-    rdfs:hasFirstName "Random" ;
-    rdfs:hasGrade "B" ;
-    rdfs:hasIDNumber "22222" ;
-    rdfs:hasLastName "Name" .
-
-rdfs:JohnTravolta a rdfs:Student ;
-    rdfs:hasCompetency rdfs:TuringMachines ;
-    rdfs:hasCompletedCourse rdfs:COMP335 ;
-    rdfs:hasEmail "john@gmail.com" ;
-    rdfs:hasFirstName "John" ;
-    rdfs:hasGrade "C-" ;
-    rdfs:hasIDNumber "09876" ;
-    rdfs:hasLastName "Travolta" .
-
-<https://moodle.concordia.ca/moodle/course/view.php?id=162041> a rdfs:Course ;
-    rdfs:label "Intelligent Systems (COMP 474/6741)" ;
-    rdfs:courseLink <https://moodle.concordia.ca/moodle/course/view.php?id=162041> .
-
-rdfs:COMP474 rdfs:hasGrade "A",
-        "B" .
-
-#universities
-<https://www.wikidata.org/entity/Q201492> a rdfs:University ;
-    rdfs:hasName "McGill University" ;
-    rdfs:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
-
-<https://www.wikidata.org/entity/Q326342> a rdfs:University ;
-    rdfs:hasName "Concordia University" ;
-    rdfs:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> .
+@prefix course: <http://example.org/course/> .
+@prefix student: <http://example.org/student/> .
+@prefix topic: <http://example.org/topic/> .
+@prefix lecture: <http://example.org/lecture/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix university: <https://www.wikidata.org/entity/Q3918>.
 
 
-#lectures
-ex:IntroductiontoTheoryofComputation a rdfs:Lecture;
-    rdfs:label "Introduction to Theory of Computation";
-    rdfs:LectureNumber 1;
-    rdfs:LectureContent "Theory of Computation";
-    rdfs:comment "First lecture of the class."@en;
-    rdfs:hasTopic ex:TheoryofComputation.
+course:AERO417 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>.
 
-ex:DeterministicFiniteStateAutomata a rdfs:Lecture;
-    rdfs:label "(Deterministic) Finite State Automata";
-    rdfs:LectureNumber 2;
-    rdfs:LectureContent "Finite State Automata";
-    rdfs:comment "Second lecture of the class."@en;
-    rdfs:hasTopic ex:DeterministicFiniteStateAutomata.
+course:COEN311 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
 
-#topics
-ex:TheoryofComputation a rdfs:Topic;
-    rdfs:label "Theory of Computation";
-    rdfs:comment "This topic was covered in the first lecture."@en;
-    rdfs:topicProvenanceInformation "Course Outline";
-    rdfs:wikidataEntry <https://www.wikidata.org/entity/Q844718>;
-    rdfs:dbpediaEntry <https://dbpedia.org/resource/Theory_of_Computation>.
+course:COEN316 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
 
-ex:DeterministicFiniteStateAutomata a rdfs:Topic;
-    rdfs:label "(Deterministic) Finite State Automata";
-    rdfs:comment "This topic was covered in the second lecture."@en;
-    rdfs:topicProvenanceInformation "Course Outline";
-    rdfs:wikidataEntry <https://www.wikidata.org/entity/Q837528>;
-    rdfs:dbpediaEntry <https://dbpedia.org/resource/Deterministic_Finite_Automata>.
+course:COMP472 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
 
-ex:COMP474 a rdfs:Course ;
-    rdfs:hasCourseName "Intelligent Systems" ;
-    rdfs:hasSubject "COMP" ;
-    rdfs:hasCourseNumber "474" ;
-    rdfs:hasCredits 3 ;
-    rdfs:offeredBy "Concordia" ;
-    rdfs:hasTopic "Blob" ;
-    rdfs:hasDescription "Knowledge representation and reasoning. Uncertainty and conflict resolution." ;
-    rdfs:courseLink "http://example.org/COMP474" ;
-    rdfs:hasLecture ex:IntroductiontoTheoryofComputation;
-    rdfs:hasLecture ex:DeterministicFiniteStateAutomata.
+course:COMP474 a <http://example.org/course> ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
+    course:hasLecture lecture:Lecture1;
+    course:hasLecture lecture:Lecture2.
+
+lecture:Lecture1 a <http://example.org/lecture>;
+    lecture:label "Introduction to Theory of Computation";
+    lecture:LectureNumber 1;
+    lecture:LectureContent "Theory of Computation";
+    lecture:comment "First lecture of the class."@en;
+    lecture:hasTopic topic:TheoryofComputation.
+
+    lecture:Lecture2 a <http://example.org/lecture>;
+    lecture:label "(Deterministic)Finite_State_Automata";
+    lecture:LectureNumber 2;
+    lecture:LectureContent "Deterministic_Finite_Automata";
+    lecture:comment "Second lecture of the class."@en;
+    lecture:hasTopic topic:DeterministicFiniteStateAutomata.
+
+<https://www.wikidata.org/entity/Q201492> a <https://www.wikidata.org/entity/Q3918> ;
+    university:hasName "McGill University" ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
+
+<https://www.wikidata.org/entity/Q326342> a <https://www.wikidata.org/entity/Q3918> ;
+    university:hasName "Concordia University" ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;.

@@ -3,7 +3,6 @@ import csv
 
 from rdflib.namespace import FOAF
 
-
 # Load RDF data from turtle files
 file_path1 = "RDFs/Courses.ttl"
 file_path2 = "RDFs/Lectures.ttl"
@@ -11,6 +10,9 @@ file_path3 = "RDFs/Student_Schema.ttl"
 file_path4 = "RDFs/Topics.ttl"
 file_path5 = "RDFs/University_Schema.ttl"
 file_path6 = "RDFs/Merged.ttl"
+file_path_students = "data/students_grades.csv"
+file_path_merge = "Triples/MergedTriples.ttl"
+file_path_students_KB = "Triples/Students.ttl"
 
 
 def createGraphs():
@@ -35,17 +37,18 @@ def createGraphs():
 
     return g6
 
-def URIGenerator(course,filetype,nb):
+
+def URIGenerator(course, filetype, nb):
     if nb < 9:
         match filetype:
             case "Lecture":
                 if course == "COMP335":
                     x = "file:///home/roboprof/" + course + "/Lectures/slides0" + str(nb) + ".ppt"
                 else:
-                    x = "file:///home/roboprof/" +course + "/Lectures/slides0" + str(nb) +".pdf"
+                    x = "file:///home/roboprof/" + course + "/Lectures/slides0" + str(nb) + ".pdf"
                 return x
             case "Worksheet":
-                x = "file:///home/roboprof/" +course + "/Worksheet/worksheet0" + str(nb) +".pdf"
+                x = "file:///home/roboprof/" + course + "/Worksheet/worksheet0" + str(nb) + ".pdf"
                 return x
             case "Assignment":
                 x = "file:///home/roboprof/" + course + "/Assignments/asg" + str(nb) + ".pdf"
@@ -67,15 +70,6 @@ def URIGenerator(course,filetype,nb):
             case "Assignment":
                 x = "file:///home/roboprof/" + course + "/Assignments/asg" + str(nb) + ".pdf"
                 return x
-
-
-
-
-
-
-
-
-
 
 # ##################################
 # university_name = "Concordia Univerity"
@@ -99,5 +93,3 @@ def URIGenerator(course,filetype,nb):
 # results = g.query(query)
 # for row in results:
 #     print(f"{course_code} {course_id} is worth {row.credits} credits.")
-
-
