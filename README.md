@@ -2,12 +2,12 @@
 Build an intelligent agent that can answer university course and student related questions, using a knowledge graph and natural language processing
 
 ## describe each file
-- Universities Schema: RDFS for class University
-- Courses: RDFS for class Courses.
-- Lectures: RDFS for class Lectures.
-- Topics: RDFS for class Topics.
-- Students: RDFS for class Students.
+- RDFs: contains all the schemas   
 - Triples folder: contains generated and written Triples
+- data folder: contains courseMaterial and students_grades.csv
+- courseMaterial folder: contains COMP335 and COMP474 folders
+- COMP335 folders: contains Lectures, Worksheet, Assignments
+- COMP474 folders: contains Lectures, Worksheet
 - Roboprof.py: main file calls functions from AutomatedKnowledgeBaseConstruction.py.
 - AutomatedKnowledgeBaseConstruction.py: contains all the functions necessary to run this project such as building the Knowledge Base and selecting the right query to create outut files.
 - Queries folder holds each query as required in the project in separate files.
