@@ -6,6 +6,9 @@ from rdflib import URIRef, Graph, Literal, Namespace, RDF, FOAF, RDFS
 # Load RDF data from turtle files
 file_path_students = "data/students_grades.csv"
 file_path_merge = "Triples/MergedTriples.ttl"
+file_path_students_KB = "Triples/Students.ttl"
+file_path_triples = "Triples/triples.ttl"
+
 
 # Command to create user defined namespaces
 kb = URIRef("http://example.org/knowledge-base#")
@@ -58,7 +61,7 @@ def studentDataToRDFTriples(student_data):
     return g
 
 
-def createGraphs(g1, g2):
+def mergeGraphs(g1, g2):
     g1 = Graph()
     g2 = Graph()
 
@@ -67,34 +70,11 @@ def createGraphs(g1, g2):
     g3 = g1 + g2
     # print(len(g6))
 
-    # Write the merged graph to a file in Turtle format
-    with open(file_path_merge, "w", encoding="utf-8") as f:
-        f.write(g3.serialize(format="turtle"))
-
     return g3
 
 
-def createGraph(g1):
+def createGraph(g1, filePath):
     # Write the merged graph to a file in Turtle format
-    with open(file_path_merge, "w", encoding="utf-8") as f:
+    with open(filePath, "w", encoding="utf-8") as f:
         f.write(g1.serialize(format="turtle"))
 
-
-def main():
-    # print(extractStudentData())
-    g = studentDataToRDFTriples(extractStudentData())
-    print(g.serialize(format='turtle'))
-    createGraph(g)
-
-
-    # graph = createGraphs()
-    # # print(graph.serialize(format='turtle'))
-    #
-    # # Loop through each triple in the graph (subj, pred, obj)
-    # for s, p, o in graph:
-    #     # Print the subject, predicate and the object
-    #     print(s, p, o)
-
-
-if __name__ == '__main__':
-    main()
