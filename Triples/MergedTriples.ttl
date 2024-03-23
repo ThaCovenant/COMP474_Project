@@ -1,6 +1,9 @@
 @prefix course: <http://example.org/course/> .
 @prefix student: <http://example.org/student/> .
+@prefix topic: <http://example.org/topic/> .
+@prefix lecture: <http://example.org/lecture/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix university: <https://www.wikidata.org/entity/Q3918>.
 
 student:40044279 a <http://example.org/student> ;
     student:hasCompletedCourse course:COMP472,
@@ -71,5 +74,33 @@ course:COEN316 a <http://example.org/course> .
 
 course:COMP472 a <http://example.org/course> .
 
-course:COMP474 a <http://example.org/course> .
+course:COMP474 a <http://example.org/course> ;
+    course:hasLecture lecture:Lecture1;
+    course:hasLecture lecture:Lecture2.
 
+lecture:Lecture1 a <http://example.org/lecture>;
+    lecture:label "Introduction to Theory of Computation";
+    lecture:LectureNumber 1;
+    lecture:LectureContent "Theory of Computation";
+    lecture:comment "First lecture of the class."@en;
+    lecture:hasTopic topic:TheoryofComputation.
+
+    lecture:Lecture2 a <http://example.org/lecture>;
+    lecture:label "(Deterministic)Finite_State_Automata";
+    lecture:LectureNumber 2;
+    lecture:LectureContent "Deterministic_Finite_Automata";
+    lecture:comment "Second lecture of the class."@en;
+    lecture:hasTopic topic:DeterministicFiniteStateAutomata.
+
+<https://www.wikidata.org/entity/Q201492> a <https://www.wikidata.org/entity/Q3918> ;
+    university:hasName "McGill University" ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
+
+<https://www.wikidata.org/entity/Q326342> a <https://www.wikidata.org/entity/Q3918> ;
+    university:hasName "Concordia University" ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;
+    university:hasCourse course:AERO417;
+    university:hasCourse course:COEN311;
+    university:hasCourse course:COEN316;
+    university:hasCourse course:COMP472;
+    university:hasCourse course:COMP474; .
