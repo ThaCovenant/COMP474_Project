@@ -1,0 +1,106 @@
+@prefix course: <http://example.org/course/> .
+@prefix student: <http://example.org/student/> .
+@prefix topic: <http://example.org/topic/> .
+@prefix lecture: <http://example.org/lecture/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix university: <https://www.wikidata.org/entity/Q3918>.
+
+student:40044279 a <http://example.org/student> ;
+    student:hasCompletedCourse course:COMP472,
+        course:COMP474 ;
+    student:hasFirstName "Amish" ;
+    student:hasGrade <http://example.org/grade/40044279/COMP472>,
+        <http://example.org/grade/40044279/COMP474> ;
+    student:hasIDNumber 40044279 ;
+    student:hasLastName "Patel" .
+
+student:40076313 a <http://example.org/student> ;
+    student:hasCompletedCourse course:AERO417,
+        course:COMP474 ;
+    student:hasFirstName "Jimmy" ;
+    student:hasGrade <http://example.org/grade/40076313/AERO417>,
+        <http://example.org/grade/40076313/COMP474> ;
+    student:hasIDNumber 40076313 ;
+    student:hasLastName "Tran" .
+
+student:40157540 a <http://example.org/student> ;
+    student:hasCompletedCourse course:COEN311,
+        course:COMP474 ;
+    student:hasFirstName "Philippe" ;
+    student:hasGrade <http://example.org/grade/40157540/COEN311>,
+        <http://example.org/grade/40157540/COMP474> ;
+    student:hasIDNumber 40157540 ;
+    student:hasLastName "Bertrand" .
+
+student:40175886 a <http://example.org/student> ;
+    student:hasCompletedCourse course:COEN316,
+        course:COMP474 ;
+    student:hasFirstName "Tomas" ;
+    student:hasGrade <http://example.org/grade/40175886/COEN316>,
+        <http://example.org/grade/40175886/COMP474> ;
+    student:hasIDNumber 40175886 ;
+    student:hasLastName "Hidalgo" .
+
+<http://example.org/grade/40044279/COMP472> student:gradeForCourse course:COMP472 ;
+    student:gradeValue "B+" .
+
+<http://example.org/grade/40044279/COMP474> student:gradeForCourse course:COMP474 ;
+    student:gradeValue "A",
+        "F" .
+
+<http://example.org/grade/40076313/AERO417> student:gradeForCourse course:AERO417 ;
+    student:gradeValue "B" .
+
+<http://example.org/grade/40076313/COMP474> student:gradeForCourse course:COMP474 ;
+    student:gradeValue "B" .
+
+<http://example.org/grade/40157540/COEN311> student:gradeForCourse course:COEN311 ;
+    student:gradeValue "B+" .
+
+<http://example.org/grade/40157540/COMP474> student:gradeForCourse course:COMP474 ;
+    student:gradeValue "A" .
+
+<http://example.org/grade/40175886/COEN316> student:gradeForCourse course:COEN316 ;
+    student:gradeValue "B+" .
+
+<http://example.org/grade/40175886/COMP474> student:gradeForCourse course:COMP474 ;
+    student:gradeValue "A" .
+
+course:AERO417 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>.
+
+course:COEN311 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+
+course:COEN316 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+
+course:COMP472 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+
+course:COMP474 a <http://example.org/course> ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
+    course:hasLecture lecture:Lecture1;
+    course:hasLecture lecture:Lecture2.
+
+lecture:Lecture1 a <http://example.org/lecture>;
+    lecture:label "Introduction to Theory of Computation";
+    lecture:LectureNumber 1;
+    lecture:LectureContent "Theory of Computation";
+    lecture:comment "First lecture of the class."@en;
+    lecture:hasTopic topic:TheoryofComputation.
+
+    lecture:Lecture2 a <http://example.org/lecture>;
+    lecture:label "(Deterministic)Finite_State_Automata";
+    lecture:LectureNumber 2;
+    lecture:LectureContent "Deterministic_Finite_Automata";
+    lecture:comment "Second lecture of the class."@en;
+    lecture:hasTopic topic:DeterministicFiniteStateAutomata.
+
+<https://www.wikidata.org/entity/Q201492> a <https://www.wikidata.org/entity/Q3918> ;
+    university:hasName "McGill University" ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
+
+<https://www.wikidata.org/entity/Q326342> a <https://www.wikidata.org/entity/Q3918> ;
+    university:hasName "Concordia University" ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;.

@@ -201,4 +201,3 @@ lecture:lectureContent a rdf:Property ;
 lecture:Lecture a lecture:Lecture ;
     rdfs:label "Lecture Name" ;
     rdfs:comment "Name of lecture, if available."@en .
-
