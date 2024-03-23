@@ -74,10 +74,18 @@ def createGraphs(g1, g2):
     return g3
 
 
+def createGraph(g1):
+    # Write the merged graph to a file in Turtle format
+    with open(file_path_merge, "w", encoding="utf-8") as f:
+        f.write(g1.serialize(format="turtle"))
+
+
 def main():
     # print(extractStudentData())
     g = studentDataToRDFTriples(extractStudentData())
     print(g.serialize(format='turtle'))
+    createGraph(g)
+
 
     # graph = createGraphs()
     # # print(graph.serialize(format='turtle'))
