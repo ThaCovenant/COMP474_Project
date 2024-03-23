@@ -1,74 +1,250 @@
 @prefix course: <http://example.org/course#> .
 @prefix lecture: <http://example.org/lecture#> .
+@prefix lectureContent: <http://example.org/lectureContent#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix slides: <http://example.org/slides#> .
 @prefix student: <http://example.org/student#> .
 @prefix topic: <http://example.org/topic#> .
 @prefix university: <https://www.wikidata.org/entity/Q3918> .
+@prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-student:40044279 a <http://example.org/student> ;
+<file:///home/roboprof/COMP474/Lectures/slides01.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides02.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides03.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides04.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides05.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides06.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides07.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides08.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+lecture:1 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:2 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:3 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:4 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:5 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:6 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:7 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lecture:8 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:COMP474 .
+
+lectureContent:1 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:2 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:3 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:4 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:5 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:6 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:7 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:8 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+student:40044279 a student:student ;
+    rdfs:label "Student" ;
     student:hasCompletedCourse course:COMP472,
         course:COMP474 ;
     student:hasFirstName "Amish" ;
-    student:hasGrade <http://example.org/grade/40044279/COMP472>,
-        <http://example.org/grade/40044279/COMP474> ;
+    student:hasGrade <http://example.org/grade#40044279/COMP472>,
+        <http://example.org/grade#40044279/COMP474> ;
     student:hasIDNumber 40044279 ;
-    student:hasLastName "Patel" .
+    student:hasLastName "Patel" ;
+    rdfs:comment "This is a Student Class."@en .
 
-student:40076313 a <http://example.org/student> ;
+student:40076313 a student:student ;
+    rdfs:label "Student" ;
     student:hasCompletedCourse course:AERO417,
         course:COMP474 ;
     student:hasFirstName "Jimmy" ;
-    student:hasGrade <http://example.org/grade/40076313/AERO417>,
-        <http://example.org/grade/40076313/COMP474> ;
+    student:hasGrade <http://example.org/grade#40076313/AERO417>,
+        <http://example.org/grade#40076313/COMP474> ;
     student:hasIDNumber 40076313 ;
-    student:hasLastName "Tran" .
+    student:hasLastName "Tran" ;
+    rdfs:comment "This is a Student Class."@en .
 
-student:40157540 a <http://example.org/student> ;
+student:40157540 a student:student ;
+    rdfs:label "Student" ;
     student:hasCompletedCourse course:COEN311,
         course:COMP474 ;
     student:hasFirstName "Philippe" ;
-    student:hasGrade <http://example.org/grade/40157540/COEN311>,
-        <http://example.org/grade/40157540/COMP474> ;
+    student:hasGrade <http://example.org/grade#40157540/COEN311>,
+        <http://example.org/grade#40157540/COMP474> ;
     student:hasIDNumber 40157540 ;
-    student:hasLastName "Bertrand" .
+    student:hasLastName "Bertrand" ;
+    rdfs:comment "This is a Student Class."@en .
 
-student:40175886 a <http://example.org/student> ;
+student:40175886 a student:student ;
+    rdfs:label "Student" ;
     student:hasCompletedCourse course:COEN316,
         course:COMP474 ;
     student:hasFirstName "Tomas" ;
-    student:hasGrade <http://example.org/grade/40175886/COEN316>,
-        <http://example.org/grade/40175886/COMP474> ;
+    student:hasGrade <http://example.org/grade#40175886/COEN316>,
+        <http://example.org/grade#40175886/COMP474> ;
     student:hasIDNumber 40175886 ;
-    student:hasLastName "Hidalgo" .
+    student:hasLastName "Hidalgo" ;
+    rdfs:comment "This is a Student Class."@en .
+
+<http://example.org/topics/KnowledgeGraph> a topic: ;
+    rdfs:label "(Deterministic) Finite State Automata",
+        "(Non-Deterministic) Finite State Automata",
+        "Artificial Neural Networks (ANNs) & Word Embeddings",
+        "Closure Properties of CFLs",
+        "Closure Properties of Regular Languages",
+        "Combining TMs, Turing’s Thesis",
+        "Context-Free (CF) Languages and Grammars (MFG)",
+        "Deep Learning for Intelligent Systems",
+        "Deterministic PDA",
+        "Intelligent Agents & Introduction to Natural Language Processing (NLP)",
+        "Introduction to Deep Learning",
+        "Introduction to Intelligent Systems",
+        "Introduction to Knowledge Graphs (RDF)",
+        "Introduction to Machine Learning (ML) for Intelligent Systems",
+        "Introduction to theory of computation",
+        "Knowledge Base Queries (SPARQL) and Linked Open Data (LOD)",
+        "Knowledge Graphs: Vocabularies & Ontologies (RDFS, OWL)",
+        "Non-deterministic PDA ",
+        "Personalization & Recommender Systems",
+        "Pumping Lemma for CFLs",
+        "Pumping Lemma for Regular Languages",
+        "Push-Down Automata (PDA)",
+        "Regular Expressions",
+        "Regular Grammars",
+        "Regular Languages",
+        "Simplification of CFGs and Normal Forms",
+        "Text Mining Systems",
+        "The Halting Problem",
+        "Turing Machines (TM)",
+        "Universal TM, Decidability & Undecidability" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf",
+        "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
 
 <https://www.wikidata.org/entity/Q201492> a university: ;
     university:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> ;
     university:hasName "McGill University" .
 
-<http://example.org/grade/40044279/COMP472> student:gradeForCourse course:COMP472 ;
-    student:gradeValue "B+" .
+<http://example.org/grade#40044279/COMP472> rdfs:label "grade" ;
+    student:gradeForCourse course:COMP472 ;
+    student:gradeValue "B+" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40044279/COMP474> student:gradeForCourse course:COMP474 ;
+<http://example.org/grade#40044279/COMP474> rdfs:label "grade" ;
+    student:gradeForCourse course:COMP474 ;
     student:gradeValue "A",
-        "F" .
+        "F" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40076313/AERO417> student:gradeForCourse course:AERO417 ;
-    student:gradeValue "B" .
+<http://example.org/grade#40076313/AERO417> rdfs:label "grade" ;
+    student:gradeForCourse course:AERO417 ;
+    student:gradeValue "B" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40076313/COMP474> student:gradeForCourse course:COMP474 ;
-    student:gradeValue "B" .
+<http://example.org/grade#40076313/COMP474> rdfs:label "grade" ;
+    student:gradeForCourse course:COMP474 ;
+    student:gradeValue "B" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40157540/COEN311> student:gradeForCourse course:COEN311 ;
-    student:gradeValue "B+" .
+<http://example.org/grade#40157540/COEN311> rdfs:label "grade" ;
+    student:gradeForCourse course:COEN311 ;
+    student:gradeValue "B+" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40157540/COMP474> student:gradeForCourse course:COMP474 ;
-    student:gradeValue "A" .
+<http://example.org/grade#40157540/COMP474> rdfs:label "grade" ;
+    student:gradeForCourse course:COMP474 ;
+    student:gradeValue "A" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40175886/COEN316> student:gradeForCourse course:COEN316 ;
-    student:gradeValue "B+" .
+<http://example.org/grade#40175886/COEN316> rdfs:label "grade" ;
+    student:gradeForCourse course:COEN316 ;
+    student:gradeValue "B+" ;
+    rdfs:comment "Grade of student."@en .
 
-<http://example.org/grade/40175886/COMP474> student:gradeForCourse course:COMP474 ;
-    student:gradeValue "A" .
+<http://example.org/grade#40175886/COMP474> rdfs:label "grade" ;
+    student:gradeForCourse course:COMP474 ;
+    student:gradeValue "A" ;
+    rdfs:comment "Grade of student."@en .
 
 lecture:Lecture1 a <http://example.org/lecture> ;
     lecture:LectureContent "Theory of Computation" ;
@@ -85,23 +261,33 @@ lecture:Lecture2 a <http://example.org/lecture> ;
     lecture:label "(Deterministic)Finite_State_Automata" .
 
 course:AERO417 a <http://example.org/course> ;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    rdfs:label "course" ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> ;
+    rdfs:comment "A course offered by the university."@en .
 
 course:COEN311 a <http://example.org/course> ;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    rdfs:label "course" ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> ;
+    rdfs:comment "A course offered by the university."@en .
 
 course:COEN316 a <http://example.org/course> ;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    rdfs:label "course" ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> ;
+    rdfs:comment "A course offered by the university."@en .
 
 course:COMP472 a <http://example.org/course> ;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    rdfs:label "course" ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> ;
+    rdfs:comment "A course offered by the university."@en .
 
 <https://www.wikidata.org/entity/Q326342> a university: ;
     university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> ;
     university:hasName "Concordia University" .
 
 course:COMP474 a <http://example.org/course> ;
+    rdfs:label "course" ;
     course:hasLecture lecture:Lecture1,
         lecture:Lecture2 ;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> ;
+    rdfs:comment "A course offered by the university."@en .
 

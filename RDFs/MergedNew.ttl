@@ -1,33 +1,33 @@
+@prefix course: <http://example.org/course#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix foaf1: <http://xmlns.com/foaf/.1/> .
+@prefix lecture: <http://example.org/lecture#> .
+@prefix lectureContent: <http://example.org/lectureContent#> .
+@prefix other: <http://example.org/other#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix wd: <https://www.wikidata.org/wiki/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix course: <http://example.org/course#> .
+@prefix readings: <http://example.org/readings#> .
+@prefix slides: <http://example.org/slides#> .
 @prefix student: <http://example.org/student#> .
 @prefix topic: <http://example.org/topic#> .
-@prefix lecture: <http://example.org/lecture#> .
-@prefix slides: <http://example.org/slides#> .
-@prefix lectureContent: <http://example.org/lectureContent#> .
-@prefix worksheets: <http://example.org/worksheets#> .
-@prefix other: <http://example.org/other#> .
-@prefix readings: <http://example.org/readings#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix university: <http://example.org/university#> .
-
-#Creating Classes
-university:University a rdfs:Class;
-    rdfs:label "university";
-    rdfs:comment "A university."@en.
+@prefix worksheets: <http://example.org/worksheets#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 course:Course a rdfs:Class ;
     rdfs:label "course" ;
     rdfs:comment "A course offered by the university."@en .
 
-student:Student a rdfs:Class ;
-    rdfs:label "Student" ;
-    rdfs:comment "This is a Student Class."@en .
+lecture:Lecture a rdfs:Class ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf course:Course .
+
+lectureContent:LectureContent a rdfs:Class ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:domain lecture:Lecture ;
+    rdfs:range foaf1:Document .
 
 other:Other a rdfs:Class ;
     rdfs:label "Other Materials" ;
@@ -44,24 +44,15 @@ slides:Slides a rdfs:Class ;
     rdfs:comment "Slides of lecture."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
+student:Student a rdfs:Class ;
+    rdfs:label "Student" ;
+    rdfs:comment "This is a Student Class."@en .
+
 worksheets:Worksheets a rdfs:Class ;
     rdfs:label "Lecture Worksheets" ;
     rdfs:comment "Worksheets of lecture."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-lectureContent:LectureContent a rdfs:Class ;
-    rdfs:label "Lecture Content" ;
-    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:domain lecture:Lecture ;
-    rdfs:range foaf1:Document .
-
-lecture:Lecture a rdfs:Class;
-    rdfs:label "Lecture";
-    rdfs:comment "This is a lecture."@en;
-    rdfs:subClassOf course:Course.
-
-#Creating Properties
-#Course Class Properties
 course:courseCredit a rdf:Property ;
     rdfs:label "Course Credits" ;
     rdfs:comment "The number of credits assigned to the course."@en ;
@@ -109,43 +100,32 @@ course:hasTopic a rdf:Property ;
     rdfs:label "has topic"@en ;
     rdfs:comment "Specifies the topic of a course"@en ;
     rdfs:domain course:Course ;
-    rdfs:range <../Topics> .
+    rdfs:range <file:///C:/Users/Amish/Documents/GitHub/366/COMP474_Project/Topics> .
 
 course:offeredBy a rdf:Property ;
     rdfs:label "offered by"@en ;
     rdfs:comment "Specifies that a class is offered by a university"@en ;
     rdfs:domain course:Course ;
-    rdfs:range university:University.
+    rdfs:range university:University .
 
-#Topic Properties
-topic:dbpediaEntry a rdf:Property ;
-    rdfs:label "has DBpedia Entry" ;
-    rdfs:comment "Link to topic DBpedia entry."@en ;
-    rdfs:domain topic:Topic ;
-    rdfs:range rdfs:Resource .
+lecture:lectureLink a rdf:Property ;
+    rdfs:label "Lecture Link to a webpage" ;
+    rdfs:comment "Webpage of the lecture."@en ;
+    rdfs:domain lecture:Lecture ;
+    rdfs:range foaf1:Document ;
+    rdfs:seeAlso foaf1:Document .
 
-topic:Topic a topic:Topic ;
-    rdfs:label "Topic Name" ;
-    rdfs:comment "Topic names within a course outline."@en .
+lecture:lectureNumber a rdf:Property ;
+    rdfs:label "lectureNumber" ;
+    rdfs:comment "Sequential count of lecture within a course."@en ;
+    rdfs:domain lecture:Lecture ;
+    rdfs:range xsd:integer .
 
-topic:topicProvenanceInformation a rdf:Property ;
-    rdfs:label "Provenance Information" ;
-    rdfs:comment "record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a specific lecture)."@en ;
-    rdfs:domain topic:Topic ;
-    rdfs:range rdfs:Literal .
-
-topic:wikidataEntry a rdf:Property ;
-    rdfs:label "has Wikidata Entry" ;
-    rdfs:comment "Link to topic wikidata entry."@en ;
-    rdfs:domain topic:Topic ;
-    rdfs:range rdfs:Resource .
-
-#Student Properties
 student:hasCompetency a rdf:Property ;
     rdfs:label "hasCompetency" ;
     rdfs:comment "Student has Completed."@en ;
     rdfs:domain student:Student ;
-    rdfs:range <../Topics> .
+    rdfs:range <file:///C:/Users/Amish/Documents/GitHub/366/COMP474_Project/Topics> .
 
 student:hasEmail a rdf:Property ;
     rdfs:label "hasEmail" ;
@@ -177,29 +157,43 @@ student:hasLastName a rdf:Property ;
     rdfs:domain student:Student ;
     rdfs:range xsd:string .
 
-student:hasCompletedCourse a rdf:Property ;
-    rdfs:label "hasCompletedCourse" ;
-    rdfs:comment "Student has completed course."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range course:Course .
+topic:Topic a rdfs:Topic ;
+    rdfs:label "Topic Name" ;
+    rdfs:comment "Topic names within a course outline."@en .
 
-#Lecture Properties
-lecture:lectureLink a rdf:Property ;
-    rdfs:label "Lecture Link to a webpage" ;
-    rdfs:comment "Webpage of the lecture."@en ;
-    rdfs:domain lecture:Lecture ;
-    rdfs:range foaf1:Document ;
-    rdfs:seeAlso foaf1:Document .
+topic:dbpediaEntry a rdf:Property ;
+    rdfs:label "has DBpedia Entry" ;
+    rdfs:comment "Link to topic DBpedia enrty."@en ;
+    rdfs:domain rdfs:Topic ;
+    rdfs:range rdfs:Resource .
 
-lecture:lectureNumber a rdf:Property ;
-    rdfs:label "lectureNumber" ;
-    rdfs:comment "Sequential count of lecture within a course."@en ;
-    rdfs:domain lecture:Lecture ;
-    rdfs:range xsd:integer .
+topic:topicProvenanceInformation a rdf:Property ;
+    rdfs:label "Provenance Information" ;
+    rdfs:comment "record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a specific lecture)."@en ;
+    rdfs:domain rdfs:Topic ;
+    rdfs:range rdfs:Literal .
+
+topic:wikidataEntry a rdf:Property ;
+    rdfs:label "has Wikidata Entry" ;
+    rdfs:comment "Link to topic wikidata entry."@en ;
+    rdfs:domain rdfs:Topic ;
+    rdfs:range rdfs:Resource .
+
+rdfs:LectureContent a rdf:Class ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:domain rdfs:Lecture ;
+    rdfs:range foaf1:Document .
 
 lecture:lectureContent a rdf:Property ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Content of lecture."@en ;
     rdfs:domain lecture:Lecture ;
     rdfs:range lecture:lectureContent .
+
+student:hasCompletedCourse a rdf:Property ;
+    rdfs:label "hasCompletedCourse" ;
+    rdfs:comment "Student has completed course."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range course:Course .
 

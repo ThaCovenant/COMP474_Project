@@ -1,0 +1,117 @@
+@prefix lecture: <http://example.org/lecture#> .
+@prefix lectureContent: <http://example.org/lectureContent#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix slides: <http://example.org/slides#> .
+
+<file:///home/roboprof/COMP474/Lectures/slides01.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides02.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides03.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides04.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides05.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides06.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides07.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+<file:///home/roboprof/COMP474/Lectures/slides08.pdf> a slides:slides ;
+    rdfs:label "Lecture Slides" ;
+    rdfs:comment "Slides of lecture."@en ;
+    rdfs:subClassOf lectureContent:lectureContent .
+
+lecture:1 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:2 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:3 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:4 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:5 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:6 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:7 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:8 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lectureContent:1 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:2 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:3 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:4 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:5 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:6 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:7 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
+lectureContent:8 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en .
+
