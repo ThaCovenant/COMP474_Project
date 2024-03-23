@@ -1,7 +1,7 @@
-@prefix course: <http://example.org/course/> .
-@prefix student: <http://example.org/student/> .
-@prefix topic: <http://example.org/topic/> .
-@prefix lecture: <http://example.org/lecture/> .
+@prefix course: <http://example.org/course#> .
+@prefix student: <http://example.org/student#> .
+@prefix topic: <http://example.org/topic#> .
+@prefix lecture: <http://example.org/lecture#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix university: <https://www.wikidata.org/entity/Q3918>.
 

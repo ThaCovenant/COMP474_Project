@@ -20,19 +20,20 @@ def main():
     # print(graph.serialize(format='turtle'))
     # print(extractStudentData())
     g1 = studentDataToRDFTriples(extractStudentData())
-    # print(g.serialize(format='turtle'))
+    # print(g1.serialize(format='turtle'))
+    createGraph(g1, file_path_students_KB)
     g2 = Graph()
     g2.parse(file_path_triples, format="ttl")
+    # print(g2.serialize(format='turtle'))
 
     g3 = mergeGraphs(g1, g2)
-    createGraph(g3, file_path_merge)
+    print(g3.serialize(format='turtle'))
 
-    # g4 = Graph()
+    # g4 = createGraph(g3, file_path_merge)
+
+    #
     # g4.parse(file_path_topics, format="ttl")
     # g5 = mergeGraphs(g3, g4)
-
-
-    print(g3.serialize(format='turtle'))
 
 
 if __name__ == '__main__':
