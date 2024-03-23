@@ -8,6 +8,7 @@ Queries folder holds each query as required in the project in separate files.
 Data holds course materials, Concordia's datasets and students data.
 
 - describe each file
+
 Universities Schema
 RDFS for class University.
 Courses
@@ -20,6 +21,7 @@ Students
 RDFS for class Students.
 
 - steps to execute code for building knowledge base
+
 Run the "Roboprof.py" file
 
 
