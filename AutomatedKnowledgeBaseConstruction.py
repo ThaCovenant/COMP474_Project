@@ -12,9 +12,9 @@ file_path_triples = "Triples/triples.ttl"
 
 # Command to create user defined namespaces
 kb = URIRef("http://example.org/knowledge-base#")
-student = Namespace("http://example.org/student/")
-course = Namespace("http://example.org/course/")
-grade = Namespace("http://example.org/grade/")
+student = Namespace("http://example.org/student#")
+course = Namespace("http://example.org/course#")
+grade = Namespace("http://example.org/grade#")
 ex = Namespace("http://example.org/")
 
 
@@ -62,10 +62,8 @@ def studentDataToRDFTriples(student_data):
 
 
 def mergeGraphs(g1, g2):
-    g1 = Graph()
-    g2 = Graph()
 
-    g1.parse(file_path_merge, format="ttl")
+    # g1.parse(file_path_merge, format="ttl")
 
     g3 = g1 + g2
     # print(len(g6))
