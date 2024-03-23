@@ -9,8 +9,10 @@ file_path_merge = "Triples/MergedTriples.ttl"
 
 # Command to create user defined namespaces
 kb = URIRef("http://example.org/knowledge-base#")
-rdfs = URIRef("http://www.w3.org/2000/01/rdf-schema#")
-student = Namespace("http://example.org/student")
+student = Namespace("http://example.org/student/")
+course = Namespace("http://example.org/course/")
+grade = Namespace("http://example.org/grade/")
+ex = Namespace("http://example.org/")
 
 
 def extractStudentData():
@@ -28,31 +30,31 @@ def studentDataToRDFTriples(student_data):
     g.bind("rdfs", RDFS)
     g.bind("rdf", RDF)
     g.bind("student", student)
-
-    # g.add((student.Amish, RDF.type, student.Student))
-    # g.add((student.Amish, RDFS.label, Literal("Student")))
-    # g.add((student.Amish, RDFS.hasCompetency, Literal("KnowledgeGraphs")))
-    # g.add((student.Amish, RDFS.hasEmail, Literal("Amish@gmail.com")))
-    # g.add((student.Amish, RDFS.hasFirstName, Literal("Amish")))
-    # g.add((student.Amish, RDFS.hasLastName, Literal("Patel")))
-    # g.add((student.Amish, RDFS.hasGrade, Literal("A")))
-    # g.add((student.Amish, RDFS.hasIDNumber, Literal("40044279")))
+    g.bind("course", course)
+    g.bind("grade", grade)
 
     # print(g.serialize(format='turtle'))
 
     for index, row in student_data.iterrows():
         student_uri = URIRef(student + str(row["ID"]))
-        g.add((student_uri, RDF.type, RDFS.Class))
+        g.add((student_uri, RDF.type, ex.student))
+        # Properties
         g.add((student_uri, student.hasFirstName, Literal(row["First Name"])))
         g.add((student_uri, student.hasLastName, Literal(row["Last Name"])))
         g.add((student_uri, student.hasIDNumber, Literal(row["ID"])))
-        # course_uri = URIRef(row["Subject_ID"])
-        # g.add((student_uri, student.hasCompletedCourse, course_uri))
-        # g.add((course_uri, RDF.type, student.Course))  # Assuming course is defined elsewhere
-        # g.add((student_uri, student.hasGrade, Literal(row["Grade"])))
-        # # Assuming Competency is defined elsewhere and linked properly
-        # g.add((student_uri, student.hasCompetency, Literal(row["Competency"])))
-        print(student_uri)
+
+        # Define course as a class
+        course_uri = URIRef(course + row["Course"].replace(" ", ""))
+        g.add((course_uri, RDF.type, ex.course))
+
+        # Create separate triples for each course taken by each student
+        g.add((student_uri, student.hasCompletedCourse, course_uri))
+
+        # Associate grade with course
+        grade_uri = URIRef(grade + str(row['ID']) + '/' + row['Course'].replace(" ", ""))
+        g.add((student_uri, student.hasGrade, grade_uri))
+        g.add((grade_uri, student.gradeValue, Literal(row["Grade"])))
+        g.add((grade_uri, student.gradeForCourse, course_uri))
     return g
 
 
@@ -73,7 +75,7 @@ def createGraphs(g1, g2):
 
 
 def main():
-    print(extractStudentData())
+    # print(extractStudentData())
     g = studentDataToRDFTriples(extractStudentData())
     print(g.serialize(format='turtle'))
 

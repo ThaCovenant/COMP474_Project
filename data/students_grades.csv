@@ -1,9 +1,10 @@
-First Name,Last Name,ID,Subject,Subject_ID,Grade
-Jimmy,Tran,40076313,COMP,474,B
-Jimmy,Tran,40076313,AERO,417,B
-Philippe,Bertrand,40157540,COMP,474,A
-Philippe,Bertrand,40157540,COEN,311,B+
-Tomas,Hidalgo,40175886,COMP,474,A
-Tomas,Hidalgo,40175886,COEN,316,B+
-Amish,Patel,40044279,COMP,474,A
-Amish,Patel,40044279,COMP,472,B+
+First Name,Last Name,ID,Course,Grade
+Jimmy,Tran,40076313,COMP 474,B
+Jimmy,Tran,40076313,AERO 417,B
+Philippe,Bertrand,40157540,COMP 474,A
+Philippe,Bertrand,40157540,COEN 311,B+
+Tomas,Hidalgo,40175886,COMP 474,A
+Tomas,Hidalgo,40175886,COEN 316,B+
+Amish,Patel,40044279,COMP 474,A
+Amish,Patel,40044279,COMP 474,F
+Amish,Patel,40044279,COMP 472,B+
