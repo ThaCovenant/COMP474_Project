@@ -7,19 +7,19 @@
 
 
 #University class
-dbo:University a rdfs:Class;
+dbo:uni a rdfs:Class;
     rdfs:label "University";
     rdfs:comment "This represents a University."@en .
 
 #Properties
-university:wikidataEntry a rdf:Property;
+uni:wikidataEntry a rdf:Property;
     rdfs:label "has Wikidata Entry";
     rdfs:domain dbo:University;
     rdfs:range foaf:Document;
     rdfs:comment "Link to university wikidata entry."@en .
 
 
-university:dbpediaEntry a rdf:Property;
+uni:dbpediaEntry a rdf:Property;
     rdfs:label "has DBpedia Entry";
     rdfs:domain dbo:University; # permit only Universities
     rdfs:range foaf:Document;
