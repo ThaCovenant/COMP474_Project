@@ -1,3 +1,6 @@
+  SELECT ?topic ?lecture_number (list all topics related to specific lecture in a course)
+  WHERE{
   <http://example.org/course#COMP474> <http://example.org/course#hasTopic> ?topic.
   <http://example.org/course#COMP474> <http://example.org/course#hasLecture> ?lecture_number.
   FILTER(?lecture_number = <http://example.org/lecture#Lecture2>)
+  }
