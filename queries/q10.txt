@@ -1,5 +1,5 @@
-#Query 10 (list all topics affered by the course)
-SELECT ?topic
+#Query 10 (list all topics offered by the course)
+SELECT ?competencies
 WHERE {
-  course course:hasTopic ?topic.
+ <http://example.org/course#COMP474> <http://example.org/course#hasTopic> ?competencies
 }
