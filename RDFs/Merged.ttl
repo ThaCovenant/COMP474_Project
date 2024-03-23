@@ -29,31 +29,36 @@ student:Student a rdfs:Class ;
     rdfs:label "Student" ;
     rdfs:comment "This is a Student Class."@en .
 
-other:Other a rdf:Class ;
+other:Other a rdfs:Class ;
     rdfs:label "Other Materials" ;
     rdfs:comment "Other materials related to Lecture Content."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-readings:Readings a rdf:Class ;
+readings:Readings a rdfs:Class ;
     rdfs:label "Lecture Readings" ;
     rdfs:comment "Readings of lecture: book chapters, web pages, etc."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-slides:Slides a rdf:Class ;
+slides:Slides a rdfs:Class ;
     rdfs:label "Lecture Slides" ;
     rdfs:comment "Slides of lecture."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-worksheets:Worksheets a rdf:Class ;
+worksheets:Worksheets a rdfs:Class ;
     rdfs:label "Lecture Worksheets" ;
     rdfs:comment "Worksheets of lecture."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-lectureContent:LectureContent a rdf:Class ;
+lectureContent:LectureContent a rdfs:Class ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
     rdfs:domain lecture:Lecture ;
     rdfs:range foaf1:Document .
+
+lecture:Lecture a rdfs:Class;
+    rdfs:label "Lecture";
+    rdfs:comment "This is a lecture."@en;
+    rdfs:subClassOf course:Course.
 
 #Creating Properties
 #Course Class Properties
@@ -134,6 +139,12 @@ topic:wikidataEntry a rdf:Property ;
     rdfs:comment "Link to topic wikidata entry."@en ;
     rdfs:domain topic:Topic ;
     rdfs:range rdfs:Resource .
+
+topic:material a rdf:Property;
+    rdfs:label "material";
+    rdfs:comment "material for the topic";
+    rdfs:domain topic:Topic;
+    rdfs:range foaf1:Document.
 
 #Student Properties
 student:hasCompetency a rdf:Property ;

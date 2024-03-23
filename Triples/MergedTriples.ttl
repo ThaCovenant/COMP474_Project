@@ -4,6 +4,7 @@
 @prefix lecture: <http://example.org/lecture/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix university: <https://www.wikidata.org/entity/Q3918>.
+@prefix wd: <https://www.wikidata.org/wiki/> .
 
 student:40044279 a <http://example.org/student> ;
     student:hasCompletedCourse course:COMP472,
@@ -70,15 +71,23 @@ course:AERO417 a <http://example.org/course>;
     course:offeredBy <https://www.wikidata.org/entity/Q326342>.
 
 course:COEN311 a <http://example.org/course>;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
+    course:courseSubject "AERO".
 
 course:COEN316 a <http://example.org/course>;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
+    course:courseSubject "COEN" .
 
-course:COMP472 a <http://example.org/course>;
-    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
+course:COEN316 a <http://example.org/course> ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
+    course:courseSubject "COEN" .
 
-course:COMP474 a <http://example.org/course> ;
+course:COMP472 a <http://example.org/course> ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
+    course:courseSubject "COMP" .
+
+course:COMP335 a <http://example.org/course>;
+    course:courseSubject "COMP" ;
     course:offeredBy <https://www.wikidata.org/entity/Q326342>;
     course:hasLecture lecture:Lecture1;
     course:hasLecture lecture:Lecture2.
@@ -91,6 +100,7 @@ lecture:Lecture1 a <http://example.org/lecture>;
     lecture:hasTopic topic:TheoryofComputation.
 
     lecture:Lecture2 a <http://example.org/lecture>;
+        course:hasTopic topic:DeterministicFiniteStateAutomata;
     lecture:label "(Deterministic)Finite_State_Automata";
     lecture:LectureNumber 2;
     lecture:LectureContent "Deterministic_Finite_Automata";
@@ -103,4 +113,7 @@ lecture:Lecture1 a <http://example.org/lecture>;
 
 <https://www.wikidata.org/entity/Q326342> a <https://www.wikidata.org/entity/Q3918> ;
     university:hasName "Concordia University" ;
-    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;.
+    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;.topic:DeterministicFiniteStateAutomata a <http://example.org/topic>;
+    topic:material "slides02.ppt";
+    topic:wikidataEntry wd:Q33002955;
+    topic:topicProvenanceInformation "course_outline_comp353.pdf".

@@ -1,9 +1,7 @@
-
 #Query 4 (list all courses offered by the university filtered by subject)
 SELECT ?course ?subject
 WHERE {
-  ?course a course:Course;
-    course:offeredBy university.
-    course:courseSubject ?subject. #?subject will be user input
+ ?course <http://example.org/course#offeredBy> <https://www.wikidata.org/entity/Q326342>.
+ ?course <http://example.org/course#courseSubject> ?subject
   FILTER (?subject = "COMP") 
 }
