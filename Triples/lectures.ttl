@@ -250,201 +250,273 @@
     rdfs:comment "Worksheet of lecture."@en ;
     rdfs:subClassOf lectureContent:lectureContent .
 
-lectureContent:1 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_1 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:1 .
+    rdfs:subClassOf lecture:COMP335_lecture_1 .
 
-lectureContent:10 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_10 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:10 .
+    rdfs:subClassOf lecture:COMP335_lecture_10 .
 
-lectureContent:11 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_11 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:11 .
+    rdfs:subClassOf lecture:COMP335_lecture_11 .
 
-lectureContent:12 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_12 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:12 .
+    rdfs:subClassOf lecture:COMP335_lecture_12 .
 
-lectureContent:13 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_13 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:13 .
+    rdfs:subClassOf lecture:COMP335_lecture_13 .
 
-lectureContent:14 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_14 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:14 .
+    rdfs:subClassOf lecture:COMP335_lecture_14 .
 
-lectureContent:15 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_15 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:15 .
+    rdfs:subClassOf lecture:COMP335_lecture_15 .
 
-lectureContent:16 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_16 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:16 .
+    rdfs:subClassOf lecture:COMP335_lecture_16 .
 
-lectureContent:17 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_17 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:17 .
+    rdfs:subClassOf lecture:COMP335_lecture_17 .
 
-lectureContent:18 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_18 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:18 .
+    rdfs:subClassOf lecture:COMP335_lecture_18 .
 
-lectureContent:19 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_19 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:19 .
+    rdfs:subClassOf lecture:COMP335_lecture_19 .
 
-lectureContent:2 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_2 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:2 .
+    rdfs:subClassOf lecture:COMP335_lecture_2 .
 
-lectureContent:3 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_3 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:3 .
+    rdfs:subClassOf lecture:COMP335_lecture_3 .
 
-lectureContent:4 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_4 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:4 .
+    rdfs:subClassOf lecture:COMP335_lecture_4 .
 
-lectureContent:5 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_5 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:5 .
+    rdfs:subClassOf lecture:COMP335_lecture_5 .
 
-lectureContent:6 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_6 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:6 .
+    rdfs:subClassOf lecture:COMP335_lecture_6 .
 
-lectureContent:7 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_7 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:7 .
+    rdfs:subClassOf lecture:COMP335_lecture_7 .
 
-lectureContent:8 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_8 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:8 .
+    rdfs:subClassOf lecture:COMP335_lecture_8 .
 
-lectureContent:9 a lectureContent:lectureContent ;
+lectureContent:COMP335_content_9 a lectureContent:lectureContent ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
-    rdfs:subClassOf lecture:9 .
+    rdfs:subClassOf lecture:COMP335_lecture_9 .
 
-lecture:1 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
+lectureContent:COMP474_content_1 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_1 .
 
-lecture:10 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_2 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_2 .
 
-lecture:11 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_3 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_3 .
 
-lecture:12 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_4 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_4 .
 
-lecture:13 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_5 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_5 .
 
-lecture:14 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_6 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_6 .
 
-lecture:15 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_7 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_7 .
 
-lecture:16 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
+lectureContent:COMP474_content_8 a lectureContent:lectureContent ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
+    rdfs:subClassOf lecture:COMP474_lecture_8 .
 
-lecture:17 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335> .
-
-lecture:18 a lecture:lecture ;
+lecture:COMP335_lecture_1 a lecture:lecture ;
     rdfs:label "Lecture" ;
     rdfs:comment "This is a lecture."@en ;
     rdfs:subClassOf <http://example.org/course#COMP335> .
 
-lecture:19 a lecture:lecture ;
+lecture:COMP335_lecture_10 a lecture:lecture ;
     rdfs:label "Lecture" ;
     rdfs:comment "This is a lecture."@en ;
     rdfs:subClassOf <http://example.org/course#COMP335> .
 
-lecture:2 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:3 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:4 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:5 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:6 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:7 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:8 a lecture:lecture ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf <http://example.org/course#COMP335>,
-        <http://example.org/course#COMP474> .
-
-lecture:9 a lecture:lecture ;
+lecture:COMP335_lecture_11 a lecture:lecture ;
     rdfs:label "Lecture" ;
     rdfs:comment "This is a lecture."@en ;
     rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_12 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_13 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_14 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_15 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_16 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_17 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_18 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_19 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_2 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_3 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_4 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_5 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_6 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_7 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_8 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP335_lecture_9 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP335> .
+
+lecture:COMP474_lecture_1 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_2 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_3 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_4 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_5 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_6 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_7 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
+
+lecture:COMP474_lecture_8 a lecture:lecture ;
+    rdfs:label "Lecture" ;
+    rdfs:comment "This is a lecture."@en ;
+    rdfs:subClassOf <http://example.org/course#COMP474> .
 

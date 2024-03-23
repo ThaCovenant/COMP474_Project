@@ -99,7 +99,7 @@ def topicTriplesGenerator(courseFolders):
             numFiles = countFilesInFolder(lectureFolderLectures)
             for i in range(1, numFiles + 1):
                 # Define class LectureContent
-                lectureContentURI = URIRef(lectureContent + str(i))
+                lectureContentURI = URIRef(lectureContent + courseName + "_content_" + str(i))
                 g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
                 g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
                 g.add((lectureContentURI, RDFS.comment,
@@ -113,7 +113,7 @@ def topicTriplesGenerator(courseFolders):
                 g.add((URIRef(slidesURI), RDFS.comment, Literal("Slides of lecture.", lang='en')))
 
                 # Define class lecture
-                lectureURI = URIRef(lecture + str(i))
+                lectureURI = URIRef(lecture + courseName + "_lecture_" + str(i))
                 g.add((lectureURI, RDF.type, lecture.lecture))
                 # Create separate triples for each lecture part each course
                 g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
@@ -126,7 +126,7 @@ def topicTriplesGenerator(courseFolders):
             numFiles = countFilesInFolder(lectureFolderAssignments)
             for i in range(1, numFiles + 1):
                 # Define class LectureContent
-                lectureContentURI = URIRef(lectureContent + str(i))
+                lectureContentURI = URIRef(lectureContent + courseName + "_content_" + str(i))
                 g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
                 g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
                 g.add((lectureContentURI, RDFS.comment,
@@ -140,7 +140,7 @@ def topicTriplesGenerator(courseFolders):
                 g.add((URIRef(assignmentsURI), RDFS.comment, Literal("Assignments of lecture.", lang='en')))
 
                 # Define class lecture
-                lectureURI = URIRef(lecture + str(i))
+                lectureURI = URIRef(lecture + courseName + "_lecture_" + str(i))
                 g.add((lectureURI, RDF.type, lecture.lecture))
                 # Create separate triples for each lecture part each course
                 g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
@@ -153,7 +153,7 @@ def topicTriplesGenerator(courseFolders):
             numFiles = countFilesInFolder(lectureFolderAssignments)
             for i in range(1, numFiles + 1):
                 # Define class LectureContent
-                lectureContentURI = URIRef(lectureContent + str(i))
+                lectureContentURI = URIRef(lectureContent + courseName + "_content_" + str(i))
                 g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
                 g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
                 g.add((lectureContentURI, RDFS.comment,
@@ -167,7 +167,7 @@ def topicTriplesGenerator(courseFolders):
                 g.add((URIRef(worksheetsURI), RDFS.comment, Literal("Worksheet of lecture.", lang='en')))
 
                 # Define class lecture
-                lectureURI = URIRef(lecture + str(i))
+                lectureURI = URIRef(lecture + courseName + "_lecture_" + str(i))
                 g.add((lectureURI, RDF.type, lecture.lecture))
                 # Create separate triples for each lecture part each course
                 g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
