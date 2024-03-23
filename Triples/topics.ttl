@@ -1,0 +1,209 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix foaf1: <http://xmlns.com/foaf/.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <https://www.wikidata.org/wiki/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix course: <http://example.org/course#> .
+@prefix student: <http://example.org/student#> .
+@prefix topic: <http://example.org/topic#> .
+@prefix lecture: <http://example.org/lecture#> .
+@prefix slides: <http://example.org/slides#> .
+@prefix lectureContent: <http://example.org/lectureContent#> .
+@prefix worksheets: <http://example.org/worksheets#> .
+@prefix other: <http://example.org/other#> .
+@prefix readings: <http://example.org/readings#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix university: <https://www.wikidata.org/entity/Q3918>.
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Introduction to Intelligent Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Introduction to Knowledge Graphs (RDF)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#>;
+    rdfs:label "Knowledge Graphs: Vocabularies & Ontologies (RDFS, OWL)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Knowledge Base Queries (SPARQL) and Linked Open Data (LOD)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Personalization & Recommender Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Introduction to Machine Learning (ML) for Intelligent Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Intelligent Agents & Introduction to Natural Language Processing (NLP)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Text Mining Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Text Mining Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Text Mining Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Artificial Neural Networks (ANNs) & Word Embeddings" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Introduction to Deep Learning" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Deep Learning for Intelligent Systems" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp474.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Introduction to theory of computation" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "(Deterministic) Finite State Automata" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "(Non-Deterministic) Finite State Automata" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Regular Languages" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Regular Expressions" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Regular Grammars" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Closure Properties of Regular Languages" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Pumping Lemma for Regular Languages" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Context-Free (CF) Languages and Grammars (MFG)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Simplification of CFGs and Normal Forms" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Push-Down Automata (PDA)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Non-deterministic PDA " ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Deterministic PDA" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Closure Properties of CFLs" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Pumping Lemma for CFLs" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Turing Machines (TM)" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Combining TMs, Turing’s Thesis" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "Universal TM, Decidability & Undecidability" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .
+
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+    rdfs:label "The Halting Problem" ;
+    topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
+    topic:provenanceInformation "course_outline_comp335.pdf" ;
+    topic:wikidataEntry wd:Q33002955 .

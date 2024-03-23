@@ -1,52 +1,54 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix student: <http://example.org/student#> .
+@prefix course: <http://example.org/course#> .
 
 
 #Student class
-rdfs:Student a rdfs:Class;
+student:Student a rdfs:Class ;
     rdfs:label "Student" ;
-    rdfs:comment "This is a Student Class."@en.
+    rdfs:comment "This is a Student Class."@en .
 
-#Properties
-rdfs:hasFirstName a rdf:Property;
-    rdfs:label "hasFirstName";
-    rdfs:domain rdfs:Student;
-    rdfs:range xsd:string;
-    rdfs:comment "Student First Name."@en.
+#Student Properties
+student:hasCompetency a rdf:Property ;
+    rdfs:label "hasCompetency" ;
+    rdfs:comment "Student has Completed."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range <../Topics> .
 
-rdfs:hasLastName a rdf:Property;
-    rdfs:label "hasLastName";
-    rdfs:domain rdfs:Student;
-    rdfs:range xsd:string;
-    rdfs:comment "Student Last Name."@en.
+student:hasEmail a rdf:Property ;
+    rdfs:label "hasEmail" ;
+    rdfs:comment "Student Email."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range xsd:string .
 
-rdfs:hasIDNumber a rdf:Property;
-    rdfs:label "hasIDNumber";
-    rdfs:domain rdfs:Student;
-    rdfs:range xsd:string;
-    rdfs:comment "Student ID."@en.
+student:hasFirstName a rdf:Property ;
+    rdfs:label "hasFirstName" ;
+    rdfs:comment "Student First Name."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range xsd:string .
 
-rdfs:hasEmail a rdf:Property;
-    rdfs:label "hasEmail";
-    rdfs:domain rdfs:Student;
-    rdfs:range xsd:string;
-    rdfs:comment "Student Email."@en.
+student:hasGrade a rdf:Property ;
+    rdfs:label "hasGrade" ;
+    rdfs:comment "Student received a letter grade."@en ;
+    rdfs:domain student:hasCompletedCourse ;
+    rdfs:range xsd:string .
 
-rdfs:hasCompletedCourse a rdf:Property;
-    rdfs:label "hasCompletedCourse";
-    rdfs:domain rdfs:Student;
-    rdfs:range rdfs:Course;
-    rdfs:comment "Student has completed course."@en.
+student:hasIDNumber a rdf:Property ;
+    rdfs:label "hasIDNumber" ;
+    rdfs:comment "Student ID."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range xsd:string .
 
-rdfs:hasGrade a rdf:Property;
-    rdfs:label "hasGrade";
-    rdfs:domain rdfs:hasCompletedCourse;
-    rdfs:range xsd:string;
-    rdfs:comment "Student received a letter grade."@en.
+student:hasLastName a rdf:Property ;
+    rdfs:label "hasLastName" ;
+    rdfs:comment "Student Last Name."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range xsd:string .
 
-rdfs:hasCompetency a rdf:Property;
-    rdfs:label "hasCompetency";
-    rdfs:domain rdfs:Student;
-    rdfs:range <../Topics.ttl>;
-    rdfs:comment "Student has Completed."@en.
+student:hasCompletedCourse a rdf:Property ;
+    rdfs:label "hasCompletedCourse" ;
+    rdfs:comment "Student has completed course."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range course:Course .
