@@ -183,7 +183,8 @@ rdfs:LectureContent a rdf:Class ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Lecture Content: Worksheets, Readings, Other..."@en ;
     rdfs:domain rdfs:Lecture ;
-    rdfs:range foaf1:Document .
+    rdfs:range foaf1:Document ;
+    rdfs:subClassOf lecture:lecture .
 
 lecture:lectureContent a rdf:Property ;
     rdfs:label "Lecture Content" ;

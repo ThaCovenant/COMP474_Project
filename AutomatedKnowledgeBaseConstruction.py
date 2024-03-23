@@ -22,6 +22,7 @@ worksheets = Namespace("http://example.org/worksheets#")
 other = Namespace("http://example.org/other#")
 readings = Namespace("http://example.org/readings#")
 ex = Namespace("http://example.org/")
+assignments = Namespace("http://example.org/assignments#")
 
 
 def createGraph(g1, filePath):
@@ -82,42 +83,97 @@ def topicTriplesGenerator(courseFolders):
 
     g.bind("lecture", lecture)
     g.bind("lectureContent", lectureContent)
+    g.bind("assignments", assignments)
     g.bind("worksheets", worksheets)
     g.bind("other", other)
     g.bind("readings", readings)
     g.bind("slides", slides)
 
-    for courseFolder in courseFolders:
-        courseName = os.path.basename(courseFolder)
-        # print(courseName)
+    courseNames = []
 
-    lectureFolder = os.path.join(courseFolder, "Lectures")
-    if os.path.exists(lectureFolder):
-        numFiles = countFilesInFolder(lectureFolder)
-        for i in range(1, numFiles + 1):
+    for folder in courseFolders:
+        courseName = folder.split("/")[-1]
 
-            # Define class LectureContent
-            lectureContentURI = URIRef(lectureContent + str(i))
-            g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
-            g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
-            g.add((lectureContentURI, RDFS.comment, Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
+        lectureFolderLectures = os.path.join(folder, "Lectures")
+        if os.path.exists(lectureFolderLectures):
+            numFiles = countFilesInFolder(lectureFolderLectures)
+            for i in range(1, numFiles + 1):
+                # Define class LectureContent
+                lectureContentURI = URIRef(courseName + lectureContent + str(i))
+                g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
+                g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
+                g.add((lectureContentURI, RDFS.comment,
+                       Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
 
-            # Define class slides
-            slidesURI = URIGenerator(courseName, "Lecture", i)
-            g.add((URIRef(slidesURI), RDF.type, slides.slides))
-            g.add((URIRef(slidesURI), RDFS.subClassOf, lectureContent.lectureContent))
-            g.add((URIRef(slidesURI), RDFS.label, Literal("Lecture Slides")))
-            g.add((URIRef(slidesURI), RDFS.comment, Literal("Slides of lecture.", lang='en')))
+                # Define class slides
+                slidesURI = URIGenerator(courseName, "Lecture", i)
+                g.add((URIRef(slidesURI), RDF.type, slides.slides))
+                g.add((URIRef(slidesURI), RDFS.subClassOf, lectureContent.lectureContent))
+                g.add((URIRef(slidesURI), RDFS.label, Literal("Lecture Slides")))
+                g.add((URIRef(slidesURI), RDFS.comment, Literal("Slides of lecture.", lang='en')))
 
-            # Define class lecture
-            lectureURI = URIRef(lecture + str(i))
-            g.add((lectureURI, RDF.type, lecture.lecture))
-            # Create separate triples for each lecture part each course
-            g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
-            g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
-            g.add((URIRef(lectureURI), RDFS.comment, Literal("This is a lecture.", lang='en')))
+                # Define class lecture
+                lectureURI = URIRef(courseName + lecture + str(i))
+                g.add((lectureURI, RDF.type, lecture.lecture))
+                # Create separate triples for each lecture part each course
+                g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
+                g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
+                g.add((URIRef(lectureURI), RDFS.comment, Literal("This is a lecture.", lang='en')))
+                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
 
-            # lectureURI.append(URIGenerator(courseName, "Lecture", i))
+        lectureFolderAssignments = os.path.join(folder, "Assignments")
+        if os.path.exists(lectureFolderAssignments):
+            numFiles = countFilesInFolder(lectureFolderAssignments)
+            for i in range(1, numFiles + 1):
+                # Define class LectureContent
+                lectureContentURI = URIRef(courseName + lectureContent + str(i))
+                g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
+                g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
+                g.add((lectureContentURI, RDFS.comment,
+                       Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
+
+                # Define class assignments
+                assignmentsURI = URIGenerator(courseName, "Assignment", i)
+                g.add((URIRef(assignmentsURI), RDF.type, assignments.assignments))
+                g.add((URIRef(assignmentsURI), RDFS.subClassOf, lectureContent.lectureContent))
+                g.add((URIRef(assignmentsURI), RDFS.label, Literal("Assignments PDF")))
+                g.add((URIRef(assignmentsURI), RDFS.comment, Literal("Assignments of lecture.", lang='en')))
+
+                # Define class lecture
+                lectureURI = URIRef(courseName + lecture + str(i))
+                g.add((lectureURI, RDF.type, lecture.lecture))
+                # Create separate triples for each lecture part each course
+                g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
+                g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
+                g.add((URIRef(lectureURI), RDFS.comment, Literal("This is a lecture.", lang='en')))
+                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
+
+        lectureFolderAssignments = os.path.join(folder, "Worksheet")
+        if os.path.exists(lectureFolderAssignments):
+            numFiles = countFilesInFolder(lectureFolderAssignments)
+            for i in range(1, numFiles + 1):
+                # Define class LectureContent
+                lectureContentURI = URIRef(courseName + lectureContent + str(i))
+                g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
+                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
+                g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
+                g.add((lectureContentURI, RDFS.comment,
+                       Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
+
+                # Define class Worksheet
+                worksheetsURI = URIGenerator(courseName, "Worksheet", i)
+                g.add((URIRef(worksheetsURI), RDF.type, worksheets.worksheets))
+                g.add((URIRef(worksheetsURI), RDFS.subClassOf, lectureContent.lectureContent))
+                g.add((URIRef(worksheetsURI), RDFS.label, Literal("Worksheet PDF")))
+                g.add((URIRef(worksheetsURI), RDFS.comment, Literal("Worksheet of lecture.", lang='en')))
+
+                # Define class lecture
+                lectureURI = URIRef(courseName + lecture + str(i))
+                g.add((lectureURI, RDF.type, lecture.lecture))
+                # Create separate triples for each lecture part each course
+                g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
+                g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
+                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
 
     return g
 

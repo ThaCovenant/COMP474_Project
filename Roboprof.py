@@ -29,7 +29,7 @@ def main():
 
     g2 = Graph()
     g2.parse(file_path_triples, format="ttl")
-    print(g2.serialize(format='turtle'))
+    # print(g2.serialize(format='turtle'))
 
     folders = [file_path_courseMaterial_Comp335, file_path_courseMaterial_Comp474]
     g3 = topicTriplesGenerator(folders)
@@ -39,7 +39,7 @@ def main():
     g4.parse(file_path_topics, format="ttl")
 
     g5 = g1 + g2 + g3 + g4
-    print(g5.serialize(format='turtle'))
+    # print(g5.serialize(format='turtle'))
     createGraph(g5, file_path_merge)
 
 
