@@ -1,8 +1,3 @@
-#Query 3 (list all topics covered in a class filtered by lecture number)
-SELECT ?topic ?lecture_number
-WHERE {
-  ?course a course:Course;
-    course:hasTopic ?topic.
-    course:hasLecture ?Lecture.
-  FILTER (?lecture_number = 3)
-}
+  <http://example.org/course#COMP474> <http://example.org/course#hasTopic> ?topic.
+  <http://example.org/course#COMP474> <http://example.org/course#hasLecture> ?lecture_number.
+  FILTER(?lecture_number = <http://example.org/lecture#Lecture2>)

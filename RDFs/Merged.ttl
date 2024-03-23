@@ -140,6 +140,12 @@ topic:wikidataEntry a rdf:Property ;
     rdfs:domain topic:Topic ;
     rdfs:range rdfs:Resource .
 
+topic:material a rdf:Property;
+    rdfs:label "material";
+    rdfs:comment "material for the topic";
+    rdfs:domain topic:Topic;
+    rdfs:range foaf1:Document.
+
 #Student Properties
 student:hasCompetency a rdf:Property ;
     rdfs:label "hasCompetency" ;

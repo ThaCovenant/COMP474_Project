@@ -1,7 +1,8 @@
 #Query 5 (list all materials of a course filtered by topic)
 # lecture:LectureContent a rdf:Class ; for slides, readings, etc
-SELECT ?material ?topic
+SELECT ?topic ?material
 WHERE {
-  course ex:hasMaterial ?material. #missing property hasMaterial
-  FILTER (?topic = "Knowledge Graphs")
+  <http://example.org/course#COMP335> <http://example.org/course#hasTopic> ?topic.
+  ?topic <http://example.org/topic#material> ?material.
+  FILTER(?topic = <http://example.org/topic#DeterministicFiniteStateAutomata>)
 }

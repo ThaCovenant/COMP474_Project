@@ -1,8 +1,5 @@
-
-
 #Query 2 (list all courses that have a specific topic)
 SELECT ?course
 WHERE {
-  ?course a course:Course; 
-    course:hasTopic topic.
+  ?course <http://example.org/course#hasTopic> <http://example.org/topic#DeterministicFiniteStateAutomata>.
 }
