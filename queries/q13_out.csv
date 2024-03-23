@@ -1,2 +1,9 @@
-JimmyTran, COMP472, B-
-JimmyTran, AERO417, B
+"firstName","lastName","courses","grade"
+"Jimmy","Tran","http://example.org/course/COMP474","A"
+"Jimmy","Tran","http://example.org/course/COMP474","F"
+"Jimmy","Tran","http://example.org/course/COMP474","B"
+"Jimmy","Tran","http://example.org/course/AERO417","B"
+"Jimmy","Tran","http://example.org/course#COMP474","A"
+"Jimmy","Tran","http://example.org/course#COMP474","F"
+"Jimmy","Tran","http://example.org/course#COMP474","B"
+"Jimmy","Tran","http://example.org/course#AERO417","B"

@@ -1,6 +1,5 @@
 #Query 11 (list all grades obtained in the course filtered by student)
-SELECT ?student ?grades
+SELECT ?grades
 WHERE {
-  course course:hasGrades ?grades. #missing property "hasGrades"
-  FILTER (?student = "Philippe Bertrand")
+  <http://example.org/grade/40044279/COMP474> <http://example.org/student#gradeValue> ?grades.
 }
