@@ -37,6 +37,21 @@ def createGraphs():
 
     return g6
 
+def LectureGraph(textfile):
+    g = rdflib.Graph()
+    f = open(textfile, "r")
+    courseURI = "https://www.concordia.ca/academics/undergraduate/calendar/current/section-71-gina-cody-school-of-engineering-and-computer-science/section-71-70-department-of-computer-science-and-software-engineering/section-71-70-10-computer-science-and-software-engineering-courses.html"
+    line = (f.readline()).split(",")
+    while line != "":
+        courseSubject = line[0]
+        for e in range(len(line)):
+            label = (courseSubject+"Lecture"+str(e+1))
+            print(URIGenerator(courseSubject,"Lecture",(e+1)))
+            g.add((URIGenerator(courseSubject,"Lecture",e+1)),label,courseURI)
+        line = (f.readline()).split(",")
+    f.close()
+    return g
+
 
 def URIGenerator(course, filetype, nb):
     if nb < 9:

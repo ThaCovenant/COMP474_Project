@@ -27,12 +27,12 @@ def main():
     g3 = mergeGraphs(g1, g2)
     createGraph(g3, file_path_merge)
 
-    g4 = Graph()
-    g4.parse(file_path_topics, format="ttl")
-    g5 = mergeGraphs(g3, g4)
+    # g4 = Graph()
+    # g4.parse(file_path_topics, format="ttl")
+    # g5 = mergeGraphs(g3, g4)
 
 
-    print(g5.serialize(format='turtle'))
+    print(g3.serialize(format='turtle'))
 
 
 if __name__ == '__main__':
