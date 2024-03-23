@@ -37,6 +37,7 @@ def createGraphs():
 
     return g6
 
+
 def LectureGraph(textfile):
     g = rdflib.Graph()
     f = open(textfile, "r")
@@ -45,9 +46,9 @@ def LectureGraph(textfile):
     while line != "":
         courseSubject = line[0]
         for e in range(len(line)):
-            label = (courseSubject+"Lecture"+str(e+1))
-            print(URIGenerator(courseSubject,"Lecture",(e+1)))
-            g.add((URIGenerator(courseSubject,"Lecture",e+1)),label,courseURI)
+            label = (courseSubject + "Lecture" + str(e + 1))
+            print(URIGenerator(courseSubject, "Lecture", (e + 1)))
+            g.add((URIGenerator(courseSubject, "Lecture", e + 1)), label, courseURI)
         line = (f.readline()).split(",")
     f.close()
     return g
