@@ -66,15 +66,20 @@ student:40175886 a <http://example.org/student> ;
 <http://example.org/grade/40175886/COMP474> student:gradeForCourse course:COMP474 ;
     student:gradeValue "A" .
 
-course:AERO417 a <http://example.org/course> .
+course:AERO417 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>.
 
-course:COEN311 a <http://example.org/course> .
+course:COEN311 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
 
-course:COEN316 a <http://example.org/course> .
+course:COEN316 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
 
-course:COMP472 a <http://example.org/course> .
+course:COMP472 a <http://example.org/course>;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342> .
 
 course:COMP474 a <http://example.org/course> ;
+    course:offeredBy <https://www.wikidata.org/entity/Q326342>;
     course:hasLecture lecture:Lecture1;
     course:hasLecture lecture:Lecture2.
 
@@ -98,9 +103,4 @@ lecture:Lecture1 a <http://example.org/lecture>;
 
 <https://www.wikidata.org/entity/Q326342> a <https://www.wikidata.org/entity/Q3918> ;
     university:hasName "Concordia University" ;
-    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;
-    university:hasCourse course:AERO417;
-    university:hasCourse course:COEN311;
-    university:hasCourse course:COEN316;
-    university:hasCourse course:COMP472;
-    university:hasCourse course:COMP474; .
+    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University>;.
