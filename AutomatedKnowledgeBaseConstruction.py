@@ -221,6 +221,8 @@ def studentDataToRDFTriples(student_data):
         g.add((course_uri, RDFS.label, Literal("course")))
         g.add((course_uri, RDFS.comment, Literal("A course offered by the university.", lang='en')))
         g.add((course_uri, course.courseName, Literal(row["Course"].replace(" ", ""))))
+        g.add((course_uri, course.courseSubject, Literal(row["Course"].split(" ")[0])))
+        g.add((course_uri, course.courseNumber, Literal(row["Course"].split(" ")[1])))
 
         # Student Properties continue
         g.add((student_uri, student.hasCompletedCourse, course_uri))
