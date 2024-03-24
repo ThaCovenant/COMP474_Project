@@ -3,7 +3,7 @@
 @prefix dbo: <http://dbpedia.org/ontology>.
 @prefix foaf: <http://xmlns.com/foaf/.1/>.
 @prefix wd: <https://wwww.wikidata.org/wiki/>.
-@prefix university: <http://example.org/university#> .
+@prefix university: <http://example.org/university/> .
 
 
 #Creating Classes

@@ -1,8 +1,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix course: <http://example.org/course#> .
-@prefix university: <http://example.org/university#> .
+@prefix course: <http://example.org/course/> .
+@prefix university: <http://example.org/university/> .
+@prefix topic: <http://example.org/topic/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
 # Courses
@@ -16,7 +18,7 @@ course:courseCredit a rdf:Property ;
     rdfs:label "Course Credits" ;
     rdfs:comment "The number of credits assigned to the course."@en ;
     rdfs:domain course:Course ;
-    rdfs:range rdfs:Literal .
+    rdfs:range xsd:integer .
 
 course:courseDescription a rdf:Property ;
     rdfs:label "Course Description" ;
@@ -59,7 +61,7 @@ course:hasTopic a rdf:Property ;
     rdfs:label "has topic"@en ;
     rdfs:comment "Specifies the topic of a course"@en ;
     rdfs:domain course:Course ;
-    rdfs:range <../Topics> .
+    rdfs:range topic:Topic .
 
 course:offeredBy a rdf:Property ;
     rdfs:label "offered by"@en ;

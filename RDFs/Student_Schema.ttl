@@ -1,8 +1,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix student: <http://example.org/student#> .
-@prefix course: <http://example.org/course#> .
+@prefix student: <http://example.org/student/> .
+@prefix course: <http://example.org/course/> .
+@prefix topic: <http://example.org/topic/> .
 
 
 #Student class
@@ -15,7 +16,7 @@ student:hasCompetency a rdf:Property ;
     rdfs:label "hasCompetency" ;
     rdfs:comment "Student has Completed."@en ;
     rdfs:domain student:Student ;
-    rdfs:range <../Topics> .
+    rdfs:range topic:Topic .
 
 student:hasEmail a rdf:Property ;
     rdfs:label "hasEmail" ;
@@ -29,21 +30,21 @@ student:hasFirstName a rdf:Property ;
     rdfs:domain student:Student ;
     rdfs:range xsd:string .
 
+student:hasLastName a rdf:Property ;
+    rdfs:label "hasLastName" ;
+    rdfs:comment "Student Last Name."@en ;
+    rdfs:domain student:Student ;
+    rdfs:range xsd:string .
+
 student:hasGrade a rdf:Property ;
     rdfs:label "hasGrade" ;
     rdfs:comment "Student received a letter grade."@en ;
-    rdfs:domain student:hasCompletedCourse ;
+    rdfs:domain student:Student ;
     rdfs:range xsd:string .
 
 student:hasIDNumber a rdf:Property ;
     rdfs:label "hasIDNumber" ;
     rdfs:comment "Student ID."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
-
-student:hasLastName a rdf:Property ;
-    rdfs:label "hasLastName" ;
-    rdfs:comment "Student Last Name."@en ;
     rdfs:domain student:Student ;
     rdfs:range xsd:string .
 

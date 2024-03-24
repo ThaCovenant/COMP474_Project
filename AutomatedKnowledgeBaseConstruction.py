@@ -2,7 +2,7 @@ import os.path
 
 import pandas as pd
 
-from rdflib import URIRef, Graph, Literal, Namespace, RDF, FOAF, RDFS
+from rdflib import URIRef, Graph, Literal, Namespace, RDF, FOAF, RDFS, XSD
 
 # Load RDF data from turtle files
 file_path_students = "data/students_grades.csv"
@@ -12,15 +12,15 @@ file_path_triples = "Triples/triples.ttl"
 
 # Command to create user defined namespaces
 kb = URIRef("http://example.org/knowledge-base#")
-student = Namespace("http://example.org/student#")
-course = Namespace("http://example.org/course#")
-grade = Namespace("http://example.org/grade#")
-lecture = Namespace("http://example.org/lecture#")
-slides = Namespace("http://example.org/slides#")
-lectureContent = Namespace("http://example.org/lectureContent#")
-worksheets = Namespace("http://example.org/worksheets#")
-other = Namespace("http://example.org/other#")
-readings = Namespace("http://example.org/readings#")
+student = Namespace("http://example.org/student/")
+course = Namespace("http://example.org/course/")
+
+lecture = Namespace("http://example.org/lecture/")
+slides = Namespace("http://example.org/slides/")
+lectureContent = Namespace("http://example.org/lectureContent/")
+worksheets = Namespace("http://example.org/worksheets/")
+other = Namespace("http://example.org/other/")
+readings = Namespace("http://example.org/readings/")
 ex = Namespace("http://example.org/")
 assignments = Namespace("http://example.org/assignments#")
 
@@ -34,33 +34,33 @@ def createGraph(g1, filePath):
 def URIGenerator(courseName, filetype, nb):
     if nb < 9:
         match filetype:
-            case "Lecture":
+            case "Lectures":
                 if courseName == "COMP335":
-                    x = "file:///home/roboprof/" + courseName + "/Lectures/slides0" + str(nb) + ".ppt"
+                    x = "file:///home/roboprof/" + courseName + "/Lectures/slide" + str(nb) + ".ppt"
                 else:
-                    x = "file:///home/roboprof/" + courseName + "/Lectures/slides0" + str(nb) + ".pdf"
+                    x = "file:///home/roboprof/" + courseName + "/Lectures/slide" + str(nb) + ".pdf"
                 return x
-            case "Worksheet":
-                x = "file:///home/roboprof/" + courseName + "/Worksheet/worksheet0" + str(nb) + ".pdf"
+            case "Worksheets":
+                x = "file:///home/roboprof/" + courseName + "/Worksheets/worksheet" + str(nb) + ".pdf"
                 return x
-            case "Assignment":
+            case "Assignments":
                 x = "file:///home/roboprof/" + courseName + "/Assignments/asg" + str(nb) + ".pdf"
                 return x
     else:
         match filetype:
-            case "Lecture":
+            case "Lectures":
                 if courseName == "COMP335":
                     if nb == 19:
-                        x = "file:///home/roboprof/" + courseName + "/Lectures/slides" + str(nb) + ".pptx"
+                        x = "file:///home/roboprof/" + courseName + "/Lectures/slide" + str(nb) + ".pptx"
                     else:
-                        x = "file:///home/roboprof/" + courseName + "/Lectures/slides" + str(nb) + ".ppt"
+                        x = "file:///home/roboprof/" + courseName + "/Lectures/slide" + str(nb) + ".ppt"
                 else:
-                    x = "file:///home/roboprof/" + courseName + "/Lectures/slides" + str(nb) + ".pdf"
+                    x = "file:///home/roboprof/" + courseName + "/Lectures/slide" + str(nb) + ".pdf"
                 return x
-            case "Worksheet":
-                x = "file:///home/roboprof/" + courseName + "/Worksheet/worksheet" + str(nb) + ".pdf"
+            case "Worksheets":
+                x = "file:///home/roboprof/" + courseName + "/Worksheets/worksheet" + str(nb) + ".pdf"
                 return x
-            case "Assignment":
+            case "Assignments":
                 x = "file:///home/roboprof/" + courseName + "/Assignments/asg" + str(nb) + ".pdf"
                 return x
 
@@ -88,8 +88,11 @@ def topicTriplesGenerator(courseFolders):
     g.bind("other", other)
     g.bind("readings", readings)
     g.bind("slides", slides)
-
-    courseNames = []
+    g.bind("course", course)
+    g.bind("foaf", FOAF)
+    g.bind("rdfs", RDFS)
+    g.bind("rdf", RDF)
+    g.bind("xsd", XSD)
 
     for folder in courseFolders:
         courseName = folder.split("/")[-1]
@@ -98,82 +101,86 @@ def topicTriplesGenerator(courseFolders):
         if os.path.exists(lectureFolderLectures):
             numFiles = countFilesInFolder(lectureFolderLectures)
             for i in range(1, numFiles + 1):
-                # Define class LectureContent
-                lectureContentURI = URIRef(lectureContent + courseName + "_content_" + str(i))
-                g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
-                g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
-                g.add((lectureContentURI, RDFS.comment,
-                       Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
+                # Create lectureURI instance of Lecture class
+                lectureURI = URIRef(lecture + courseName + "_Lecture_" + str(i))
+                g.add((lectureURI, RDF.type, lecture.lecture))
+                g.add((lectureURI, RDFS.label, Literal("Lecture")))
+                g.add((lectureURI, RDFS.comment, Literal("This is a lecture.", lang='en')))
 
-                # Define class slides
-                slidesURI = URIGenerator(courseName, "Lecture", i)
+                # Create course_uri instance of class course
+                course_uri = URIRef(course + courseName)
+                # print(course_uri)
+                g.add((course_uri, RDF.type, course.course))
+                g.add((course_uri, course.courseName, Literal(courseName)))
+
+                # Lecture lectureURI Properties
+                g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))
+                g.add((lectureURI, lecture.partOfCourse, course_uri))
+                g.add((lectureURI, lecture.lectureContent, lectureContent.slides))
+
+                # Create slidesURI instance of Slides class
+                slidesURI = URIGenerator(courseName, "Lectures", i)
+                # print(slidesURI)
                 g.add((URIRef(slidesURI), RDF.type, slides.slides))
                 g.add((URIRef(slidesURI), RDFS.subClassOf, lectureContent.lectureContent))
-                g.add((URIRef(slidesURI), RDFS.label, Literal("Lecture Slides")))
+                g.add((URIRef(slidesURI), RDFS.label, Literal("Slides PDF")))
                 g.add((URIRef(slidesURI), RDFS.comment, Literal("Slides of lecture.", lang='en')))
-
-                # Define class lecture
-                lectureURI = URIRef(lecture + courseName + "_lecture_" + str(i))
-                g.add((lectureURI, RDF.type, lecture.lecture))
-                # Create separate triples for each lecture part each course
-                g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
-                g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
-                g.add((URIRef(lectureURI), RDFS.comment, Literal("This is a lecture.", lang='en')))
-                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
 
         lectureFolderAssignments = os.path.join(folder, "Assignments")
         if os.path.exists(lectureFolderAssignments):
             numFiles = countFilesInFolder(lectureFolderAssignments)
             for i in range(1, numFiles + 1):
-                # Define class LectureContent
-                lectureContentURI = URIRef(lectureContent + courseName + "_content_" + str(i))
-                g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
-                g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
-                g.add((lectureContentURI, RDFS.comment,
-                       Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
+                # Create lectureURI instance of Lecture class
+                lectureURI = URIRef(lecture + courseName + "_Lecture_" + str(i))
+                g.add((lectureURI, RDF.type, lecture.lecture))
+                g.add((lectureURI, RDFS.label, Literal("Lecture")))
+                g.add((lectureURI, RDFS.comment, Literal("This is a lecture.", lang='en')))
 
-                # Define class assignments
-                assignmentsURI = URIGenerator(courseName, "Assignment", i)
+                # Create course_uri instance of class course
+                course_uri = URIRef(course + courseName)
+                # print(course_uri)
+                g.add((course_uri, RDF.type, course.course))
+                g.add((course_uri, course.courseName, Literal(courseName)))
+
+                # Lecture lectureURI Properties
+                g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))
+                g.add((lectureURI, lecture.partOfCourse, course.courseName))
+                g.add((lectureURI, lecture.lectureContent, lectureContent.assignments))
+
+                # Create assignmentURI instance of Assignment class
+                assignmentsURI = URIGenerator(courseName, "Assignments", i)
                 g.add((URIRef(assignmentsURI), RDF.type, assignments.assignments))
                 g.add((URIRef(assignmentsURI), RDFS.subClassOf, lectureContent.lectureContent))
                 g.add((URIRef(assignmentsURI), RDFS.label, Literal("Assignments PDF")))
                 g.add((URIRef(assignmentsURI), RDFS.comment, Literal("Assignments of lecture.", lang='en')))
 
-                # Define class lecture
-                lectureURI = URIRef(lecture + courseName + "_lecture_" + str(i))
-                g.add((lectureURI, RDF.type, lecture.lecture))
-                # Create separate triples for each lecture part each course
-                g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
-                g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
-                g.add((URIRef(lectureURI), RDFS.comment, Literal("This is a lecture.", lang='en')))
-                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
-
-        lectureFolderAssignments = os.path.join(folder, "Worksheet")
-        if os.path.exists(lectureFolderAssignments):
-            numFiles = countFilesInFolder(lectureFolderAssignments)
+        lectureFolderWorksheets = os.path.join(folder, "Worksheets")
+        if os.path.exists(lectureFolderWorksheets):
+            numFiles = countFilesInFolder(lectureFolderWorksheets)
             for i in range(1, numFiles + 1):
-                # Define class LectureContent
-                lectureContentURI = URIRef(lectureContent + courseName + "_content_" + str(i))
-                g.add((lectureContentURI, RDF.type, lectureContent.lectureContent))
-                g.add((lectureContentURI, RDFS.label, Literal("Lecture Content")))
-                g.add((lectureContentURI, RDFS.comment,
-                       Literal("Lecture Content: Worksheets, Readings, Other...", lang='en')))
+                # Create lectureURI instance of Lecture class
+                lectureURI = URIRef(lecture + courseName + "_Lecture_" + str(i))
+                g.add((lectureURI, RDF.type, lecture.lecture))
+                g.add((lectureURI, RDFS.label, Literal("Lecture")))
+                g.add((lectureURI, RDFS.comment, Literal("This is a lecture.", lang='en')))
 
-                # Define class Worksheet
-                worksheetsURI = URIGenerator(courseName, "Worksheet", i)
+                # Create course_uri instance of class course
+                course_uri = URIRef(course + courseName)
+                # print(course_uri)
+                g.add((course_uri, RDF.type, course.course))
+                g.add((course_uri, course.courseName, Literal(courseName)))
+
+                # Lecture lectureURI Properties
+                g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))
+                g.add((lectureURI, lecture.partOfCourse, course.courseName))
+                g.add((lectureURI, lecture.lectureContent, lectureContent.worksheets))
+
+                # Create assignmentURI instance of Assignment class
+                worksheetsURI = URIGenerator(courseName, "Worksheets", i)
                 g.add((URIRef(worksheetsURI), RDF.type, worksheets.worksheets))
                 g.add((URIRef(worksheetsURI), RDFS.subClassOf, lectureContent.lectureContent))
-                g.add((URIRef(worksheetsURI), RDFS.label, Literal("Worksheet PDF")))
-                g.add((URIRef(worksheetsURI), RDFS.comment, Literal("Worksheet of lecture.", lang='en')))
-
-                # Define class lecture
-                lectureURI = URIRef(lecture + courseName + "_lecture_" + str(i))
-                g.add((lectureURI, RDF.type, lecture.lecture))
-                # Create separate triples for each lecture part each course
-                g.add((URIRef(lectureURI), RDFS.subClassOf, URIRef(course + courseName)))
-                g.add((URIRef(lectureURI), RDFS.label, Literal("Lecture")))
-                g.add((lectureContentURI, RDFS.subClassOf, URIRef(lectureURI)))
-
+                g.add((URIRef(worksheetsURI), RDFS.label, Literal("This is a Worksheets")))
+                g.add((URIRef(worksheetsURI), RDFS.comment, Literal("Worksheets of lecture.", lang='en')))
     return g
 
 
@@ -193,36 +200,32 @@ def studentDataToRDFTriples(student_data):
     g.bind("rdf", RDF)
     g.bind("student", student)
     g.bind("course", course)
-    g.bind("grade", grade)
 
     # print(g.serialize(format='turtle'))
 
     for index, row in student_data.iterrows():
+        # Create student_uri instance of class Student
         student_uri = URIRef(student + str(row["ID"]))
         g.add((student_uri, RDF.type, student.student))
         g.add((student_uri, RDFS.label, Literal("Student")))
         g.add((student_uri, RDFS.comment, Literal("This is a Student Class.", lang='en')))
 
-        # Properties
+        # Student Properties
         g.add((student_uri, student.hasFirstName, Literal(row["First Name"])))
         g.add((student_uri, student.hasLastName, Literal(row["Last Name"])))
         g.add((student_uri, student.hasIDNumber, Literal(row["ID"])))
 
-        # Define course as a class
+        # Create course_uri instance of class course
         course_uri = URIRef(course + row["Course"].replace(" ", ""))
-        g.add((course_uri, RDF.type, ex.course))
+        g.add((course_uri, RDF.type, course.course))
         g.add((course_uri, RDFS.label, Literal("course")))
         g.add((course_uri, RDFS.comment, Literal("A course offered by the university.", lang='en')))
+        g.add((course_uri, course.courseName, Literal(row["Course"].replace(" ", ""))))
 
-        # Create separate triples for each course taken by each student
+        # Student Properties continue
         g.add((student_uri, student.hasCompletedCourse, course_uri))
+        g.add((student_uri, student.hasGrade, Literal(row["Grade"])))
 
         # Associate grade with course
-        grade_uri = URIRef(grade + str(row['ID']) + '/' + row['Course'].replace(" ", ""))
-        g.add((student_uri, student.hasGrade, grade_uri))
-        g.add((grade_uri, student.gradeValue, Literal(row["Grade"])))
-        g.add((grade_uri, student.gradeForCourse, course_uri))
-        g.add((grade_uri, RDFS.label, Literal("grade")))
-        g.add((grade_uri, RDFS.comment, Literal("Grade of student.", lang='en')))
 
     return g

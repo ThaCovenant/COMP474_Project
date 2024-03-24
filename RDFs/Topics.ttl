@@ -3,7 +3,7 @@
 @prefix foaf: <http://xmlns.com/foaf/.1/>.
 @prefix dbo: <http://dbpedia.org/ontology/>.
 @prefix wd: <https://wwww.wikidata.org/wiki/>.
-@prefix topic: <http://example.org/topic#> .
+@prefix topic: <http://example.org/topic/> .
 
 
 
@@ -16,20 +16,20 @@ topic:Topic a rdfs:Topic ;
 topic:topicProvenanceInformation a rdf:Property ;
     rdfs:label "Provenance Information" ;
     rdfs:comment "record where the topic was identified as being covered in the course (e.g., the (graduate) calendar, the course outline or a specific lecture)."@en ;
-    rdfs:domain rdfs:Topic ;
+    rdfs:domain topic:Topic ;
     rdfs:range rdfs:Literal . # "course outline"
 
 #Links
 topic:wikidataEntry a rdf:Property;
     rdfs:label "has Wikidata Entry";
-    rdfs:domain rdfs:Topic ;
+    rdfs:domain topic:Topic ;
     rdfs:range rdfs:Resource ;
     rdfs:comment "Link to topic wikidata entry."@en .
 
 
 topic:dbpediaEntry a rdf:Property;
     rdfs:label "has DBpedia Entry";
-    rdfs:domain rdfs:Topic ;
+    rdfs:domain topic:Topic ;
     rdfs:range rdfs:Resource ;
     rdfs:comment "Link to topic DBpedia enrty."@en .
 
