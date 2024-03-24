@@ -423,9 +423,3 @@ lecture:COMP474_Lecture_8 a lecture:lecture ;
     lecture:partOfCourse course:COMP474 ;
     rdfs:comment "This is a lecture."@en .
 
-course:COMP474 a course:course ;
-    course:courseName "COMP474" .
-
-course:COMP335 a course:course ;
-    course:courseName "COMP335" .
-

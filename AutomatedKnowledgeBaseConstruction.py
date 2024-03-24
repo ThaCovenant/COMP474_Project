@@ -109,9 +109,6 @@ def topicTriplesGenerator(courseFolders):
 
                 # Create course_uri instance of class course
                 course_uri = URIRef(course + courseName)
-                # print(course_uri)
-                g.add((course_uri, RDF.type, course.course))
-                g.add((course_uri, course.courseName, Literal(courseName)))
 
                 # Lecture lectureURI Properties
                 g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))
@@ -138,9 +135,6 @@ def topicTriplesGenerator(courseFolders):
 
                 # Create course_uri instance of class course
                 course_uri = URIRef(course + courseName)
-                # print(course_uri)
-                g.add((course_uri, RDF.type, course.course))
-                g.add((course_uri, course.courseName, Literal(courseName)))
 
                 # Lecture lectureURI Properties
                 g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))
@@ -166,9 +160,6 @@ def topicTriplesGenerator(courseFolders):
 
                 # Create course_uri instance of class course
                 course_uri = URIRef(course + courseName)
-                # print(course_uri)
-                g.add((course_uri, RDF.type, course.course))
-                g.add((course_uri, course.courseName, Literal(courseName)))
 
                 # Lecture lectureURI Properties
                 g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))

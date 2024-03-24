@@ -30,6 +30,7 @@ course:COMP472 a course:Course ;
     course:offeredBy university:Q3918 .
 
 course:COMP474 a course:Course ;
+    course:courseName "COMP474" ;
     course:offeredBy university:Q3918 ;
     course:hasLecture lecture:Lecture1 ;
     course:hasLecture lecture:Lecture2 ;

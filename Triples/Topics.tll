@@ -1,40 +1,40 @@
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/> ;
     rdfs:label "Introduction to Intelligent Systems" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
     topic:wikidataEntry wd:Q33002955 .
 
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/> ;
     rdfs:label "Introduction to Knowledge Graphs (RDF)" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
     topic:wikidataEntry wd:Q33002955 .
 
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#>;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/>;
     rdfs:label "Knowledge Graphs: Vocabularies & Ontologies (RDFS, OWL)" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
     topic:wikidataEntry wd:Q33002955 .
 
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/> ;
     rdfs:label "Knowledge Base Queries (SPARQL) and Linked Open Data (LOD)" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
     topic:wikidataEntry wd:Q33002955 .
 
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/> ;
     rdfs:label "Personalization & Recommender Systems" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
     topic:wikidataEntry wd:Q33002955 .
 
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/> ;
     rdfs:label "Introduction to Machine Learning (ML) for Intelligent Systems" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
     topic:wikidataEntry wd:Q33002955 .
 
-<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
+<http://example.org/topics/KnowledgeGraph> a <http://example.org/topic/> ;
     rdfs:label "Intelligent Agents & Introduction to Natural Language Processing (NLP)" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
     topic:provenanceInformation "course_outline_comp474.pdf" ;
