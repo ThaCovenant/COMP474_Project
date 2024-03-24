@@ -18,8 +18,6 @@ course:COEN316 a course:Course ;
 
 course:COMP472 a course:Course ;
     course:courseName "Artificial Intelligence" ;
-    course:hasLecture lecture:Lecture1 ;
-    course:hasLecture lecture:Lecture2 ;
     course:courseCredit "4"^^xsd:integer ;
     course:courseDescription "his course initially describes the scope and history of Artificial Intelligence." ;
     course:courseLink <http://example.org/courses/COMP474> ;
