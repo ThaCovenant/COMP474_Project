@@ -14,6 +14,11 @@ course:Course a rdfs:Class ;
     rdfs:label "course" ;
     rdfs:comment "A course offered by the university."@en .
 
+lecture:Assignments a rdfs:Class ;
+    rdfs:label "Lecture Assignments" ;
+    rdfs:comment "Assignments of lecture content."@en ;
+    rdfs:subClassOf lecture:LectureContent .
+
 lecture:Lecture a rdfs:Class ;
     rdfs:label "Lecture" ;
     rdfs:comment "This is a lecture."@en ;
@@ -31,12 +36,12 @@ lecture:Readings a rdfs:Class ;
 
 lecture:Slides a rdfs:Class ;
     rdfs:label "Lecture Slides" ;
-    rdfs:comment "Slides of lecture."@en ;
+    rdfs:comment "Slides of lecture content."@en ;
     rdfs:subClassOf lecture:LectureContent .
 
 lecture:Worksheets a rdfs:Class ;
     rdfs:label "Lecture Worksheets" ;
-    rdfs:comment "Worksheets of lecture."@en ;
+    rdfs:comment "Worksheets of lecture content."@en ;
     rdfs:subClassOf lecture:LectureContent .
 
 student:Student a rdfs:Class ;
