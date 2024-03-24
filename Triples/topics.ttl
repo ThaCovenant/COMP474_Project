@@ -16,6 +16,8 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix university: <https://www.wikidata.org/entity/Q3918>.
 
+
+
 <http://example.org/topics/KnowledgeGraph> a <http://example.org/topic#> ;
     rdfs:label "Introduction to Intelligent Systems" ;
     topic:dbpediaEntry <http://dbpedia.org/resource/Knowledge_graph> ;
