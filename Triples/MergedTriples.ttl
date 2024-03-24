@@ -1,5 +1,6 @@
 @prefix assignments: <http://example.org/assignments#> .
 @prefix course: <http://example.org/course/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix lecture: <http://example.org/lecture/> .
 @prefix lectureContent: <http://example.org/lectureContent/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -7,6 +8,7 @@
 @prefix student: <http://example.org/student/> .
 @prefix topic: <http://example.org/topic/> .
 @prefix university: <https://www.wikidata.org/entity/Q3918> .
+@prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix worksheets: <http://example.org/worksheets/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -480,7 +482,7 @@ course:AERO417 a course:Course,
     course:courseName "AERO417" ;
     course:courseNumber "417" ;
     course:courseSubject "AERO" ;
-    course:offeredBy university:Q3918 ;
+    course:offeredBy wd:Q3918 ;
     rdfs:comment "A course offered by the university."@en .
 
 course:COEN311 a course:Course,
@@ -489,7 +491,7 @@ course:COEN311 a course:Course,
     course:courseName "COEN311" ;
     course:courseNumber "311" ;
     course:courseSubject "COEN" ;
-    course:offeredBy university:Q3918 ;
+    course:offeredBy wd:Q3918 ;
     rdfs:comment "A course offered by the university."@en .
 
 course:COEN316 a course:Course,
@@ -498,7 +500,7 @@ course:COEN316 a course:Course,
     course:courseName "COEN316" ;
     course:courseNumber "316" ;
     course:courseSubject "COEN" ;
-    course:offeredBy university:Q3918 ;
+    course:offeredBy wd:Q3918 ;
     rdfs:comment "A course offered by the university."@en .
 
 course:COMP472 a course:Course,
@@ -514,9 +516,28 @@ course:COMP472 a course:Course,
     course:courseSubject "COMP" ;
     course:hasLecture lecture:Lecture1,
         lecture:Lecture2 ;
-    course:hasTopic topic:MachineLearning ;
-    course:offeredBy university:Q3918 ;
+    course:hasTopic topic:DeepLearning,
+        topic:KnowledgeGraph ;
+    course:offeredBy wd:Q3918 ;
     rdfs:comment "A course offered by the university."@en .
+
+topic:DeepLearning a topic:Topic ;
+    rdfs:label "Deep Learning" ;
+    topic:dbpediaEntry dbo:Deep_Learning ;
+    topic:topicProvenanceInformation "Lecture 1" ;
+    topic:wikidataEntry wd:Q197536 ;
+    rdfs:comment "Topic covered in the lecture."@en .
+
+topic:KnowledgeGraph a topic:Topic ;
+    rdfs:label "Knowledge Graph" ;
+    topic:dbpediaEntry dbo:Knowledge_Graph ;
+    topic:topicProvenanceInformation "Lecture 3" ;
+    topic:wikidataEntry wd:Q533557 ;
+    rdfs:comment "Topic covered in the lecture."@en .
+
+university:Q3918 a university:University ;
+    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> ;
+    university:hasName "Concordia University" .
 
 lecture:Lecture1 a lecture:Lecture ;
     lecture:LectureContent "Theory of Computation" ;
@@ -531,10 +552,6 @@ lecture:Lecture2 a lecture:Lecture ;
     lecture:comment "Second lecture of the class."@en ;
     lecture:hasTopic topic:DeterministicFiniteStateAutomata ;
     lecture:label "(Deterministic)Finite_State_Automata" .
-
-university:Q3918 a university:University ;
-    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> ;
-    university:hasName "Concordia University" .
 
 course:COMP474 a course:Course,
         course:course ;
