@@ -508,50 +508,34 @@ course:COMP472 a course:Course,
     rdfs:label "course" ;
     course:courseCredit 4 ;
     course:courseDescription "his course initially describes the scope and history of Artificial Intelligence." ;
-    course:courseLink <http://example.org/courses/COMP474> ;
     course:courseName "Artificial Intelligence",
         "COMP472" ;
     course:courseNumber "472" ;
     course:courseOutline <http://example.org/courses/COMP474/outline> ;
     course:courseSubject "COMP" ;
-    course:hasLecture lecture:Lecture1,
-        lecture:Lecture2 ;
     course:hasTopic topic:DeepLearning,
         topic:KnowledgeGraph ;
     course:offeredBy wd:Q3918 ;
-    rdfs:comment "A course offered by the university."@en .
+    rdfs:comment "A course offered by the university."@en ;
+    rdfs:seeAlso <http://google.com/COMP474> .
 
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
     topic:dbpediaEntry dbo:Deep_Learning ;
-    topic:topicProvenanceInformation "Lecture 1" ;
+    topic:topicProvenanceInformation "COMP474_Lecture_1" ;
     topic:wikidataEntry wd:Q197536 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
 topic:KnowledgeGraph a topic:Topic ;
     rdfs:label "Knowledge Graph" ;
     topic:dbpediaEntry dbo:Knowledge_Graph ;
-    topic:topicProvenanceInformation "Lecture 3" ;
+    topic:topicProvenanceInformation "COMP474_Lecture_3" ;
     topic:wikidataEntry wd:Q533557 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
 university:Q3918 a university:University ;
     university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> ;
     university:hasName "Concordia University" .
-
-lecture:Lecture1 a lecture:Lecture ;
-    lecture:LectureContent "Theory of Computation" ;
-    lecture:LectureNumber 1 ;
-    lecture:comment "First lecture of the class."@en ;
-    lecture:hasTopic topic:TheoryofComputation ;
-    lecture:label "Introduction to Theory of Computation" .
-
-lecture:Lecture2 a lecture:Lecture ;
-    lecture:LectureContent "Deterministic_Finite_Automata" ;
-    lecture:LectureNumber 2 ;
-    lecture:comment "Second lecture of the class."@en ;
-    lecture:hasTopic topic:DeterministicFiniteStateAutomata ;
-    lecture:label "(Deterministic)Finite_State_Automata" .
 
 course:COMP474 a course:Course,
         course:course ;
@@ -560,15 +544,11 @@ course:COMP474 a course:Course,
     course:courseName "COMP474" ;
     course:courseNumber "474" ;
     course:courseSubject "COMP" ;
-    course:hasLecture lecture:Lecture1,
-        lecture:Lecture2 ;
     course:offeredBy university:Q3918 ;
     rdfs:comment "A course offered by the university."@en .
 
 course:COMP335 a course:Course ;
     course:courseCredit 3 ;
     course:courseLink <http://example.org/courses/COMP335> ;
-    course:hasLecture lecture:Lecture1,
-        lecture:Lecture2 ;
     course:offeredBy university:Q3918 .
 
