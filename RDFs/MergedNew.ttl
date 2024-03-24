@@ -1,5 +1,5 @@
-@prefix course: <http://example.org/course/> .
-@prefix course1: <http://example.org/course> .
+@prefix course: <http://example.org/course> .
+@prefix course1: <http://example.org/course/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix foaf1: <http://xmlns.com/foaf/.1/> .
 @prefix lecture: <http://example.org/lecture/> .
@@ -10,7 +10,7 @@
 @prefix university: <http://example.org/university/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-course:Course a rdfs:Class ;
+course1:Course a rdfs:Class ;
     rdfs:label "course" ;
     rdfs:comment "A course offered by the university."@en .
 
@@ -22,7 +22,7 @@ lecture:Assignments a rdfs:Class ;
 lecture:Lecture a rdfs:Class ;
     rdfs:label "Lecture" ;
     rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf course1:Course .
+    rdfs:subClassOf course:Course .
 
 lecture:Other a rdfs:Class ;
     rdfs:label "Other Materials" ;
@@ -48,59 +48,59 @@ student:Student a rdfs:Class ;
     rdfs:label "Student" ;
     rdfs:comment "This is a Student Class."@en .
 
-course:courseCredit a rdf:Property ;
+course1:courseCredit a rdf:Property ;
     rdfs:label "Course Credits" ;
     rdfs:comment "The number of credits assigned to the course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range xsd:integer .
 
-course:courseDescription a rdf:Property ;
+course1:courseDescription a rdf:Property ;
     rdfs:label "Course Description" ;
     rdfs:comment "Description of the course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range rdfs:Literal .
 
-course:courseLink a rdf:Property ;
+course1:courseLink a rdf:Property ;
     rdfs:label "Course Link to a webpage" ;
     rdfs:comment "Webpage of the course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range foaf:Document ;
     rdfs:seeAlso foaf:Document .
 
-course:courseName a rdf:Property ;
+course1:courseName a rdf:Property ;
     rdfs:label "Course name" ;
     rdfs:comment "Name of the course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range rdfs:Literal .
 
-course:courseNumber a rdf:Property ;
+course1:courseNumber a rdf:Property ;
     rdfs:label "Course number" ;
     rdfs:comment "Number of the course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range rdfs:Literal .
 
-course:courseOutline a rdf:Property ;
+course1:courseOutline a rdf:Property ;
     rdfs:label "Course Outline" ;
     rdfs:comment "Outline of the course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range foaf:Document .
 
-course:courseSubject a rdf:Property ;
+course1:courseSubject a rdf:Property ;
     rdfs:label "Course Subject" ;
     rdfs:comment "Subject of the Course."@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range rdfs:Literal .
 
-course:hasTopic a rdf:Property ;
+course1:hasTopic a rdf:Property ;
     rdfs:label "has topic"@en ;
     rdfs:comment "Specifies the topic of a course"@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range topic:Topic .
 
-course:offeredBy a rdf:Property ;
+course1:offeredBy a rdf:Property ;
     rdfs:label "offered by"@en ;
     rdfs:comment "Specifies that a class is offered by a university"@en ;
-    rdfs:domain course:Course ;
+    rdfs:domain course1:Course ;
     rdfs:range university:University .
 
 lecture:lectureLink a rdf:Property ;
@@ -120,7 +120,7 @@ lecture:partOfCourse a rdf:Property ;
     rdfs:label "part of course" ;
     rdfs:comment "Lecture in a course."@en ;
     rdfs:domain lecture:Lecture ;
-    rdfs:range course1:Course .
+    rdfs:range course:Course .
 
 student:hasCompetency a rdf:Property ;
     rdfs:label "hasCompetency" ;
@@ -132,7 +132,7 @@ student:hasCompletedCourse a rdf:Property ;
     rdfs:label "hasCompletedCourse" ;
     rdfs:comment "Student has completed course."@en ;
     rdfs:domain student:Student ;
-    rdfs:range course:Course .
+    rdfs:range course1:Course .
 
 student:hasEmail a rdf:Property ;
     rdfs:label "hasEmail" ;

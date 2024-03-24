@@ -3,29 +3,10 @@
 @prefix student: <http://example.org/student/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-course:AERO417 a course:course ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COEN311 a course:course ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COEN316 a course:course ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COMP472 a course:course ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COMP474 a course:course ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
 student:40044279 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:course_uri ;
+    student:hasCompletedCourse course:COMP472,
+        course:COMP474 ;
     student:hasFirstName "Amish" ;
     student:hasGrade "A",
         "B+",
@@ -36,7 +17,8 @@ student:40044279 a student:student ;
 
 student:40076313 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:course_uri ;
+    student:hasCompletedCourse course:AERO417,
+        course:COMP474 ;
     student:hasFirstName "Jimmy" ;
     student:hasGrade "B" ;
     student:hasIDNumber 40076313 ;
@@ -45,7 +27,8 @@ student:40076313 a student:student ;
 
 student:40157540 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:course_uri ;
+    student:hasCompletedCourse course:COEN311,
+        course:COMP474 ;
     student:hasFirstName "Philippe" ;
     student:hasGrade "A",
         "B+" ;
@@ -55,11 +38,37 @@ student:40157540 a student:student ;
 
 student:40175886 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:course_uri ;
+    student:hasCompletedCourse course:COEN316,
+        course:COMP474 ;
     student:hasFirstName "Tomas" ;
     student:hasGrade "A",
         "B+" ;
     student:hasIDNumber 40175886 ;
     student:hasLastName "Hidalgo" ;
     rdfs:comment "This is a Student Class."@en .
+
+course:AERO417 a course:course ;
+    rdfs:label "course" ;
+    course:courseName "AERO417" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COEN311 a course:course ;
+    rdfs:label "course" ;
+    course:courseName "COEN311" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COEN316 a course:course ;
+    rdfs:label "course" ;
+    course:courseName "COEN316" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COMP472 a course:course ;
+    rdfs:label "course" ;
+    course:courseName "COMP472" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COMP474 a course:course ;
+    rdfs:label "course" ;
+    course:courseName "COMP474" ;
+    rdfs:comment "A course offered by the university."@en .
 
