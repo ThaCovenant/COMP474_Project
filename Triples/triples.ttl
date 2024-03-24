@@ -70,14 +70,14 @@ university:Q3918 a university:University ;
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
     rdfs:comment "Topic covered in the lecture."@en ;
-    topic:topicProvenanceInformation "Lecture 1" ;
+    topic:topicProvenanceInformation "COMP474_Lecture_1" ;
     topic:dbpediaEntry dbo:Deep_Learning ;
     topic:wikidataEntry wd:Q197536 .
 
 topic:KnowledgeGraph a topic:Topic ;
     rdfs:label "Knowledge Graph" ;
     rdfs:comment "Topic covered in the lecture."@en ;
-    topic:topicProvenanceInformation "Lecture 3" ;
+    topic:topicProvenanceInformation "COMP474_Lecture_3" ;
     topic:dbpediaEntry dbo:Knowledge_Graph ;
     topic:wikidataEntry wd:Q533557 .
 
