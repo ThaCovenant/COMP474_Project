@@ -35,10 +35,10 @@ def main():
     g3 = topicTriplesGenerator(folders)
     createGraph(g3, file_path_lecture)
 
-    g4 = Graph()
-    g4.parse(file_path_topics, format="ttl")
+    # g4 = Graph()
+    # g4.parse(file_path_topics, format="ttl")
 
-    g5 = g1 + g2 + g3 + g4
+    g5 = g1 + g2 + g3
     # print(g5.serialize(format='turtle'))
     createGraph(g5, file_path_merge)
 
