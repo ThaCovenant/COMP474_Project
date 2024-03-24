@@ -12,15 +12,15 @@ file_path_triples = "Triples/triples.ttl"
 
 # Command to create user defined namespaces
 kb = URIRef("http://example.org/knowledge-base#")
-student = Namespace("http://example.org/student#")
-course = Namespace("http://example.org/course#")
-grade = Namespace("http://example.org/grade#")
-lecture = Namespace("http://example.org/lecture#")
-slides = Namespace("http://example.org/slides#")
-lectureContent = Namespace("http://example.org/lectureContent#")
-worksheets = Namespace("http://example.org/worksheets#")
-other = Namespace("http://example.org/other#")
-readings = Namespace("http://example.org/readings#")
+student = Namespace("http://example.org/student/")
+course = Namespace("http://example.org/course/")
+
+lecture = Namespace("http://example.org/lecture/")
+slides = Namespace("http://example.org/slides/")
+lectureContent = Namespace("http://example.org/lectureContent/")
+worksheets = Namespace("http://example.org/worksheets/")
+other = Namespace("http://example.org/other/")
+readings = Namespace("http://example.org/readings/")
 ex = Namespace("http://example.org/")
 assignments = Namespace("http://example.org/assignments#")
 
@@ -193,36 +193,32 @@ def studentDataToRDFTriples(student_data):
     g.bind("rdf", RDF)
     g.bind("student", student)
     g.bind("course", course)
-    g.bind("grade", grade)
 
     # print(g.serialize(format='turtle'))
 
     for index, row in student_data.iterrows():
+        # Create student_uri instance of class Student
         student_uri = URIRef(student + str(row["ID"]))
         g.add((student_uri, RDF.type, student.student))
         g.add((student_uri, RDFS.label, Literal("Student")))
         g.add((student_uri, RDFS.comment, Literal("This is a Student Class.", lang='en')))
 
-        # Properties
+        # Student Properties
         g.add((student_uri, student.hasFirstName, Literal(row["First Name"])))
         g.add((student_uri, student.hasLastName, Literal(row["Last Name"])))
         g.add((student_uri, student.hasIDNumber, Literal(row["ID"])))
 
         # Define course as a class
         course_uri = URIRef(course + row["Course"].replace(" ", ""))
-        g.add((course_uri, RDF.type, ex.course))
+        g.add((course_uri, RDF.type, course.course))
         g.add((course_uri, RDFS.label, Literal("course")))
         g.add((course_uri, RDFS.comment, Literal("A course offered by the university.", lang='en')))
 
-        # Create separate triples for each course taken by each student
-        g.add((student_uri, student.hasCompletedCourse, course_uri))
+        # Student Properties continue
+        g.add((student_uri, student.hasCompletedCourse, course.course_uri))
+        g.add((student_uri, student.hasGrade, Literal(row["Grade"])))
+
 
         # Associate grade with course
-        grade_uri = URIRef(grade + str(row['ID']) + '/' + row['Course'].replace(" ", ""))
-        g.add((student_uri, student.hasGrade, grade_uri))
-        g.add((grade_uri, student.gradeValue, Literal(row["Grade"])))
-        g.add((grade_uri, student.gradeForCourse, course_uri))
-        g.add((grade_uri, RDFS.label, Literal("grade")))
-        g.add((grade_uri, RDFS.comment, Literal("Grade of student.", lang='en')))
 
     return g

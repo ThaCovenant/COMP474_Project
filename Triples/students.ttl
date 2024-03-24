@@ -1,110 +1,65 @@
-@prefix course: <http://example.org/course#> .
+@prefix course: <http://example.org/course/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix student: <http://example.org/student#> .
+@prefix student: <http://example.org/student/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+course:AERO417 a course:course ;
+    rdfs:label "course" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COEN311 a course:course ;
+    rdfs:label "course" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COEN316 a course:course ;
+    rdfs:label "course" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COMP472 a course:course ;
+    rdfs:label "course" ;
+    rdfs:comment "A course offered by the university."@en .
+
+course:COMP474 a course:course ;
+    rdfs:label "course" ;
+    rdfs:comment "A course offered by the university."@en .
 
 student:40044279 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:COMP472,
-        course:COMP474 ;
+    student:hasCompletedCourse course:course_uri ;
     student:hasFirstName "Amish" ;
-    student:hasGrade <http://example.org/grade#40044279/COMP472>,
-        <http://example.org/grade#40044279/COMP474> ;
+    student:hasGrade "A",
+        "B+",
+        "F" ;
     student:hasIDNumber 40044279 ;
     student:hasLastName "Patel" ;
     rdfs:comment "This is a Student Class."@en .
 
 student:40076313 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:AERO417,
-        course:COMP474 ;
+    student:hasCompletedCourse course:course_uri ;
     student:hasFirstName "Jimmy" ;
-    student:hasGrade <http://example.org/grade#40076313/AERO417>,
-        <http://example.org/grade#40076313/COMP474> ;
+    student:hasGrade "B" ;
     student:hasIDNumber 40076313 ;
     student:hasLastName "Tran" ;
     rdfs:comment "This is a Student Class."@en .
 
 student:40157540 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:COEN311,
-        course:COMP474 ;
+    student:hasCompletedCourse course:course_uri ;
     student:hasFirstName "Philippe" ;
-    student:hasGrade <http://example.org/grade#40157540/COEN311>,
-        <http://example.org/grade#40157540/COMP474> ;
+    student:hasGrade "A",
+        "B+" ;
     student:hasIDNumber 40157540 ;
     student:hasLastName "Bertrand" ;
     rdfs:comment "This is a Student Class."@en .
 
 student:40175886 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:COEN316,
-        course:COMP474 ;
+    student:hasCompletedCourse course:course_uri ;
     student:hasFirstName "Tomas" ;
-    student:hasGrade <http://example.org/grade#40175886/COEN316>,
-        <http://example.org/grade#40175886/COMP474> ;
+    student:hasGrade "A",
+        "B+" ;
     student:hasIDNumber 40175886 ;
     student:hasLastName "Hidalgo" ;
     rdfs:comment "This is a Student Class."@en .
-
-<http://example.org/grade#40044279/COMP472> rdfs:label "grade" ;
-    student:gradeForCourse course:COMP472 ;
-    student:gradeValue "B+" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40044279/COMP474> rdfs:label "grade" ;
-    student:gradeForCourse course:COMP474 ;
-    student:gradeValue "A",
-        "F" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40076313/AERO417> rdfs:label "grade" ;
-    student:gradeForCourse course:AERO417 ;
-    student:gradeValue "B" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40076313/COMP474> rdfs:label "grade" ;
-    student:gradeForCourse course:COMP474 ;
-    student:gradeValue "B" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40157540/COEN311> rdfs:label "grade" ;
-    student:gradeForCourse course:COEN311 ;
-    student:gradeValue "B+" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40157540/COMP474> rdfs:label "grade" ;
-    student:gradeForCourse course:COMP474 ;
-    student:gradeValue "A" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40175886/COEN316> rdfs:label "grade" ;
-    student:gradeForCourse course:COEN316 ;
-    student:gradeValue "B+" ;
-    rdfs:comment "Grade of student."@en .
-
-<http://example.org/grade#40175886/COMP474> rdfs:label "grade" ;
-    student:gradeForCourse course:COMP474 ;
-    student:gradeValue "A" ;
-    rdfs:comment "Grade of student."@en .
-
-course:AERO417 a <http://example.org/course> ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COEN311 a <http://example.org/course> ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COEN316 a <http://example.org/course> ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COMP472 a <http://example.org/course> ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COMP474 a <http://example.org/course> ;
-    rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
 
