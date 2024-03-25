@@ -1,7 +1,5 @@
-@prefix course: <http://example.org/course> .
-@prefix course1: <http://example.org/course/> .
+@prefix course: <http://example.org/course/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix foaf1: <http://xmlns.com/foaf/.1/> .
 @prefix lecture: <http://example.org/lecture/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -10,7 +8,7 @@
 @prefix university: <http://example.org/university/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-course1:Course a rdfs:Class ;
+course:Course a rdfs:Class ;
     rdfs:label "course" ;
     rdfs:comment "A course offered by the university."@en .
 
@@ -48,67 +46,67 @@ student:Student a rdfs:Class ;
     rdfs:label "Student" ;
     rdfs:comment "This is a Student Class."@en .
 
-course1:courseCredit a rdf:Property ;
+course:courseCredit a rdf:Property ;
     rdfs:label "Course Credits" ;
     rdfs:comment "The number of credits assigned to the course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range xsd:integer .
 
-course1:courseDescription a rdf:Property ;
+course:courseDescription a rdf:Property ;
     rdfs:label "Course Description" ;
     rdfs:comment "Description of the course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
 
-course1:courseLink a rdf:Property ;
+course:courseLink a rdf:Property ;
     rdfs:label "Course Link to a webpage" ;
     rdfs:comment "Webpage of the course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range foaf:Document ;
     rdfs:seeAlso foaf:Document .
 
-course1:courseName a rdf:Property ;
+course:courseName a rdf:Property ;
     rdfs:label "Course name" ;
     rdfs:comment "Name of the course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
 
-course1:courseNumber a rdf:Property ;
+course:courseNumber a rdf:Property ;
     rdfs:label "Course number" ;
     rdfs:comment "Number of the course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
 
-course1:courseOutline a rdf:Property ;
+course:courseOutline a rdf:Property ;
     rdfs:label "Course Outline" ;
     rdfs:comment "Outline of the course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range foaf:Document .
 
-course1:courseSubject a rdf:Property ;
+course:courseSubject a rdf:Property ;
     rdfs:label "Course Subject" ;
     rdfs:comment "Subject of the Course."@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
 
-course1:hasTopic a rdf:Property ;
+course:hasTopic a rdf:Property ;
     rdfs:label "has topic"@en ;
     rdfs:comment "Specifies the topic of a course"@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range topic:Topic .
 
-course1:offeredBy a rdf:Property ;
+course:offeredBy a rdf:Property ;
     rdfs:label "offered by"@en ;
     rdfs:comment "Specifies that a class is offered by a university"@en ;
-    rdfs:domain course1:Course ;
+    rdfs:domain course:Course ;
     rdfs:range university:University .
 
 lecture:lectureLink a rdf:Property ;
     rdfs:label "Lecture Link to a webpage" ;
     rdfs:comment "Webpage of the lecture."@en ;
     rdfs:domain lecture:Lecture ;
-    rdfs:range foaf1:Document ;
-    rdfs:seeAlso foaf1:Document .
+    rdfs:range foaf:Document ;
+    rdfs:seeAlso foaf:Document .
 
 lecture:lectureNumber a rdf:Property ;
     rdfs:label "lectureNumber" ;
@@ -132,7 +130,7 @@ student:hasCompletedCourse a rdf:Property ;
     rdfs:label "hasCompletedCourse" ;
     rdfs:comment "Student has completed course."@en ;
     rdfs:domain student:Student ;
-    rdfs:range course1:Course .
+    rdfs:range course:Course .
 
 student:hasEmail a rdf:Property ;
     rdfs:label "hasEmail" ;

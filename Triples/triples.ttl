@@ -66,7 +66,7 @@ university:Q3918 a university:University ;
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
     rdfs:comment "Topic covered in the lecture."@en ;
-    topic:topicProvenanceInformation "COMP474_Lecture_1" ;
+    topic:topicProvenanceInformation "COMP474_Lecture_1" ; # where is this topic located
     topic:dbpediaEntry dbo:Deep_Learning ;
     topic:wikidataEntry wd:Q197536 .
 

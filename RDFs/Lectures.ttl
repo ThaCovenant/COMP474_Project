@@ -1,11 +1,10 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
-@prefix foaf: <http://xmlns.com/foaf/.1/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix lectureContent: <http://example.org/lectureContent/> .
 @prefix lecture: <http://example.org/lecture/> .
-@prefix course: <http://example.org/course> .
-@prefix foaf1: <http://xmlns.com/foaf/.1/> .
+@prefix course: <http://example.org/course/> .
 
 # Lectures Class
 lecture:Lecture a rdfs:Class;
@@ -18,8 +17,8 @@ lecture:lectureLink a rdf:Property ;
     rdfs:label "Lecture Link to a webpage" ;
     rdfs:comment "Webpage of the lecture."@en ;
     rdfs:domain lecture:Lecture ;
-    rdfs:range foaf1:Document ;
-    rdfs:seeAlso foaf1:Document .
+    rdfs:range foaf:Document ;
+    rdfs:seeAlso foaf:Document .
 
 lecture:lectureNumber a rdf:Property ;
     rdfs:label "lectureNumber" ;
