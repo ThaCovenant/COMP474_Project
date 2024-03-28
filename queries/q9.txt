@@ -1,4 +1,4 @@
-#Query 9 (list all materials of a course filtered by topic)
+#Query 9 (list all materials of a course filtered by topic)(DOESNT WORK RN)
 # lecture:LectureContent a rdf:Class ; for slides, readings, etc
 SELECT ?topic ?material
 WHERE {

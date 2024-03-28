@@ -3,5 +3,5 @@
 #Query 1 (list all courses offered by a university)
 SELECT ?courses 
 WHERE {
-?course <http://example.org/course/offeredBy> <https://www.wikidata.org/entity/Q326342>
+?course <http://example.org/course/offeredBy> <https://www.wikidata.org/wiki/Q3918>
 }

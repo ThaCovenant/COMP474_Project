@@ -1,5 +1,7 @@
-#Query 11 (list all grades obtained in the course filtered by student)
-SELECT ?grades
+#Query 11 (list all grades obtained in the course filtered by student)(DOESNT WORK AS INTENDED)
+SELECT DISTINCT ?grades ?courses
 WHERE {
-  <http://example.org/grade/40044279/COMP474> <http://example.org/student#gradeValue> ?grades.
+ # ?SUBJECT ?PREDICATE ?grades
+ <http://example.org/student/40157540> <http://example.org/student/hasCompletedCourse> ?courses.
+  <http://example.org/student/40157540> <http://example.org/student/hasGrade> ?grades.
 }

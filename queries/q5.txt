@@ -1,8 +1,8 @@
-#Query 5 (list all materials of a course filtered by topic)
+#Query 5 (list all materials of a course filtered by topic)(DOESNT WORK RN)
 # lecture:LectureContent a rdf:Class ; for slides, readings, etc
 SELECT ?topic ?material
 WHERE {
-  <http://example.org/course#COMP335> <http://example.org/course#hasTopic> ?topic.
-  ?topic <http://example.org/topic#material> ?material.
-  FILTER(?topic = <http://example.org/topic#DeterministicFiniteStateAutomata>)
+  <http://example.org/course/COMP472> <http://example.org/course/hasTopic> ?topic.
+  ?topic <http://example.org/topic/material> ?material.
+  FILTER(?topic = <http://example.org/topic/DeepLearning>)
 }

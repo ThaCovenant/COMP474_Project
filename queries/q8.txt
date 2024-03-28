@@ -1,4 +1,4 @@
-#Query 8 (list all material covered in the course filtered by lecture number)
+#Query 8 (list all material covered in the course filtered by lecture number)(DOESNT WORK RN)
 SELECT?lecture ?number ?topic ?material
 WHERE {
  <http://example.org/course#COMP335> <http://example.org/course#hasLecture> ?lecture.

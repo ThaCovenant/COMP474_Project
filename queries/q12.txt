@@ -1,5 +1,5 @@
 #Query 12 (list all students that have completed a course)
 SELECT ?student 
 WHERE {
- ?student <http://example.org/student#hasCompletedCourse> <http://example.org/course/COMP474>
+ ?student <http://example.org/student/hasCompletedCourse> <http://example.org/course/COMP474>
 }
