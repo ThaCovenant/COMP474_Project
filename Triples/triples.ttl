@@ -36,20 +36,6 @@ course:COMP474 a course:Course ;
     course:offeredBy university:Q3918 ;
     course:courseCredit "3"^^xsd:integer.
 
-lecture:Lecture1 a lecture:Lecture ;
-    lecture:label "Introduction to Theory of Computation" ;
-    lecture:LectureNumber 1 ;
-    lecture:LectureContent "Theory of Computation" ;
-    lecture:comment "First lecture of the class."@en ;
-    lecture:hasTopic topic:TheoryofComputation .
-
-    lecture:Lecture2 a lecture:Lecture ;
-    lecture:label "(Deterministic)Finite_State_Automata" ;
-    lecture:LectureNumber 2 ;
-    lecture:LectureContent "Deterministic_Finite_Automata" ;
-    lecture:comment "Second lecture of the class."@en ;
-    lecture:hasTopic topic:DeterministicFiniteStateAutomata .
-
 course:COMP335 a course:Course ;
     course:offeredBy university:Q3918 ;
     course:courseCredit "3"^^xsd:integer ;

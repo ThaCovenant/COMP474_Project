@@ -1,51 +1,95 @@
+@prefix completedCourse: <http://example.org/completedCourse/> .
 @prefix course: <http://example.org/course/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix student: <http://example.org/student/> .
+@prefix topic: <http://example.org/topic/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 student:40044279 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:COMP472,
-        course:COMP474 ;
+    student:hasCompetency topic:KnowledgeGraph ;
+    student:hasCompletedCourse completedCourse:40044279COMP47220240402,
+        completedCourse:40044279COMP47420240401,
+        completedCourse:40044279COMP47420240403 ;
     student:hasFirstName "Amish" ;
-    student:hasGrade "A",
-        "B+",
-        "F" ;
     student:hasIDNumber 40044279 ;
     student:hasLastName "Patel" ;
     rdfs:comment "This is a Student Class."@en .
 
 student:40076313 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:AERO417,
-        course:COMP474 ;
+    student:hasCompetency topic:KnowledgeGraph ;
+    student:hasCompletedCourse completedCourse:40076313AERO41720240301,
+        completedCourse:40076313COMP47420240401 ;
     student:hasFirstName "Jimmy" ;
-    student:hasGrade "B" ;
     student:hasIDNumber 40076313 ;
     student:hasLastName "Tran" ;
     rdfs:comment "This is a Student Class."@en .
 
 student:40157540 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:COEN311,
-        course:COMP474 ;
+    student:hasCompetency topic:KnowledgeGraph ;
+    student:hasCompletedCourse completedCourse:40157540COEN31120240406,
+        completedCourse:40157540COMP47420240201 ;
     student:hasFirstName "Philippe" ;
-    student:hasGrade "A",
-        "B+" ;
     student:hasIDNumber 40157540 ;
     student:hasLastName "Bertrand" ;
     rdfs:comment "This is a Student Class."@en .
 
 student:40175886 a student:student ;
     rdfs:label "Student" ;
-    student:hasCompletedCourse course:COEN316,
-        course:COMP474 ;
+    student:hasCompetency topic:KnowledgeGraph ;
+    student:hasCompletedCourse completedCourse:40175886COEN31620240408,
+        completedCourse:40175886COMP47420240407 ;
     student:hasFirstName "Tomas" ;
-    student:hasGrade "A",
-        "B+" ;
     student:hasIDNumber 40175886 ;
     student:hasLastName "Hidalgo" ;
     rdfs:comment "This is a Student Class."@en .
+
+completedCourse:40044279COMP47220240402 a completedCourse:completedCourse,
+        course:COMP472 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "B+" .
+
+completedCourse:40044279COMP47420240401 a completedCourse:completedCourse,
+        course:COMP474 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "F" .
+
+completedCourse:40044279COMP47420240403 a completedCourse:completedCourse,
+        course:COMP474 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "A" .
+
+completedCourse:40076313AERO41720240301 a completedCourse:completedCourse,
+        course:AERO417 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "B" .
+
+completedCourse:40076313COMP47420240401 a completedCourse:completedCourse,
+        course:COMP474 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "B" .
+
+completedCourse:40157540COEN31120240406 a completedCourse:completedCourse,
+        course:COEN311 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "B+" .
+
+completedCourse:40157540COMP47420240201 a completedCourse:completedCourse,
+        course:COMP474 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "A" .
+
+completedCourse:40175886COEN31620240408 a completedCourse:completedCourse,
+        course:COEN316 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "B+" .
+
+completedCourse:40175886COMP47420240407 a completedCourse:completedCourse,
+        course:COMP474 ;
+    student:completedOn "2024-01-01"^^xsd:date ;
+    student:hasGrade "A" .
 
 course:AERO417 a course:course ;
     rdfs:label "course" ;
