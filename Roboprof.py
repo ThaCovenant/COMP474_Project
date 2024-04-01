@@ -3,7 +3,7 @@ from Roboprof_functions import mergedSchema
 from AutomatedKnowledgeBaseConstruction import (studentDataToRDFTriples,
                                                 extractStudentData,
                                                 createGraph,
-                                                topicTriplesGenerator)
+                                                createContentTriples, extractCoursesData)
 
 file_path1 = "RDFs/Courses.ttl"
 file_path2 = "RDFs/Lectures.ttl"
@@ -31,15 +31,17 @@ def main():
     # print(g2.serialize(format='turtle'))
 
     folders = [file_path_courseMaterial_Comp335, file_path_courseMaterial_Comp474]
-    g3 = topicTriplesGenerator(folders)
+    g3 = createContentTriples(folders)
     createGraph(g3, file_path_lecture)
 
     # g4 = Graph()
     # g4.parse(file_path_topics, format="ttl")
 
-    g5 = g1 + g2 + g3
+    g5 = extractCoursesData()
+
+    g6 = g1 + g2 + g3
     # print(g5.serialize(format='turtle'))
-    createGraph(g5, file_path_merge)
+    createGraph(g6, file_path_merge)
 
 
 if __name__ == '__main__':

@@ -10,7 +10,8 @@
 # Courses
 course:Course a rdfs:Class ;
     rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
+    rdfs:comment "A course offered by the university."@en ;
+    rdfs:seeAlso foaf:Document .
 
 
 #Course Class Properties
@@ -25,13 +26,6 @@ course:courseDescription a rdf:Property ;
     rdfs:comment "Description of the course."@en ;
     rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
-
-course:courseLink a rdf:Property ;
-    rdfs:label "Course Link to a webpage" ;
-    rdfs:comment "Webpage of the course."@en ;
-    rdfs:domain course:Course ;
-    rdfs:range foaf:Document ;
-    rdfs:seeAlso foaf:Document .
 
 course:courseName a rdf:Property ;
     rdfs:label "Course name" ;

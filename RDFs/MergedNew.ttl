@@ -1,6 +1,8 @@
+@prefix completedCourse: <http://example.org/completedCourse/> .
 @prefix course: <http://example.org/course/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lecture: <http://example.org/lecture/> .
+@prefix lectureContent: <http://example.org/lectureContent/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix student: <http://example.org/student/> .
@@ -8,43 +10,50 @@
 @prefix university: <http://example.org/university/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+completedCourse:CompletedCourse a rdfs:Class .
+
 course:Course a rdfs:Class ;
     rdfs:label "course" ;
-    rdfs:comment "A course offered by the university."@en .
+    rdfs:comment "A course offered by the university."@en ;
+    rdfs:seeAlso foaf:Document .
 
 lecture:Assignments a rdfs:Class ;
     rdfs:label "Lecture Assignments" ;
     rdfs:comment "Assignments of lecture content."@en ;
-    rdfs:subClassOf lecture:LectureContent .
-
-lecture:Lecture a rdfs:Class ;
-    rdfs:label "Lecture" ;
-    rdfs:comment "This is a lecture."@en ;
-    rdfs:subClassOf course:Course .
+    rdfs:subClassOf lectureContent:LectureContent .
 
 lecture:Other a rdfs:Class ;
     rdfs:label "Other Materials" ;
     rdfs:comment "Other materials related to Lecture Content."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf lectureContent:LectureContent .
 
 lecture:Readings a rdfs:Class ;
     rdfs:label "Lecture Readings" ;
     rdfs:comment "Readings of lecture: book chapters, web pages, etc."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf lectureContent:LectureContent .
 
 lecture:Slides a rdfs:Class ;
     rdfs:label "Lecture Slides" ;
     rdfs:comment "Slides of lecture content."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf lectureContent:LectureContent .
 
 lecture:Worksheets a rdfs:Class ;
     rdfs:label "Lecture Worksheets" ;
     rdfs:comment "Worksheets of lecture content."@en ;
-    rdfs:subClassOf lecture:LectureContent .
+    rdfs:subClassOf lectureContent:LectureContent .
 
-student:Student a rdfs:Class ;
-    rdfs:label "Student" ;
-    rdfs:comment "This is a Student Class."@en .
+lecture:lectures a rdfs:Class ;
+    rdfs:seeAlso foaf:Document .
+
+lectureContent:lectureContent a rdfs:Class ;
+    rdfs:label "Lecture Content" ;
+    rdfs:comment "Content of lecture."@en .
+
+student:Student a rdfs:Class .
+
+completedCourse:hasCompletionDate a rdf:Property ;
+    rdfs:domain completedCourse:CompletedCourse ;
+    rdfs:range xsd:date .
 
 course:courseCredit a rdf:Property ;
     rdfs:label "Course Credits" ;
@@ -57,13 +66,6 @@ course:courseDescription a rdf:Property ;
     rdfs:comment "Description of the course."@en ;
     rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
-
-course:courseLink a rdf:Property ;
-    rdfs:label "Course Link to a webpage" ;
-    rdfs:comment "Webpage of the course."@en ;
-    rdfs:domain course:Course ;
-    rdfs:range foaf:Document ;
-    rdfs:seeAlso foaf:Document .
 
 course:courseName a rdf:Property ;
     rdfs:label "Course name" ;
@@ -89,6 +91,10 @@ course:courseSubject a rdf:Property ;
     rdfs:domain course:Course ;
     rdfs:range rdfs:Literal .
 
+course:hasLecture a rdf:Property ;
+    rdfs:domain course:Course ;
+    rdfs:range lecture:Lecture .
+
 course:hasTopic a rdf:Property ;
     rdfs:label "has topic"@en ;
     rdfs:comment "Specifies the topic of a course"@en ;
@@ -101,66 +107,34 @@ course:offeredBy a rdf:Property ;
     rdfs:domain course:Course ;
     rdfs:range university:University .
 
-lecture:lectureLink a rdf:Property ;
-    rdfs:label "Lecture Link to a webpage" ;
-    rdfs:comment "Webpage of the lecture."@en ;
+lecture:hasContent a rdf:Property ;
     rdfs:domain lecture:Lecture ;
-    rdfs:range foaf:Document ;
-    rdfs:seeAlso foaf:Document .
+    rdfs:range lectureContent:LectureContent .
+
+lecture:lectureName a rdf:Property ;
+    rdfs:domain lecture:lecture ;
+    rdfs:range xsd:string .
 
 lecture:lectureNumber a rdf:Property ;
-    rdfs:label "lectureNumber" ;
-    rdfs:comment "Sequential count of lecture within a course."@en ;
-    rdfs:domain lecture:Lecture ;
+    rdfs:domain lecture:lecture ;
     rdfs:range xsd:integer .
 
-lecture:partOfCourse a rdf:Property ;
-    rdfs:label "part of course" ;
-    rdfs:comment "Lecture in a course."@en ;
-    rdfs:domain lecture:Lecture ;
-    rdfs:range course:Course .
+student:Amish student:hasCompetency topic:KnowledgeGraph ;
+    student:hasCompletedCourse completedCourse:COMP474Completion_Amish .
+
+student:John student:hasCompetency topic:KnowledgeGraph ;
+    student:hasCompletedCourse completedCourse:COMP474Completion_John .
 
 student:hasCompetency a rdf:Property ;
-    rdfs:label "hasCompetency" ;
-    rdfs:comment "Student has Completed."@en ;
     rdfs:domain student:Student ;
     rdfs:range topic:Topic .
 
 student:hasCompletedCourse a rdf:Property ;
-    rdfs:label "hasCompletedCourse" ;
-    rdfs:comment "Student has completed course."@en ;
     rdfs:domain student:Student ;
-    rdfs:range course:Course .
-
-student:hasEmail a rdf:Property ;
-    rdfs:label "hasEmail" ;
-    rdfs:comment "Student Email."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
-
-student:hasFirstName a rdf:Property ;
-    rdfs:label "hasFirstName" ;
-    rdfs:comment "Student First Name."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
+    rdfs:range completedCourse:CompletedCourse .
 
 student:hasGrade a rdf:Property ;
-    rdfs:label "hasGrade" ;
-    rdfs:comment "Student received a letter grade."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
-
-student:hasIDNumber a rdf:Property ;
-    rdfs:label "hasIDNumber" ;
-    rdfs:comment "Student ID."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
-
-student:hasLastName a rdf:Property ;
-    rdfs:label "hasLastName" ;
-    rdfs:comment "Student Last Name."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
+    rdfs:domain completedCourse:CompletedCourse .
 
 topic:dbpediaEntry a rdf:Property ;
     rdfs:label "has DBpedia Entry" ;
@@ -180,11 +154,19 @@ topic:wikidataEntry a rdf:Property ;
     rdfs:domain topic:Topic ;
     rdfs:range rdfs:Resource .
 
-lecture:lectureContent a rdf:Property ;
-    rdfs:label "Lecture Content" ;
-    rdfs:comment "Content of lecture."@en ;
-    rdfs:domain lecture:Lecture ;
-    rdfs:range lecture:lectureContent .
+completedCourse:COMP474Completion_Amish a completedCourse:CompletedCourse,
+        course:COMP474 ;
+    student:completedOn "2022-05-15"^^xsd:date,
+        "2023-05-15"^^xsd:date ;
+    student:hasGrade "A",
+        "F" .
+
+completedCourse:COMP474Completion_John a completedCourse:CompletedCourse,
+        course:COMP474 ;
+    student:completedOn "2022-04-28"^^xsd:date,
+        "2023-06-01"^^xsd:date ;
+    student:hasGrade "B",
+        "C" .
 
 topic:Topic a rdfs:Topic ;
     rdfs:label "Topic Name" ;

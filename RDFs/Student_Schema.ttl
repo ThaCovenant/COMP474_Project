@@ -4,52 +4,92 @@
 @prefix student: <http://example.org/student/> .
 @prefix course: <http://example.org/course/> .
 @prefix topic: <http://example.org/topic/> .
+@prefix grade: <http://example.org/grade/> .
+@prefix completedCourse: <http://example.org/completedCourse/> .
 
+# Topic Class
+# topic:Topic a rdfs:Class .
 
-#Student class
-student:Student a rdfs:Class ;
-    rdfs:label "Student" ;
-    rdfs:comment "This is a Student Class."@en .
+#Student Class
+student:Student a rdfs:Class .
+    #rdfs:label "Student" ;
+    #rdfs:comment "This is a Student Class."@en .
 
 #Student Properties
+#student:hasFirstName a rdf:Property ;
+    #rdfs:label "hasFirstName" ;
+    #rdfs:comment "Student First Name."@en ;
+    #rdfs:domain student:Student ;
+    #rdfs:range xsd:string .
+
+#student:hasLastName a rdf:Property ;
+    #rdfs:label "hasLastName" ;
+    #rdfs:comment "Student Last Name."@en ;
+    #rdfs:domain student:Student ;
+    #rdfs:range xsd:string .
+
+#student:hasIDNumber a rdf:Property ;
+    #rdfs:label "hasIDNumber" ;
+    #rdfs:comment "Student ID."@en ;
+    #rdfs:domain student:Student ;
+    #rdfs:range xsd:integer .
+
+#student:hasEmail a rdf:Property ;
+    #rdfs:label "hasEmail" ;
+    #rdfs:comment "Student Email."@en ;
+    #rdfs:domain student:Student ;
+    #rdfs:range xsd:string .
+
+# Linking Student to Completed Courses
+student:hasCompletedCourse a rdf:Property ;
+    rdfs:domain student:Student ;
+    rdfs:range completedCourse:CompletedCourse .
+
+completedCourse:CompletedCourse a rdfs:Class .
+
+completedCourse:hasCompletionDate a rdf:Property ;
+    rdfs:domain completedCourse:CompletedCourse ;
+    rdfs:range xsd:date .
+
+student:hasGrade a rdf:Property ;
+    #rdfs:label "hasGrade" ;
+    #rdfs:comment "Student received a letter grade."@en ;
+    rdfs:domain completedCourse:CompletedCourse .
+    #rdfs:range xsd:string .
+
+# Use an if to add competency upon successful grade
 student:hasCompetency a rdf:Property ;
-    rdfs:label "hasCompetency" ;
-    rdfs:comment "Student has Completed."@en ;
+    #rdfs:label "hasCompetency" ;
+    #rdfs:comment "Student has Completed."@en ;
     rdfs:domain student:Student ;
     rdfs:range topic:Topic .
 
-student:hasEmail a rdf:Property ;
-    rdfs:label "hasEmail" ;
-    rdfs:comment "Student Email."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
 
-student:hasFirstName a rdf:Property ;
-    rdfs:label "hasFirstName" ;
-    rdfs:comment "Student First Name."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
 
-student:hasLastName a rdf:Property ;
-    rdfs:label "hasLastName" ;
-    rdfs:comment "Student Last Name."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
+student:Amish student:hasCompletedCourse completedCourse:COMP474Completion_Amish .
 
-student:hasGrade a rdf:Property ;
-    rdfs:label "hasGrade" ;
-    rdfs:comment "Student received a letter grade."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
+completedCourse:COMP474Completion_Amish rdf:type completedCourse:CompletedCourse ;
+                               rdf:type course:COMP474 ;  # link to a course
+                               student:hasGrade "A" ;
+                               student:completedOn "2023-05-15"^^xsd:date .
 
-student:hasIDNumber a rdf:Property ;
-    rdfs:label "hasIDNumber" ;
-    rdfs:comment "Student ID."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range xsd:string .
+completedCourse:COMP474Completion_Amish rdf:type completedCourse:CompletedCourse ;
+                               rdf:type course:COMP474 ;  # link to a course
+                               student:hasGrade "F" ;
+                               student:completedOn "2022-05-15"^^xsd:date .
 
-student:hasCompletedCourse a rdf:Property ;
-    rdfs:label "hasCompletedCourse" ;
-    rdfs:comment "Student has completed course."@en ;
-    rdfs:domain student:Student ;
-    rdfs:range course:Course .
+student:Amish student:hasCompetency topic:KnowledgeGraph .
+
+student:John student:hasCompletedCourse completedCourse:COMP474Completion_John .
+
+completedCourse:COMP474Completion_John rdf:type completedCourse:CompletedCourse ;
+                               rdf:type course:COMP474 ;  # link to a course
+                               student:hasGrade "B" ;
+                               student:completedOn "2023-06-01"^^xsd:date .
+
+completedCourse:COMP474Completion_John rdf:type completedCourse:CompletedCourse ;
+                               rdf:type course:COMP474 ;  # link to a course
+                               student:hasGrade "C" ;
+                               student:completedOn "2022-04-28"^^xsd:date .
+
+student:John student:hasCompetency topic:KnowledgeGraph .
