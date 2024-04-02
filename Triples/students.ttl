@@ -91,38 +91,3 @@ completedCourse:40175886COMP47420240407 a completedCourse:completedCourse,
     student:completedOn "2024-01-01"^^xsd:date ;
     student:hasGrade "A" .
 
-course:AERO417 a course:course ;
-    rdfs:label "course" ;
-    course:courseName "AERO417" ;
-    course:courseNumber "417" ;
-    course:courseSubject "AERO" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COEN311 a course:course ;
-    rdfs:label "course" ;
-    course:courseName "COEN311" ;
-    course:courseNumber "311" ;
-    course:courseSubject "COEN" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COEN316 a course:course ;
-    rdfs:label "course" ;
-    course:courseName "COEN316" ;
-    course:courseNumber "316" ;
-    course:courseSubject "COEN" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COMP472 a course:course ;
-    rdfs:label "course" ;
-    course:courseName "COMP472" ;
-    course:courseNumber "472" ;
-    course:courseSubject "COMP" ;
-    rdfs:comment "A course offered by the university."@en .
-
-course:COMP474 a course:course ;
-    rdfs:label "course" ;
-    course:courseName "COMP474" ;
-    course:courseNumber "474" ;
-    course:courseSubject "COMP" ;
-    rdfs:comment "A course offered by the university."@en .
-

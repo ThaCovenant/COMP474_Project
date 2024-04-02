@@ -1,8 +1,6 @@
-import csv
 import os.path
 
 import pandas as pd
-
 from rdflib import URIRef, Graph, Literal, Namespace, RDF, FOAF, RDFS, XSD
 
 # Load RDF data from turtle files
@@ -27,6 +25,9 @@ ex = Namespace("http://example.org/")
 assignments = Namespace("http://example.org/assignments/")
 completedCourse = Namespace("http://example.org/completedCourse/")
 topic = Namespace("http://example.org/topic/")
+university = Namespace("https://www.wikidata.org/entity/Q3918")
+wd = Namespace("https://www.wikidata.org/wiki/")
+dp = Namespace("http://dbpedia.org/resource/")
 
 
 def createGraph(g1, filePath):
@@ -91,8 +92,8 @@ def createTriples(courseName, fileType, fileName, content, i):
     lectureURI = URIRef(lecture + courseName + "Lecture" + str(i))  # lec1
     g.add((lectureURI, RDF.type, lecture.lecture))  # lecture:lec1 a lecture:lecture
     g.add((course_uri, course.hasLecture, lectureURI))  # course:course_uri lecture:hasLecture, lecture:lec1
-    # g.add((lectureURI, RDFS.label, Literal("Lecture")))
-    # g.add((lectureURI, RDFS.comment, Literal("This is a lecture.", lang='en')))
+    g.add((lectureURI, RDFS.label, Literal("Lecture")))
+    g.add((lectureURI, RDFS.comment, Literal("This is a lecture.", lang='en')))
 
     # Lecture lectureURI Properties
     g.add((lectureURI, lecture.lectureNumber, Literal(i, datatype=XSD.integer)))
@@ -112,8 +113,8 @@ def createTriples(courseName, fileType, fileName, content, i):
     # print(contentURI)
     g.add((contentURI, RDF.type, contentClass))
     g.add((contentURI, RDFS.subClassOf, lectureContentURI))
-    # g.add((contentURI, RDFS.label, Literal(fileName + str(i))))
-    # g.add((contentURI, RDFS.comment, Literal(fileName + " of lecture " + str(i), lang='en')))
+    g.add((contentURI, RDFS.label, Literal(fileName + str(i))))
+    g.add((contentURI, RDFS.comment, Literal(fileName + " of lecture " + str(i), lang='en')))
 
     return g
 
@@ -144,7 +145,7 @@ def createContentTriples(courseFolders):
 
         if os.path.exists(lectureFolderLectures):
             numFiles = countFilesInFolder(lectureFolderLectures)
-            for i in range(1, 2):  # numFiles + 1):
+            for i in range(1, numFiles + 1):
                 fileType = "Lectures"
                 fileName = "Slides"
 
@@ -154,7 +155,7 @@ def createContentTriples(courseFolders):
         lectureFolderAssignments = os.path.join(folder, "Assignments")
         if os.path.exists(lectureFolderAssignments):
             numFiles = countFilesInFolder(lectureFolderAssignments)
-            for i in range(1, 2):  # numFiles + 1):
+            for i in range(1, numFiles + 1):
                 fileType = "Assignments"
                 fileName = "Assignments"
 
@@ -164,7 +165,7 @@ def createContentTriples(courseFolders):
         lectureFolderWorksheets = os.path.join(folder, "Worksheets")
         if os.path.exists(lectureFolderWorksheets):
             numFiles = countFilesInFolder(lectureFolderWorksheets)
-            for i in range(1, 2):  # numFiles + 1):
+            for i in range(1, numFiles + 1):
                 fileType = "Worksheets"
                 fileName = "Worksheets"
 
@@ -216,12 +217,6 @@ def studentDataToRDFTriples(student_data):
 
         # Create courseURI instance of class course
         courseURI = URIRef(course + row["Course"].replace(" ", ""))
-        g.add((courseURI, RDF.type, course.course))
-        g.add((courseURI, RDFS.label, Literal("course")))
-        g.add((courseURI, RDFS.comment, Literal("A course offered by the university.", lang='en')))
-        g.add((courseURI, course.courseName, Literal(row["Course"].replace(" ", ""))))
-        g.add((courseURI, course.courseSubject, Literal(row["Course"].split(" ")[0])))
-        g.add((courseURI, course.courseNumber, Literal(row["Course"].split(" ")[1])))
 
         # Student Properties continue
         if row["Grade"] is not None and row["Grade"] in gradeMapping:
@@ -244,7 +239,6 @@ def studentDataToRDFTriples(student_data):
 
 
 def extractCoursesData():
-    courseData = []
     g = Graph()
 
     # Add the namespace for known prefixes to the graph
@@ -252,18 +246,35 @@ def extractCoursesData():
     g.bind("rdfs", RDFS)
     g.bind("rdf", RDF)
     g.bind("course", course)
+    g.bind("university", university)
+    g.bind("wd", wd)
+    g.bind("dp", dp)
 
-    with open(file_path_courses, newline='') as csvfile:
-        # Create a CSV reader object
-        reader = csv.reader(csvfile)
+    universityURI = URIRef(Literal("https://www.concordia.ca/"))
+    g.add((universityURI, RDF.type, university.university))
+    g.add((universityURI, university.Name, Literal("Concordia")))
+    g.add((universityURI, university.WikidataEntry, dp.Concordia_University))
+    g.add((universityURI, university.DBpediaEntry, wd.Q326342))
+    g.add((universityURI, RDFS.label, Literal("university")))
+    g.add((universityURI, RDFS.comment, Literal("A university.", lang='en')))
 
-        # Iterate over each row in the CSV file
-        for row in reader:
-            # Split each row by space character
-            split_row = row.split('"')
+    googleURI = "http://google.com/"
 
-            # Access data in each row
-            first_name = split_row[0]
-            last_name = split_row[1]
+    courseData = pd.read_csv(file_path_courses, encoding='utf-16')
+
+    for index, row in courseData.iterrows():
+        # Create courseURI instance of class course
+        courseURI = URIRef(course + Literal(row["Subject"]) + Literal(row["Catalog"]))
+        g.add((courseURI, RDF.type, course.course))
+        # g.add((courseURI, RDFS.label, Literal("course")))
+        # g.add((courseURI, RDFS.comment, Literal("A course offered by the university.", lang='en')))
+        g.add((courseURI, course.courseName, Literal(row["Long Title"])))
+        g.add((courseURI, course.courseSubject, Literal(row["Subject"])))
+        g.add((courseURI, course.courseNumber, Literal(row["Catalog"])))
+        g.add((courseURI, course.courseCredit, Literal(row["Class Units"], datatype=XSD.decimal)))
+        g.add((courseURI, course.courseDescription, Literal(row["Component Descr"])))
+        courseLink = URIRef(googleURI + Literal(row["Subject"]) + Literal(row["Catalog"]))
+        g.add((courseURI, RDFS.seeAlso, courseLink))
+        g.add((courseURI, course.offeredBy, universityURI))
 
     return g
