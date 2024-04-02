@@ -1,6 +1,5 @@
 from rdflib import URIRef, Graph, Literal, Namespace, RDF, FOAF, RDFS
 
-
 # Load RDF data from turtle files
 file_path1 = "RDFs/Courses.ttl"
 file_path2 = "RDFs/Lectures.ttl"
@@ -35,3 +34,7 @@ def mergedSchema():
 
     return g6
 
+
+def chatbotInterface():
+
+    print("This is chatbot interface")

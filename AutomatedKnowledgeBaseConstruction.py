@@ -266,8 +266,8 @@ def extractCoursesData():
         # Create courseURI instance of class course
         courseURI = URIRef(course + Literal(row["Subject"]) + Literal(row["Catalog"]))
         g.add((courseURI, RDF.type, course.course))
-        # g.add((courseURI, RDFS.label, Literal("course")))
-        # g.add((courseURI, RDFS.comment, Literal("A course offered by the university.", lang='en')))
+        g.add((courseURI, RDFS.label, Literal("course")))
+        g.add((courseURI, RDFS.comment, Literal("A course offered by the university.", lang='en')))
         g.add((courseURI, course.courseName, Literal(row["Long Title"])))
         g.add((courseURI, course.courseSubject, Literal(row["Subject"])))
         g.add((courseURI, course.courseNumber, Literal(row["Catalog"])))
