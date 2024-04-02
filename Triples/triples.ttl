@@ -9,45 +9,11 @@
 @prefix wd: <https://www.wikidata.org/wiki/>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# course = prefix, Course = class
-course:AERO417 a course:Course ;
-    course:offeredBy wd:Q3918 .
-
-course:COEN311 a course:Course ;
-    course:offeredBy wd:Q3918 .
-
-course:COEN316 a course:Course ;
-    course:offeredBy wd:Q3918 .
-
-course:COMP472 a course:Course ;
-    course:courseName "Artificial Intelligence" ;
-    course:courseCredit "4"^^xsd:integer ;
-    course:courseDescription "his course initially describes the scope and history of Artificial Intelligence." ;
-    rdfs:seeAlso <http://google.com/COMP474> ;
-    course:courseNumber "472" ;
-    course:courseOutline <http://example.org/courses/COMP474/outline> ;
-    course:courseSubject "COMP" ;
-    course:hasTopic topic:DeepLearning ;
-    course:hasTopic topic:KnowledgeGraph ;
-    course:offeredBy wd:Q3918 .
-
-course:COMP474 a course:Course ;
-    course:courseName "COMP474" ;
-    course:offeredBy university:Q3918 ;
-    course:courseCredit "3"^^xsd:integer.
-
-course:COMP335 a course:Course ;
-    course:offeredBy university:Q3918 ;
-    course:courseCredit "3"^^xsd:integer ;
-    course:courseLink <http://example.org/courses/COMP335>  .
-
-university:Q201492 a university:University ;
+<https://www.mcgill.ca/> a university:University ;
     university:hasName "McGill University" ;
-    university:hasDBpediaEntry <http://dbpedia.org/resource/McGill_University> .
+    university:DBpediaEntry <http://dbpedia.org/resource/McGill_University> ;
+    university:WikidataEntry wd:Q201492 .
 
-university:Q3918 a university:University ;
-    university:hasName "Concordia University" ;
-    university:hasDBpediaEntry <http://dbpedia.org/resource/Concordia_University> .
 
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
