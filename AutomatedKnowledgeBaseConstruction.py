@@ -30,7 +30,7 @@ wd = Namespace("https://www.wikidata.org/wiki/")
 dp = Namespace("http://dbpedia.org/resource/")
 
 
-def createGraph(g1, filePath):
+def create_graph(g1, filePath):
     # Write the merged graph to a file in Turtle format
     with open(filePath, "w", encoding="utf-8") as f:
         f.write(g1.serialize(format="turtle"))
@@ -181,7 +181,7 @@ def extractStudentData():
 
 
 # Convert student data to RDF triples
-def studentDataToRDFTriples(student_data):
+def student_data_to_rdf_triples(student_data):
     g = Graph()
 
     # Add the namespace for known prefixes to the graph
@@ -238,7 +238,7 @@ def studentDataToRDFTriples(student_data):
     return g
 
 
-def extractCoursesData():
+def extract_courses_data():
     g = Graph()
 
     # Add the namespace for known prefixes to the graph
@@ -266,8 +266,8 @@ def extractCoursesData():
         # Create courseURI instance of class course
         courseURI = URIRef(course + Literal(row["Subject"]) + Literal(row["Catalog"]))
         g.add((courseURI, RDF.type, course.course))
-        # g.add((courseURI, RDFS.label, Literal("course")))
-        # g.add((courseURI, RDFS.comment, Literal("A course offered by the university.", lang='en')))
+        g.add((courseURI, RDFS.label, Literal("course")))
+        g.add((courseURI, RDFS.comment, Literal("A course offered by the university.", lang='en')))
         g.add((courseURI, course.courseName, Literal(row["Long Title"])))
         g.add((courseURI, course.courseSubject, Literal(row["Subject"])))
         g.add((courseURI, course.courseNumber, Literal(row["Catalog"])))

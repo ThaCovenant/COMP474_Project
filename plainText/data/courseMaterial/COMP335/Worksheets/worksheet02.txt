@@ -1,0 +1,80 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet
+
+Regular expressions and grammars
+
+1. Let Σ = {a, b}. Give regular expressions for the following languages over Σ.
+
+(a) L1 = {w | w ends with the string ab}
+(b) L2 = {w | w contains the string aba}
+(c) L3 = {w | w contains exactly one a}
+(d) L4 = {anbm | n + m is even }
+(e) L5 = {anbm | n ≥ 3,m is even }
+(f) L6 = {w | |w| mod 3 = 1}
+(g) L7 = {w | w has no consecutive a’s}
+(h) L8 = {w | w has at least one pair of consecutive a’s}
+(i) L9 = {w | w has exactly one pair of consecutive a’s }
+(j) L10 = {w | w has no runs of a’s of length > 2}
+
+2. Given a regular expression r, find a regular expression for reverse(r).
+
+3. Find NFAs for the languages below:
+
+(a) L(ab(a + ab)?(a + aa))
+
+(b) L((a + b)?b(a + bb)?)
+
+4. Find DFAs for the languages below and then convert each of them into a regular expression or vice versa:
+
+(a) {w ∈ (a + b)? | na(w) and nb(w) are both odd.}
+(b) {w ∈ (a + b)? | the leftmost two symbols of w are the same as the rightmost two symbols }
+
+5. Give right-linear grammars for all the languages in Q1.
+
+6. Consider the language L = {w ∈ (a + b)? | the string aba does not appear in w}.
+
+(a) Give a DFA that accepts L.
+
+(b) Convert it into an equivalent right regular grammar.
+
+(c) Find a regular expression for L = {a, b}? − L.
+
+1
+
+

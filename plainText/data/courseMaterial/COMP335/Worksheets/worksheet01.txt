@@ -1,0 +1,86 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet
+
+Languages, DFAs and NFAs
+
+1. Prove that if L1 ⊆ L2, then L∗
+1 ⊆ L∗
+
+2.
+
+2. Let L = {w ∈ {0, 1}∗ | n0(w) 6= n1(w)} What is L∗?
+
+3. What are the strings in the language L∅?
+
+4. Under what circumstances is L+ = L∗ − {λ}?
+
+5. Let Σ = {a, b}. Give some examples of strings that are in and not in the following languages.
+
+(a) {w | for some u ∈ ΣΣ, w = uuRu}
+(b) {w | ww = www}
+(c) {w | for some u, v ∈ Σ∗, uvw = wvu}
+(d) {w | for some u ∈ Σ∗, www = uu}
+
+6. Let Σ = {a, b}. Give DFAs for the following languages over Σ. (Note: A run in a string is a substring of
+length at least two, as long as possible, and consisting entirely of the same symbol. For instance, the string
+abbbaab contains a run of b’s of length 3 and a run of a’s of length 2. )
+
+(a) L1 = {w | w ends with the string ab}
+(b) L2 = {w | w contains the string aba}
+(c) L3 = {w | w contains exactly one a}
+(d) L4 = {anbm | n+m is even}
+(e) L4 = {anbm | n ≥ 3,m is even}
+(f) L5 = {w | |w| mod 3 = 1}
+(g) L6 = {w | na(w) mod 3 > 1}
+(h) L7 = {w | na(w) mod 3 > nb(w) mod 3}
+(i) L8 = {w | w contains no runs of length < 4}
+(j) L9 = {w | w contains exactly two runs of a’s of length < 3}
+(k) L10 = {w | w the second symbol from the end of w is a b}
+
+7. Design an NFA with no more than five states for the language {ababn | n ≥ 0} ∪ {aban | n ≥ 0}.
+
+8. Design an NFA with no more than three states for the language {ab, abc}∗}.
+
+9. Design an NFA for the language {(ab)i | i ≥ 0} ∪ {(ba)i | i ≥ 0}.
+
+10. Convert the NFA obtained in the previous question to a DFA.
+
+1
+
+

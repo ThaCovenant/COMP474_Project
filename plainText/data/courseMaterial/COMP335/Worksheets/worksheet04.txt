@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet: Context-free grammars
+
+1. Let Σ = {a, b}. Find context-free grammars for the following languages:
+
+(a) {anbm | n ≤ m+ 3}
+(b) {anbm | n 6= 2m}
+(c) {anbm | 2n ≤ m ≤ 3n}
+(d) {w ∈ (a+ b)∗ | na(w) 6= nb(w)}
+(e) {w ∈ (a+ b+ c)∗ | na(w) + nb(w) = nc(w)}
+(f) {anbmcn+m | n,m ≥ 0}
+(g) {anbn+2mcm | n,m ≥ 0}
+(h) {w1cw2 | w1, w2 ∈ (a+ b)∗, w1 6= wR
+
+2 }
+(i) {uvwvR | |u| = |w| = 3, u, v, w ∈ (a+ b)∗}
+(j) {anbmck | k = |n−m|}
+
+2. Show a derivation tree for the string aabbbb with the grammar:
+
+S → AB | λ
+A→ aB
+B → Sb
+
+3. Suppose λ /∈ L and we have CFG for L that has no λ-productions and no unit productions. Let w ∈ L
+with |w| = n. What is the maximium length of a derivation for w?
+
+4. Show that the following grammars are ambiguous:
+
+(a) S → AB | aaB
+A→ a | Aa
+B → b
+
+(b) S → ASbS | bSaS | λ
+
+1
+
+

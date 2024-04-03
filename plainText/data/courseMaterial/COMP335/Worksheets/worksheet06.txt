@@ -1,0 +1,75 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet
+
+Normal Forms for Context-Free Grammars
+
+1. Convert the following grammar to Chomsky Normal Form:
+
+S → ABAC | BaA
+A→ Aa | BAbC | λ
+B → bB | aBaC | λ
+C → a | b
+
+2. A variable A is called useless if either (a) it does not generate any string of terminals, or if (b) it is not
+possible to generate a string containing A from the start variable S. Does it matter in which order we
+remove such useless variables?
+
+3. If we first remove unit productions, and then λ-productions, is the resulting grammar guaranteed to have
+neither unit nor λ-productions?
+
+4. If we first remove useless productions, then unit productions, is the resulting grammar guaranteed to have
+niether useless nor unit productions?
+
+5. A production is called left recursive if it is of the form A → Ax for some x ∈ (V ∪ T )∗. Consider the
+grammar S → Sa | b. Show how to rewrite the grammar so that it contains no left-recursive rules.
+
+6. Convert the following grammar to Griebach Normal Form:
+
+S → AA | a
+A→ BB | b
+
+7. Suppose G is a grammar in CNF, and let w ∈ L(G) with |w| = n. What is the length of a derivation of w
+in G?
+
+8. Suppose G is a grammar in GNF, and let w ∈ L(G) with |w| = n. What is the length of a derivation of w
+in G?
+
+1
+
+

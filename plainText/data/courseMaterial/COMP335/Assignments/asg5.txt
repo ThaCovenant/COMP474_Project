@@ -1,0 +1,65 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONCORDIA UNIVERSITY
+Dept. of Computer Science and Software Engineering
+
+COMP 335 – Introduction to Theoretical Computer Science
+
+Fall 2023
+
+Assignment 5
+
+Submission through moodle is due by Sunday, November 19th at 23:59
+
+1. [40 points] For each of the following languages, give a context-free grammar:
+
+(a) L1 = {abnabna : n ≥ 0}
+(b) L2 = {anbmck : k = m+ n}
+(c) L3 = {aibjck : i = j or i = k}
+(d) L4 = {ww : w ∈ L(0∗10∗)}
+
+2. [10 points] Give a CFG for the complement of L5 = {anbn+1 : n ≥ 0}.
+
+3. [30 points] For each of the following CFLs L, give a “direct” design of an NPDA. That
+is, it is not acceptable to first find a CFG and then convert it into an NPDA.
+
+(a) L6 = {anb3n : n ≥ 0}
+(b) L7 = {anbm : 0 ≤ n ≤ m ≤ 3n}
+(c) L8 = {w ∈ {a, b}∗ : na(w) ≤ 3nb(w)}
+
+

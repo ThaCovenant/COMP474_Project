@@ -1,0 +1,2260 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Languages and Finite Automata
+
+
+COMP 335
+*
+Introduction to Theoretical Computer Science 
+COMP 335/E
+
+Fall 2023
+
+N. Shiri
+
+(Original slides: K. Busch)
+
+ 
+*
+
+COMP 335
+*
+
+
+
+
+
+COMP 335
+*
+	This is a theoretical course in which we study 
+
+  abstract models of computers and computation
+
+	Why theory, when computer is such a practical field?!
+
+
+	The theory provides principles, concepts, and techniques, for both hardware and software, that help better understand the general nature of the field.
+
+*
+
+COMP 335
+
+
+COMP 335
+*
+Mathematical Preliminaries
+*
+
+COMP 335
+
+
+COMP 335
+*
+Mathematical Preliminaries
+
+	Sets 
+	Functions
+	Relations
+	Graphs
+	Proof Techniques
+
+*
+
+COMP 335
+
+
+COMP 335
+*
+
+A set is a collection of elements/objects
+SETS
+We write:
+*
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+Set Representations
+
+C = { a, b, c, d, e, f, g, h, i, j, k }
+
+C = { a, b, …, k }
+
+
+S = { 2, 4, 6, … }
+
+S = { j :  j > 0, and j = 2k for k>0 }
+
+S = { j :  j is nonnegative and even }
+finite set
+infinite set
+*
+
+COMP 335
+*
+
+
+
+
+
+COMP 335
+*
+A = { 1, 2, 3, 4, 5 }
+Universal Set: The set that includes all the elements
+                          
+                        Ex. above:    U = { 1 , … , 10 }
+*
+
+1
+2
+3
+4
+5
+
+A
+U
+6
+7
+8
+9
+10
+
+COMP 335
+
+
+COMP 335
+*
+Set Operations
+A = { 1, 2, 3 }           B = { 2, 3, 4, 5}
+	 Union         
+
+         A U B = { 1, 2, 3, 4, 5 }      
+	 Intersection
+
+A     B = { 2, 3 }
+	 Difference 
+
+A - B = { 1 }
+B - A = { 4, 5 }
+U
+
+
+
+
+
+2
+3
+1
+4
+5
+2
+3
+1
+Venn diagrams
+*
+
+
+A
+B
+
+COMP 335
+
+
+COMP 335
+*
+
+A
+	 Complement
+
+Universal set = {1, …, 7} 
+A = { 1, 2, 3 }              A = { 4, 5, 6, 7}
+
+
+1
+2
+3
+4
+5
+6
+7
+A
+A = A
+*
+
+COMP 335
+
+
+COMP 335
+*
+
+0
+2
+4
+6
+
+1
+3
+5
+7
+
+even
+     { even integers }   =  { odd integers }
+odd
+Integers
+*
+
+COMP 335
+
+
+COMP 335
+*
+DeMorgan’s Laws
+A U B = A    B
+U
+A    B = A U B
+U
+*
+
+COMP 335
+
+
+COMP 335
+*
+Empty, Null Set:
+
+= { }
+S U      = S
+
+S         =    
+
+S -      = S
+
+     - S =
+U
+= Universal Set
+*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+
+
+COMP 335
+*
+Subset
+A = { 1, 2, 3}                  B = { 1, 2, 3, 4, 5 }
+Proper Subset:
+
+
+A
+B
+*
+A       B
+U
+
+A       B
+U
+
+COMP 335
+
+
+COMP 335
+*
+Disjoint Sets
+A = { 1, 2, 3 }         B = { 5, 6} 
+
+
+A
+B
+*
+
+
+A    B =   
+U
+
+COMP 335
+
+
+COMP 335
+*
+Set Cardinality/Size
+	 For finite sets
+
+A = { 2, 5, 7 }
+
+|A| = 3
+(set size)
+*
+
+COMP 335
+
+
+COMP 335
+*
+Powersets (or Power sets) 
+Given any set S, the powerset of S is the set of all
+subsets of S, including the empty set and S itself.
+  the powerset of S is
+For example, for S = { a, b, c }
+2S = { { }, {a}, {b}, {c}, {a, b}, {a, c}, {b, c}, {a, b, c} }
+Question: How many sets are there in the powerset 
+of S?  Answer: |2S| = 2|S|
+*
+
+COMP 335
+
+
+COMP 335
+*
+Cartesian Product
+A = { 2, 4 }                  B = { 2, 3, 5 }
+
+A X B = { (2, 2), (2, 3), (2, 5), ( 4, 2), (4, 3), (4, 5) }
+
+|A X B| = |A|*|B|
+
+The cross product operation can be 
+generalized to more than two sets
+A X B X … X Z
+*
+
+COMP 335
+
+
+COMP 335
+*
+FUNCTIONS
+
+
+domain
+1
+2
+3
+a
+b
+c
+range
+ f : A -> B 
+A
+B
+
+
+If A = domain, then f is called a total function
+     otherwise f is called a partial function 
+ f(1) = a
+4
+5
+*
+
+COMP 335
+
+
+COMP 335
+*
+RELATIONS
+      Given sets A and B, a relation R from A to B is 
+      defined as: R ⊆ AXB 
+      If R ⊆ AXA, then R is called a relation on A   
+      Supp. R = {(x1, y1), (x2, y2), (x3, y3), …}. We may 
+      then  we may write (xi,yi)ϵR or xi R yi 
+       E.g., for when A is the set of natural numbers N 
+       and relation R = ‘>’, we have: 2 > 1, 3 > 2, 3 > 1, …
+*
+
+COMP 335
+
+
+COMP 335
+*
+Equivalence Relations
+ A relation R on A is an equivalence relation if the following conditions hold
+	Reflexive:   ∀x in A: x R x 
+	Symmetric: ∀x,y: x R y  y R x
+	Transitive:  ∀x,y,z: (x R y and y R z)  x R z 
+
+Special case: if R is the equality relation “=“, then:
+	 x = x
+	 x = y  y = x
+	 (x = y and y = z)  x = z
+
+*
+
+COMP 335
+
+
+COMP 335
+*
+Equivalence Classes
+For any equivalence relation R on A, the equivalence class of an element x in A is:
+         [x]R = {y : x R y} 
+Example: Let A={1,2,3,4,5} and
+ R = { (1, 1), (2, 2), (1, 2), (2, 1), (3, 3), 
+          (4, 4), (3, 4), (4, 3), (5,5) }. Then,
+Equi. class of 1 (or 2): [1]R = [2]R = {1, 2}
+Equi. class of 3 (or 4): [3]R = [4]R = {3, 4}
+Equivalence class of 5: [5]R = {5}
+*
+
+COMP 335
+
+
+COMP 335
+*
+(Directed) GRAPHS
+A directed graph G=〈V, E〉
+	 Nodes (Vertices) 
+
+                     V = { a, b, c, d, e }
+	 Edges E ⊆ VxV
+
+     E = { (a,b), (b,c), (b,e),(c,a), (c,e), (d,c), (e,b), (e,d) }
+node
+edge
+
+
+
+
+a
+b
+c
+d
+
+e
+*
+
+COMP 335
+
+
+COMP 335
+*
+Labeled Graph
+
+
+
+
+a
+b
+c
+d
+
+e
+1
+3
+5
+6
+2
+6
+2
+*
+
+COMP 335
+
+
+COMP 335
+*
+Walk
+Walk is a sequence of adjacent edges
+               (e, d), (d, c), (c, a)
+*
+
+
+
+
+
+
+
+
+
+a
+b
+c
+d
+
+
+e
+
+
+COMP 335
+
+
+COMP 335
+*
+Path
+Path is a walk where no edge is repeated
+Simple path is a path where no node is repeated
+*
+
+
+
+
+
+
+
+
+
+a
+b
+c
+d
+
+
+e
+
+
+COMP 335
+
+
+COMP 335
+*
+Cycle
+
+
+
+
+a
+b
+c
+d
+
+e
+1
+2
+3
+Cycle is a walk from a node (base) to itself
+Simple cycle: only the base node is repeated 
+base
+*
+
+COMP 335
+
+
+COMP 335
+*
+Trees
+
+
+
+
+
+
+
+root
+leaf
+parent
+child
+Trees: graphs with no cycles.
+Ordered trees : the order 
+of children is important!
+*
+
+COMP 335
+
+
+COMP 335
+*
+
+
+
+
+
+
+
+root
+leaf
+Level 0
+Level 1
+Level 2
+Level 3
+Height 3
+*
+leaf
+leaf
+leaf
+
+COMP 335
+
+
+COMP 335
+*
+PROOF TECHNIQUES
+	 Proof by induction
+
+	 Proof by contradiction
+
+*
+
+COMP 335
+
+
+COMP 335
+*
+Induction
+We have statements P1, P2, P3, …, where Pi means P(i)
+If we know
+	 for some b that P1, P2, …, Pb are true
+	 and that for any k, we have that:
+
+P1, P2, …, Pk  imply  Pk+1
+Then 
+   we conclude that every  Pi  is true, that is, ∀i P(i)
+*
+
+COMP 335
+
+
+COMP 335
+*
+Proof by Contradiction
+We want to prove that a statement P is true
+
+	 we assume that P is false
+	 then we arrive at an incorrect conclusion
+	 and hence conclude that P must be true  
+
+*
+
+COMP 335
+
+
+COMP 335
+*
+Example
+Theorem:               is not rational
+
+Proof:
+Assume by contradiction that it is rational, i.e.
+                =  n/m
+where n and m have no common factors
+
+We will show that this is impossible
+*
+
+COMP 335
+
+
+
+
+COMP 335
+*
+           = n/m                 2 m2 = n2 
+
+Therefore,  n2  is even
+
+n is even
+n = 2 k
+2 m2 = 4k2
+
+m2 = 2k2
+
+m is even
+m = 2 p
+Thus, 2 is a common factor for both m and n,
+          Contradiction!
+*
+
+COMP 335
+
+
+
+COMP 335
+*
+Pigeon Hole Principle:
+If n+1 objects are put into n boxes, then at least 
+one box must contain 2 or more objects.
+Example: Can show if 5 points are placed inside a square whose sides are 2 cm long, then at least two points are at a distance ≤ 2 cm. 
+According to the PHP, if we divide the square into 4, at least two of the points must be in one of these 4 squares. But the length of the diagonals of these squares is 2. 
+ the two points cannot be further apart than 2 cm.
+*
+
+COMP 335
+
+
+Languages
+COMP 335
+*
+*
+
+COMP 335
+*
+
+
+
+
+
+Alphabets and Languages
+An alphabet  is a finite set of symbols characters
+A language L is a set of strings (sentences) over  
+
+Note: The alphabet includes at least one symbol.
+Defn. A string/sentence w is a sequence of characters (or symbols) in .
+
+“cat”, “dog”, “house” are examples of 
+strings over the English alphabet 
+ = {a,b,c,…,z}
+COMP 335
+*
+*
+
+COMP 335
+
+
+Alphabets and Strings
+We will use small letters for the alphabet 
+symbols. Let                 be the alphabet.
+Example of strings over    :
+
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+
+
+
+Operations on Strings
+COMP 335
+*
+Concatenation
+*
+bbbaaaabba
+abbabbbaaa
+
+COMP 335
+
+
+
+COMP 335
+*
+Reverse
+*
+
+COMP 335
+
+
+
+
+
+
+Length of a string
+Given: 
+Length:
+
+
+Examples:
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+Length of concatenated strings
+
+
+
+Example: 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+The Empty String
+The empty string, shown , is the string
+ that has no symbols. That is,            .
+Some texts may use ε for the empty string.
+
+Note:
+
+For example:
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+Substrings
+  Given any string w, a substring of w is a subsequence of consecutive symbols (characters) in w.
+For example, if w =abbab, then examples of different substrings of w are as follows:
+                  String                    Substring
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+Prefix and Suffix
+Ex: for string w =
+    Prefixes         Suffixes
+
+COMP 335
+*
+prefix
+suffix
+*
+
+COMP 335
+
+
+
+
+
+
+Another Operation
+For a string w, we define the exponent of w as  Wn = ww…w   (w copied n times)
+
+Example:
+
+
+Definition: for any string w,
+           
+E.g., 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+The star Operation (*)
+ * is defined as the set of all strings of length 0, 1, 2, … over the alphabet 
+
+For example:
+For
+
+
+ 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+COMP 335
+*
+The plus Operation (+)
+      : the set of all strings over  except .
++ = 1  2  3  …  (What is L1L2?)
+* = 0  1  2  3  …
+
+
+
+
+
+
+
+ 
+*
+
+COMP 335
+
+*
+
+
+
+
+
+
+
+
+Languages
+Given an alphabet   , any subset of
+       is called a language over   . 
+
+Examples of languages over    ={a, b}:
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+Note: we will use |..| to denote 2 things: 
+(1) string length and (2) set size/cardinality
+Sets
+Set size
+Set size
+String length
+*
+
+COMP 335
+
+
+
+
+
+
+An interesting language over {a,b}
+
+COMP 335
+*
+
+*
+
+COMP 335
+
+
+
+
+
+
+Other operations over languages
+As languages are sets, the standard set
+ operations are applicable on languages:
+
+
+
+
+
+Complement: 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+The Reverse operation (R)
+
+Definition:
+
+Examples:
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+Concatenation
+
+Definition:
+
+
+Example: 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+Concatenation Operation
+Definition: For any language L, we define: 
+ Ln=LL…L. For example: if L={a,b}, then 
+
+
+
+Note the
+special case (n=0): 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+More Examples
+ 
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+Star-Closure (Kleene *)
+
+Definition: For any language L : 
+
+Example:
+
+
+
+  
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+Positive Closure (+) of a language?
+COMP 335
+*
+*
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+}
+3
+,
+2
+,
+1
+{
+=
+A
+
+
+
+
+
+
+
+
+
+}
+,
+,
+,
+{
+airplane
+bicycle
+bus
+train
+B
+=
+
+
+
+
+
+
+
+
+
+A
+Î
+1
+
+
+
+
+
+
+
+
+
+B
+ship
+Ï
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+abba
+w
+bbbaaa
+v
+ab
+u
+=
+=
+=
+
+
+
+
+
+
+
+
+
+{
+}
+b
+a
+,
+=
+S
+
+
+
+
+
+
+
+
+
+b
+aaabbbaaba
+baba
+abba
+ab
+a
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+ababaaabbb
+
+
+
+
+
+
+
+
+
+bbbaaababa
+
+
+
+
+
+
+
+
+
+n
+w
+=
+
+
+
+
+
+
+
+
+
+1
+2
+4
+=
+=
+=
+a
+aa
+abba
+
+
+
+
+
+
+
+
+
+v
+u
+uv
++
+=
+
+
+
+
+
+
+
+
+
+8
+5
+3
+8
+5
+,
+3
+,
+=
++
+=
++
+=
+=
+=
+=
+=
+=
+=
+v
+u
+uv
+aababaab
+uv
+v
+abaab
+v
+u
+aab
+u
+
+
+
+
+
+
+
+
+
+w
+w
+w
+=
+=
+l
+l
+
+
+
+
+
+
+
+
+
+abba
+abba
+abba
+=
+=
+l
+l
+
+
+
+
+
+
+
+
+
+0
+|
+|
+=
+l
+
+
+
+
+
+
+
+
+
+bbab
+b
+abba
+ab
+
+
+
+
+
+
+
+
+
+abbab
+abbab
+abbab
+abbab
+
+
+
+
+
+
+
+
+
+abbab
+
+
+
+
+
+
+
+
+
+abbab
+abba
+abb
+ab
+a
+l
+
+
+
+
+
+
+
+
+
+l
+b
+ab
+bab
+bbab
+abbab
+
+
+
+
+
+
+
+
+
+uv
+w
+=
+
+
+
+
+
+
+
+
+
+(
+)
+abbaabba
+abba
+=
+2
+
+
+
+
+
+
+
+
+
+l
+=
+0
+w
+
+
+
+
+
+
+
+
+
+(
+)
+l
+=
+0
+abba
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+K
+,
+,
+,
+,
+,
+,
+,
+,
+,
+*
+,
+aab
+aaa
+bb
+ba
+ab
+aa
+b
+a
+b
+a
+l
+=
+S
+=
+S
+
+
+
+
+
+
+
+
+
++
+S
+
+
+
+
+
+
+
+
+
+}
+{
+ 
+*
+l
+-
+S
+=
+S
++
+
+
+
+
+
+
+
+
+
+{
+}
+K
+,
+,
+,
+,
+,
+,
+,
+,
+aab
+aaa
+bb
+ba
+ab
+aa
+b
+a
+=
+S
++
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+}
+0
+:
+{
+}
+,
+,
+,
+,
+,
+{
+,
+,
+{},
+,
+*
+³
+S
+n
+b
+a
+aaaaaa
+ab
+aa
+baba
+abba
+aab
+aa
+a
+n
+n
+l
+l
+
+
+
+
+
+
+
+
+
+*
+S
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+}
+{
+}
+{
+l
+¹
+=
+Æ
+
+
+
+
+
+
+
+
+
+0
+}
+{
+=
+Æ
+=
+
+
+
+
+
+
+
+
+
+1
+}
+{
+=
+l
+
+
+
+
+
+
+
+
+
+0
+=
+l
+
+
+
+
+
+
+
+
+
+}
+0
+:
+{
+³
+=
+n
+b
+a
+L
+n
+n
+
+
+
+
+
+
+
+
+
+aaaaabbbbb
+aabb
+ab
+l
+
+
+
+
+
+
+
+
+
+L
+Î
+
+
+
+
+
+
+
+
+
+L
+abb
+Ï
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+{
+}
+{
+}
+{
+}
+{
+}
+{
+}
+aaaa
+a
+ab
+bb
+aaaa
+ab
+a
+ab
+ab
+bb
+aaaa
+ab
+a
+aaaa
+bb
+ab
+a
+ab
+bb
+aaaa
+ab
+a
+,
+,
+,
+,
+}
+{
+,
+,
+,
+}
+,
+,
+,
+{
+,
+,
+,
+=
+-
+=
+=
+I
+U
+
+
+
+
+
+
+
+
+
+L
+L
+-
+S
+=
+*
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+K
+,
+,
+,
+,
+,
+,
+,
+aaa
+bb
+ab
+aa
+b
+ba
+a
+l
+=
+
+
+
+
+
+
+
+
+
+}
+:
+{
+L
+w
+w
+L
+R
+R
+Î
+=
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+abab
+baa
+ba
+baba
+aab
+ab
+R
+,
+,
+,
+,
+=
+
+
+
+
+
+
+
+
+
+}
+0
+:
+{
+}
+0
+:
+{
+³
+=
+³
+=
+n
+a
+b
+L
+n
+b
+a
+L
+n
+n
+R
+n
+n
+
+
+
+
+
+
+
+
+
+{
+}
+2
+1
+2
+1
+,
+:
+L
+y
+L
+x
+xy
+L
+L
+Î
+Î
+=
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+{
+}
+baaa
+bab
+abaa
+abb
+aaa
+ab
+aa
+b
+ba
+ab
+a
+,
+,
+,
+,
+,
+,
+,
+,
+=
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+{
+}
+{
+}
+{
+}
+bbb
+bba
+bab
+baa
+abb
+aba
+aab
+aaa
+b
+a
+b
+a
+b
+a
+b
+a
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+3
+=
+=
+
+
+
+
+
+
+
+
+
+{
+}
+{
+}
+{
+}
+l
+l
+=
+=
+0
+0
+,
+,
+aaa
+bba
+a
+L
+
+
+
+
+
+
+
+
+
+}
+0
+:
+{
+³
+=
+n
+b
+a
+L
+n
+n
+
+
+
+
+
+
+
+
+
+}
+0
+,
+:
+{
+2
+³
+=
+m
+n
+b
+a
+b
+a
+L
+m
+m
+n
+n
+
+
+
+
+
+
+
+
+
+2
+L
+aabbaaabbb
+Î
+
+
+
+
+
+
+
+
+
+{
+}
+ï
+ï
+þ
+ï
+ï
+ý
+ü
+ï
+ï
+î
+ï
+ï
+í
+ì
+=
+K
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+*
+,
+abbbb
+abba
+aabb
+aaa
+bbbb
+bba
+abb
+aa
+bb
+a
+bb
+a
+l
+
+
+
+
+
+
+
+
+
+{
+}
+ï
+þ
+ï
+ý
+ü
+ï
+î
+ï
+í
+ì
+=
++
+K
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+abbbb
+abba
+aabb
+aaa
+bbbb
+bba
+abb
+aa
+bb
+a
+bb
+a

@@ -1,0 +1,68 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet
+
+Context-free pumping lemma and closure properties
+
+1. Let Σ = {a, b}. Determine if the following languages are context-free, and prove your answers.
+
+(a) {ww | w ∈ (a + b)∗}
+(b) {anbj | n ≤ j2}
+(c) {anbmc` | ` = nm}
+(d) {anbjck | k > n, k > j}
+(e) {w ∈ (a + b + c)∗ | na(w) < nb(w) < nc(w)}
+(f) {anwwRan | n ≥ 0, w ∈ (a + b)∗}
+(g) {anbma`bk | n + m = ` + k}
+(h) {anbma`bk | n + ` = m + k}
+(i) {anbnck | n ≤ k ≤ 2n}
+(j) {anbn | n is not a multiple of 5 }
+(k) {an! | n ≥ 0}
+
+2. Let L1 be a cfl, L2 a dcfl and let R be regular. Can we conclude that
+
+(a) L1 −R is a cfl?
+
+(b) R− L1 is a cfl?
+
+(c) L2 ∪R is a dcfl?
+
+(d) L2 ∩R is a dcfl?
+
+1
+
+

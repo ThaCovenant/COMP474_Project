@@ -1,0 +1,78 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet
+
+Properties of regular languages
+
+1. Let Σ = {a, b}. If L is a regular language over Σ, prove that the following languages are regular.
+
+(a) Prefix(L) = {u | uv ∈ L}
+(b) Reverse(L) = {w | wR ∈ L}
+(c) even(L) = {w2w4 . . . wn | w1w2w3 . . . wm ∈ L where m ∈ {n, n + 1}}
+(d) min(L) = {w ∈ L | there is no u ∈ L, v ∈ Σ+ such that w = uv}
+
+2. Which of the following languages is regular? Prove your answer.
+
+(a) {an2 | n ≥ 1}
+(b) {an | n is prime}
+
+(c) {a2k | k ≥ 1}
+(d) {an | n is not a perfect square}
+(e) {anbl | n/l ∈ Z}
+(f) {anbn | n ≥ 1} ∪ {anbm | n ≥ 1,m ≥ 1}
+(g) {anbn | n ≥ 1} ∪ {anbn+2 | n ≥ 1}
+(h) {anb`ck | n > 5, ` > 3, k ≤ `}
+(i) {anb` | n ≤ ` ≤ 2n}
+(j) {w1cw2 | w1, w2 ∈ {a, b}?, w1 6= w2}
+(k) {w ∈ (a + b)∗ | na(w) = 2nb(w)}
+(l) {wwRv | v, w ∈ (a + b)+}
+
+3. True or false? Explain.
+
+(a) If L is regular, then any subset of L is regular.
+
+(b) If L is regular, then any superset of L is regular.
+
+(c) If L1 and L2 are regular, then {w | w ∈ L1, w
+R ∈ L2} is regular.
+
+(d) Suppose L1 is finite and L1 ∪ L2 is regular. Then L2 is regular.
+
+1
+
+

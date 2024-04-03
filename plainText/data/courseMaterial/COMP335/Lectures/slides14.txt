@@ -1,0 +1,4136 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Languages and Finite Automata
+
+
+COMP 335
+*
+Turing Machines
+ 
+*
+
+COMP 335
+
+
+COMP 335
+*
+The Language Hierarchy
+
+Regular Languages
+
+Context-Free Languages
+?
+?
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Regular Languages
+
+Context-Free Languages
+
+Languages accepted by
+Turing Machines
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+A Turing Machine
+
+
+
+
+
+
+
+
+
+......
+......
+Tape
+Read-Write head
+Transition diagram -- program
+
+COMP 335
+
+
+COMP 335
+*
+The Tape
+......
+......
+Read-Write head
+No boundaries; use as many cells as needed!
+ The head moves 1 cell to the Left or the Right
+
+COMP 335
+
+
+COMP 335
+*
+......
+......
+Read-Write head
+At each step of a TM computation, it        
+  1. Reads the symbol in the cell under the head
+  2. Replaces that symbol with a symbol
+  3. Moves 1 cell to the Left or to the Right
+
+COMP 335
+
+
+COMP 335
+*
+......
+......
+Example:
+Time 0
+......
+......
+Time 1
+1. Reads
+2. Writes 
+3. Moves Left
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+......
+......
+Time 1
+......
+......
+Time 2
+1. Reads
+2. Writes 
+3. Moves Right
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Example Input String:  “abac”
+......
+......
+Blank symbol
+head
+Convention: When a TM begins its execution, 
+the R/W head is under the leftmost symbol 
+in the input
+
+Input string
+Blank symbol
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+......
+......
+Blank symbol
+head
+
+Input string
+Note: the input string is never empty
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+States & Transitions
+
+
+Read
+Write
+Move Left
+
+
+Move Right
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+Example:
+
+
+......
+......
+Time 1
+current state
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+......
+......
+Time 1
+
+
+......
+......
+Time 2
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+......
+......
+Time 1
+
+
+......
+......
+Time 2
+Example:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+......
+......
+Time 1
+
+
+......
+......
+Time 2
+Example:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Determinism
+
+
+Allowed
+Not Allowed
+
+
+
+
+No lambda transitions allowed
+Turing Machines are deterministic
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Partial Transition Function
+
+
+
+......
+......
+Example:
+There is no transition 
+in q1 for the input 
+symbol 
+Allowed:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Halting
+
+Turing machine halts  in a state 
+if there is no possible transition 
+to follow 
+
+COMP 335
+
+
+COMP 335
+*
+Example:
+......
+......
+
+
+
+No possible transition
+HALT!!!
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Final States
+
+
+
+Allowed
+
+
+
+Not Allowed
+	 Final states have no outgoing transitions
+
+	 In a final state, the TM halts
+
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+Acceptance
+Accept Input
+If TM halts 
+in a final state 
+
+Reject Input
+
+ If TM halts in a 
+non-final state
+             or
+ if it enters an 
+infinite loop ?!
+
+COMP 335
+
+
+COMP 335
+*
+Turing Machine; An Example
+Ex. a Turing machine for the language
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+Time 0
+
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 1
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 2
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 3
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 4
+
+
+Halt & Accept
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Rejection Example
+
+
+
+Time 0
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+Time 1
+No possible Transition
+Halt & Reject
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Infinite Loop Example
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+Time 0
+
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 1
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 2
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Time 2
+Time 3
+Time 4
+Time 5
+Infinite loop
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Because of the infinite loop:
+
+	The final state cannot be reached
+
+	The machine never halts 
+
+
+	The input is not accepted
+
+
+COMP 335
+
+
+COMP 335
+*
+Another Example
+A Turing machine for 
+
+
+
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 0
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 1
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 2
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 3
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 4
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 5
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 6
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 7
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 8
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 9
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 10
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 11
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 12
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Halt & Accept
+Time 13
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+We can easily modify the machine 
+for the language 
+to construct a TM for the language
+Observation:
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Formal Definitions
+for 
+Turing Machines
+ 
+
+COMP 335
+
+
+COMP 335
+*
+Transition Function
+
+
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+
+
+Transition Function
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+
+Turing Machine:
+States
+Input
+alphabet
+Tape
+alphabet
+Transition
+function
+Initial
+state
+
+
+
+
+
+Blank in Γ
+
+Final
+states
+
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Configuration
+Instantaneous description:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Time 4
+Time 5
+A Move:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Time 4
+Time 5
+Time 6
+Time 7
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Equivalent notation:
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Initial configuration:
+
+Input string
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+The Accepted Language
+For any Turing Machine
+The initial state
+A final state
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Standard Turing Machine
+	 Deterministic
+
+	 Infinite tape in both directions
+
+	Tape is the input/output file
+
+The Turing machine described is the standard:
+
+COMP 335
+
+
+COMP 335
+*
+Computing Functions
+with
+Turing Machines
+ 
+
+COMP 335
+
+
+COMP 335
+*
+
+A function
+Domain:
+Range:
+has:
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+A function may have several 
+parameters / arguments:
+Example:
+The Addition function:
+
+COMP 335
+
+
+
+COMP 335
+*
+Integer Domain
+Unary:
+Binary:
+Decimal:
+11111
+101
+5
+We prefer unary representation:
+easier to manipulate with Turing machines
+
+
+COMP 335
+
+
+COMP 335
+*
+Definition:
+A function     is computable if there is a 
+Turing Machine       such that: 
+Initial configuration
+Final configuration
+Domain
+final state
+initial state
+For all
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Initial 
+Configuration
+Final
+Configuration
+A function      is computable if there is a 
+Turing Machine       such that: 
+In other words:
+(the domain)
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+Example
+The function
+is computable
+A Turing Machine M for f:
+Input string:
+unary
+Output string:
+unary
+where         are integers
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+
+
+Start
+initial state
+The 0 is the delimiter that 
+separates the inputs, x and y
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+Start
+Finish
+final state
+initial state
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Finish
+final state
+The 0 here may help when we use
+the result for other operations
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Turing machine M for the function:
+
+
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Execution Example:
+Input (time 0)
+Output (final result)
+(2)
+(2)
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 0
+
+
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+Time 1
+
+
+
+
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 2
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 3
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 4
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 5
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 6
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 7
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 8
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 9
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 10
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 11
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+Time 12
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+HALT & accept
+Time 13
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Another Example
+The function
+is computable, assuming that    is an integer. 
+Here is a TM for computing f(x) :
+Input:
+in unary
+Output:
+in unary
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+
+
+Start
+Finish
+final state
+initial state
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Turing Machine Pseudocode for 
+	 Replace every 1 with $
+
+	 Repeat:
+
+	 Find rightmost $, replace it with 1
+
+
+	 Go to the right end, and insert 1
+
+Until there is no more $ left
+
+COMP 335
+
+
+
+COMP 335
+*
+
+
+
+
+
+A Turing Machine for: 
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+Example
+Initial Config.
+Final Config.
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Another Example
+The function f  is computable
+
+if
+if
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+Design a Turing Machine for
+Input:
+Output:
+or
+
+if
+if
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Pseudocode/block diagram for the proposed TM:
+Match a 1 from     with a 1 from  
+	 Repeat
+
+    Until all  of       or       is matched
+	 If a 1 from     part is not matched
+
+  then erase the tape and write 1
+  else erase the tape and write 0
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Combining Turing Machines
+ 
+
+COMP 335
+
+
+COMP 335
+*
+Block Diagram
+
+Turing
+Machine
+input
+output
+
+COMP 335
+
+
+COMP 335
+*
+Example:
+
+if
+if
+
+Comparer
+      C
+
+Adder
+    A
+
+Eraser
+    E
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*
+a
+
+
+
+
+
+
+
+
+
+n
+n
+b
+a
+
+
+
+
+
+
+
+
+
+R
+ww
+
+
+
+
+
+
+
+
+
+n
+n
+n
+c
+b
+a
+
+
+
+
+
+
+
+
+
+ww
+
+
+
+
+
+
+
+
+
+*
+*
+b
+a
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+k
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+k
+
+
+
+
+
+
+
+
+
+k
+
+
+
+
+
+
+
+
+
+f
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+f
+
+
+
+
+
+
+
+
+
+à
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+2
+q
+
+
+
+
+
+
+
+
+
+L
+b
+a
+,
+®
+
+
+
+
+
+
+
+
+
+R
+b
+a
+,
+®
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+2
+q
+
+
+
+
+
+
+
+
+
+L
+b
+a
+,
+®
+
+
+
+
+
+
+
+
+
+R
+g
+,
+®
+à
+
+
+
+
+
+
+
+
+
+g
+
+
+
+
+
+
+
+
+
+3
+q
+
+
+
+
+
+
+
+
+
+L
+d
+b
+,
+®
+
+
+
+
+
+
+
+
+
+L
+d
+a
+,
+®
+
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+
+*)
+(
+a
+L
+
+
+
+
+
+
+
+
+
+0
+q
+
+
+
+
+
+
+
+
+
+R
+a
+a
+,
+®
+
+
+
+
+
+
+
+
+
+L
+,
+à
+®
+à
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+L
+b
+b
+,
+®
+
+
+
+
+
+
+
+
+
+}
+1
+:
+{
+³
+n
+b
+a
+n
+n
+
+
+
+
+
+
+
+
+
+R
+x
+a
+,
+®
+
+
+
+
+
+
+
+
+
+R
+a
+a
+,
+®
+
+
+
+
+
+
+
+
+
+R
+y
+y
+,
+®
+
+
+
+
+
+
+
+
+
+L
+y
+b
+,
+®
+
+
+
+
+
+
+
+
+
+L
+a
+a
+,
+®
+
+
+
+
+
+
+
+
+
+L
+y
+y
+,
+®
+
+
+
+
+
+
+
+
+
+R
+x
+x
+,
+®
+
+
+
+
+
+
+
+
+
+4
+q
+
+
+
+
+
+
+
+
+
+x
+
+
+
+
+
+
+
+
+
+y
+
+
+
+
+
+
+
+
+
+}
+1
+:
+{
+³
+n
+b
+a
+n
+n
+
+
+
+
+
+
+
+
+
+}
+1
+:
+{
+³
+n
+c
+b
+a
+n
+n
+n
+
+
+
+
+
+
+
+
+
+)
+,
+,
+(
+)
+,
+(
+2
+1
+R
+b
+q
+a
+q
+=
+d
+
+
+
+
+
+
+
+
+
+L
+d
+c
+,
+®
+
+
+
+
+
+
+
+
+
+)
+,
+,
+(
+)
+,
+(
+2
+1
+L
+d
+q
+c
+q
+=
+d
+
+
+
+
+
+
+
+
+
+)
+,
+,
+,
+,
+,
+,
+(
+0
+F
+q
+Q
+M
+à
+G
+S
+=
+d
+
+
+
+
+
+
+
+
+
+ba
+q
+ca
+1
+
+
+
+
+
+
+
+
+
+ayb
+q
+x
+xayb
+q
+0
+2
+f
+
+
+
+
+
+
+
+
+
+b
+q
+xxy
+yb
+q
+xx
+ayb
+q
+x
+xayb
+q
+1
+1
+0
+2
+f
+f
+f
+
+
+
+
+
+
+
+
+
+b
+q
+xxy
+xayb
+q
+1
+2
+*
+f
+
+
+
+
+
+
+
+
+
+w
+q
+0
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+w
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+}
+:
+{
+)
+(
+2
+1
+0
+x
+q
+x
+w
+q
+w
+M
+L
+f
+*
+=
+f
+
+
+
+
+
+
+
+
+
+)
+(
+w
+f
+
+
+
+
+
+
+
+
+
+D
+
+
+
+
+
+
+
+
+
+D
+w
+Î
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+S
+w
+f
+Î
+)
+(
+
+
+
+
+
+
+
+
+
+y
+x
+y
+x
+f
++
+=
+)
+,
+(
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+w
+
+
+
+
+
+
+
+
+
+f
+q
+
+
+
+
+
+
+
+
+
+)
+(
+w
+f
+
+
+
+
+
+
+
+
+
+)
+(
+0
+w
+f
+q
+w
+q
+f
+*
+f
+
+
+
+
+
+
+
+
+
+D
+w
+Î
+"
+
+
+
+
+
+
+
+
+
+y
+x
+0
+
+
+
+
+
+
+
+
+
+0
+xy
+
+
+
+
+
+
+
+
+
+y
+x
+,
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+x
+
+
+
+
+
+
+
+
+
+y
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+y
+x
++
+
+
+
+
+
+
+
+
+
+L
+,
+0
+1
+®
+
+
+
+
+
+
+
+
+
+L
+,
+1
+1
+®
+
+
+
+
+
+
+
+
+
+R
+,
+à
+®
+à
+
+
+
+
+
+
+
+
+
+R
+,
+1
+0
+®
+
+
+
+
+
+
+
+
+
+R
+,
+1
+1
+®
+
+
+
+
+
+
+
+
+
+11
+=
+x
+
+
+
+
+
+
+
+
+
+11
+=
+y
+
+
+
+
+
+
+
+
+
+x
+
+
+
+
+
+
+
+
+
+y
+
+
+
+
+
+
+
+
+
+y
+x
++
+
+
+
+
+
+
+
+
+
+L
+,
+0
+0
+®
+
+
+
+
+
+
+
+
+
+x
+x
+f
+2
+)
+(
+=
+
+
+
+
+
+
+
+
+
+xx
+
+
+
+
+
+
+
+
+
+x
+2
+
+
+
+
+
+
+
+
+
+R
+,
+1
+$
+®
+
+
+
+
+
+
+
+
+
+L
+,
+1
+®
+à
+
+
+
+
+
+
+
+
+
+R
+$,
+1
+®
+
+
+
+
+
+
+
+
+
+=
+)
+,
+(
+y
+x
+f
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+y
+x
+>
+
+
+
+
+
+
+
+
+
+y
+x
+£
+
+
+
+
+
+
+
+
+
+)
+,
+(
+y
+x
+f
+
+
+
+
+
+
+
+
+
+)
+(
+y
+x
+>
+
+
+
+
+
+
+
+
+
+)
+(
+y
+x
+£
+
+
+
+
+
+
+
+
+
+=
+)
+,
+(
+y
+x
+f
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+y
+x
++
+
+
+
+
+
+
+
+
+
+y
+x
+>
+
+
+
+
+
+
+
+
+
+y
+x
+£
+
+
+
+
+
+
+
+
+
+y
+x
+,
+
+
+
+
+
+
+
+
+
+)
+,
+(
+y
+x
+f
