@@ -1,0 +1,2407 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Languages and Finite Automata
+
+
+COMP 335
+*
+Turing’s Thesis
+ 
+*
+
+COMP 335
+
+
+COMP 335
+*
+Turing’s thesis:
+Any computation  carried out
+by mechanical means can be 
+performed by a Turing Machine
+(1930)
+
+COMP 335
+
+
+COMP 335
+*
+In Computer Science:
+A computation is mechanical if
+it can be performed by a TM
+There isn’t any known model of computation
+that is more powerful than TMs
+
+COMP 335
+
+
+COMP 335
+*
+Definition of Algorithm:
+An algorithm for function           is a TM  which computes 
+
+COMP 335
+
+
+
+
+COMP 335
+*
+When we say:
+There exists an algorithm
+Algorithms are Turing Machines
+We mean that:
+There exists a Turing Machine
+that executes the algorithm
+
+COMP 335
+
+
+COMP 335
+*
+Variations of
+Turing Machines
+ 
+
+COMP 335
+
+
+COMP 335
+*
+
+
+
+
+
+
+
+Read-Write Head
+Control Unit
+Deterministic
+The Standard Model
+Infinite Tape
+(Left or Right)
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Variations of the Standard Model
+	 Stay-Option 
+	 Semi-Infinite tape
+	 Off-Line tape
+	 Multitape
+	 Multidimensional tapes
+	 Nondeterministic
+
+Turing machines with:
+
+COMP 335
+
+
+COMP 335
+*
+It has been shown that:
+Each Class has the same
+power as the Standard TM
+The variations form different Classes 
+of Turing Machines
+
+COMP 335
+
+
+COMP 335
+*
+When we say two classes of TM’s are of 
+the same power it means that: 
+The languages accepted by these two classes 
+are the same
+
+COMP 335
+
+
+COMP 335
+*
+To be more precise, this means:
+For any machine          of first class 
+there is a machine           of second class 
+such that:      
+And vice-versa
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Used to prove this equivalence
+Simulation:
+Simulate the machine of one class
+with a machine of the other class
+
+First Class
+Original Machine
+
+
+    Second Class
+Simulation Machine
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Configurations in the Original Machine
+correspond to configurations in the 
+Simulation Machine
+Original Machine:
+Simulation Machine:
+
+COMP 335
+
+
+
+
+COMP 335
+*
+The Simulation Machine
+and the Original Machine
+accept the same language
+Original Machine:
+Simulation Machine:
+Final Configuration
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Turing Machines with Stay-Option
+The head can stay in the same position
+Left, Right, Stay
+L,R,S: moves
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Example:
+Time 1
+Time 2
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Stay-Option Machines
+have the same power as 
+Standard Turing machines
+Theorem:
+
+COMP 335
+
+
+COMP 335
+*
+Proof:
+Part 1:   Stay-Option Machines
+             are at least as powerful as
+             Standard machines 
+Proof:
+a Standard machine is also
+a Stay-Option machine
+(that never uses the S move)
+
+COMP 335
+
+
+COMP 335
+*
+Part 2:   Standard Machines
+              are at least as powerful as
+             Stay-Option machines 
+Proof:
+a standard machine can simulate
+a Stay-Option machine
+Proof:
+
+COMP 335
+
+
+COMP 335
+*
+
+
+
+
+
+
+Stay-Option Machine
+Simulation in Standard Machine
+Similar for Right moves
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+Stay-Option Machine
+
+
+Simulation in Standard Machine M
+For every symbol x in Г, where
+qs is a new non-final state we add in M
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Example
+Stay-Option Machine:
+1
+2
+
+
+Simulation in Standard Machine:
+1
+2
+3
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Standard Machine--Multiple Track Tape
+track 1
+track 2
+
+one symbol
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+track 1
+track 2
+
+
+track 1
+track 2
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Semi-Infinite Tape
+.........
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Standard Turing machines simulate
+Semi-infinite tape machines:
+Trivial 
+
+COMP 335
+
+
+COMP 335
+*
+Semi-infinite tape machines simulate
+Standard Turing machines:
+Standard machine
+.........
+Semi-infinite tape machine
+.........
+.........
+
+COMP 335
+
+
+COMP 335
+*
+Standard machine
+.........
+Semi-infinite tape machine with two tracks
+.........
+.........
+reference point
+Right part
+Left part
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+
+
+
+Left part
+Right part
+
+Standard machine
+Semi-infinite tape machine
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Standard machine
+
+
+
+
+Semi-infinite tape machine
+Left part
+Right part
+For all symbols
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Standard machine
+.........
+.........
+.........
+Semi-infinite tape machine
+Right part
+Left part
+Time 1
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Time 2
+Right part
+Left part
+Standard machine
+.........
+.........
+.........
+Semi-infinite tape machine
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Semi-infinite tape machine
+Left part
+At the border:
+
+
+Right part
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+.........
+Semi-infinite tape machine
+Right part
+Left part
+.........
+Right part
+Left part
+Time 1
+Time 2
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Theorem:
+Semi-infinite tape machines
+have the same power with 
+Standard Turing machines
+
+COMP 335
+
+
+COMP 335
+*
+The Off-Line Machine
+
+Control Unit
+Input File
+Tape
+read-only
+read-write
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Off-line machines simulate 
+Standard Turing Machines:
+Off-line machine:
+1.  Copy input file to tape
+
+2.  Continue computation as in
+     Standard Turing machine
+
+COMP 335
+
+
+COMP 335
+*
+1.  Copy input file to tape
+Input File
+Tape
+Standard machine
+Off-line machine
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+2.  Do computations as in Turing machine
+Input File
+Tape
+Standard machine
+Off-line machine
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Standard Turing machines simulate 
+Off-line machines:
+Use a Standard machine with four track tape
+to keep track of
+the Off-line input file and tape contents
+
+COMP 335
+
+
+COMP 335
+*
+Input File
+Tape
+Off-line Machine
+Four track tape -- Standard Machine
+Input File
+head position
+Tape
+head position
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Input File
+head position
+Tape
+head position
+Repeat for each state transition:
+	 Return to reference point
+	 Find current input file symbol
+	 Find current tape symbol
+	 Make transition
+
+
+Reference point
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Off-line machines
+have the same power with
+Stansard machines
+Theorem:
+
+COMP 335
+
+
+COMP 335
+*
+Multitape Turing Machines
+
+Control unit
+Tape 1
+Tape 2
+Input
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Time 1
+Time 2
+Tape 1
+Tape 2
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Multitape machines  simulate 
+Standard Machines:
+Use just one tape
+
+COMP 335
+
+
+COMP 335
+*
+Standard machines  simulate 
+Multitape machines:
+	 Use a multi-track tape
+
+	 A tape of the Multiple tape machine
+
+   corresponds to a pair of tracks
+Standard machine:
+
+COMP 335
+
+
+COMP 335
+*
+Multitape Machine
+Tape 1
+Tape 2
+Standard machine with four track tape
+Tape 1
+head position
+Tape 2
+head position
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Repeat for each state transition:
+	Return to reference point
+	Find current symbol in Tape 1
+	Find current symbol in Tape 2
+	Make transition
+
+Tape 1
+head position
+Tape 2
+head position
+
+Reference point
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Theorem:
+Multi-tape machines
+have the same power with
+Standard Turing Machines
+
+COMP 335
+
+
+COMP 335
+*
+Same power doesn’t imply same speed:
+Language 
+Acceptance Time 
+Standard machine
+Two-tape machine
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Standard machine:
+Go back and forth         times   
+Two-tape machine:
+Copy         to tape 2 
+Leave        on tape 1 
+Compare tape 1 and tape 2
+(     steps)
+(     steps)
+(     steps)
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+MultiDimensional Turing Machines
+Two-dimensional tape
+HEAD
+Position: +2, -1
+MOVES: L,R,U,D
+U: up     D: down
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Multidimensional machines simulate 
+Standard machines:
+Use one dimension
+
+COMP 335
+
+
+COMP 335
+*
+Standard machines simulate
+Multidimensional machines:
+Standard machine:
+	 Use a two track tape
+
+	 Store symbols in track 1
+	 Store coordinates in track 2
+
+
+COMP 335
+
+
+COMP 335
+*
+symbols
+coordinates
+Two-dimensional machine
+Standard Machine
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Repeat for each transition
+	 Update current symbol
+	 Compute coordinates of next position
+	 Go to new position
+
+Standard machine:
+
+COMP 335
+
+
+COMP 335
+*
+Multidimensional TM’s
+have the same power as the
+Standard TM’s
+Theorem:
+
+COMP 335
+
+
+COMP 335
+*
+NonDeterministic Turing Machines
+
+
+
+Non Deterministic Choice
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+Time 0
+Time 1
+Choice 1
+Choice 2
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+An input string      is accepted if 
+this a possible computation
+Initial configuration
+Final Configuration
+Final state
+
+COMP 335
+
+
+
+
+COMP 335
+*
+NonDeterministic Machines simulate 
+Standard (deterministic) Machines:
+Every deterministic machine 
+is also a nondeterministic machine
+
+COMP 335
+
+
+COMP 335
+*
+Deterministic machines simulate
+NonDeterministic machines:
+Keeps track of all possible computations
+Deterministic machine:
+
+COMP 335
+
+
+COMP 335
+*
+
+
+
+
+
+
+
+Non-Deterministic Choices
+Computation 1
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+
+
+
+
+Non-Deterministic Choices
+Computation 2
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+	 Keeps track of all possible computations
+
+Deterministic machine:
+Simulation
+	 Stores computations in a 2D tape
+
+
+COMP 335
+
+
+COMP 335
+*
+
+
+
+Time 0
+NonDeterministic machine
+Deterministic machine
+Computation 1
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+Computation 1
+Choice 1
+Choice 2
+Computation 2
+NonDeterministic machine
+Deterministic machine
+Time 1
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Repeat
+	 Execute a step in each computation:
+
+	 If there are two or more choices 
+
+  in current computation:
+       1. Replicate configuration
+       2. Change the state in the replica 
+
+COMP 335
+
+
+COMP 335
+*
+Theorem:  NonDeterministic Machines
+                  have the same power with 
+                  Deterministic machines
+
+COMP 335
+
+
+COMP 335
+*
+Remark:
+   The simulation in the Deterministic machine 
+   takes time exponential time compared 
+   to the NonDeterministic machine
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+)
+(
+w
+f
+
+
+
+
+
+
+
+
+
+à
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+1
+M
+
+
+
+
+
+
+
+
+
+2
+M
+
+
+
+
+
+
+
+
+
+)
+(
+)
+(
+2
+1
+M
+L
+M
+L
+=
+
+
+
+
+
+
+
+
+
+n
+d
+d
+d
+f
+L
+f
+f
+1
+0
+
+
+
+
+
+
+
+
+
+n
+d
+d
+d
+¢
+¢
+¢
+*
+*
+*
+f
+L
+f
+f
+1
+0
+
+
+
+
+
+
+
+
+
+f
+d
+
+
+
+
+
+
+
+
+
+f
+d
+¢
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+2
+q
+
+
+
+
+
+
+
+
+
+S
+b
+a
+,
+®
+
+
+
+
+
+
+
+
+
+L
+b
+a
+,
+®
+
+
+
+
+
+
+
+
+
+s
+q
+
+
+
+
+
+
+
+
+
+R
+x
+x
+,
+®
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+3
+q
+
+
+
+
+
+
+
+
+
+d
+
+
+
+
+
+
+
+
+
+L
+d
+c
+a
+b
+),
+,
+(
+)
+,
+(
+®
+
+
+
+
+
+
+
+
+
+#
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+c
+
+
+
+
+
+
+
+
+
+e
+
+
+
+
+
+
+
+
+
+R
+q
+2
+
+
+
+
+
+
+
+
+
+L
+q
+1
+
+
+
+
+
+
+
+
+
+L
+q
+2
+
+
+
+
+
+
+
+
+
+R
+q
+1
+
+
+
+
+
+
+
+
+
+R
+g
+a
+,
+®
+
+
+
+
+
+
+
+
+
+L
+g
+x
+a
+x
+),
+,
+(
+)
+,
+(
+®
+
+
+
+
+
+
+
+
+
+R
+q
+2
+
+
+
+
+
+
+
+
+
+R
+x
+g
+x
+a
+),
+,
+(
+)
+,
+(
+®
+
+
+
+
+
+
+
+
+
+x
+
+
+
+
+
+
+
+
+
+g
+
+
+
+
+
+
+
+
+
+R
+),
+#
+,
+(#
+)
+#
+,
+(#
+®
+
+
+
+
+
+
+
+
+
+d
+
+
+
+
+
+
+
+
+
+e
+
+
+
+
+
+
+
+
+
+f
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+1
+q
+
+
+
+
+
+
+
+
+
+g
+
+
+
+
+
+
+
+
+
+d
+
+
+
+
+
+
+
+
+
+2
+q
+
+
+
+
+
+
+
+
+
+R
+L
+d
+g
+f
+b
+,
+),
+,
+(
+)
+,
+(
+®
+
+
+
+
+
+
+
+
+
+h
+
+
+
+
+
+
+
+
+
+}
+{
+n
+n
+b
+a
+L
+=
+
+
+
+
+
+
+
+
+
+2
+n
+
+
+
+
+
+
+
+
+
+n
+
+
+
+
+
+
+
+
+
+2
+n
+
+
+
+
+
+
+
+
+
+n
+b
+
+
+
+
+
+
+
+
+
+n
+a
+
+
+
+
+
+
+
+
+
+n
+
+
+
+
+
+
+
+
+
+x
+
+
+
+
+
+
+
+
+
+y
+
+
+
+
+
+
+
+
+
+#
+
+
+
+
+
+
+
+
+
+2
+
+
+
+
+
+
+
+
+
+-
+
+
+
+
+
+
+
+
+
+L
+b
+a
+,
+®
+
+
+
+
+
+
+
+
+
+R
+c
+a
+,
+®
+
+
+
+
+
+
+
+
+
+w
+
+
+
+
+
+
+
+
+
+y
+q
+x
+w
+q
+f
+*
+f
+0
+
+
+
+
+
+
+
+
+
+4
+q
+
+
+
+
+
+
+
+
+
+5
+q
+
+
+
+
+
+
+
+
+
+6
+q
+
+
+
+
+
+
+
+
+
+7
+q
+
+
+
+
+
+
+
+
+
+2
+q

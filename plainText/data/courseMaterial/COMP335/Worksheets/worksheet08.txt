@@ -1,0 +1,73 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335 Worksheet
+
+Turing Machines
+
+1. Let Σ = {a, b}. Find Turing machines that accept the following languages:
+
+(a) {anbncndn | n ≥ 0}
+(b) {w | w ∈ (a + b)∗, w = wR}
+(c) {wwR | w ∈ (a + b)∗}
+(d) {wcw | w ∈ (a + b)∗}
+(e) {ww | w ∈ (a + b)∗}
+
+2. Explain how to construct a TM that would accept the following languages:
+
+(a) {an | n is prime }
+
+(b) {an2 | n ≥ 1}
+
+3. Find Turing machines that compute the following functions:
+
+(a) f(1m01n) = 1m+n
+
+(b) f(w) = ww where w ∈ (a + b)∗
+
+(c) f(1n) = f(13n)
+
+(d) f(1m01n) = 1 if m ≥ n and 0 otherwise.
+
+(e) f(1m01n) = 1m+n if m ≥ n and 0 otherwise.
+
+(f) f(1n) = 1n
+2
+
+1
+
+

@@ -1,0 +1,2250 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Languages and Finite Automata
+
+
+COMP 335
+*
+Simplifications / Transformations
+of 
+Context-Free Grammars
+ 
+*
+
+COMP 335
+
+
+COMP 335
+*
+A Substitution Rule
+Substitute
+Equivalent
+grammar
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+A Substitution Rule
+Equivalent
+grammar
+Substitute 
+
+
+
+
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+In general:
+Substitute
+ 
+equivalent
+grammar
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Nullable Variables
+
+Nullable Variable:
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Removing Nullable Variables
+Example Grammar:
+Nullable variable
+
+COMP 335
+
+
+
+COMP 335
+*
+Substitute
+Final Grammar
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Unit-Productions
+Unit Production:
+i.e., a production with a single variable 
+at each side
+
+COMP 335
+
+
+
+COMP 335
+*
+Removing Unit Productions
+Observation:
+
+Is removed immediately!
+
+COMP 335
+
+
+
+COMP 335
+*
+Example Grammar:
+
+COMP 335
+
+
+
+COMP 335
+*
+Substitute
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Remove
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Substitute
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Remove repeated productions
+
+Final grammar
+
+COMP 335
+
+
+
+
+COMP 335
+*
+See Thm. 6.4 and Ex. 6.6 for a more general 
+solution for removing unit-productions
+Final grammar: 
+S=>*A;  S=>*B;  
+A=>*B;   B=>*A
+Give grammar: 
+Dependency graph:
+
+bc
+a
+B
+bb
+A
+bb
+bc
+a
+S
+|
+|
+|
+®
+®
+®
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Useless Productions
+Some derivations never terminate ...
+
+Useless Production
+
+COMP 335
+
+
+
+COMP 335
+*
+Another grammar:
+Not reachable from S 
+
+Useless Production
+
+COMP 335
+
+
+
+COMP 335
+*
+In general:
+if
+then      is a useful variable 
+         otherwise,       is useless 
+       contains 
+only terminals
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+A production               is useless 
+if any of its variables is useless
+
+
+
+
+useless
+useless
+useless
+useless
+Productions
+useless
+useless
+useless
+
+
+
+
+Variables
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Removing Useless Productions
+Example Grammar:
+
+COMP 335
+
+
+
+COMP 335
+*
+First:
+find every variable that
+produces strings with only terminals
+
+
+Round 1:
+Round 2:
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+Keep only the variables that
+produce terminal symbols: i.e.,
+
+(the rest of the variables are useless)
+Remove useless productions
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Second:
+Find all the variables that 
+are reachable from
+
+
+
+For this, we can use a Dependency Graph
+    not
+reachable
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+Keep only the variables
+reachable from S
+
+Final Grammar
+(the rest variables are useless)
+Remove useless productions
+Note: The order First- Second is important. Why?
+Ex: S -> AB | λ; B->b
+
+COMP 335
+
+
+
+
+COMP 335
+*
+The order of steps to remove 
+undesired productions
+
+
+Step 1: Remove nullable variables and 
+           -productions
+
+Step 2: Remove Unit-productions 
+
+Step 3: Remove Useless productions
+
+COMP 335
+
+
+COMP 335
+*
+Order in Clean-up process is important!
+
+Ex 1: The following example shows that if we do step 2 then step 1, or do step 3 then 1, we may need to do step 2 again! 
+
+S -> AC | B       S -> AC | b        S -> A | b                    
+A -> a            A -> a            A -> a
+B -> b                B-> b               
+C ->                 C -> 
+
+         
+
+COMP 335
+
+
+COMP 335
+*
+Order in Clean-up process is important!
+
+Ex. 2: The following example shows if we do step 3 and then step 2, we may need to do step 3 again. 
+
+ S-> Xb | Y                       S-> Xb | a | c
+ Y-> X | a                      Y-> a | c | Xb
+ X-> S | c                         X-> Xb | a | c
+All variables are useful    Y becomes usesless!
+
+
+COMP 335
+
+
+COMP 335
+*
+Normal Forms
+for
+Context-free Grammars
+ 
+
+COMP 335
+
+
+COMP 335
+*
+Chomsky Normal Form
+Each productions has form:
+variable
+variable
+or
+terminal
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Examples:
+Not in Chomsky
+Normal Form 
+
+
+Chomsky 
+Normal Form 
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Conversion to Chomsky Normal Form
+
+Example:
+Not in Chomsky
+Normal Form 
+
+COMP 335
+
+
+
+COMP 335
+*
+1. Introduce variables for terminals:
+
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+2. Introduce intermediate variables:      ,
+
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+2. Introduce intermediate variables:     , 
+
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+3. Put the grammar in Chomsky Normal Form
+Initial grammar:
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Given any context-free grammar G
+which doesn’t produce     and is
+not in Chomsky Normal Form
+we can always obtain:
+       an equivalent (CFG) grammar 
+       in Chomsky Normal Form
+In general:
+
+COMP 335
+
+
+
+COMP 335
+*
+The Procedure?
+Step 1: Cleanup 
+         
+         Remove:
+
+     (a) Nullable variables
+
+     (b) Unit productions
+
+COMP 335
+
+
+COMP 335
+*
+Step 2: For every terminal symbol    :  
+(b) In every production in which     appears
+with any other symbol (terminal or variable),
+replace     with  
+(a) Add the production
+where       is a new variable.
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+Step 3: For each production p  of the form: 
+ 
+introduce new variables                           and 
+replace p  with the following        productions:
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+We thus have the following result: 
+
+Theorem:
+For any context-free grammar
+(which doesn’t produce    )
+there is an equivalent grammar 
+in Chomsky Normal Form.
+
+COMP 335
+
+
+
+COMP 335
+*
+Remarks
+	 Chomsky normal forms are good
+
+  for parsing and proving theorems
+	 It is easy and straightforward 
+
+  to find a Chomsky normal form 
+  for any context-free grammar
+  (which does not generate   )
+
+COMP 335
+
+
+
+COMP 335
+*
+Time Complexity:
+The CYK algorithm algorithm can be 
+converted to a (bottom-up) parser
+
+(Cocke & Swartz 1970)-(Younger 1967)
+(Kasami 1965)
+ 
+Observation:
+
+COMP 335
+
+
+
+COMP 335
+*
+Greibach Normal Form
+All productions have form:
+terminal
+variables
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Examples:
+Greibach
+Normal Form
+Not in Greibach
+Normal Form
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Conversion to Greibach Normal Form:
+
+Greibach
+Normal Form
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Theorem:
+For any context-free grammar
+(which doesn’t produce    ) 
+there is an equivalent grammar
+in Greibach Normal Form
+
+COMP 335
+
+
+
+COMP 335
+*
+Remarks
+	 Greibach normal forms are very good
+
+  for parsing 
+	 It is hard in general to find grammars in
+
+  Greibach normal forms for context-free 
+  grammars 
+
+COMP 335
+
+*
+
+
+
+UNKNOWN-0.unknown
+
+
+
+
+
+
+
+
+
+
+
+b
+B
+aA
+B
+abBc
+A
+aaA
+A
+aB
+S
+®
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+aA
+B
+abbc
+abBc
+A
+aaA
+A
+ab
+aB
+S
+®
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+b
+B
+®
+
+
+
+
+
+
+
+
+
+abaAc
+abbc
+abBc
+A
+aaA
+A
+aaA
+ab
+aB
+S
+|
+|
+|
+|
+®
+®
+®
+
+
+
+
+
+
+
+
+
+aA
+B
+abbc
+abBc
+A
+aaA
+A
+ab
+aB
+S
+®
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+aA
+B
+®
+
+
+
+
+
+
+
+
+
+1
+y
+B
+xBz
+A
+®
+®
+
+
+
+
+
+
+
+
+
+z
+xy
+xBz
+A
+1
+|
+®
+
+
+
+
+
+
+
+
+
+1
+y
+B
+®
+
+
+
+
+
+
+
+
+
+:
+production
+-
+l
+
+
+
+
+
+
+
+
+
+l
+®
+A
+
+
+
+
+
+
+
+
+
+l
+Þ
+Þ
+K
+A
+
+
+
+
+
+
+
+
+
+l
+®
+®
+®
+M
+aMb
+M
+aMb
+S
+
+
+
+
+
+
+
+
+
+l
+®
+M
+
+
+
+
+
+
+
+
+
+ab
+M
+aMb
+M
+ab
+S
+aMb
+S
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+B
+A
+®
+
+
+
+
+
+
+
+
+
+A
+A
+®
+
+
+
+
+
+
+
+
+
+bb
+B
+A
+B
+B
+A
+a
+A
+aA
+S
+®
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+B
+A
+®
+
+
+
+
+
+
+
+
+
+bb
+B
+B
+A
+B
+a
+A
+aB
+aA
+S
+®
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+bb
+B
+B
+A
+B
+a
+A
+aB
+aA
+S
+®
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+bb
+B
+A
+B
+a
+A
+aB
+aA
+S
+®
+®
+®
+®
+|
+
+
+
+
+
+
+
+
+
+B
+B
+®
+
+
+
+
+
+
+
+
+
+A
+B
+®
+
+
+
+
+
+
+
+
+
+bb
+B
+a
+A
+aA
+aB
+aA
+S
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+bb
+B
+A
+B
+a
+A
+aB
+aA
+S
+®
+®
+®
+®
+|
+
+
+
+
+
+
+
+
+
+bb
+B
+a
+A
+aB
+aA
+S
+®
+®
+®
+|
+
+
+
+
+
+
+
+
+
+bb
+B
+a
+A
+aA
+aB
+aA
+S
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+bb
+B
+bc
+a
+A
+aA
+S
+®
+®
+®
+|
+
+
+
+
+
+
+
+
+
+B
+bc
+a
+A
+bb
+A
+B
+B
+aA
+S
+|
+|
+|
+|
+®
+®
+®
+
+
+
+
+
+
+
+
+
+aA
+A
+A
+S
+S
+aSb
+S
+®
+®
+®
+®
+l
+
+
+
+
+
+
+
+
+
+K
+K
+K
+Þ
+Þ
+Þ
+Þ
+Þ
+Þ
+aA
+aa
+aaA
+aA
+A
+S
+
+
+
+
+
+
+
+
+
+bA
+B
+A
+aA
+A
+A
+S
+®
+®
+®
+®
+l
+
+
+
+
+
+
+
+
+
+w
+xAy
+S
+Þ
+Þ
+Þ
+Þ
+K
+K
+
+
+
+
+
+
+
+
+
+A
+
+
+
+
+
+
+
+
+
+)
+(
+G
+L
+w
+Î
+
+
+
+
+
+
+
+
+
+w
+
+
+
+
+
+
+
+
+
+x
+A
+®
+
+
+
+
+
+
+
+
+
+D
+C
+C
+B
+aA
+A
+A
+S
+S
+aSb
+S
+®
+®
+®
+®
+®
+®
+l
+
+
+
+
+
+
+
+
+
+aCb
+C
+aa
+B
+a
+A
+C
+A
+aS
+S
+®
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+aCb
+C
+aa
+B
+a
+A
+C
+A
+aS
+S
+®
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+}
+,
+{
+B
+A
+
+
+
+
+
+
+
+
+
+A
+S
+®
+
+
+
+
+
+
+
+
+
+}
+,
+,
+{
+S
+B
+A
+
+
+
+
+
+
+
+
+
+}
+,
+,
+{
+S
+B
+A
+
+
+
+
+
+
+
+
+
+aa
+B
+a
+A
+A
+aS
+S
+®
+®
+®
+|
+
+
+
+
+
+
+
+
+
+aa
+B
+a
+A
+A
+aS
+S
+®
+®
+®
+|
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+A
+
+
+
+
+
+
+
+
+
+B
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+a
+A
+A
+aS
+S
+®
+®
+|
+
+
+
+
+
+
+
+
+
+BC
+A
+®
+
+
+
+
+
+
+
+
+
+a
+A
+®
+
+
+
+
+
+
+
+
+
+b
+A
+SA
+A
+a
+S
+AS
+S
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+aa
+A
+SA
+A
+AAS
+S
+AS
+S
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+Ac
+B
+aab
+A
+ABa
+S
+®
+®
+®
+
+
+
+
+
+
+
+
+
+Ac
+B
+aab
+A
+ABa
+S
+®
+®
+®
+
+
+
+
+
+
+
+
+
+c
+T
+b
+T
+a
+T
+AT
+B
+T
+T
+T
+A
+ABT
+S
+c
+b
+a
+c
+b
+a
+a
+a
+®
+®
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+c
+b
+a
+T
+T
+T
+,
+,
+
+
+
+
+
+
+
+
+
+c
+T
+b
+T
+a
+T
+AT
+B
+T
+T
+T
+A
+ABT
+S
+c
+b
+a
+c
+b
+a
+a
+a
+®
+®
+®
+®
+®
+®
+
+
+
+
+
+
+
+
+
+c
+T
+b
+T
+a
+T
+AT
+B
+T
+T
+T
+A
+BT
+V
+AV
+S
+c
+b
+a
+c
+b
+a
+a
+a
+®
+®
+®
+®
+®
+®
+®
+1
+1
+
+
+
+
+
+
+
+
+
+1
+V
+
+
+
+
+
+
+
+
+
+2
+V
+
+
+
+
+
+
+
+
+
+c
+T
+b
+T
+a
+T
+AT
+B
+T
+T
+V
+V
+T
+A
+BT
+V
+AV
+S
+c
+b
+a
+c
+b
+a
+a
+a
+®
+®
+®
+®
+®
+®
+®
+®
+2
+2
+1
+1
+
+
+
+
+
+
+
+
+
+c
+T
+b
+T
+a
+T
+AT
+B
+T
+T
+V
+V
+T
+A
+BT
+V
+AV
+S
+c
+b
+a
+c
+b
+a
+a
+a
+®
+®
+®
+®
+®
+®
+®
+®
+2
+2
+1
+1
+
+
+
+
+
+
+
+
+
+Ac
+B
+aab
+A
+ABa
+S
+®
+®
+®
+
+
+
+
+
+
+
+
+
+l
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+a
+T
+
+
+
+
+
+
+
+
+
+a
+T
+a
+®
+
+
+
+
+
+
+
+
+
+n
+C
+C
+C
+A
+L
+2
+1
+®
+
+
+
+
+
+
+
+
+
+n
+n
+n
+C
+C
+V
+V
+C
+V
+V
+C
+A
+1
+2
+2
+2
+1
+1
+1
+-
+-
+®
+®
+®
+K
+
+
+
+
+
+
+
+
+
+2
+2
+1
+,
+,
+,
+-
+n
+V
+V
+V
+K
+
+
+
+
+
+
+
+
+
+)
+3
+(
+³
+n
+
+
+
+
+
+
+
+
+
+1
+-
+n
+
+
+
+
+
+
+
+
+
+l
+
+
+
+
+
+
+
+
+
+l
+
+
+
+
+
+
+
+
+
+3
+|
+|
+w
+
+
+
+
+
+
+
+
+
+k
+V
+V
+V
+a
+A
+L
+2
+1
+®
+
+
+
+
+
+
+
+
+
+0
+³
+k
+
+
+
+
+
+
+
+
+
+b
+B
+b
+bB
+aA
+A
+cAB
+S
+®
+®
+®
+|
+|
+
+
+
+
+
+
+
+
+
+aa
+S
+abSb
+S
+®
+®
+
+
+
+
+
+
+
+
+
+aa
+S
+abSb
+S
+®
+®
+
+
+
+
+
+
+
+
+
+b
+T
+a
+T
+aT
+S
+ST
+aT
+S
+b
+a
+a
+b
+b
+®
+®
+®
+®

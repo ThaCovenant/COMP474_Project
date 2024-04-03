@@ -1,0 +1,123 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PowerPoint Presentation
+
+COSC341- Lecture 15 Slide 1
+                    Language Hierarchy -I
+
+
+
+Regular
+ a*b*
+
+Deterministic CF
+ {anbn : n ≥ 0}
+
+Context-free
+ Palindrome
+
+Context-sensitive
+ {anbncn : n > 0}
+
+Recursive
+ {anbncn : n ≥ 0}
+
+Recursively enumerable 
+ ?
+Outer space
+ ?
+
+
+
+Regular
+   a*b*
+
+
+
+CFDET
+CFLIN
+Context-free
+ {w: na(w)=nb(w) }
+
+CFLIN ∩ CFDET     
+
+Context-sensitive
+{ anbncn : n ≥ 0 }
+
+
+Recursive 
+{ ww: w{a,b}* }
+Recursively Enumerable
+ The Halting Problem
+Undecidable (Outer space!)
+      Example (in the last lecture)!
+          Language Hierarchy - II
+{ anbn: n ≥ 0 } 
+{anbnck: n,k≥0 }
+{ w: w = wR }
+	Rec-Enumerable
+	Recursive
+	Context-sensitive
+	Context-free
+	Regular
+
+
+
+image1.png
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/docProps/thumbnail.jpeg
+

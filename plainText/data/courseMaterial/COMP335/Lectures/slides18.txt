@@ -1,0 +1,2404 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Languages and Finite Automata
+
+
+COMP 335
+*
+Recursively Enumerable (r.e.) 
+and 
+Recursive Languages
+ 
+*
+
+COMP 335
+
+
+COMP 335
+*
+
+
+
+Non-recursively enumerable
+Recursively-enumerable
+Recursive
+Context-sensitive
+
+Context-free
+Regular
+
+The Chomsky Hierarchy
+
+COMP 335
+
+
+COMP 335
+*
+Definition:
+A language is recursively enumerable
+if some Turing machine accepts it
+
+COMP 335
+
+
+COMP 335
+*
+For string      :
+Let       be a recursively enumerable language
+and       the Turing Machine that accepts it
+if
+then        halts in a final state 
+if
+then        halts in a non-final state
+or loops forever
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Definition:
+A language is recursive
+if some Turing machine accepts it
+and halts on every input string
+In other words:
+     A language is recursive if there is
+      a membership algorithm for it
+
+COMP 335
+
+
+COMP 335
+*
+For every string      :
+Let       be a  recursive language
+and       a Turing Machine that accepts it
+if
+then        halts in a final state 
+if
+then        halts in a non-final state
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+We will prove:
+2. There is a specific language
+    which is not recursively enumerable
+    (not accepted by any Turing Machine)
+1. There is a specific language
+    which is recursively enumerable
+    but not recursive
+
+COMP 335
+
+
+COMP 335
+*
+
+
+Recursive
+Recursively Enumerable
+Non Recursively Enumerable
+
+COMP 335
+
+
+COMP 335
+*
+A Language which 
+is not
+Recursively Enumerable
+ 
+
+COMP 335
+
+
+COMP 335
+*
+We want to find a language that
+is not Recursively Enumerable
+This language is not accepted by any
+Turing Machine
+
+COMP 335
+
+
+COMP 335
+*
+Consider alphabet
+Strings:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Consider all Turing Machines
+that accept languages over alphabet
+They are countable:
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Example language accepted by 
+Alternative representation:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Consider the language
+is defined by  the 1’s in the diagonal
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Now consider the language
+is defined by the 0’s in the diagonal
+
+COMP 335
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Theorem:
+Language        is not recursively enumerable
+
+COMP 335
+
+
+
+COMP 335
+*
+Proof:
+      is recursively enumerable
+Assume for contradiction that 
+There must exist some machine
+that accepts 
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+
+
+Question:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Answer:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Question:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Answer:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Question:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+
+
+Answer:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Similarly:
+for each 
+Because either:
+or
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+Therefore, the machine            cannot exist 
+Therefore, the language
+is not recursively enumerable 
+End of Proof
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Observation:
+There is no algorithm that describes
+(otherwise       would be accepted by
+ some Turing Machine)
+
+COMP 335
+
+
+
+
+COMP 335
+*
+
+
+Recursive
+Recursively Enumerable
+Non Recursively Enumerable
+L
+
+COMP 335
+
+
+
+COMP 335
+*
+A Language which is 
+Recursively Enumerable
+and not Recursive
+ 
+
+COMP 335
+
+
+COMP 335
+*
+We want to find a language which
+There is a 
+Turing Machine 
+that accepts 
+the language
+The machine
+doesn’t halt 
+on some inputs
+Is recursively 
+enumerable
+But not
+recursive
+
+
+
+COMP 335
+
+
+COMP 335
+*
+We will prove that the language
+Is recursively enumerable
+but not recursive
+
+COMP 335
+
+
+
+COMP 335
+*
+
+
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+The language
+Theorem:
+is recursively enumerable
+
+COMP 335
+
+
+
+COMP 335
+*
+Proof:
+We will give a Turing Machine that
+accepts 
+
+COMP 335
+
+
+
+COMP 335
+*
+Turing Machine that accepts 
+For any input string 
+	 Compute   , for which
+
+	 Find  the ithTuring machine
+
+(using an enumeration procedure
+ for Turing Machines)
+	 Simulate         on input
+
+	 If          accepts, then accept 
+
+End of Proof
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Observation:
+Recursively enumerable
+Not recursively enumerable
+(Thus, also not recursive)
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Theorem:
+The language
+is not recursive
+
+COMP 335
+
+
+
+COMP 335
+*
+Proof:
+Assume for contradiction that      is recursive
+Then          is recursive: 
+Take the Turing Machine      that accepts 
+        halts on any input:
+If          accepts then reject
+If          rejects then accept
+
+COMP 335
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Therefore:
+is recursive
+But we know:
+is not recursively enumerable
+thus, not recursive
+CONTRADICTION!!!!
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Therefore,    is not recursive
+End of Proof
+
+COMP 335
+
+
+
+COMP 335
+*
+
+
+Recursive
+Recursively Enumerable
+Non Recursively Enumerable
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Turing acceptable languages 
+and 
+Enumeration Procedures
+
+COMP 335
+
+
+COMP 335
+*
+We will prove:
+	  If a language is recursive then  
+
+   there is an enumeration procedure for it
+	  A language is recursively enumerable 
+
+    if and only if 
+    there is an enumeration procedure for it
+(weak result)
+(strong result)
+
+COMP 335
+
+
+COMP 335
+*
+Theorem:
+if a language       is recursive then  
+there is an enumeration procedure for it
+
+COMP 335
+
+
+
+COMP 335
+*
+Proof:
+
+
+
+Enumeration Machine
+Accepts 
+Enumerates all
+strings of input alphabet
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+If the alphabet is             then 
+     can enumerate strings as follows:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Enumeration procedure
+Repeat:
+generates a string 
+checks  if
+YES:   print       to output 
+NO:    ignore
+End of Proof
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+Example:
+Enumeration
+Output
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Theorem:
+if language       is recursively enumerable then
+there is an enumeration procedure for it
+
+COMP 335
+
+
+
+COMP 335
+*
+Proof:
+
+
+
+Enumeration Machine
+Accepts 
+Enumerates all
+strings of input alphabet
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+If the alphabet is             then 
+     can enumerate strings as follows:
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Enumeration procedure
+Repeat:
+generates a string 
+checks  if
+YES:   print       to output 
+NO:    ignore
+NAIVE APPROACH
+Problem:
+If                
+machine         may loop forever  
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+executes first step on 
+BETTER APPROACH
+Generates second string 
+executes first step on 
+second step on 
+Generates first string 
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+COMP 335
+*
+Generates third string 
+executes first step on 
+second step on 
+third step on 
+And so on............
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+1
+Step 
+in
+string
+1
+1
+1
+2
+2
+2
+2
+3
+3
+3
+3
+
+COMP 335
+
+
+
+
+
+
+
+
+COMP 335
+*
+If for any string       
+machine         halts in a final state
+then it prints        on the output  
+End of Proof
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Theorem:
+If for language      
+there is an enumeration procedure
+then        is recursively enumerable
+
+COMP 335
+
+
+
+
+COMP 335
+*
+Proof:
+Input Tape
+
+
+Enumerator
+for
+
+Compare
+Machine that 
+accepts 
+
+COMP 335
+
+
+
+
+
+COMP 335
+*
+Turing machine that accepts 
+Repeat:
+	 Using the enumerator,
+
+   generate the next string of
+For input string 
+	 Compare generated string with 
+
+If same, accept and exit loop
+End of Proof
+
+COMP 335
+
+
+
+
+
+
+COMP 335
+*
+We have proven:
+A language is recursively enumerable 
+if and only if 
+there is an enumeration procedure for it
+
+COMP 335
+
+
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+L
+w
+Î
+
+
+
+
+
+
+
+
+
+w
+
+
+
+
+
+
+
+
+
+L
+w
+Ï
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+L
+w
+Î
+
+
+
+
+
+
+
+
+
+w
+
+
+
+
+
+
+
+
+
+L
+w
+Ï
+
+
+
+
+
+
+
+
+
+}
+{
+a
+
+
+
+
+
+
+
+
+
+K
+,
+,
+,
+,
+aaaa
+aaa
+aa
+a
+
+
+
+
+
+
+
+
+
+1
+a
+
+
+
+
+
+
+
+
+
+2
+a
+
+
+
+
+
+
+
+
+
+3
+a
+
+
+
+
+
+
+
+
+
+4
+a
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+K
+,
+,
+,
+,
+4
+3
+2
+1
+M
+M
+M
+M
+
+
+
+
+
+
+
+
+
+}
+,
+,
+{
+)
+(
+aaaaaa
+aaaa
+aa
+M
+L
+i
+=
+
+
+
+
+
+
+
+
+
+}
+,
+,
+{
+)
+(
+6
+4
+2
+a
+a
+a
+M
+L
+i
+=
+
+
+
+
+
+
+
+
+
+i
+M
+
+
+
+
+
+
+
+
+
+1
+a
+
+
+
+
+
+
+
+
+
+2
+a
+
+
+
+
+
+
+
+
+
+3
+a
+
+
+
+
+
+
+
+
+
+4
+a
+
+
+
+
+
+
+
+
+
+5
+a
+
+
+
+
+
+
+
+
+
+6
+a
+
+
+
+
+
+
+
+
+
+7
+a
+
+
+
+
+
+
+
+
+
+)
+(
+i
+M
+L
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+0
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+)
+(
+1
+M
+L
+
+
+
+
+
+
+
+
+
+)
+(
+2
+M
+L
+
+
+
+
+
+
+
+
+
+)
+(
+3
+M
+L
+
+
+
+
+
+
+
+
+
+1
+
+
+
+
+
+
+
+
+
+)
+(
+4
+M
+L
+
+
+
+
+
+
+
+
+
+)}
+(
+:
+{
+i
+i
+i
+M
+L
+a
+a
+L
+Î
+=
+
+
+
+
+
+
+
+
+
+}
+,
+,
+{
+4
+3
+K
+a
+a
+L
+=
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+)}
+(
+:
+{
+i
+i
+i
+M
+L
+a
+a
+L
+Ï
+=
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+}
+,
+,
+{
+2
+1
+K
+a
+a
+L
+=
+
+
+
+
+
+
+
+
+
+k
+M
+
+
+
+
+
+
+
+
+
+L
+M
+L
+k
+=
+)
+(
+
+
+
+
+
+
+
+
+
+?
+1
+M
+M
+k
+=
+
+
+
+
+
+
+
+
+
+1
+M
+M
+k
+¹
+
+
+
+
+
+
+
+
+
+)
+(
+)
+(
+1
+1
+1
+M
+L
+a
+M
+L
+a
+k
+Ï
+Î
+
+
+
+
+
+
+
+
+
+?
+2
+M
+M
+k
+=
+
+
+
+
+
+
+
+
+
+2
+M
+M
+k
+¹
+
+
+
+
+
+
+
+
+
+)
+(
+)
+(
+2
+2
+2
+M
+L
+a
+M
+L
+a
+k
+Ï
+Î
+
+
+
+
+
+
+
+
+
+?
+3
+M
+M
+k
+=
+
+
+
+
+
+
+
+
+
+3
+M
+M
+k
+¹
+
+
+
+
+
+
+
+
+
+)
+(
+)
+(
+3
+3
+3
+M
+L
+a
+M
+L
+a
+k
+Î
+Ï
+
+
+
+
+
+
+
+
+
+i
+k
+M
+M
+¹
+
+
+
+
+
+
+
+
+
+)
+(
+)
+(
+i
+i
+k
+i
+M
+L
+a
+M
+L
+a
+Î
+Ï
+
+
+
+
+
+
+
+
+
+)
+(
+)
+(
+i
+i
+k
+i
+M
+L
+a
+M
+L
+a
+Ï
+Î
+
+
+
+
+
+
+
+
+
+i
+
+
+
+
+
+
+
+
+
+i
+a
+w
+=
+
+
+
+
+
+
+
+
+
+i
+M
+
+
+
+
+
+
+
+
+
+i
+a
+
+
+
+
+
+
+
+
+
+i
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+L
+
+
+
+
+
+
+
+
+
+M
+~
+
+
+
+
+
+
+
+
+
+}
+,
+{
+b
+a
+
+
+
+
+
+
+
+
+
+M
+~
+
+
+
+
+
+
+
+
+
+a
+
+
+
+
+
+
+
+
+
+b
+
+
+
+
+
+
+
+
+
+aa
+
+
+
+
+
+
+
+
+
+ab
+
+
+
+
+
+
+
+
+
+ba
+
+
+
+
+
+
+
+
+
+bb
+
+
+
+
+
+
+
+
+
+aaa
+
+
+
+
+
+
+
+
+
+aab
+
+
+
+
+
+
+
+
+
+......
+
+
+
+
+
+
+
+
+
+)
+(
+M
+L
+
+
+
+
+
+
+
+
+
+,....}
+,
+,
+,
+{
+aaa
+bb
+ab
+b
+L
+=
+
+
+
+
+
+
+
+
+
+M
+
+
+
+
+
+
+
+
+
+1
+w
+
+
+
+
+
+
+
+
+
+2
+w
+
+
+
+
+
+
+
+
+
+3
+w
+
+
+
+
+
+
+
+
+
+1
+w
+
+
+
+
+
+
+
+
+
+2
+w
+
+
+
+
+
+
+
+
+
+3
+w
+
+
+
+
+
+
+
+
+
+4
+w
+
+
+
+
+
+
+
+
+
+i
+w
