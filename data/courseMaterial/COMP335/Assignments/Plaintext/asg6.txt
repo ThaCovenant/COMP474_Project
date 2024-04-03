@@ -1,0 +1,81 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONCORDIA UNIVERSITY
+Dept. of Computer Science and Software Engineering
+
+COMP 335 – Introduction to Theoretical Computer Science
+
+Fall 2023
+
+Assignment 6
+
+Submission through moodle is due by Sunday, December 3rd at 23:55
+
+1. [10 points] Let L be a Deterministic CFL over an alphabet Σ. Let f1(L) = L1 = {w :
+wa ∈ L, for some a ∈ Σ} and f2(L) = L2 = {w : aw ∈ L for some a ∈ Σ}. Only one
+of L1 and L2 is guaranteed to be a DCFL. Which one? Justify your answer.
+
+2. [40 points] For each of the following 4 languages L, determine to which of the following
+categories L belongs: (i) regular (ii) context-free but not regular, and (iii) not context-
+free. To show that L belongs to category (ii), you need to show two things: (1) L is
+CF and (2) L is not regular.
+
+(a) L1 = {wuwR : w, u ∈ {a, b}∗}
+(b) L2 = {wuwR : w, u ∈ {a, b}⋆, |w| = |u|}
+(c) L3 = {w1cw2 : w1 ̸= wR
+
+2 , w1, w2 ∈ {a, b}∗}
+(d) L4 = {anbjckdl : n ≤ k, j ≤ l}
+
+3. [20 points] Design standard Turing machines that accept the following languages. In
+each case, draw the transition diagram of your TM and give a brief description in
+English of your design strategy.
+
+(a) L5 = {ww : w ∈ {a, b}⋆}
+(b) L6 = {wuwR : w, u ∈ {a, b}⋆, |w| = |u|}
+
+4. [20 points] Draw transition diagrams for standard Turing machines that compute the
+following functions. In each case, briefly describe in English your design strategy.
+
+(a) f1(1
+n01m) = 1|m−n|
+
+(b) f2(0
+n) = 0k, where k ≡ n(mod3)
+
+

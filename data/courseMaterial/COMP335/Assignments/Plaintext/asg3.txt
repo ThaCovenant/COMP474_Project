@@ -1,0 +1,125 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONCORDIA UNIVERSITY
+Dept. of Computer Science and Software Engineering
+
+COMP 335 – Introduction to Theoretical Computer Science
+
+Fall 2023
+
+Assignment 3
+
+Submission through Moodle is due by Monday, October 16th at 23:55
+
+1. [20 Points] Let Σ = {a, b}. For each of the following languages over Σ, first give a
+regular expression for it, then give a regular grammar for it.
+
+(a) {w ∈ Σ∗ : na(w) is divisible by 3 and every a in w is immediately
+
+followed by at least one b}
+
+(b) {w ∈ Σ∗ : na(w) is odd and nb(w) is also odd}
+
+2. [20 Points] Let Σ = {a, b}. For each of the following languages over Σ, prove that the
+language is regular
+
+(a) L3 = {w ∈ Σ∗ : na(w) is divisible by 4 and w ends in aab}.
+(b) L4 = {w ∈ Σ∗ : w does NOT contain a substring y ∈ L3}.
+
+3. [20 Points] Use generalized transition graphs (GTG) to convert the following NFAs
+(alphabet Σ = {a, b}) into regular expressions. Show your work, i.e., intermediate
+GTGs.
+
+(a)
+
+q0 q2q1 a
+a
+
+b
+
+a, b a, b
+
+(b)
+
+q0 q3q1
+
+q2
+
+a
+
+a
+
+a
+
+a
+
+b
+
+b
+
+b
+b
+
+b
+
+a
+
+4. [10 Points] Let Σ = {a, b}. Consider the function f defined as follows:
+
+For w ∈ Σ∗ we have f(w) = ana(w)bnb(w),
+
+
+
+or, in words, f rearranges input w so that all a’s precede all b’s.
+
+For a language L, we define f(L) = {f(w) : w ∈ L}, that is we form f(L) by applying
+f to every string in L. Consider the following statement:
+
+If L is regular then f(L) is regular.
+
+Clearly, state whether the statement is TRUE or FALSE, and prove your answer.
+
+5. [20 Points] For each of the following languages, prove that it is not regular using the
+pumping lemma.
+
+(a) L = {w ∈ {a, b, c}∗ : na(w) = nb(w) + nc(w)}.
+(b) L = {anbk : n ≥ k3}
+
+2
+
+

@@ -1,0 +1,8 @@
+# pip install -r requirements.txt
+pandas==2.2.1
+rdflib==7.0.0
+spacy==3.7.4
+tika==2.6.0
+
+
+

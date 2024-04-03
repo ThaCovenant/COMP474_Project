@@ -1,0 +1,98 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CONCORDIA UNIVERSITY
+Dept. of Computer Science and Software Engineering
+
+COMP 335 – Introduction to Theoretical Computer Science
+
+Fall 2023
+
+Assignment 4
+
+Submission through Moodle is due by Sunday, November 5th at 23:55
+
+1. [10 Points] For each CFG G below, describe L(G):
+
+(a) S → EaS | E
+E → aEb | bEa | EE | λ
+
+(b) S → aSd | A | B | C
+A → aAc | C
+B → bBd | C
+C → bCc | λ
+
+2. [15 Points] For each of the languages below, prove that the language is context-free:
+
+(a) {vwvR : v, w ∈ {a, b}+ and |w| = 3}.
+(b) {w ∈ {a, b, c}∗ : |w| = 5na(w) + 2nb(w)}.
+(c) {r : r is valid regular expression over the alphabet Σ = {a, b, c}}.
+
+3. [15 Points] For each pair (G,w) below, draw a derivation tree to show that w ∈ L(G):
+
+(a) G : S → aSb | bSa | SS | λ, and w = aabbbabbaa.
+
+(b) G :
+S → aSb | A | B
+A → aAa | C
+B → bBb | C
+C → bCa | λ
+and w = aaabaabb.
+
+(c) G : your answer to Q2(c), and w = (aa∗ + b)∗(c+ λ).
+
+4. [12 Points] Convert the following CFG G into a Chomsky Normal Form (CNF) by
+following the steps below:
+
+S → ASBB | a | b
+A → AaA | AB | λ
+B → BbB | BA | λ
+C → ABB
+
+(a) Remove λ-productions from G.
+
+
+
+(b) Remove unit-productions from the grammar in your answer to (a).
+
+(c) Remove useless-productions from the grammar in your answer to (b).
+
+(d) Finish the conversion of the grammar in your answer to (c) to the CNF.
+
+2
+
+
