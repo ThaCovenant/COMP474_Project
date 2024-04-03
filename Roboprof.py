@@ -1,9 +1,9 @@
 from rdflib import Graph
 from Roboprof_functions import mergedSchema
-from AutomatedKnowledgeBaseConstruction import (studentDataToRDFTriples,
+from AutomatedKnowledgeBaseConstruction import (student_data_to_rdf_triples,
                                                 extractStudentData,
-                                                createGraph,
-                                                createContentTriples, extractCoursesData)
+                                                create_graph,
+                                                createContentTriples, extract_courses_data)
 
 file_path1 = "RDFs/Courses.ttl"
 file_path2 = "RDFs/Lectures.ttl"
@@ -25,8 +25,8 @@ file_path_courses = "Triples/courses.ttl"
 def main():
     mergedSchema()
 
-    g1 = studentDataToRDFTriples(extractStudentData())
-    createGraph(g1, file_path_students_KB)
+    g1 = student_data_to_rdf_triples(extractStudentData())
+    create_graph(g1, file_path_students_KB)
 
     g2 = Graph()
     g2.parse(file_path_triples, format="ttl")
@@ -34,17 +34,17 @@ def main():
 
     folders = [file_path_courseMaterial_Comp335, file_path_courseMaterial_Comp474]
     g3 = createContentTriples(folders)
-    createGraph(g3, file_path_lecture)
+    create_graph(g3, file_path_lecture)
 
     # g4 = Graph()
     # g4.parse(file_path_topics, format="ttl")
 
-    g5 = extractCoursesData()
-    createGraph(g5, file_path_courses)
+    g5 = extract_courses_data()
+    create_graph(g5, file_path_courses)
 
     g6 = g1 + g2 + g3 + g5
     # print(g5.serialize(format='turtle'))
-    createGraph(g6, file_path_merge)
+    create_graph(g6, file_path_merge)
 
 
 if __name__ == '__main__':
