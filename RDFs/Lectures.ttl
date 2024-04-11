@@ -40,6 +40,12 @@ lectureContent:lectureContent a rdfs:Class ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Content of lecture."@en .
 
+lectureContent:hasTopic a rdf:Property ;
+    rdfs:label "has topic"@en ;
+    rdfs:comment "Specifies the topic of a course"@en ;
+    rdfs:domain lecture:Lecture ;
+    rdfs:range topic:Topic .
+
 # Subclass of LectureContent
 lecture:Other a rdfs:Class ;
     rdfs:label "Other Materials" ;

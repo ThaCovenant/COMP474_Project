@@ -83,7 +83,7 @@ def countFilesInFolder(path):
     return len(files)
 
 
-def createTriples(courseName, fileType, fileName, content, i):
+def createContentTriples(courseName, fileType, fileName, content, i):
     g = Graph()
     # Create course_uri instance of class course
     course_uri = URIRef(course + courseName)
