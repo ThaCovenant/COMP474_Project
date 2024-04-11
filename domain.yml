@@ -8,57 +8,79 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-  - weathers
+#  - weathers
   
 
 
-
+  - list_all_courses
+  - topic_discussed
+  - topics_covered
+  - list_all_courses_subject
+  - recommended_materials
   - credits
-  - get_grades
+  - additional_resources
+  - detail_content
+  - reading_materials
+  - competencies_gained
+  - grades_achieved
+  - students_completed_course
   - transcript
 
-slots:
-  number:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-    entity: number
-  
-  
-  age:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-    entity: number 
-  
-
-
-entities:
-  - number
 
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
 
-  utter_weather:
-  - text: "The weather is great!"
 
 
 
 
 
+  utter_all_courses:
+  - text: "Concordia offers the following courses"
+
+  utter_topic_discussed:
+  - text: "These courses discuss this topic"
+
+  utter_topics_covered:
+  - text: "These topics are covered in this course"
+
+  utter_all_courses_of_subject:
+  - text: "Concordia offers the following COMP courses"
+
+  utter_recommended_materials:
+  - text: "These materials are recommended for AI in COMP 474"
 
   utter_credits:
   - text: "COMP 474 is worth 4 credits!"
 
-    utter_grades:
+  utter_additional_resources:
+  - text: "These resources are useful to COMP 474"
+
+  utter_detail_content:
+  - text: "These slides are covered in this lecture"
+
+  utter_reading_materials:
+  - text: "These reading materials are recommended for topic"
+
+  utter_competencies_gained:
+  - text: "Student will know these topics"
+
+  utter_grades:
   - text: "Huy-Long has C in COMP 474!"
 
-    utter_transcript:
+  utter_students_completed_course:
+  - text: "These students finished COMP 474"
+
+  utter_transcript:
   - text: "Too much to print!"
+
+
+
+
+
+
 
 
 

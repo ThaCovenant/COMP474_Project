@@ -18,27 +18,41 @@ nlu:
     - good afternoon
 
 
-- intent: weather
+
+
+
+
+
+
+
+
+
+
+
+- intent: list_all_courses
   examples: |
-      - how is the weather today ?
-      - how is the weather today?
-      - what is the weather
-      - tell me the weather
-      - weather
+      - list all courses offered by [university]
+      - what courses are offered by [university]
 
+- intent: topic_discussed
+  examples: |
+      - in which courses is [topic] discussed ?
+      - [topic] is discussed in which courses?
 
+- intent: topics_covered
+  examples: |
+      - which [topics] are covered in [course] during [lecture] ?
+      - in [course] [lecture] , what [topics] are covered ?
 
-
-
-
-
-
-
-
-
-
-
-
+- intent: list_all_courses_subject
+  examples: |
+      - list all [courses] offered by [university] with [subject]
+      - list all [subject] [courses] offered by [university]
+      
+- intent: recommended_materials 
+  examples: |
+      - what [materials] are recommended for [topic] in [course] [number] ?
+      - for [course] [number] , what [materials] are recommended ?
 
 
 - intent: credits
@@ -46,17 +60,39 @@ nlu:
       - how many credits is [course] [number] worth ?
       - how many credits ?
       - tell me how many credits is [course] [number] ?
-      - credits
+
+- intent: additonal_resources 
+  examples: |
+      - for [course] [number] , what additional resources are available ?
+      - what additional resources are avilable for [course] [number] ?
+
+- intent: detail_content
+  examples: |
+      - detail the content available for [lecture] in [course] [number]
+      - in [course] [number] , detail the content available for [lecture]
+
+- intent: reading_materials 
+  examples: |
+      - what reading materials are recommended for studying [topic] in [course] ?
+      - for [topic] in [course] , what reading materials are recommended ?
 
 
+- intent: competencies_gained
+  examples: |
+      - what competencies [topics] does a student gain after completing [course] [number] ?
+      - after completing [course] [number] , what competencies [topics] does a student gain ?
 
-- intent: get_grades
+
+- intent: grades_achieved
   examples: |
       - what grades did [student] achieve in [course] [number] ?
-      - can you tell me the grades of [student] ?
-      - 
+      - can you tell me the grades of [student] in [course] [number] ?
+      - fir [course] [number] , what grades did [student] get ?
 
-
+- intent: stutends_completed_course
+  examples: |
+      - which [students] have completed [course] [number] ?
+      - for [course] [number] , which [students] have completed it ?
 
 - intent: transcript
   examples: |
@@ -64,7 +100,6 @@ nlu:
       - print a transcript for [student]
       - listing all the course taken with their grades
       - print transcript
-      - transcript
 
 
 
