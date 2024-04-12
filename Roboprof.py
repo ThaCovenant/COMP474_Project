@@ -1,9 +1,9 @@
 from rdflib import Graph
 from Roboprof_functions import mergedSchema
 from AutomatedKnowledgeBaseConstruction import (student_data_to_rdf_triples,
-                                                extractStudentData,
+                                                extract_student_data,
                                                 create_graph,
-                                                createContentTriples, extract_courses_data)
+                                                create_content_triples, extract_courses_data)
 
 file_path1 = "RDFs/Courses.ttl"
 file_path2 = "RDFs/Lectures.ttl"
@@ -25,7 +25,7 @@ file_path_courses = "Triples/courses.ttl"
 def main():
     mergedSchema()
 
-    g1 = student_data_to_rdf_triples(extractStudentData())
+    g1 = student_data_to_rdf_triples(extract_student_data())
     create_graph(g1, file_path_students_KB)
 
     g2 = Graph()
@@ -33,7 +33,7 @@ def main():
     # print(g2.serialize(format='turtle'))
 
     folders = [file_path_courseMaterial_Comp335, file_path_courseMaterial_Comp474]
-    g3 = createContentTriples(folders)
+    g3 = create_content_triples(folders)
     create_graph(g3, file_path_lecture)
 
     # g4 = Graph()

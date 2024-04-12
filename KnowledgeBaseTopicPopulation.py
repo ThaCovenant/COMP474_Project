@@ -47,7 +47,6 @@ def to_plain_text(inPath):
                     f.write(plainText)
 
 
-
 def entityLinking():
     print("link entities topic tp DBpedia and or Wikidata")
 

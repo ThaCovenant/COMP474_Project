@@ -5,6 +5,7 @@
 @prefix lectureContent: <http://example.org/lectureContent/> .
 @prefix lecture: <http://example.org/lecture/> .
 @prefix course: <http://example.org/course/> .
+@prefix topic: <http://example.org/topic/> .
 
 # Course Property
 course:hasLecture a rdf:Property ;

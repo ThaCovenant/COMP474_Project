@@ -6,10 +6,7 @@ file_path2 = "RDFs/Lectures.ttl"
 file_path3 = "RDFs/Student_Schema.ttl"
 file_path4 = "RDFs/Topics.ttl"
 file_path5 = "RDFs/University_Schema.ttl"
-file_path6 = "RDFs/MergedNew.ttl"
-file_path_students = "data/students_grades.csv"
-file_path_merge = "Triples/MergedTriples.ttl"
-file_path_students_KB = "Triples/students.ttl"
+file_path6 = "RDFs/Merged.ttl"
 
 
 def mergedSchema():
@@ -36,5 +33,4 @@ def mergedSchema():
 
 
 def chatbotInterface():
-
     print("This is chatbot interface")
