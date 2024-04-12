@@ -37,11 +37,6 @@
     rdfs:comment "Assignments of lecture 6"@en ;
     rdfs:subClassOf lectureContent:COMP335LectureContents .
 
-<file:///home/roboprof/COMP335/Assignments/asg7.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments7" ;
-    rdfs:comment "Assignments of lecture 7"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContents .
-
 <file:///home/roboprof/COMP335/Lectures/slide1.ppt> a slides:Slides ;
     rdfs:label "Slides1" ;
     rdfs:comment "Slides of lecture 1"@en ;

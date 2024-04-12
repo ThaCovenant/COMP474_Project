@@ -5,6 +5,7 @@
 @prefix lectureContent: <http://example.org/lectureContent/> .
 @prefix lecture: <http://example.org/lecture/> .
 @prefix course: <http://example.org/course/> .
+@prefix topic: <http://example.org/topic/> .
 
 # Course Property
 course:hasLecture a rdf:Property ;
@@ -39,6 +40,12 @@ lecture:hasContent a rdf:Property ;
 lectureContent:lectureContent a rdfs:Class ;
     rdfs:label "Lecture Content" ;
     rdfs:comment "Content of lecture."@en .
+
+lectureContent:hasTopic a rdf:Property ;
+    rdfs:label "has topic"@en ;
+    rdfs:comment "Specifies the topic of a course"@en ;
+    rdfs:domain lecture:Lecture ;
+    rdfs:range topic:Topic .
 
 # Subclass of LectureContent
 lecture:Other a rdfs:Class ;
