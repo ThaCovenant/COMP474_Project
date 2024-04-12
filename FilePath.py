@@ -8,3 +8,4 @@ file_path6 = "RDFs/MergedNew.ttl"
 file_path_students = "data/students_grades.csv"
 file_path_merge = "Triples/MergedTriples.ttl"
 file_path_students_KB = "Triples/students.ttl"
+

@@ -1,46 +1,14 @@
 import os.path
-
 import pandas as pd
 from rdflib import URIRef, Graph, Literal, Namespace, RDF, FOAF, RDFS, XSD
+from Namespaces import namespaces, init_graph
 
 # Load RDF data from turtle files
 file_path_students = "data/students_grades.csv"
 file_path_courses = "data/CU_SR_OPEN_DATA_CATALOG.csv"
 file_path_merge = "Triples/MergedTriples.ttl"
 file_path_students_KB = "Triples/students.ttl"
-file_path_triples = "Triples/triples.ttl"
-
-# Command to create user defined namespaces
-namespaces = {
-    'kb': Namespace("http://example.org/knowledge-base#"),
-    'student': Namespace("http://example.org/student/"),
-    'course': Namespace("http://example.org/course/"),
-    'lecture': Namespace("http://example.org/lecture/"),
-    'slides': Namespace("http://example.org/slides/"),
-    'lectureContent': Namespace("http://example.org/lectureContent/"),
-    'worksheets': Namespace("http://example.org/worksheets/"),
-    'other': Namespace("http://example.org/other/"),
-    'readings': Namespace("http://example.org/readings/"),
-    'assignments': Namespace("http://example.org/assignments/"),
-    'completedCourse': Namespace("http://example.org/completedCourse/"),
-    'topic': Namespace("http://example.org/topic/"),
-    'university': Namespace("https://www.wikidata.org/entity/Q3918"),
-    'wd': Namespace("https://www.wikidata.org/wiki/"),
-    'dp': Namespace("http://dbpedia.org/resource/")
-}
-
-
-# Bind namespaces
-def bind_namespaces(graph):
-    for prefix, ns in namespaces.items():
-        graph.bind(prefix, ns)
-
-
-# Initialize RDF graph
-def init_graph():
-    graph = Graph()
-    bind_namespaces(graph)
-    return graph
+file_path_triples = "Triples/topics.ttl"
 
 
 def create_graph(g1, filePath):
@@ -242,8 +210,6 @@ def extract_courses_data():
     g.add((universityURI, RDFS.label, Literal("university")))
     g.add((universityURI, RDFS.comment, Literal("A university.", lang='en')))
 
-    googleURI = "http://google.com/"
-
     courseData = pd.read_csv(file_path_courses, encoding='utf-16')
 
     for index, row in courseData.iterrows():
@@ -257,7 +223,7 @@ def extract_courses_data():
         g.add((courseURI, namespaces['course'].courseNumber, Literal(row["Catalog"])))
         g.add((courseURI, namespaces['course'].courseCredit, Literal(row["Class Units"], datatype=XSD.decimal)))
         g.add((courseURI, namespaces['course'].courseDescription, Literal(row["Component Descr"])))
-        courseLink = URIRef(googleURI + Literal(row["Subject"]) + Literal(row["Catalog"]))
+        courseLink = URIRef(namespaces['google'] + Literal(row["Subject"]) + Literal(row["Catalog"]))
         g.add((courseURI, RDFS.seeAlso, courseLink))
         g.add((courseURI, namespaces['course'].offeredBy, universityURI))
 
