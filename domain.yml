@@ -27,6 +27,15 @@ intents:
   - transcript
 
 
+entities:
+- student_name
+- student_id
+- university_name
+- topic
+- course_name
+- course_number
+- lecture
+
 
 responses:
   utter_greet:

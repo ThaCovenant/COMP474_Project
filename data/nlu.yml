@@ -48,6 +48,7 @@ nlu:
   examples: |
       - list all [courses] offered by [university] with [subject]
       - list all [subject] [courses] offered by [university]
+      - what [subject] [courses] are offered by [university] ? 
       
 - intent: recommended_materials 
   examples: |
