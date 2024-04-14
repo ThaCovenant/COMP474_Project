@@ -34,7 +34,7 @@ entities:
 - topic
 - course_name
 - course_number
-- lecture
+- lecture_number
 
 
 responses:
@@ -47,7 +47,8 @@ responses:
 
 
   utter_all_courses:
-  - text: "Concordia offers the following courses"
+  - text: "{university_name} offers the following courses"
+  
 
   utter_topic_discussed:
   - text: "These courses discuss this topic"

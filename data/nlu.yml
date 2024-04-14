@@ -31,8 +31,10 @@ nlu:
 
 - intent: list_all_courses
   examples: |
-      - list all courses offered by [university]
-      - what courses are offered by [university]
+      - list all courses offered by [Concordia](university_name)
+      - list all courses offered by [McGill](university_name)
+      - what courses are offered by [Concordia](university_name) ?
+      - what courses are offered by [McGill](university_name) ?
 
 - intent: topic_discussed
   examples: |

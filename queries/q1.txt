@@ -1,7 +1,8 @@
 
 
 #Query 1 (list all courses offered by a university)
-SELECT ?courses 
-WHERE {
-?course <http://example.org/course/offeredBy> <https://www.wikidata.org/entity/Q326342>
-}
+SELECT ?subject
+  WHERE{
+     ?subject http://example.org/course/offeredBy https://www.concordia.ca/
+  }
+    LIMIT 100

@@ -7,15 +7,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rdflib import Graph, Namespace, Literal, URIRef
-
-
+import requests
     
-
-
-
-
-
-
 
 
 
@@ -28,7 +21,7 @@ class ActionListCoursesByUniversity(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+        print("TEST")
         university_name = next(tracker.get_latest_entity_values("university_name"), None)
         
         if university_name:
@@ -51,13 +44,26 @@ class ActionListCoursesByUniversity(Action):
         
         
         
+
+
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()      #Response from the server in json format.
+            # Extract and format results
+            results = "\n".join([f"{binding['course']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         
         # Execute SPARQL query to fetch courses offered by the specified university
         # Example:
         # result = execute_query("SELECT ?course WHERE { ... }")
         # courses = [row["course"] for row in result]
         # return ", ".join(courses)
-        return "Course 1, Course 2, Course 3"  # Dummy data for demonstration
+        #return "Course 1, Course 2, Course 3"  # Dummy data for demonstration
 
 
 
@@ -94,12 +100,25 @@ class ActionCoursesByTopic(Action):
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{topic}", topic)
         
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['course_name']['value']}: {binding['course_id']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+
+        
         # Execute SPARQL query to fetch courses discussing the specified topic
         # Example:
         # result = execute_query("SELECT ?courseName ?courseNumber WHERE { ... }")
         # courses = [(row["courseName"], row["courseNumber"]) for row in result]
         # return courses
-        return ["Course A", "Course B", "Course C"]  # Dummy data for demonstration
+        #return ["Course A", "Course B", "Course C"]  # Dummy data for demonstration
 
 
 
@@ -138,12 +157,23 @@ class ActionTopicsOfCourseLecture(Action):
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
         sparql_query = sparql_query.replace("{lecture_number}", lecture_number)
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['topic']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         # Execute SPARQL query to fetch topics covered during the specified lecture in the course
         # Example:
         # result = execute_query("SELECT ?topic WHERE { ... }")
         # topics = [row["topic"] for row in result]
         # return topics
-        return ["Topic A", "Topic B", "Topic C"]
+        #return ["Topic A", "Topic B", "Topic C"]
 
 
 
@@ -182,12 +212,23 @@ class ActionCoursesByUniversityAndSubject(Action):
         sparql_query = sparql_query.replace("{university_name}", university_name)
         sparql_query = sparql_query.replace("{subject}", subject)
 
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['course_name']['value']}: {binding['course_id']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+
         # Execute SPARQL query to fetch courses offered by the specified university within the subject
         # Example:
         # result = execute_query("SELECT ?course WHERE { ... }")
         # courses = [row["course"] for row in result]
         # return ", ".join(courses)
-        return "Course 1, Course 2, Course 3"  # Dummy data for demonstration
+        #return "Course 1, Course 2, Course 3"  # Dummy data for demonstration
 
 
 
@@ -226,13 +267,25 @@ class ActionRecommendedMaterialsForTopic(Action):
         sparql_query = sparql_query.replace("{topic}", topic)
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            #results = "\n".join([f"{binding['slides']['value']}: {binding['worksheets']['value']}" for binding in data['results']['bindings']])
+            results = "\n".join([f"{binding['material']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         
         # Execute SPARQL query to fetch recommended materials for the specified topic in the course
         # Example:
         # result = execute_query("SELECT ?material WHERE { ... }")
         # materials = [row["material"] for row in result]
         # return ", ".join(materials)
-        return "Recommended materials"  # Dummy data for demonstration
+        #return "Recommended materials"  # Dummy data for demonstration
 
 
 
@@ -274,12 +327,23 @@ class ActionCreditsForCourse(Action):
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
 
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['credits']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+
         # Execute SPARQL query to fetch the number of credits for the specified course
         # Example:
         # result = execute_query("SELECT ?credits WHERE { ... }")
         # credits = result[0]["credits"] if result else None
         # return credits
-        return 3  # Dummy data for demonstration
+        #return 3  # Dummy data for demonstration
 
 
 
@@ -316,12 +380,24 @@ class ActionAdditionalResourcesForCourse(Action):
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
 
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['link']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+
         # Execute SPARQL query to fetch additional resources for the specified course
         # Example:
         # result = execute_query("SELECT ?resource WHERE { ... }")
         # resources = [row["resource"] for row in result]
         # return ", ".join(resources)
-        return "Additional resources"  # Dummy data for demonstration
+        #return "Additional resources"  # Dummy data for demonstration
 
 
 
@@ -365,12 +441,23 @@ class ActionContentForLecture(Action):
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
         
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['lecture']['value']}: {binding['material']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+        
         # Execute SPARQL query to fetch content for the specified lecture in the course
         # Example:
         # result = execute_query("SELECT ?content WHERE { ... }")
         # content = [row["content"] for row in result]
         # return ", ".join(content)
-        return "Content from PDF files"  # Dummy data for demonstration
+        #return "Content from PDF files"  # Dummy data for demonstration
 
 
 
@@ -409,12 +496,26 @@ class ActionReadingMaterials(Action):
         sparql_query = sparql_query.replace("{topic}", topic)
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
+
+
+
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['topic']['value']}: {binding['material']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         # Execute SPARQL query to fetch reading materials for the specified topic in the course
         # Example:
         # result = execute_query("SELECT ?material WHERE { ... }")
         # materials = [row["material"] for row in result]
         # return ", ".join(materials)
-        return "Lecture slides, Worksheets"  # Dummy data for demonstration
+        #return "Lecture slides, Worksheets"  # Dummy data for demonstration
 
 
 
@@ -454,12 +555,25 @@ class ActionCompetenciesForCourse(Action):
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{course_name}", course_name)
         sparql_query = sparql_query.replace("{course_number}", course_number)
+
+
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['topic']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         # Execute SPARQL query to fetch competencies for the specified course
         # Example:
         # result = execute_query("SELECT ?competency WHERE { ... }")
         # competencies = [row["competency"] for row in result]
         # return ", ".join(competencies)
-        return "Competency 1, Competency 2, Competency 3"  # Dummy data for demonstration
+        #return "Competency 1, Competency 2, Competency 3"  # Dummy data for demonstration
 
 
 
@@ -499,12 +613,24 @@ class ActionGetGrades(Action):
 
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{student_name}", student_name)
+
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['student_name']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         # Execute SPARQL query to fetch grades for the specified student by name
         # Example:
         # result = execute_query("SELECT ?grade WHERE { ... }")
         # grades = [row["grade"] for row in result]
         # return ", ".join(grades)
-        return "A, B, C"  # Dummy data for demonstration
+        #return "A, B, C"  # Dummy data for demonstration
     
     def execute_sparql_query_for_grades_by_id(self, student_id: Text) -> Text:
         with open("queries/q8.txt", "r") as file:
@@ -512,12 +638,27 @@ class ActionGetGrades(Action):
 
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{student_id}", student_id)
+
+
+
+
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['student_id']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
         # Execute SPARQL query to fetch grades for the specified student by ID
         # Example:
         # result = execute_query("SELECT ?grade WHERE { ... }")
         # grades = [row["grade"] for row in result]
         # return ", ".join(grades)
-        return "A, B, C"  # Dummy data for demonstration
+        #return "A, B, C"  # Dummy data for demonstration
 
 
 
@@ -559,7 +700,24 @@ class ActionStudentsCompletedCourse(Action):
         # result = execute_query("SELECT ?student WHERE { ... }")
         # students = [row["student"] for row in result]
         # return ", ".join(students)
-        return "Student 1, Student 2, Student 3"  # Dummy data for demonstration
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['student_id']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+
+
+
+        #return "Student 1, Student 2, Student 3"  # Dummy data for demonstration
+    
+
+        
 
 
 
@@ -567,6 +725,7 @@ class ActionStudentsCompletedCourse(Action):
 
 
 #Q13
+"""
 class ActionPrintTranscript(Action):
     def name(self) -> Text:
         #return "action_print_transcript"
@@ -586,6 +745,9 @@ class ActionPrintTranscript(Action):
         
         return []
 
+
+
+    
     def execute_sparql_query_for_transcript(self, student_name: Text, student_id: Text, transcript: Text) -> Text:
         with open("queries/q13.txt", "r") as file:
             sparql_query = file.read()
@@ -599,7 +761,49 @@ class ActionPrintTranscript(Action):
         # result = execute_query("SELECT ?course ?grade WHERE { ... }")
         # transcript = [(row["course"], row["grade"]) for row in result]
         # return "\n".join([f"{course}: {grade}" for course, grade in transcript])
-        return "Course 1: A\nCourse 2: B\nCourse 3: C"  # Dummy data for demonstration
+
+
+        #return "Course 1: A\nCourse 2: B\nCourse 3: C"  # Dummy data for demonstration
+"""
+
+
+
+class ActionPrintTranscript(Action):
+    def name(self) -> Text:
+        return "utter_transcript"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        student_name = next(tracker.get_latest_entity_values("student_name"), None)
+        transcript = self.execute_sparql_query_for_transcript(student_name)
+
+        if transcript:
+            dispatcher.utter_message(text=f"Transcript for {student_name}:\n{transcript}")
+        else:
+            dispatcher.utter_message(text=f"Sorry, I couldn't find a transcript for {student_name}.")
+
+        return []
+
+    def execute_sparql_query_for_transcript(self, student_name: Text) -> Text:
+        with open("queries/q13.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{student_name}", student_name)
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            results = "\n".join([f"{binding['course']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
+            return results
+        else:
+            return None
+
 
 
 
