@@ -1,8 +1,7 @@
 """
 TO DO:
-EVERYTTHING
-THIS IS JUST TESTING FOR NOW
 NEED TO CONNECT TO FUSEKI FOR QUERY
+TEST AND FIX
 """
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
