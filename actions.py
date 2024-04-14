@@ -44,6 +44,15 @@ class ActionListCoursesByUniversity(Action):
         return []
 
     def execute_sparql_query_for_courses_by_university(self, university_name: Text) -> Text:
+        with open("queries/q1.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{university_name}", university_name)
+        
+        
+        
+        
         # Execute SPARQL query to fetch courses offered by the specified university
         # Example:
         # result = execute_query("SELECT ?course WHERE { ... }")
@@ -80,6 +89,12 @@ class ActionCoursesByTopic(Action):
         return []
 
     def execute_sparql_query_for_courses(self, topic: Text) -> List[Text]:
+        with open("queries/q2.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{topic}", topic)
+        
         # Execute SPARQL query to fetch courses discussing the specified topic
         # Example:
         # result = execute_query("SELECT ?courseName ?courseNumber WHERE { ... }")
@@ -117,6 +132,13 @@ class ActionTopicsOfCourseLecture(Action):
         return []
 
     def execute_sparql_query_for_topics(self, course_name: Text, course_number: Text, lecture_number: Text) -> List[Text]:
+        with open("queries/q3.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
+        sparql_query = sparql_query.replace("{lecture_number}", lecture_number)
         # Execute SPARQL query to fetch topics covered during the specified lecture in the course
         # Example:
         # result = execute_query("SELECT ?topic WHERE { ... }")
@@ -154,6 +176,13 @@ class ActionCoursesByUniversityAndSubject(Action):
         return []
 
     def execute_sparql_query_for_courses(self, university_name: Text, subject: Text) -> Text:
+        with open("queries/q4.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{university_name}", university_name)
+        sparql_query = sparql_query.replace("{subject}", subject)
+
         # Execute SPARQL query to fetch courses offered by the specified university within the subject
         # Example:
         # result = execute_query("SELECT ?course WHERE { ... }")
@@ -191,6 +220,14 @@ class ActionRecommendedMaterialsForTopic(Action):
         return []
 
     def execute_sparql_query_for_recommended_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
+        with open("queries/q5.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{topic}", topic)
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
+        
         # Execute SPARQL query to fetch recommended materials for the specified topic in the course
         # Example:
         # result = execute_query("SELECT ?material WHERE { ... }")
@@ -231,6 +268,13 @@ class ActionCreditsForCourse(Action):
         return []
 
     def execute_sparql_query_for_credits(self, course_name: Text, course_number: Text) -> Optional[int]:
+        with open("queries/q6.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
+
         # Execute SPARQL query to fetch the number of credits for the specified course
         # Example:
         # result = execute_query("SELECT ?credits WHERE { ... }")
@@ -266,6 +310,13 @@ class ActionAdditionalResourcesForCourse(Action):
         return []
 
     def execute_sparql_query_for_additional_resources(self, course_name: Text, course_number: Text) -> Text:
+        with open("queries/q7.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
+
         # Execute SPARQL query to fetch additional resources for the specified course
         # Example:
         # result = execute_query("SELECT ?resource WHERE { ... }")
@@ -307,6 +358,14 @@ class ActionContentForLecture(Action):
         return []
 
     def execute_sparql_query_for_content(self, lecture_number: Text, course_name: Text, course_number: Text) -> Text:
+        with open("queries/q8.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{lecture_number}", lecture_number)
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
+        
         # Execute SPARQL query to fetch content for the specified lecture in the course
         # Example:
         # result = execute_query("SELECT ?content WHERE { ... }")
@@ -344,6 +403,13 @@ class ActionReadingMaterials(Action):
         return []
 
     def execute_sparql_query_for_reading_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
+        with open("queries/q9.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{topic}", topic)
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
         # Execute SPARQL query to fetch reading materials for the specified topic in the course
         # Example:
         # result = execute_query("SELECT ?material WHERE { ... }")
@@ -383,6 +449,12 @@ class ActionCompetenciesForCourse(Action):
         return []
 
     def execute_sparql_query_for_competencies(self, course_name: Text, course_number: Text) -> Text:
+        with open("queries/q10.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
         # Execute SPARQL query to fetch competencies for the specified course
         # Example:
         # result = execute_query("SELECT ?competency WHERE { ... }")
@@ -423,6 +495,11 @@ class ActionGetGrades(Action):
         return []
 
     def execute_sparql_query_for_grades_by_name(self, student_name: Text) -> Text:
+        with open("queries/q11.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{student_name}", student_name)
         # Execute SPARQL query to fetch grades for the specified student by name
         # Example:
         # result = execute_query("SELECT ?grade WHERE { ... }")
@@ -431,6 +508,11 @@ class ActionGetGrades(Action):
         return "A, B, C"  # Dummy data for demonstration
     
     def execute_sparql_query_for_grades_by_id(self, student_id: Text) -> Text:
+        with open("queries/q8.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{student_id}", student_id)
         # Execute SPARQL query to fetch grades for the specified student by ID
         # Example:
         # result = execute_query("SELECT ?grade WHERE { ... }")
@@ -467,6 +549,12 @@ class ActionStudentsCompletedCourse(Action):
         return []
 
     def execute_sparql_query_for_students_completed_course(self, course_name: Text, course_number: Text) -> Text:
+        with open("queries/q12.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{course_name}", course_name)
+        sparql_query = sparql_query.replace("{course_number}", course_number)
         # Execute SPARQL query to fetch students who have completed the specified course
         # Example:
         # result = execute_query("SELECT ?student WHERE { ... }")
@@ -499,7 +587,14 @@ class ActionPrintTranscript(Action):
         
         return []
 
-    def execute_sparql_query_for_transcript(self, student_name: Text) -> Text:
+    def execute_sparql_query_for_transcript(self, student_name: Text, student_id: Text, transcript: Text) -> Text:
+        with open("queries/q13.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{student_name}", student_name)
+        sparql_query = sparql_query.replace("{student_id}", student_id)
+        sparql_query = sparql_query.replace("{transcript}", transcript)
         # Execute SPARQL query to fetch transcript for the specified student
         # Example:
         # result = execute_query("SELECT ?course ?grade WHERE { ... }")
