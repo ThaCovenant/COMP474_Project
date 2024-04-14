@@ -1,0 +1,121 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+#  - weathers
+  
+
+
+  - list_all_courses
+  - topic_discussed
+  - topics_covered
+  - list_all_courses_subject
+  - recommended_materials
+  - credits
+  - additional_resources
+  - detail_content
+  - reading_materials
+  - competencies_gained
+  - grades_achieved
+  - students_completed_course
+  - transcript
+
+
+entities:
+- student_name
+- student_id
+- university_name
+- topic
+- course_name
+- course_number
+- lecture
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+
+
+
+
+
+  utter_all_courses:
+  - text: "Concordia offers the following courses"
+
+  utter_topic_discussed:
+  - text: "These courses discuss this topic"
+
+  utter_topics_covered:
+  - text: "These topics are covered in this course"
+
+  utter_all_courses_of_subject:
+  - text: "Concordia offers the following COMP courses"
+
+  utter_recommended_materials:
+  - text: "These materials are recommended for AI in COMP 474"
+
+  utter_credits:
+  - text: "COMP 474 is worth 4 credits!"
+
+  utter_additional_resources:
+  - text: "These resources are useful to COMP 474"
+
+  utter_detail_content:
+  - text: "These slides are covered in this lecture"
+
+  utter_reading_materials:
+  - text: "These reading materials are recommended for topic"
+
+  utter_competencies_gained:
+  - text: "Student will know these topics"
+
+  utter_grades:
+  - text: "Huy-Long has C in COMP 474!"
+
+  utter_students_completed_course:
+  - text: "These students finished COMP 474"
+
+  utter_transcript:
+  - text: "Too much to print!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

@@ -1,0 +1,114 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+
+
+
+
+
+
+
+
+
+- story: list all courses
+  steps:
+  - intent: list_all_courses
+  - action: utter_all_courses
+
+- story: course discussing topic
+  steps:
+  - intent: topic_discussed
+  - action: utter_topic_discussed
+
+- story: topics covered in lecture
+  steps:
+  - intent: topics_covered
+  - action: utter_topics_covered
+
+- story: list all courses of subject
+  steps:
+  - intent: list_all_courses_subject
+  - action: utter_all_courses_of_subject
+
+- story: recommended materials
+  steps:
+  - intent: recommended_materials
+  - action: utter_recommended_materials
+
+
+- story:  course credits
+  steps:
+  - intent: credits
+  - action: utter_credits
+
+- story: additional resources
+  steps:
+  - intent: additional_resources
+  - action: utter_additional_resources
+
+- story: detail content
+  steps:
+  - intent: detail_content
+  - action: utter_detail_content
+
+- story: reading materials
+  steps:
+  - intent: reading_materials
+  - action: utter_reading_materials
+
+- story: competencies gained
+  steps:
+  - intent: competencies_gained
+  - action: utter_competencies_gained
+
+
+- story: get student grades
+  steps:
+  - intent: grades_achieved
+  - action: utter_grades
+
+- story: students completed course
+  steps:
+  - intent: students_completed_course
+  - action: utter_students_completed_course
+
+- story: print transcript
+  steps:
+  - intent: transcript
+  - action: utter_transcript
+
+
+
+
+
+
+
+
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye

@@ -1,0 +1,188 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+
+
+
+
+
+
+
+
+
+
+
+
+- intent: list_all_courses
+  examples: |
+      - list all courses offered by [university]
+      - what courses are offered by [university]
+
+- intent: topic_discussed
+  examples: |
+      - in which courses is [topic] discussed ?
+      - [topic] is discussed in which courses?
+
+- intent: topics_covered
+  examples: |
+      - which [topics] are covered in [course] during [lecture] ?
+      - in [course] [lecture] , what [topics] are covered ?
+
+- intent: list_all_courses_subject
+  examples: |
+      - list all [courses] offered by [university] with [subject]
+      - list all [subject] [courses] offered by [university]
+      - what [subject] [courses] are offered by [university] ? 
+      
+- intent: recommended_materials 
+  examples: |
+      - what [materials] are recommended for [topic] in [course] [number] ?
+      - for [course] [number] , what [materials] are recommended ?
+
+
+- intent: credits
+  examples: |
+      - how many credits is [course] [number] worth ?
+      - how many credits ?
+      - tell me how many credits is [course] [number] ?
+
+- intent: additonal_resources 
+  examples: |
+      - for [course] [number] , what additional resources are available ?
+      - what additional resources are avilable for [course] [number] ?
+
+- intent: detail_content
+  examples: |
+      - detail the content available for [lecture] in [course] [number]
+      - in [course] [number] , detail the content available for [lecture]
+
+- intent: reading_materials 
+  examples: |
+      - what reading materials are recommended for studying [topic] in [course] ?
+      - for [topic] in [course] , what reading materials are recommended ?
+
+
+- intent: competencies_gained
+  examples: |
+      - what competencies [topics] does a student gain after completing [course] [number] ?
+      - after completing [course] [number] , what competencies [topics] does a student gain ?
+
+
+- intent: grades_achieved
+  examples: |
+      - what grades did [student] achieve in [course] [number] ?
+      - can you tell me the grades of [student] in [course] [number] ?
+      - fir [course] [number] , what grades did [student] get ?
+
+- intent: stutends_completed_course
+  examples: |
+      - which [students] have completed [course] [number] ?
+      - for [course] [number] , which [students] have completed it ?
+
+- intent: transcript
+  examples: |
+      - print a transcript for [student], listing all the course taken with their grades
+      - print a transcript for [student]
+      - listing all the course taken with their grades
+      - print transcript
+
+
+
+
+
+
+
+
+
+
+
+
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
