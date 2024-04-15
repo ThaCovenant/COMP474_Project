@@ -24,6 +24,7 @@ intents:
   - grades_achieved
   - students_completed_course
   - transcript
+  - describe_course
 
 
 slots:
@@ -104,6 +105,7 @@ entities:
 - topic
 - course_name
 - course_number
+- course
 - lecture_number
 
 actions:

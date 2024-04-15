@@ -73,6 +73,7 @@ nlu:
       - detail the content available for [lecture 2](lecture_number) in [COMP474](course)
       - in [COMP474](course) , detail the content available for [lecture 2](lecture_number)
 
+#9
 - intent: reading_materials 
   examples: |
       - what reading materials are recommended for studying [Neural Network](topic) in [COMP474](course) ?
@@ -115,8 +116,8 @@ nlu:
 
 
 #Q14
-- intent: course_description
-  example:  |
+- intent: describe_course
+  examples:  |
       - what is the [COMP474](course) about ?
       - explain the [COMP474](course) course ? 
 

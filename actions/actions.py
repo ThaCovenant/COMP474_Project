@@ -44,10 +44,10 @@ from rasa_sdk.executor import CollectingDispatcher
 from rdflib import Graph, Namespace, Literal, URIRef
 import requests
     
+fuseki_url = "http://localhost:3030/test/query"
 
 
-
-#Q1
+#Q1 WORKS
 class ActionListCoursesByUniversity(Action):
     def name(self) -> Text:
         #return "action_list_courses_by_university"
@@ -135,7 +135,7 @@ class ActionCoursesByTopic(Action):
         sparql_query = sparql_query.replace("{topic}", topic)
         
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -194,7 +194,7 @@ class ActionTopicsOfCourseLecture(Action):
         sparql_query = sparql_query.replace("{course}", course.upper())
         sparql_query = sparql_query.replace("{lecture_number}", lecture_number)
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -247,7 +247,7 @@ class ActionCoursesByUniversityAndSubject(Action):
         sparql_query = sparql_query.replace("{university_name}", university_name.lower())
         sparql_query = sparql_query.replace("{subject}", subject.upper())
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -266,7 +266,7 @@ class ActionCoursesByUniversityAndSubject(Action):
 
 
 
-#Q5
+#Q5 WORKS
 class ActionRecommendedMaterialsForTopic(Action):
     def name(self) -> Text:
         return "action_q5"
@@ -310,7 +310,7 @@ class ActionRecommendedMaterialsForTopic(Action):
 
         sparql_query = sparql_query.replace("{course}", course.upper())
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -334,7 +334,7 @@ class ActionRecommendedMaterialsForTopic(Action):
 
 
 
-#Q6
+#Q6 WORKS
 class ActionCreditsForCourse(Action):
     def name(self) -> Text:
         return "action_q6"
@@ -369,7 +369,7 @@ class ActionCreditsForCourse(Action):
 
         sparql_query = sparql_query.replace("{course}", course.upper())
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -421,7 +421,7 @@ class ActionAdditionalResourcesForCourse(Action):
         sparql_query = sparql_query.replace("{course}", course.upper)
 
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -484,7 +484,7 @@ class ActionContentForLecture(Action):
         sparql_query = sparql_query.replace("{course}", course.upper())
 
         
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -550,7 +550,7 @@ class ActionReadingMaterials(Action):
 
 
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -608,7 +608,7 @@ class ActionCompetenciesForCourse(Action):
 
 
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -624,7 +624,7 @@ class ActionCompetenciesForCourse(Action):
 
 
 
-#Q11
+#Q11 WORKS
 class ActionGetGrades(Action):
     def name(self) -> Text:
         return "action_q11"
@@ -639,9 +639,10 @@ class ActionGetGrades(Action):
         student_id = tracker.get_slot("student_id")
         course = tracker.get_slot("course")
 
-        
+        print(student_id)
+        print(course) 
         if student_id and course:
-            grades = self.execute_sparql_query_for_grades_by_name(student_id, course)
+            grades = self.execute_sparql_query_for_grades_by_id(student_id, course)
             if grades:
                 dispatcher.utter_message(text=f"The grades of {student_id} are: {grades}")
             else:
@@ -667,19 +668,22 @@ class ActionGetGrades(Action):
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{student_id}", student_id)
         sparql_query = sparql_query.replace("{course}", course.upper())
+        print(sparql_query)
 
 
 
 
-
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
-
+        print(response)
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
             #results = "\n".join([f"{binding['student_id']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
             #return results
+            
+            
+            
             return data
         else:
             return None
@@ -719,7 +723,7 @@ class ActionStudentsCompletedCourse(Action):
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{course}", course.upper())
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
@@ -815,7 +819,7 @@ class ActionPrintTranscript(Action):
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{student_id}", student_id)
 
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
         if response.status_code == 200:
