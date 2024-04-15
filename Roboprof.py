@@ -2,7 +2,7 @@ import os
 
 from rdflib import Graph
 
-from KnowledgeBaseTopicPopulation import COURSE_MATERIALS_PLAIN_TEXT, process_plaintext
+from KnowledgeBaseTopicPopulation import COURSE_MATERIALS_PLAIN_TEXT, process_plaintext, to_plain_text, COURSE_MATERIALS
 from Roboprof_functions import mergedSchema
 from AutomatedKnowledgeBaseConstruction import (student_data_to_rdf_triples,
                                                 extract_student_data,
@@ -24,6 +24,7 @@ file_path_courseMaterial_Comp335 = "data/courseMaterial/COMP335"
 file_path_courseMaterial_Comp474 = "data/courseMaterial/COMP474"
 file_path_lecture = "Triples/lectures.ttl"
 file_path_courses = "Triples/courses.ttl"
+ntriples_file = "Triples/N3.ttl"
 
 
 def verify_graph(file_path, overwrite=False):
@@ -51,6 +52,8 @@ def main():
         g3 = create_content_triples(folders)
         create_graph(g3, file_path_lecture)
 
+    to_plain_text(COURSE_MATERIALS)
+
     g4 = Graph()
     if verify_graph(file_path_topics):
         g4 = process_plaintext(COURSE_MATERIALS_PLAIN_TEXT)
@@ -68,6 +71,10 @@ def main():
               g5.parse(file_path_courses, format="ttl"))
         # print(g5.serialize(format='turtle'))
         create_graph(g6, file_path_merge)
+
+        with open(ntriples_file, 'w', encoding="utf-8") as f:
+            f.write(g6.serialize(format="nt"))
+        print(g6.serialize(format="nt"))
 
 
 if __name__ == '__main__':
