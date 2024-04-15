@@ -35,8 +35,8 @@ nlu:
 #Q2
 - intent: topic_discussed
   examples: |
-      - in which courses is [Neural Network](topic) discussed ?
-      - [Neural Network](topic) is discussed in which courses?
+      - in which courses is [KnowledgeGraph](topic) discussed ?
+      - [KnowledgeGraph](topic) is discussed in which courses?
 
 #Q3
 - intent: topics_covered
@@ -123,16 +123,18 @@ nlu:
 
 
 #Q15
-#- intent: course_event
-#  example:  |
-#      -
+- intent: course_event
+  example:  |
+      - which topics are covered in [COMP474Lecture1](lecture_number) ?
+      - in [COMP474Lecture1](lecture_number), which topics are covered ?
 
 
 
 #Q16
-#- intent: course_description
-#  example:  |
-#      -
+- intent: lecture_cover_topics
+  example:  |
+      - which course events cover [KnowldgeGraph](topic)
+      - which lectures cover [KnowledgeGraph](topic)
 
 
 
