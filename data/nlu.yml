@@ -52,8 +52,8 @@ nlu:
 - intent: list_all_courses_subject
   examples: |
       - list all courses offered by [Concordia](university_name) with [COMP](subject)
-      - list all [COMP](subject) courses offered by [Concordia](university_name)
-      - what [COMP](subject) courses are offered by [Concordia](university_name) ? 
+      - list all [SOEN](subject) courses offered by [Concordia](university_name)
+      - what [COEN](subject) courses are offered by [Concordia](university_name) ? 
 
 #Q5      
 - intent: recommended_materials 
@@ -67,7 +67,7 @@ nlu:
       - how many credits is [COMP474](course) worth ?
       - tell me how many credits is [COMP474](course) ?
 #Q7
-- intent: additonal_resources 
+- intent: additional_resources 
   examples: |
       - for [COMP474](course) , what additional resources are available ?
       - what additional resources are avilable for [COMP474](course) ?

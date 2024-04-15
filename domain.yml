@@ -25,6 +25,8 @@ intents:
   - students_completed_course
   - transcript
   - describe_course
+  - course_event
+  - lecture_cover_topics
 
 
 slots:
@@ -173,7 +175,13 @@ responses:
   - text: "Here's the {course} course description: "
 
 
+#Q15
+  utter_topics_covered_event:
+  - text: "The following topics are covered in {lecture}"
 
+#Q16
+  utter_events_covering_topic:
+  - text: "The following events covered the {topic}"
 
 
 

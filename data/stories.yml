@@ -104,6 +104,17 @@ stories:
   - action: utter_course_description
   - action: action_q14
 
+- story: tell which topics covered event
+  steps:
+  - intent: course_event
+  - action: utter_topics_covered_event
+  - action: action_q15
+
+- story: tell wich event covered topic
+  steps:
+  - intent: lecture_cover_topics
+  - action: utter_events_covering_topic
+  - action: action_q16
 
 
 
