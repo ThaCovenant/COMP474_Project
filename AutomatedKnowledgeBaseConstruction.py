@@ -78,13 +78,6 @@ def content_triples_gen(graph, courseName, fileType, fileName, content, i):
 
     # Lecture lectureURI Properties
     g.add((lectureURI, namespaces['lecture'].lectureNumber, Literal(i, datatype=XSD.integer)))
-    # g.add((lectureURI, lecture.lectureName, Literal("Lecture Name")))
-    # Delete after
-    # lectureContentURI = URIRef(namespaces['lectureContent'] + courseName + "LectureContent" + str(i))
-
-    # Delete after
-    # Create lectureContentURI instance of lectureContent Class
-    # g.add((lectureContentURI, RDF.type, namespaces['lectureContent'].lectureContent))
 
     # Create contentURI instance of Slides class
     contentURI = URIRef(URIGenerator(courseName, fileType, i))
@@ -95,7 +88,6 @@ def content_triples_gen(graph, courseName, fileType, fileName, content, i):
 
     # print(contentURI)
     g.add((contentURI, RDF.type, contentClass))
-    # g.add((contentURI, RDFS.subClassOf, lectureContentURI))
     g.add((contentURI, RDFS.label, Literal(fileName + str(i))))
     g.add((contentURI, RDFS.comment, Literal(fileName + " of lecture " + str(i), lang='en')))
 
