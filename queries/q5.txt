@@ -1,14 +1,12 @@
-#Query 5 (list all materials of a course filtered by topic)(**doesnt filter by topic)
-#example: <http://example.org/course/COMP335>
-SELECT ?subject
+#Query 5 (list all materials of a course filtered by topic)
+#example: <http://example.org/course/COMP474>
+SELECT ?content
   WHERE{
 <http://example.org/course/{course}> <http://example.org/course/hasLecture> ?lectures.
 ?lectures <http://example.org/lecture/hasContent> ?content.
-?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
+?topic <http://example.org/topic/topicProvenanceInformation> ?content.
+  FILTER(?topic = <http://example.org/topic/KnowledgeGraph>)
   }
 	LIMIT 100
 
-
-#  [course] <http://example.org/course/hasLecture> ?lectures.
-#?lectures <http://example.org/lecture/hasContent> ?content.
-#?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
+  #[course] <http://example.org/course/hasLecture> ?lectures.

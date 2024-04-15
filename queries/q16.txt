@@ -2,7 +2,7 @@
 #example: <http://example.org/topic/KnowledgeGraph>
 SELECT DISTINCT ?lecture
   WHERE{
-   [topic] <http://example.org/topic/topicProvenanceInformation> ?material.
+   <http://example.org/topic/{topic}> <http://example.org/topic/topicProvenanceInformation> ?material.
   ?lecture <http://example.org/lecture/hasContent> ?material.
   }
 	LIMIT 100

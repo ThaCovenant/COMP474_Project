@@ -2,7 +2,7 @@
 #example: <http://example.org/course/COMP474>
 SELECT DISTINCT ?topic
   WHERE{
- [course] <http://example.org/course/hasLecture> ?lecture.
+ <http://example.org/course/{topic}> <http://example.org/course/hasLecture> ?lecture.
   ?lecture <http://example.org/lecture/hasContent> ?material.
  ?topic <http://example.org/topic/topicProvenanceInformation> ?material
   }
