@@ -2,8 +2,8 @@
 #example: <http://example.org/student/40157540>
 SELECT DISTINCT ?firstName ?lastName ?courses ?grade
 WHERE {
- [student] <http://example.org/student/hasFirstName> ?firstName.
- [student] <http://example.org/student/hasLastName> ?lastName.
- [student] <http://example.org/student/hasCompletedCourse> ?courses.
+ <http://example.org/student/{student_id}> <http://example.org/student/hasFirstName> ?firstName.
+ <http://example.org/student/{student_id}> <http://example.org/student/hasLastName> ?lastName.
+ <http://example.org/student/{student_id}> <http://example.org/student/hasCompletedCourse> ?courses.
   ?courses <http://example.org/student/hasGrade> ?grade
 }

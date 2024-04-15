@@ -2,9 +2,17 @@
 #example: <http://example.org/student/40157540> <http://example.org/course/COEN311>
 SELECT ?grade
   WHERE{
-  [student] <http://example.org/student/hasCompletedCourse> ?courses.
+  <http://example.org/student/{student_id}> <http://example.org/student/hasCompletedCourse> ?courses.
  ?courses <http://example.org/student/hasGrade> ?grade.
  ?courses <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class
-  FILTER(?class = [course])
+  FILTER(?class = <http://example.org/course/{course})
   }
 	LIMIT 100
+
+
+
+
+#[student] <http://example.org/student/hasCompletedCourse> ?courses.
+#?courses <http://example.org/student/hasGrade> ?grade.
+# ?courses <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class
+#  FILTER(?class = [course])

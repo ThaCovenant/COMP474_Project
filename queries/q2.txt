@@ -2,6 +2,6 @@
 #example: <http://example.org/topic/KnowledgeGraph>
 SELECT ?subject
   WHERE{
- [topic] <http://example.org/topic/topicProvenanceInformation> ?lecture.
+ <http://example.org/{topic}/KnowledgeGraph> <http://example.org/topic/topicProvenanceInformation> ?lecture.
 ?subject <http://example.org/course/hasLecture>	?lecture
   }

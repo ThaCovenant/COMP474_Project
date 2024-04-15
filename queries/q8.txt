@@ -2,9 +2,15 @@
 #example: <http://example.org/course/COMP335> <http://example.org/lecture/COMP335Lecture2>
 SELECT ?subject
   WHERE{
-[course] <http://example.org/course/hasLecture> ?lectures.
-  FILTER(?lectures = [lecture])
+<http://example.org/course/{course}> <http://example.org/course/hasLecture> ?lectures.
+  FILTER(?lectures = <http://example.org/lecture/{lecture_number}>)
 ?lectures <http://example.org/lecture/hasContent> ?content.
 ?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
   }
 	LIMIT 100
+
+
+ # [course] <http://example.org/course/hasLecture> ?lectures.
+ # FILTER(?lectures = [lecture])
+#?lectures <http://example.org/lecture/hasContent> ?content.
+#?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.

@@ -2,5 +2,8 @@
 #example: <http://example.org/course/COEN311>
 SELECT ?student
 WHERE {
-?student <http://example.org/student/hasCompletedCourse> [course]
+?student <http://example.org/student/hasCompletedCourse> <http://example.org/course/{course}>
 }
+
+
+#?student <http://example.org/student/hasCompletedCourse> [course]

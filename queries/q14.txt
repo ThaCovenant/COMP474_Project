@@ -2,6 +2,8 @@
 #example: <http://example.org/course/COMP335>
 SELECT ?desc
   WHERE{
-	[course] <http://example.org/course/courseDescription> ?desc
+	<http://example.org/course/{course}> <http://example.org/course/courseDescription> ?desc
   }
 	LIMIT 100
+
+#[course] <http://example.org/course/courseDescription> ?desc

@@ -61,7 +61,7 @@ class ActionListCoursesByUniversity(Action):
 
         #university_name = next(tracker.get_latest_entity_values("university_name"), None)
         university_name = tracker.get_slot("university_name")
-        print(university_name)
+        #print(university_name)
         if university_name:
             courses = self.execute_sparql_query_for_courses_by_university(university_name)
             if courses:
@@ -115,7 +115,7 @@ class ActionListCoursesByUniversity(Action):
 #Q2
 class ActionCoursesByTopic(Action):
     def name(self) -> Text:
-        return "utter_topic_discussed"
+        return "action_q2"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -169,7 +169,7 @@ class ActionCoursesByTopic(Action):
 #Q3
 class ActionTopicsOfCourseLecture(Action):
     def name(self) -> Text:
-        return "utter_topics_covered"
+        return "action_q3"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -225,7 +225,7 @@ class ActionTopicsOfCourseLecture(Action):
 #Q4
 class ActionCoursesByUniversityAndSubject(Action):
     def name(self) -> Text:
-        return "utter_all_courses_of_subject"
+        return "action_q4"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -279,7 +279,7 @@ class ActionCoursesByUniversityAndSubject(Action):
 #Q5
 class ActionRecommendedMaterialsForTopic(Action):
     def name(self) -> Text:
-        return "utter_recommended_materials"
+        return "action_q5"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -340,7 +340,7 @@ class ActionRecommendedMaterialsForTopic(Action):
 #Q6
 class ActionCreditsForCourse(Action):
     def name(self) -> Text:
-        return "utter_credits"
+        return "action_q6"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -393,7 +393,7 @@ class ActionCreditsForCourse(Action):
 #Q7
 class ActionAdditionalResourcesForCourse(Action):
     def name(self) -> Text:
-        return "utter_additional_resources"
+        return "action_q7"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -452,7 +452,7 @@ class ActionAdditionalResourcesForCourse(Action):
 #Q8
 class ActionContentForLecture(Action):
     def name(self) -> Text:
-        return "utter_detail_content"
+        return "action_q8"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -508,7 +508,7 @@ class ActionContentForLecture(Action):
 #Q9
 class ActionReadingMaterials(Action):
     def name(self) -> Text:
-        return "utter_reading_materials"
+        return "action_q9"
     
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -569,7 +569,7 @@ class ActionReadingMaterials(Action):
 #Q10
 class ActionCompetenciesForCourse(Action):
     def name(self) -> Text:
-        return "utter_competencies_gained"
+        return "action_q10"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -624,7 +624,7 @@ class ActionCompetenciesForCourse(Action):
 #Q11
 class ActionGetGrades(Action):
     def name(self) -> Text:
-        return "utter_grades"
+        return "action_q11"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -709,7 +709,7 @@ class ActionGetGrades(Action):
 #Q12
 class ActionStudentsCompletedCourse(Action):
     def name(self) -> Text:
-        return "utter_students_completed_course"
+        return "action_q12"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -811,7 +811,52 @@ class ActionPrintTranscript(Action):
 
 class ActionPrintTranscript(Action):
     def name(self) -> Text:
-        return "utter_transcript"
+        return "action_q13"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        #student_name = next(tracker.get_latest_entity_values("student_name"), None)
+        #
+        student_id = tracker.get_slot("student_id")
+
+        if student_id:
+            transcript = self.execute_sparql_query_for_transcript(student_id)
+            if transcript:
+                dispatcher.utter_message(text=f"Transcript for {student_id}:\n{transcript}")
+            else:
+                dispatcher.utter_message(text=f"Sorry, I couldn't find a transcript for {student_id}.")
+        else:
+            dispatcher.utter_message(text=f"Sorry, please provide a correct student ID.")
+
+        return []
+
+    def execute_sparql_query_for_transcript(self, student_id: Text) -> Text:
+        with open("queries/q13.txt", "r") as file:
+            sparql_query = file.read()
+
+        # Replace placeholders in the query with actual values
+        sparql_query = sparql_query.replace("{student_id}", student_id)
+
+        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        response = requests.post(fuseki_url, data={'query': sparql_query})
+
+        if response.status_code == 200:
+            data = response.json()
+            # Extract and format results
+            #results = "\n".join([f"{binding['course']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
+        else:
+            return None
+
+
+
+#Query 14
+class ActionPrintTranscript(Action):
+    def name(self) -> Text:
+        return "action_q14"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -844,8 +889,4 @@ class ActionPrintTranscript(Action):
             return results
         else:
             return None
-
-
-
-
 

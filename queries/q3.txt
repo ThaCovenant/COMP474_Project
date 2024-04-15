@@ -2,5 +2,7 @@
  #example: <http://example.org/lecture/COMP474Lecture1>
  SELECT ?subject
   WHERE{
-?subject <http://example.org/topic/topicProvenanceInformation> [lecture].
+?subject <http://example.org/topic/topicProvenanceInformation> <http://example.org/lecture/{lecture_number}>.
   }
+
+#?subject <http://example.org/topic/topicProvenanceInformation> [lecture].

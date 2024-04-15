@@ -2,5 +2,7 @@
 #example: <http://example.org/course/COMP335>
 SELECT ?link
 WHERE {
-  [course] <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?link.
+  <http://example.org/course/{course}> <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?link.
 }
+
+#[course] <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?link.
