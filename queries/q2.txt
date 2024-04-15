@@ -2,7 +2,7 @@
 #example: <http://example.org/topic/KnowledgeGraph>
 SELECT DISTINCT ?subject
   WHERE{
- [topic] <http://example.org/topic/topicProvenanceInformation> ?content.
+ <http://example.org/topic/{topic}> <http://example.org/topic/topicProvenanceInformation> ?content.
  ?lecture <http://example.org/lecture/hasContent> ?content.
 ?subject <http://example.org/course/hasLecture>	?lecture.
   }

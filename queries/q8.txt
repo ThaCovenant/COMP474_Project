@@ -2,10 +2,9 @@
 #example: <http://example.org/course/COMP474> <http://example.org/lecture/COMP474Lecture3>
 SELECT ?content
   WHERE{
-[course] <http://example.org/course/hasLecture> ?lectures.
+<http://example.org/course/{course}> <http://example.org/course/hasLecture> ?lectures.
 ?lectures <http://example.org/lecture/hasContent> ?content.
-FILTER(?lectures = [lecture]).
-#?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
+FILTER(?lectures = <http://example.org/lecture/{lecture}>).
   }
 	LIMIT 100
 
