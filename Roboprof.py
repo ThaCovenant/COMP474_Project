@@ -1,6 +1,8 @@
 import os
 
 from rdflib import Graph
+
+from KnowledgeBaseTopicPopulation import COURSE_MATERIALS_PLAIN_TEXT, process_plaintext
 from Roboprof_functions import mergedSchema
 from AutomatedKnowledgeBaseConstruction import (student_data_to_rdf_triples,
                                                 extract_student_data,
@@ -16,8 +18,8 @@ file_path6 = "RDFs/Merged.ttl"
 file_path_students = "data/students_grades.csv"
 file_path_merge = "Triples/MergedTriples.ttl"
 file_path_students_KB = "Triples/students.ttl"
-file_path_triples = "Triples/topics.ttl"
 file_path_topics = "Triples/topics.ttl"
+# file_path_topics_new = "Triples/topicsNew.ttl"
 file_path_courseMaterial_Comp335 = "data/courseMaterial/COMP335"
 file_path_courseMaterial_Comp474 = "data/courseMaterial/COMP474"
 file_path_lecture = "Triples/lectures.ttl"
@@ -43,12 +45,6 @@ def main():
         g1 = student_data_to_rdf_triples(extract_student_data())
         create_graph(g1, file_path_students_KB)
 
-    # Triples Example
-    g2 = Graph()
-    if verify_graph(file_path_triples):
-        g2.parse(file_path_triples, format="ttl")
-        # print(g2.serialize(format='turtle'))
-
     g3 = Graph()
     if verify_graph(file_path_lecture):
         folders = [file_path_courseMaterial_Comp335, file_path_courseMaterial_Comp474]
@@ -57,7 +53,8 @@ def main():
 
     g4 = Graph()
     if verify_graph(file_path_topics):
-        g4.parse(file_path_topics, format="ttl")
+        g4 = process_plaintext(COURSE_MATERIALS_PLAIN_TEXT)
+        create_graph(g4, file_path_topics)
 
     g5 = Graph()
     if verify_graph(file_path_lecture):
@@ -66,7 +63,6 @@ def main():
 
     if verify_graph(file_path_merge):
         g6 = (g1.parse(file_path_students_KB, format="ttl") +
-              g2.parse(file_path_triples, format="ttl") +
               g3.parse(file_path_lecture, format="ttl") +
               g4.parse(file_path_topics, format="ttl") +
               g5.parse(file_path_courses, format="ttl"))

@@ -1,7 +1,6 @@
 @prefix assignments: <http://example.org/assignments/> .
 @prefix completedCourse: <http://example.org/completedCourse/> .
 @prefix course: <http://example.org/course/> .
-@prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix dp: <http://dbpedia.org/resource/> .
 @prefix google: <http://google.com/> .
 @prefix lecture: <http://example.org/lecture/> .
@@ -84671,18 +84670,294 @@ student:40175886 a student:student ;
     student:hasLastName "Hidalgo" ;
     rdfs:comment "This is a Student Class."@en .
 
-topic:DeepLearning a topic:Topic ;
-    rdfs:label "Deep Learning" ;
-    topic:dbpediaEntry dbo:Deep_Learning ;
-    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
-    <file:///home/roboprof/COMP474/Lectures/slide1.pdf>  ;
-    topic:wikidataEntry wd:Q197536 ;
-    rdfs:comment "Topic covered in the lecture."@en .
+topic:API a topic:topic ;
+    topic:DBpediaEntry dp:API ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
 
-<https://www.mcgill.ca/> a university:University ;
-    university:DBpediaEntry dp:McGill_University ;
-    university:WikidataEntry wd:Q201492 ;
-    university:hasName "McGill University" .
+topic:Alexa a topic:topic ;
+    topic:DBpediaEntry dp:Alexa ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:Chatbot a topic:topic ;
+    topic:DBpediaEntry dp:Chatbot ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:DeepLearning a topic:topic ;
+    topic:DBpediaEntry dp:Deep_Learning ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:Eliza a topic:topic ;
+    topic:DBpediaEntry dp:Eliza ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:GPT-3 a topic:topic ;
+    topic:DBpediaEntry dp:GPT-3 ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:Graphs a topic:topic ;
+    topic:DBpediaEntry dp:Graphs ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:IBM a topic:topic ;
+    topic:DBpediaEntry dp:IBM ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:IntelligentSystems a topic:topic ;
+    topic:DBpediaEntry dp:Intelligent_Systems ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:KnowledgeGraphs a topic:topic ;
+    topic:DBpediaEntry dp:Knowledge_Graphs ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:Microsoft a topic:topic ;
+    topic:DBpediaEntry dp:Microsoft ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:NeuralNetworks a topic:topic ;
+    topic:DBpediaEntry dp:Neural_Networks ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:OWL a topic:topic ;
+    topic:DBpediaEntry dp:OWL ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:RAM a topic:topic ;
+    topic:DBpediaEntry dp:RAM ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:SAAS a topic:topic ;
+    topic:DBpediaEntry dp:SAAS ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:SPARQL a topic:topic ;
+    topic:DBpediaEntry dp:SPARQL ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
+
+topic:Watson a topic:topic ;
+    topic:DBpediaEntry dp:Watson ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> .
 
 <file:///home/roboprof/COMP335/Assignments/asg1.pdf> a assignments:Assignments ;
     rdfs:label "Assignments1" ;
@@ -84815,66 +85090,6 @@ topic:DeepLearning a topic:Topic ;
 <file:///home/roboprof/COMP335/Worksheets/worksheet8.pdf> a worksheets:Worksheets ;
     rdfs:label "Worksheets8" ;
     rdfs:comment "Worksheets of lecture 8"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide1.pdf> a slides:Slides ;
-    rdfs:label "Slides1" ;
-    rdfs:comment "Slides of lecture 1"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide2.pdf> a slides:Slides ;
-    rdfs:label "Slides2" ;
-    rdfs:comment "Slides of lecture 2"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide3.pdf> a slides:Slides ;
-    rdfs:label "Slides3" ;
-    rdfs:comment "Slides of lecture 3"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide4.pdf> a slides:Slides ;
-    rdfs:label "Slides4" ;
-    rdfs:comment "Slides of lecture 4"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide5.pdf> a slides:Slides ;
-    rdfs:label "Slides5" ;
-    rdfs:comment "Slides of lecture 5"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide6.pdf> a slides:Slides ;
-    rdfs:label "Slides6" ;
-    rdfs:comment "Slides of lecture 6"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide7.pdf> a slides:Slides ;
-    rdfs:label "Slides7" ;
-    rdfs:comment "Slides of lecture 7"@en .
-
-<file:///home/roboprof/COMP474/Lectures/slide8.pdf> a slides:Slides ;
-    rdfs:label "Slides8" ;
-    rdfs:comment "Slides of lecture 8"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets1" ;
-    rdfs:comment "Worksheets of lecture 1"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets2" ;
-    rdfs:comment "Worksheets of lecture 2"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets3" ;
-    rdfs:comment "Worksheets of lecture 3"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets4" ;
-    rdfs:comment "Worksheets of lecture 4"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets5" ;
-    rdfs:comment "Worksheets of lecture 5"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets6" ;
-    rdfs:comment "Worksheets of lecture 6"@en .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets7" ;
-    rdfs:comment "Worksheets of lecture 7"@en .
 
 <file:///home/roboprof/COMP474/Worksheets/worksheet8.pdf> a worksheets:Worksheets ;
     rdfs:label "Worksheets8" ;
@@ -85158,14 +85373,6 @@ lecture:COMP474Lecture8 a lecture:lecture ;
     lecture:lectureNumber 8 ;
     rdfs:comment "This is a lecture."@en .
 
-topic:KnowledgeGraph a topic:Topic ;
-    rdfs:label "Knowledge Graph" ;
-    topic:dbpediaEntry dbo:Knowledge_Graph ;
-    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
-    <file:///home/roboprof/COMP474/Lectures/slide3.pdf> ;
-    topic:wikidataEntry wd:Q533557 ;
-    rdfs:comment "Topic covered in the lecture."@en .
-
 course:COMP474 a course:course ;
     rdfs:label "course" ;
     course:courseCredit 4.0 ;
@@ -85185,6 +85392,66 @@ course:COMP474 a course:course ;
     course:offeredBy <https://www.concordia.ca/> ;
     rdfs:comment "A course offered by the university."@en ;
     rdfs:seeAlso google:COMP474 .
+
+<file:///home/roboprof/COMP474/Lectures/slide1.pdf> a slides:Slides ;
+    rdfs:label "Slides1" ;
+    rdfs:comment "Slides of lecture 1"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide2.pdf> a slides:Slides ;
+    rdfs:label "Slides2" ;
+    rdfs:comment "Slides of lecture 2"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide3.pdf> a slides:Slides ;
+    rdfs:label "Slides3" ;
+    rdfs:comment "Slides of lecture 3"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide4.pdf> a slides:Slides ;
+    rdfs:label "Slides4" ;
+    rdfs:comment "Slides of lecture 4"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide5.pdf> a slides:Slides ;
+    rdfs:label "Slides5" ;
+    rdfs:comment "Slides of lecture 5"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide6.pdf> a slides:Slides ;
+    rdfs:label "Slides6" ;
+    rdfs:comment "Slides of lecture 6"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide7.pdf> a slides:Slides ;
+    rdfs:label "Slides7" ;
+    rdfs:comment "Slides of lecture 7"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide8.pdf> a slides:Slides ;
+    rdfs:label "Slides8" ;
+    rdfs:comment "Slides of lecture 8"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets1" ;
+    rdfs:comment "Worksheets of lecture 1"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets2" ;
+    rdfs:comment "Worksheets of lecture 2"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets3" ;
+    rdfs:comment "Worksheets of lecture 3"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets4" ;
+    rdfs:comment "Worksheets of lecture 4"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets5" ;
+    rdfs:comment "Worksheets of lecture 5"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets6" ;
+    rdfs:comment "Worksheets of lecture 6"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets7" ;
+    rdfs:comment "Worksheets of lecture 7"@en .
 
 <https://www.concordia.ca/> a university:university ;
     rdfs:label "university" ;
