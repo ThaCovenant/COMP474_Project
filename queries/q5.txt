@@ -1,8 +1,9 @@
-#Query 5 (list all materials of a course filtered by topic)
-# lecture:LectureContent a rdf:Class ; for slides, readings, etc
-SELECT ?topic ?material
-WHERE {
-  <http://example.org/course#COMP335> <http://example.org/course#hasTopic> ?topic.
-  ?topic <http://example.org/topic#material> ?material.
-  FILTER(?topic = <http://example.org/topic#DeterministicFiniteStateAutomata>)
-}
+#Query 5 (list all materials of a course filtered by topic)(**doesnt filter by topic)
+#example: <http://example.org/course/COMP335>
+SELECT ?subject
+  WHERE{
+[course] <http://example.org/course/hasLecture> ?lectures.
+?lectures <http://example.org/lecture/hasContent> ?content.
+?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
+  }
+	LIMIT 100

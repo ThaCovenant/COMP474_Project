@@ -1,5 +1,10 @@
 #Query 11 (list all grades obtained in the course filtered by student)
-SELECT ?grades
-WHERE {
-  <http://example.org/grade/40044279/COMP474> <http://example.org/student#gradeValue> ?grades.
-}
+#example: <http://example.org/student/40157540> <http://example.org/course/COEN311>
+SELECT ?grade
+  WHERE{
+  [student] <http://example.org/student/hasCompletedCourse> ?courses.
+ ?courses <http://example.org/student/hasGrade> ?grade.
+ ?courses <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class
+  FILTER(?class = [course])
+  }
+	LIMIT 100

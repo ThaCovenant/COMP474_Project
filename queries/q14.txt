@@ -1,0 +1,7 @@
+#Query14 (procide course description)
+#example: <http://example.org/course/COMP335>
+SELECT ?desc
+  WHERE{
+	[course] <http://example.org/course/courseDescription> ?desc
+  }
+	LIMIT 100

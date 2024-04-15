@@ -1,8 +1,7 @@
-
-
 #Query 1 (list all courses offered by a university)
+#example: <https://www.concordia.ca/>
 SELECT ?subject
   WHERE{
-     ?subject http://example.org/course/offeredBy https://www.concordia.ca/
+	 ?subject <http://example.org/course/offeredBy> [university_name]
   }
-    LIMIT 100
+  LIMIT 100

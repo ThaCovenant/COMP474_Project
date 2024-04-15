@@ -1,0 +1,7 @@
+#Query15 (provide the lectures that cover this topic)
+#example: <http://example.org/topic/DeepLearning>
+SELECT ?lectures
+  WHERE{
+   [topic] <http://example.org/topic/topicProvenanceInformation> ?lectures.
+  }
+	LIMIT 100

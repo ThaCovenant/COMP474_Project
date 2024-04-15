@@ -1,5 +1,7 @@
 #Query 10 (list all topics offered by the course)
-SELECT ?competencies
-WHERE {
- <http://example.org/course#COMP474> <http://example.org/course#hasTopic> ?competencies
-}
+#example: <http://example.org/course/COMP474>
+SELECT ?subject
+  WHERE{
+ [course] <http://example.org/course/hasLecture> ?lecture.
+ ?subject <http://example.org/topic/topicProvenanceInformation> ?lecture.
+  }

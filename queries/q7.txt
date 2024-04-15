@@ -1,5 +1,6 @@
 #Query 7 (list course resources)
+#example: <http://example.org/course/COMP335>
 SELECT ?link
 WHERE {
-  <http://example.org/course/COMP335> <http://example.org/course/courseLink> ?link.
+  [course] <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?link.
 }

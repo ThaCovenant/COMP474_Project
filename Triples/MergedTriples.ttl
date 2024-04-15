@@ -84920,7 +84920,7 @@ student:40175886 a student:student ;
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
     topic:dbpediaEntry dbo:Deep_Learning ;
-    topic:topicProvenanceInformation "COMP474_Lecture_1" ;
+    topic:topicProvenanceInformation <http://example.org/lecture/COMP474Lecture1> ;
     topic:wikidataEntry wd:Q197536 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
@@ -85188,7 +85188,7 @@ lecture:COMP474Lecture8 a lecture:lecture ;
 topic:KnowledgeGraph a topic:Topic ;
     rdfs:label "Knowledge Graph" ;
     topic:dbpediaEntry dbo:Knowledge_Graph ;
-    topic:topicProvenanceInformation "COMP474_Lecture_3" ;
+    topic:topicProvenanceInformation <http://example.org/lecture/COMP474Lecture3> ;
     topic:wikidataEntry wd:Q533557 ;
     rdfs:comment "Topic covered in the lecture."@en .
 

@@ -1,9 +1,9 @@
 #Query 13 list all courses and grades of a student 
+#example: <http://example.org/student/40157540>
 SELECT DISTINCT ?firstName ?lastName ?courses ?grade
 WHERE {
- <http://example.org/student#40076313> <http://example.org/student#hasFirstName> ?firstName.
- <http://example.org/student#40076313> <http://example.org/student#hasLastName> ?lastName.
- <http://example.org/student#40076313> <http://example.org/student#hasCompletedCourse> ?courses.
- ?bridge <http://example.org/student#gradeForCourse> ?courses.
- ?bridge <http://example.org/student#gradeValue> ?grade.
+ [student] <http://example.org/student/hasFirstName> ?firstName.
+ [student] <http://example.org/student/hasLastName> ?lastName.
+ [student] <http://example.org/student/hasCompletedCourse> ?courses.
+  ?courses <http://example.org/student/hasGrade> ?grade
 }

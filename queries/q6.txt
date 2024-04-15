@@ -1,5 +1,6 @@
 #Query 6 (give amount of credits a course is worth)
+#example: <http://example.org/course/COMP472>
 SELECT ?credit 
 WHERE {
- <http://example.org/course/COMP472> <http://example.org/course/courseCredit> ?credit.
+ [course] <http://example.org/course/courseCredit> ?credit.
 }
