@@ -47,9 +47,9 @@ nlu:
 #Q4
 - intent: list_all_courses_subject
   examples: |
-      - list all courses offered by [Concordia](university_name) with [subject]
-      - list all [subject] courses offered by [Concordia](university_name)
-      - what [subject] courses are offered by [Concordia](university_name) ? 
+      - list all courses offered by [Concordia](university_name) with [COMP](subject)
+      - list all [COMP](subject) courses offered by [Concordia](university_name)
+      - what [COMP](subject) courses are offered by [Concordia](university_name) ? 
 
 #Q5      
 - intent: recommended_materials 
@@ -99,20 +99,20 @@ nlu:
 #Q12
 - intent: stutends_completed_course
   examples: |
-      - which students have completed [COMP](course_name) [474](course_id) ?
-      - for [COMP](course_name) [474](course_id) , which students have completed it ?
+      - which students have completed [COEN311](course) ?
+      - for [COEN311](course) , which students have completed it ?
 
 #Q13
 - intent: transcript
   examples: |
-      - print a transcript for [Jimmy](student_first_name) [Tran](student_last_name), listing all the course taken with their grades
-      - print a transcript for [Jimmy](student_first_name) [Tran](student_last_name)
-      - list all the course taken by [Jimmy](student_first_name) [Tran](student_last_name) with their grades
-      - print transcript [Jimmy](student_first_name) [Tran](student_last_name)
-      - print a transcript for [Philippe](student_first_name) [Bertrand](student_last_name), listing all the course taken with their grades
-      - print a transcript for [Philippe](student_first_name) [Bertrand](student_last_name)
-      - list all the course taken by [Philippe](student_first_name) [Bertrand](student_last_name) with their grades
-      - print transcript [Philippe](student_first_name) [Bertrand](student_last_name)
+      - print a transcript for [40076313](student_id), listing all the course taken with their grades
+      - print a transcript for [40076313](student_id)
+      - list all the course taken by [40076313](student_id) with their grades
+      - print transcript [40076313](student_id)
+      - print a transcript for [40157540](student_id) , listing all the course taken with their grades
+      - print a transcript for [40157540](student_id)
+      - list all the course taken by [40157540](student_id) with their grades
+      - print transcript [40157540](student_id)
 
 
 #Q14

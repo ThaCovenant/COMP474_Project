@@ -90,6 +90,13 @@ slots:
     mappings:
     - type: from_entity
       entity: lecture_number
+  
+    subject:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: subject
 
 
 
@@ -107,6 +114,7 @@ entities:
 - course_number
 - course
 - lecture_number
+- subject
 
 actions:
 #  - action_utter_all_courses
@@ -153,7 +161,7 @@ responses:
 
 #Q4
   utter_all_courses_of_subject:
-  - text: "{university_name} offers the following courses of COMP: "
+  - text: "{university_name} offers the following courses of {subject}: "
 
 #Q5
   utter_recommended_materials:
