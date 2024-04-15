@@ -98,6 +98,12 @@ stories:
   - action: utter_transcript
   - action: action_q13
 
+- story: describe course
+  steps:
+  - intent: describe_course
+  - action: utter_course_description
+  - action: action_q14
+
 
 
 

@@ -76,6 +76,13 @@ slots:
     - type: from_entity
       entity: course_number
 
+  course:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: course    
+
   lecture_number:
     type: text
     influence_conversation: false
@@ -114,6 +121,9 @@ actions:
   - action_q11
   - action_q12
   - action_q13
+  - action_q14
+#  - action_q15
+#  - action_q16
 
 
 
@@ -127,46 +137,63 @@ responses:
 
 
 
-
+#Q1
   utter_all_courses:
   - text: "{university_name} offers the following courses"
   
-
+#Q2
   utter_topic_discussed:
-  - text: "These courses discuss this topic"
+  - text: "{topic} is discussed in the following courses: "
 
+#Q3
   utter_topics_covered:
-  - text: "These topics are covered in this course"
+  - text: "These topics are covered in {lecture_number} in {course}"
 
+#Q4
   utter_all_courses_of_subject:
-  - text: "Concordia offers the following COMP courses"
+  - text: "{university_name} offers the following courses of COMP: "
 
+#Q5
   utter_recommended_materials:
-  - text: "These materials are recommended for AI in COMP 474"
+  - text: "These materials are recommended for {topic} in {course}"
 
+#Q6
   utter_credits:
-  - text: "COMP 474 is worth 4 credits!"
+  - text: "{course} is worth: "
 
+#Q7
   utter_additional_resources:
-  - text: "These resources are useful to COMP 474"
+  - text: "These additional resources are useful to {course}"
 
+#Q8
   utter_detail_content:
-  - text: "These slides are covered in this lecture"
+  - text: "These slides are covered in this {lecture_number} of {course} "
 
+
+#Q9
   utter_reading_materials:
-  - text: "These reading materials are recommended for topic"
+  - text: "These reading materials are recommended for {topic} in {course}"
 
+
+#Q10
   utter_competencies_gained:
-  - text: "Student will know these topics"
+  - text: "Student will know these topics after completing {course}:"
 
+#Q11
   utter_grades:
-  - text: "Huy-Long has C in COMP 474!"
+  - text: "Student {student_id} has obtained in {course}: "
 
+#Q12
   utter_students_completed_course:
-  - text: "These students finished COMP 474"
+  - text: "These students finished {course}"
 
+#Q13
   utter_transcript:
-  - text: "Too much to print!"
+  - text: "Here is student {student_id} 's transcript:"
+
+#Q14
+  utter_course_description:
+  - text: "Here's the {course} course description: "
 
 
 
