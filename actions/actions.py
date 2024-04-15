@@ -27,7 +27,7 @@
 #         return []
 
 
-# Q4, Q7, Q12
+#Q7, Q12
 
 """
 
@@ -211,7 +211,7 @@ class ActionTopicsOfCourseLecture(Action):
 
 
 
-#Q4
+#Q4 WORKS
 class ActionCoursesByUniversityAndSubject(Action):
     def name(self) -> Text:
         return "action_q4"
