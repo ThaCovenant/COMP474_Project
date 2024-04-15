@@ -84674,8 +84674,8 @@ student:40175886 a student:student ;
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
     topic:dbpediaEntry dbo:Deep_Learning ;
-    topic:topicProvenanceInformation file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf,
-    file:///home/roboprof/COMP474/Lectures/slide1.pdf  ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+    <file:///home/roboprof/COMP474/Lectures/slide1.pdf>  ;
     topic:wikidataEntry wd:Q197536 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
@@ -85161,8 +85161,8 @@ lecture:COMP474Lecture8 a lecture:lecture ;
 topic:KnowledgeGraph a topic:Topic ;
     rdfs:label "Knowledge Graph" ;
     topic:dbpediaEntry dbo:Knowledge_Graph ;
-    topic:topicProvenanceInformation file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf,
-    file:///home/roboprof/COMP474/Lectures/slide3.pdf ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+    <file:///home/roboprof/COMP474/Lectures/slide3.pdf> ;
     topic:wikidataEntry wd:Q533557 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
