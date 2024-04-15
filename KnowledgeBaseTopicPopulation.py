@@ -1,3 +1,5 @@
+import csv
+
 import spacy
 from spacy import displacy
 from tika import parser
@@ -11,7 +13,7 @@ COURSE_MATERIALS_PLAIN_TEXT = 'plainText'
 nlp = spacy.load("en_core_web_sm")
 
 # named entities
-named_entities = ["IBM", "Watson", "Alexa", "Microsoft"]
+named_entities = ['PERSON', 'ORG', 'GPE', 'PRODUCT', 'WORK_OF_ART', 'LANGUAGE', 'EVENT']
 
 
 def get_file_path(directory, fileName):
@@ -31,11 +33,9 @@ def to_plain_text(inPath):
                 # print(file)
 
                 extractName = os.path.splitext(filename)[0]
-
                 outPath = COURSE_MATERIALS_PLAIN_TEXT + "/" + course_path + "/" + course
                 # print("outPath " + outPath)
                 os.makedirs(outPath, exist_ok=True)
-
                 newFile = outPath + "/" + extractName + ".txt"
                 # print(newFile)
 
@@ -52,22 +52,29 @@ def to_plain_text(inPath):
                     f.write(plainText)
 
 
-def create_topic_triples():
-    print("link triples properly")
+def create_topic_triples(doc):
+    pass
 
 
 def link_entity(entity_text):
-    # Example: Link to DBpedia
-    dbpedia_link = f"http://dbpedia.org/resource/{entity_text}"
+    # Link to DBpedia
+    dbpedia_link = f"http://dbpedia.org/resource/{entity_text.replace(' ', '_')
+    .replace('•', '').replace(',', '').replace('.', '').rstrip('_').lstrip('_')
+    .lstrip('"').strip('\"')}"
+
     return dbpedia_link
 
 
 def link_entities(doc):
+    entity_links = []
     for ent in doc.ents:
-        # Only link entities that are in the named_entities list
-        if ent.text in named_entities:
+        # Only link entities that are in named_entities
+        if ent.label_ in named_entities:
             entity_link = link_entity(ent.text)
-            print(f"Entity: {ent.text}, Linked to: {entity_link}")
+            if entity_link.startswith('http://dbpedia.org/resource/'):
+                entity_links.append(entity_link)
+                print(f"Link: {entity_link}")
+    return entity_links
 
 
 def process_plaintext(inPath):
@@ -83,11 +90,21 @@ def process_plaintext(inPath):
 
 
 def process_single_plaintext(file_path):
+    all_entity_links = set()
     with open(file_path, "r", encoding="utf-8") as file:
         text = file.read()
         doc = nlp(text)
-        link_entities(doc)
+        create_topic_triples(doc)
+        entity_links = link_entities(doc)
+        all_entity_links.update(entity_links)
         # visualize(doc)
+
+    with open("entity_links.csv", "w", newline="", encoding="utf-8") as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(["Link"])
+        for link in all_entity_links:
+            # entity = link.split('/')[-1].replace('_', ' ')
+            writer.writerow([link])
 
 
 # Visualize all named entities
@@ -99,7 +116,7 @@ def visualize(doc):
 
 
 def main():
-    #to_plain_text(COURSE_MATERIALS)
+    # to_plain_text(COURSE_MATERIALS)
     # process_plaintext(COURSE_MATERIALS_PLAIN_TEXT)
     process_single_plaintext('plainText/data/courseMaterial/COMP474/Lectures/slides01.txt')
 

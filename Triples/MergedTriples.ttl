@@ -5,7 +5,6 @@
 @prefix dp: <http://dbpedia.org/resource/> .
 @prefix google: <http://google.com/> .
 @prefix lecture: <http://example.org/lecture/> .
-@prefix lectureContent: <http://example.org/lectureContent/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix slides: <http://example.org/slides/> .
 @prefix student: <http://example.org/student/> .
@@ -14,251 +13,6 @@
 @prefix wd: <https://www.wikidata.org/wiki/> .
 @prefix worksheets: <http://example.org/worksheets/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<file:///home/roboprof/COMP335/Assignments/asg1.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments1" ;
-    rdfs:comment "Assignments of lecture 1"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent1 .
-
-<file:///home/roboprof/COMP335/Assignments/asg2.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments2" ;
-    rdfs:comment "Assignments of lecture 2"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent2 .
-
-<file:///home/roboprof/COMP335/Assignments/asg3.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments3" ;
-    rdfs:comment "Assignments of lecture 3"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent3 .
-
-<file:///home/roboprof/COMP335/Assignments/asg4.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments4" ;
-    rdfs:comment "Assignments of lecture 4"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent4 .
-
-<file:///home/roboprof/COMP335/Assignments/asg5.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments5" ;
-    rdfs:comment "Assignments of lecture 5"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent5 .
-
-<file:///home/roboprof/COMP335/Assignments/asg6.pdf> a assignments:Assignments ;
-    rdfs:label "Assignments6" ;
-    rdfs:comment "Assignments of lecture 6"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent6 .
-
-<file:///home/roboprof/COMP335/Lectures/slide1.ppt> a slides:Slides ;
-    rdfs:label "Slides1" ;
-    rdfs:comment "Slides of lecture 1"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent1 .
-
-<file:///home/roboprof/COMP335/Lectures/slide10.ppt> a slides:Slides ;
-    rdfs:label "Slides10" ;
-    rdfs:comment "Slides of lecture 10"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent10 .
-
-<file:///home/roboprof/COMP335/Lectures/slide11.ppt> a slides:Slides ;
-    rdfs:label "Slides11" ;
-    rdfs:comment "Slides of lecture 11"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent11 .
-
-<file:///home/roboprof/COMP335/Lectures/slide12.ppt> a slides:Slides ;
-    rdfs:label "Slides12" ;
-    rdfs:comment "Slides of lecture 12"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent12 .
-
-<file:///home/roboprof/COMP335/Lectures/slide13.ppt> a slides:Slides ;
-    rdfs:label "Slides13" ;
-    rdfs:comment "Slides of lecture 13"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent13 .
-
-<file:///home/roboprof/COMP335/Lectures/slide14.ppt> a slides:Slides ;
-    rdfs:label "Slides14" ;
-    rdfs:comment "Slides of lecture 14"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent14 .
-
-<file:///home/roboprof/COMP335/Lectures/slide15.ppt> a slides:Slides ;
-    rdfs:label "Slides15" ;
-    rdfs:comment "Slides of lecture 15"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent15 .
-
-<file:///home/roboprof/COMP335/Lectures/slide16.ppt> a slides:Slides ;
-    rdfs:label "Slides16" ;
-    rdfs:comment "Slides of lecture 16"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent16 .
-
-<file:///home/roboprof/COMP335/Lectures/slide17.ppt> a slides:Slides ;
-    rdfs:label "Slides17" ;
-    rdfs:comment "Slides of lecture 17"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent17 .
-
-<file:///home/roboprof/COMP335/Lectures/slide18.ppt> a slides:Slides ;
-    rdfs:label "Slides18" ;
-    rdfs:comment "Slides of lecture 18"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent18 .
-
-<file:///home/roboprof/COMP335/Lectures/slide19.pptx> a slides:Slides ;
-    rdfs:label "Slides19" ;
-    rdfs:comment "Slides of lecture 19"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent19 .
-
-<file:///home/roboprof/COMP335/Lectures/slide2.ppt> a slides:Slides ;
-    rdfs:label "Slides2" ;
-    rdfs:comment "Slides of lecture 2"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent2 .
-
-<file:///home/roboprof/COMP335/Lectures/slide3.ppt> a slides:Slides ;
-    rdfs:label "Slides3" ;
-    rdfs:comment "Slides of lecture 3"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent3 .
-
-<file:///home/roboprof/COMP335/Lectures/slide4.ppt> a slides:Slides ;
-    rdfs:label "Slides4" ;
-    rdfs:comment "Slides of lecture 4"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent4 .
-
-<file:///home/roboprof/COMP335/Lectures/slide5.ppt> a slides:Slides ;
-    rdfs:label "Slides5" ;
-    rdfs:comment "Slides of lecture 5"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent5 .
-
-<file:///home/roboprof/COMP335/Lectures/slide6.ppt> a slides:Slides ;
-    rdfs:label "Slides6" ;
-    rdfs:comment "Slides of lecture 6"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent6 .
-
-<file:///home/roboprof/COMP335/Lectures/slide7.ppt> a slides:Slides ;
-    rdfs:label "Slides7" ;
-    rdfs:comment "Slides of lecture 7"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent7 .
-
-<file:///home/roboprof/COMP335/Lectures/slide8.ppt> a slides:Slides ;
-    rdfs:label "Slides8" ;
-    rdfs:comment "Slides of lecture 8"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent8 .
-
-<file:///home/roboprof/COMP335/Lectures/slide9.ppt> a slides:Slides ;
-    rdfs:label "Slides9" ;
-    rdfs:comment "Slides of lecture 9"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent9 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet1.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets1" ;
-    rdfs:comment "Worksheets of lecture 1"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent1 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet2.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets2" ;
-    rdfs:comment "Worksheets of lecture 2"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent2 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet3.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets3" ;
-    rdfs:comment "Worksheets of lecture 3"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent3 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet4.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets4" ;
-    rdfs:comment "Worksheets of lecture 4"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent4 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet5.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets5" ;
-    rdfs:comment "Worksheets of lecture 5"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent5 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet6.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets6" ;
-    rdfs:comment "Worksheets of lecture 6"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent6 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet7.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets7" ;
-    rdfs:comment "Worksheets of lecture 7"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent7 .
-
-<file:///home/roboprof/COMP335/Worksheets/worksheet8.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets8" ;
-    rdfs:comment "Worksheets of lecture 8"@en ;
-    rdfs:subClassOf lectureContent:COMP335LectureContent8 .
-
-<file:///home/roboprof/COMP474/Lectures/slide1.pdf> a slides:Slides ;
-    rdfs:label "Slides1" ;
-    rdfs:comment "Slides of lecture 1"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent1 .
-
-<file:///home/roboprof/COMP474/Lectures/slide2.pdf> a slides:Slides ;
-    rdfs:label "Slides2" ;
-    rdfs:comment "Slides of lecture 2"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent2 .
-
-<file:///home/roboprof/COMP474/Lectures/slide3.pdf> a slides:Slides ;
-    rdfs:label "Slides3" ;
-    rdfs:comment "Slides of lecture 3"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent3 .
-
-<file:///home/roboprof/COMP474/Lectures/slide4.pdf> a slides:Slides ;
-    rdfs:label "Slides4" ;
-    rdfs:comment "Slides of lecture 4"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent4 .
-
-<file:///home/roboprof/COMP474/Lectures/slide5.pdf> a slides:Slides ;
-    rdfs:label "Slides5" ;
-    rdfs:comment "Slides of lecture 5"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent5 .
-
-<file:///home/roboprof/COMP474/Lectures/slide6.pdf> a slides:Slides ;
-    rdfs:label "Slides6" ;
-    rdfs:comment "Slides of lecture 6"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent6 .
-
-<file:///home/roboprof/COMP474/Lectures/slide7.pdf> a slides:Slides ;
-    rdfs:label "Slides7" ;
-    rdfs:comment "Slides of lecture 7"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent7 .
-
-<file:///home/roboprof/COMP474/Lectures/slide8.pdf> a slides:Slides ;
-    rdfs:label "Slides8" ;
-    rdfs:comment "Slides of lecture 8"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent8 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets1" ;
-    rdfs:comment "Worksheets of lecture 1"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent1 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets2" ;
-    rdfs:comment "Worksheets of lecture 2"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent2 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets3" ;
-    rdfs:comment "Worksheets of lecture 3"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent3 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets4" ;
-    rdfs:comment "Worksheets of lecture 4"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent4 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets5" ;
-    rdfs:comment "Worksheets of lecture 5"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent5 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets6" ;
-    rdfs:comment "Worksheets of lecture 6"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent6 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets7" ;
-    rdfs:comment "Worksheets of lecture 7"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent7 .
-
-<file:///home/roboprof/COMP474/Worksheets/worksheet8.pdf> a worksheets:Worksheets ;
-    rdfs:label "Worksheets8" ;
-    rdfs:comment "Worksheets of lecture 8"@en ;
-    rdfs:subClassOf lectureContent:COMP474LectureContent8 .
 
 course:ACCO220 a course:course ;
     rdfs:label "course" ;
@@ -84920,7 +84674,8 @@ student:40175886 a student:student ;
 topic:DeepLearning a topic:Topic ;
     rdfs:label "Deep Learning" ;
     topic:dbpediaEntry dbo:Deep_Learning ;
-    topic:topicProvenanceInformation "COMP474_Lecture_1" ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf>,
+    <file:///home/roboprof/COMP474/Lectures/slide1.pdf>  ;
     topic:wikidataEntry wd:Q197536 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
@@ -84928,6 +84683,202 @@ topic:DeepLearning a topic:Topic ;
     university:DBpediaEntry dp:McGill_University ;
     university:WikidataEntry wd:Q201492 ;
     university:hasName "McGill University" .
+
+<file:///home/roboprof/COMP335/Assignments/asg1.pdf> a assignments:Assignments ;
+    rdfs:label "Assignments1" ;
+    rdfs:comment "Assignments of lecture 1"@en .
+
+<file:///home/roboprof/COMP335/Assignments/asg2.pdf> a assignments:Assignments ;
+    rdfs:label "Assignments2" ;
+    rdfs:comment "Assignments of lecture 2"@en .
+
+<file:///home/roboprof/COMP335/Assignments/asg3.pdf> a assignments:Assignments ;
+    rdfs:label "Assignments3" ;
+    rdfs:comment "Assignments of lecture 3"@en .
+
+<file:///home/roboprof/COMP335/Assignments/asg4.pdf> a assignments:Assignments ;
+    rdfs:label "Assignments4" ;
+    rdfs:comment "Assignments of lecture 4"@en .
+
+<file:///home/roboprof/COMP335/Assignments/asg5.pdf> a assignments:Assignments ;
+    rdfs:label "Assignments5" ;
+    rdfs:comment "Assignments of lecture 5"@en .
+
+<file:///home/roboprof/COMP335/Assignments/asg6.pdf> a assignments:Assignments ;
+    rdfs:label "Assignments6" ;
+    rdfs:comment "Assignments of lecture 6"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide1.ppt> a slides:Slides ;
+    rdfs:label "Slides1" ;
+    rdfs:comment "Slides of lecture 1"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide10.ppt> a slides:Slides ;
+    rdfs:label "Slides10" ;
+    rdfs:comment "Slides of lecture 10"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide11.ppt> a slides:Slides ;
+    rdfs:label "Slides11" ;
+    rdfs:comment "Slides of lecture 11"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide12.ppt> a slides:Slides ;
+    rdfs:label "Slides12" ;
+    rdfs:comment "Slides of lecture 12"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide13.ppt> a slides:Slides ;
+    rdfs:label "Slides13" ;
+    rdfs:comment "Slides of lecture 13"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide14.ppt> a slides:Slides ;
+    rdfs:label "Slides14" ;
+    rdfs:comment "Slides of lecture 14"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide15.ppt> a slides:Slides ;
+    rdfs:label "Slides15" ;
+    rdfs:comment "Slides of lecture 15"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide16.ppt> a slides:Slides ;
+    rdfs:label "Slides16" ;
+    rdfs:comment "Slides of lecture 16"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide17.ppt> a slides:Slides ;
+    rdfs:label "Slides17" ;
+    rdfs:comment "Slides of lecture 17"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide18.ppt> a slides:Slides ;
+    rdfs:label "Slides18" ;
+    rdfs:comment "Slides of lecture 18"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide19.pptx> a slides:Slides ;
+    rdfs:label "Slides19" ;
+    rdfs:comment "Slides of lecture 19"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide2.ppt> a slides:Slides ;
+    rdfs:label "Slides2" ;
+    rdfs:comment "Slides of lecture 2"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide3.ppt> a slides:Slides ;
+    rdfs:label "Slides3" ;
+    rdfs:comment "Slides of lecture 3"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide4.ppt> a slides:Slides ;
+    rdfs:label "Slides4" ;
+    rdfs:comment "Slides of lecture 4"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide5.ppt> a slides:Slides ;
+    rdfs:label "Slides5" ;
+    rdfs:comment "Slides of lecture 5"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide6.ppt> a slides:Slides ;
+    rdfs:label "Slides6" ;
+    rdfs:comment "Slides of lecture 6"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide7.ppt> a slides:Slides ;
+    rdfs:label "Slides7" ;
+    rdfs:comment "Slides of lecture 7"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide8.ppt> a slides:Slides ;
+    rdfs:label "Slides8" ;
+    rdfs:comment "Slides of lecture 8"@en .
+
+<file:///home/roboprof/COMP335/Lectures/slide9.ppt> a slides:Slides ;
+    rdfs:label "Slides9" ;
+    rdfs:comment "Slides of lecture 9"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet1.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets1" ;
+    rdfs:comment "Worksheets of lecture 1"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet2.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets2" ;
+    rdfs:comment "Worksheets of lecture 2"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet3.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets3" ;
+    rdfs:comment "Worksheets of lecture 3"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet4.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets4" ;
+    rdfs:comment "Worksheets of lecture 4"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet5.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets5" ;
+    rdfs:comment "Worksheets of lecture 5"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet6.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets6" ;
+    rdfs:comment "Worksheets of lecture 6"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet7.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets7" ;
+    rdfs:comment "Worksheets of lecture 7"@en .
+
+<file:///home/roboprof/COMP335/Worksheets/worksheet8.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets8" ;
+    rdfs:comment "Worksheets of lecture 8"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide1.pdf> a slides:Slides ;
+    rdfs:label "Slides1" ;
+    rdfs:comment "Slides of lecture 1"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide2.pdf> a slides:Slides ;
+    rdfs:label "Slides2" ;
+    rdfs:comment "Slides of lecture 2"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide3.pdf> a slides:Slides ;
+    rdfs:label "Slides3" ;
+    rdfs:comment "Slides of lecture 3"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide4.pdf> a slides:Slides ;
+    rdfs:label "Slides4" ;
+    rdfs:comment "Slides of lecture 4"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide5.pdf> a slides:Slides ;
+    rdfs:label "Slides5" ;
+    rdfs:comment "Slides of lecture 5"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide6.pdf> a slides:Slides ;
+    rdfs:label "Slides6" ;
+    rdfs:comment "Slides of lecture 6"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide7.pdf> a slides:Slides ;
+    rdfs:label "Slides7" ;
+    rdfs:comment "Slides of lecture 7"@en .
+
+<file:///home/roboprof/COMP474/Lectures/slide8.pdf> a slides:Slides ;
+    rdfs:label "Slides8" ;
+    rdfs:comment "Slides of lecture 8"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets1" ;
+    rdfs:comment "Worksheets of lecture 1"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets2" ;
+    rdfs:comment "Worksheets of lecture 2"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets3" ;
+    rdfs:comment "Worksheets of lecture 3"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets4" ;
+    rdfs:comment "Worksheets of lecture 4"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets5" ;
+    rdfs:comment "Worksheets of lecture 5"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets6" ;
+    rdfs:comment "Worksheets of lecture 6"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets7" ;
+    rdfs:comment "Worksheets of lecture 7"@en .
+
+<file:///home/roboprof/COMP474/Worksheets/worksheet8.pdf> a worksheets:Worksheets ;
+    rdfs:label "Worksheets8" ;
+    rdfs:comment "Worksheets of lecture 8"@en .
 
 completedCourse:40044279COMP47220240402 a completedCourse:completedCourse,
         course:COMP472 ;
@@ -85025,224 +84976,193 @@ course:COMP472 a course:course ;
 
 lecture:COMP335Lecture1 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent1 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Assignments/asg1.pdf>,
+        <file:///home/roboprof/COMP335/Lectures/slide1.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet1.pdf> ;
     lecture:lectureNumber 1 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture10 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent10 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide10.ppt> ;
     lecture:lectureNumber 10 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture11 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent11 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide11.ppt> ;
     lecture:lectureNumber 11 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture12 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent12 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide12.ppt> ;
     lecture:lectureNumber 12 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture13 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent13 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide13.ppt> ;
     lecture:lectureNumber 13 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture14 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent14 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide14.ppt> ;
     lecture:lectureNumber 14 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture15 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent15 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide15.ppt> ;
     lecture:lectureNumber 15 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture16 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent16 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide16.ppt> ;
     lecture:lectureNumber 16 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture17 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent17 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide17.ppt> ;
     lecture:lectureNumber 17 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture18 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent18 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide18.ppt> ;
     lecture:lectureNumber 18 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture19 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent19 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide19.pptx> ;
     lecture:lectureNumber 19 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture2 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent2 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Assignments/asg2.pdf>,
+        <file:///home/roboprof/COMP335/Lectures/slide2.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet2.pdf> ;
     lecture:lectureNumber 2 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture3 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent3 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Assignments/asg3.pdf>,
+        <file:///home/roboprof/COMP335/Lectures/slide3.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet3.pdf> ;
     lecture:lectureNumber 3 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture4 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent4 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Assignments/asg4.pdf>,
+        <file:///home/roboprof/COMP335/Lectures/slide4.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet4.pdf> ;
     lecture:lectureNumber 4 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture5 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent5 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Assignments/asg5.pdf>,
+        <file:///home/roboprof/COMP335/Lectures/slide5.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet5.pdf> ;
     lecture:lectureNumber 5 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture6 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent6 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Assignments/asg6.pdf>,
+        <file:///home/roboprof/COMP335/Lectures/slide6.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet6.pdf> ;
     lecture:lectureNumber 6 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture7 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent7 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide7.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet7.pdf> ;
     lecture:lectureNumber 7 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture8 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent8 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide8.ppt>,
+        <file:///home/roboprof/COMP335/Worksheets/worksheet8.pdf> ;
     lecture:lectureNumber 8 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP335Lecture9 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP335LectureContent9 ;
+    lecture:hasContent <file:///home/roboprof/COMP335/Lectures/slide9.ppt> ;
     lecture:lectureNumber 9 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture1 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent1 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide1.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet1.pdf> ;
     lecture:lectureNumber 1 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture2 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent2 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide2.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet2.pdf> ;
     lecture:lectureNumber 2 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture3 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent3 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide3.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf> ;
     lecture:lectureNumber 3 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture4 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent4 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide4.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet4.pdf> ;
     lecture:lectureNumber 4 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture5 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent5 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide5.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet5.pdf> ;
     lecture:lectureNumber 5 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture6 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent6 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide6.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet6.pdf> ;
     lecture:lectureNumber 6 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture7 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent7 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide7.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet7.pdf> ;
     lecture:lectureNumber 7 ;
     rdfs:comment "This is a lecture."@en .
 
 lecture:COMP474Lecture8 a lecture:lecture ;
     rdfs:label "Lecture" ;
-    lecture:hasContent lectureContent:COMP474LectureContent8 ;
+    lecture:hasContent <file:///home/roboprof/COMP474/Lectures/slide8.pdf>,
+        <file:///home/roboprof/COMP474/Worksheets/worksheet8.pdf> ;
     lecture:lectureNumber 8 ;
     rdfs:comment "This is a lecture."@en .
-
-lectureContent:COMP335LectureContent10 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent11 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent12 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent13 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent14 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent15 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent16 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent17 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent18 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent19 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent9 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent7 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent8 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent1 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent2 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent3 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent4 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent5 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent6 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent7 a lectureContent:lectureContent .
-
-lectureContent:COMP474LectureContent8 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent1 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent2 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent3 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent4 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent5 a lectureContent:lectureContent .
-
-lectureContent:COMP335LectureContent6 a lectureContent:lectureContent .
 
 topic:KnowledgeGraph a topic:Topic ;
     rdfs:label "Knowledge Graph" ;
     topic:dbpediaEntry dbo:Knowledge_Graph ;
-    topic:topicProvenanceInformation "COMP474_Lecture_3" ;
+    topic:topicProvenanceInformation <file:///home/roboprof/COMP474/Worksheets/worksheet3.pdf>,
+    <file:///home/roboprof/COMP474/Lectures/slide3.pdf> ;
     topic:wikidataEntry wd:Q533557 ;
     rdfs:comment "Topic covered in the lecture."@en .
 
