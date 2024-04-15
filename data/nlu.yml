@@ -99,10 +99,14 @@ nlu:
 
 - intent: transcript
   examples: |
-      - print a transcript for [Jimmy Tran](student_name), listing all the course taken with their grades
-      - print a transcript for [Jimmy Tran](student_name)
-      - list all the course taken by [Jimmy Tran](student_name) with their grades
-      - print transcript [Jimmy Tran](student_name)
+      - print a transcript for [Jimmy](student_first_name) [Tran](student_last_name), listing all the course taken with their grades
+      - print a transcript for [Jimmy](student_first_name) [Tran](student_last_name)
+      - list all the course taken by [Jimmy](student_first_name) [Tran](student_last_name) with their grades
+      - print transcript [Jimmy](student_first_name) [Tran](student_last_name)
+      - print a transcript for [Philippe](student_first_name) [Bertrand](student_last_name), listing all the course taken with their grades
+      - print a transcript for [Philippe](student_first_name) [Bertrand](student_last_name)
+      - list all the course taken by [Philippe](student_first_name) [Bertrand](student_last_name) with their grades
+      - print transcript [Philippe](student_first_name) [Bertrand](student_last_name)
 
 
 

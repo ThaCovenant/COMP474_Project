@@ -27,12 +27,19 @@ intents:
 
 
 slots:
-  student_name:
+  student_first_name:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: student_name
+      entity: student_first_name
+  
+  student_last_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: student_last_name
   
   student_id:
     type: text
@@ -83,7 +90,8 @@ slots:
 
 
 entities:
-- student_name
+- student_first_name
+- student_last_name
 - student_id
 - university_name
 - topic

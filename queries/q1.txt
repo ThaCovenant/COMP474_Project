@@ -2,6 +2,6 @@
 #example: <https://www.concordia.ca/>
 SELECT ?subject
   WHERE{
-	 ?subject <http://example.org/course/offeredBy> [university_name]
+	 ?subject <http://example.org/course/offeredBy> <https://www.{university_name}.ca/>
   }
-  LIMIT 100
+  LIMIT 10

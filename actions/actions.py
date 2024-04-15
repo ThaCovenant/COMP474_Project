@@ -29,6 +29,11 @@
 
 
 """
+
+
+
+
+{'head': {'vars': ['subject']}, 'results': {'bindings': [{'subject': {'type': 'uri', 'value': 'http://example.org/course/ACCO220'}}
 TO DO:
 NEED TO CONNECT TO FUSEKI FOR QUERY
 TEST AND FIX
@@ -52,13 +57,11 @@ class ActionListCoursesByUniversity(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        """print("TEST")
-        test = tracker.get_slot("university_name")
-        print(test)"""
-        dispatcher.utter_message(text=f"The courses offered by {university_name}")
+        #dispatcher.utter_message(text=f"The courses offered by {university_name}")
 
-        university_name = next(tracker.get_latest_entity_values("university_name"), None)
-        
+        #university_name = next(tracker.get_latest_entity_values("university_name"), None)
+        university_name = tracker.get_slot("university_name")
+        print(university_name)
         if university_name:
             courses = self.execute_sparql_query_for_courses_by_university(university_name)
             if courses:
@@ -74,22 +77,25 @@ class ActionListCoursesByUniversity(Action):
         with open("queries/q1.txt", "r") as file:
             sparql_query = file.read()
 
+        
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{university_name}", university_name)
-        
-        
-        
+        sparql_query = sparql_query.replace("{university_name}", university_name.lower())
 
-
-
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
+        print(sparql_query)
+        fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
+        print(response)
+        
         if response.status_code == 200:
             data = response.json()      #Response from the server in json format.
             # Extract and format results
-            results = "\n".join([f"{binding['course']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['course']['value']}" for binding in data['results']['bindings']])
+            #return results
+            subjects = [binding['subject']['value'].split('/')[-1] for binding in data['results']['bindings']]
+            subjects_string = "\n".join(subjects)
+            return subjects_string
+            #return data
         else:
             return None
         
