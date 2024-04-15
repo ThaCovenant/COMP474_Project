@@ -1,7 +1,8 @@
 #Query15 (provide the topic covered in this lecture)
 #example: <http://example.org/lecture/COMP474Lecture1>
-SELECT ?topic
+SELECT DISTINCT ?topic
   WHERE{
-  ?topic <http://example.org/topic/topicProvenanceInformation> [lecture].
+  [lecture] <http://example.org/lecture/hasContent> ?material.
+  ?topic <http://example.org/topic/topicProvenanceInformation> ?material.
   }
 	LIMIT 100

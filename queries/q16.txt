@@ -1,7 +1,8 @@
-#Query15 (provide the lectures that cover this topic)
-#example: <http://example.org/topic/DeepLearning>
-SELECT ?lectures
+#Query16 (provide the lectures that cover this topic)
+#example: <http://example.org/topic/KnowledgeGraph>
+SELECT DISTINCT ?lecture
   WHERE{
-   [topic] <http://example.org/topic/topicProvenanceInformation> ?lectures.
+   [topic] <http://example.org/topic/topicProvenanceInformation> ?material.
+  ?lecture <http://example.org/lecture/hasContent> ?material.
   }
 	LIMIT 100
