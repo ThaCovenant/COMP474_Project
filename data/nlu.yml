@@ -23,12 +23,7 @@ nlu:
 
 
 
-
-
-
-
-
-
+#Q1
 - intent: list_all_courses
   examples: |
       - list all courses offered by [Concordia](university_name)
@@ -36,67 +31,77 @@ nlu:
       - what courses are offered by [Concordia](university_name) ?
       - what courses are offered by [McGill](university_name) ?
 
+
+#Q2
 - intent: topic_discussed
   examples: |
-      - in which courses is [topic] discussed ?
-      - [topic] is discussed in which courses?
+      - in which courses is [Neural Network](topic) discussed ?
+      - [Neural Network](topic) is discussed in which courses?
 
+#Q3
 - intent: topics_covered
   examples: |
-      - which [topics] are covered in [COMP](course_name) [474](course_id) during [lecture] ?
-      - in [COMP](course_name) [474](course_id) , what [topics] are covered ?
+      - which [topics] are covered in [COMP](course_name) [474](course_id) during [lecture 2](lecture_number) ?
+      - in [COMP474](course) [lecture 2](lecture_number) , what [topics] are covered ?
 
+#Q4
 - intent: list_all_courses_subject
   examples: |
-      - list all [courses] offered by [university] with [subject]
-      - list all [subject] [courses] offered by [university]
-      - what [subject] [courses] are offered by [university] ? 
-      
+      - list all courses offered by [Concordia](university_name) with [subject]
+      - list all [subject] courses offered by [Concordia](university_name)
+      - what [subject] courses are offered by [Concordia](university_name) ? 
+
+#Q5      
 - intent: recommended_materials 
   examples: |
-      - what [materials] are recommended for [topic] in [course] [number] ?
-      - for [course] [number] , what [materials] are recommended ?
+      - what materials are recommended for [Neural Network](topic) in [COMP474](course) ?
+      - for [Neural Network](topic) of [COMP474](course) , what materials are recommended ?
 
-
+#Q6
 - intent: credits
   examples: |
-      - how many credits is [course] [number] worth ?
-      - how many credits ?
-      - tell me how many credits is [course] [number] ?
-
+      - how many credits is [COMP474](course) worth ?
+      - tell me how many credits is [COMP474](course) ?
+#Q7
 - intent: additonal_resources 
   examples: |
-      - for [course] [number] , what additional resources are available ?
-      - what additional resources are avilable for [course] [number] ?
-
+      - for [COMP474](course) , what additional resources are available ?
+      - what additional resources are avilable for [COMP474](course) ?
+#Q8
 - intent: detail_content
   examples: |
-      - detail the content available for [lecture] in [course] [number]
-      - in [course] [number] , detail the content available for [lecture]
+      - detail the content available for [lecture 2](lecture_number) in [COMP474](course)
+      - in [COMP474](course) , detail the content available for [lecture 2](lecture_number)
 
 - intent: reading_materials 
   examples: |
-      - what reading materials are recommended for studying [topic] in [course] ?
-      - for [topic] in [course] , what reading materials are recommended ?
+      - what reading materials are recommended for studying [Neural Network](topic) in [COMP474](course) ?
+      - for [Neural Network](topic) in [COMP474](course) , what reading materials are recommended ?
 
-
+#Q10
 - intent: competencies_gained
   examples: |
-      - what competencies [topics] does a student gain after completing [course] [number] ?
-      - after completing [course] [number] , what competencies [topics] does a student gain ?
+      - what competencies does a student gain after completing [COMP474](course) ?
+      - after completing [COMP474](course)) , what competencies does a student gain ?
 
-
+#Q11
 - intent: grades_achieved
   examples: |
-      - what grades did [student] achieve in [course] [number] ?
-      - can you tell me the grades of [student] in [course] [number] ?
-      - fir [course] [number] , what grades did [student] get ?
+      - what grades did [40157540](student_id) achieve in [COEN311](course) ?
+      - can you tell me the grades of [40157540](student_id) in  [COEN311](course) ?
+      - for  [COEN311](course) , what grades did [40157540](student_id) get ?
+      - what grades did [40076313](student_id) achieve in [COMP474](course) ?
+      - can you tell me the grades of [40076313](student_id) in  [COMP474](course) ?
+      - for  [COMP474](course) , what grades did [40076313](student_id) get ?
 
+
+#Q12
 - intent: stutends_completed_course
   examples: |
       - which students have completed [COMP](course_name) [474](course_id) ?
       - for [COMP](course_name) [474](course_id) , which students have completed it ?
 
+#Q13
 - intent: transcript
   examples: |
       - print a transcript for [Jimmy](student_first_name) [Tran](student_last_name), listing all the course taken with their grades
@@ -109,7 +114,24 @@ nlu:
       - print transcript [Philippe](student_first_name) [Bertrand](student_last_name)
 
 
+#Q14
+- intent: course_description
+  example:  |
+      - what is the [COMP474](course) about ?
+      - explain the [COMP474](course) course ? 
 
+
+#Q15
+#- intent: course_event
+#  example:  |
+#      -
+
+
+
+#Q16
+#- intent: course_description
+#  example:  |
+#      -
 
 
 
