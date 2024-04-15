@@ -48,27 +48,27 @@ lectureContent:hasTopic a rdf:Property ;
     rdfs:range topic:Topic .
 
 # Subclass of LectureContent
-lecture:Other a rdfs:Class ;
+lectureContent:Other a rdfs:Class ;
     rdfs:label "Other Materials" ;
     rdfs:comment "Other materials related to Lecture Content."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-lecture:Readings a rdfs:Class ;
+lectureContent:Readings a rdfs:Class ;
     rdfs:label "Lecture Readings" ;
     rdfs:comment "Readings of lecture: book chapters, web pages, etc."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-lecture:Slides a rdfs:Class ;
+lectureContent:Slides a rdfs:Class ;
     rdfs:label "Lecture Slides" ;
     rdfs:comment "Slides of lecture content."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-lecture:Worksheets a rdfs:Class ;
+lectureContent:Worksheets a rdfs:Class ;
     rdfs:label "Lecture Worksheets" ;
     rdfs:comment "Worksheets of lecture content."@en ;
     rdfs:subClassOf lectureContent:LectureContent .
 
-lecture:Assignments a rdfs:Class ;
+lectureContent:Assignments a rdfs:Class ;
     rdfs:label "Lecture Assignments" ;
     rdfs:comment "Assignments of lecture content."@en ;
     rdfs:subClassOf lectureContent:LectureContent .

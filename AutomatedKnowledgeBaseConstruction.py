@@ -79,7 +79,7 @@ def content_triples_gen(graph, courseName, fileType, fileName, content, i):
     # Lecture lectureURI Properties
     g.add((lectureURI, namespaces['lecture'].lectureNumber, Literal(i, datatype=XSD.integer)))
     # g.add((lectureURI, lecture.lectureName, Literal("Lecture Name")))
-    lectureContentURI = URIRef(namespaces['lectureContent'] + courseName + "LectureContents")
+    lectureContentURI = URIRef(namespaces['lectureContent'] + courseName + "LectureContent" + str(i))
 
     g.add((lectureURI, namespaces['lecture'].hasContent, lectureContentURI))
 
