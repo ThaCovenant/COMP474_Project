@@ -43,8 +43,8 @@ nlu:
 
 - intent: topics_covered
   examples: |
-      - which [topics] are covered in [course] during [lecture] ?
-      - in [course] [lecture] , what [topics] are covered ?
+      - which [topics] are covered in [COMP](course_name) [474](course_id) during [lecture] ?
+      - in [COMP](course_name) [474](course_id) , what [topics] are covered ?
 
 - intent: list_all_courses_subject
   examples: |
@@ -94,15 +94,15 @@ nlu:
 
 - intent: stutends_completed_course
   examples: |
-      - which [students] have completed [course] [number] ?
-      - for [course] [number] , which [students] have completed it ?
+      - which students have completed [COMP](course_name) [474](course_id) ?
+      - for [COMP](course_name) [474](course_id) , which students have completed it ?
 
 - intent: transcript
   examples: |
-      - print a transcript for [student], listing all the course taken with their grades
-      - print a transcript for [student]
-      - listing all the course taken with their grades
-      - print transcript
+      - print a transcript for [Jimmy Tran](student_name), listing all the course taken with their grades
+      - print a transcript for [Jimmy Tran](student_name)
+      - list all the course taken by [Jimmy Tran](student_name) with their grades
+      - print transcript [Jimmy Tran](student_name)
 
 
 

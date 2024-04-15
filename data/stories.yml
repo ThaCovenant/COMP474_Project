@@ -22,68 +22,81 @@ stories:
   steps:
   - intent: list_all_courses
   - action: utter_all_courses
+  - action: action_q1
 
 - story: course discussing topic
   steps:
   - intent: topic_discussed
   - action: utter_topic_discussed
+  - action: action_q2
 
 - story: topics covered in lecture
   steps:
   - intent: topics_covered
   - action: utter_topics_covered
+  - action: action_q3
 
 - story: list all courses of subject
   steps:
   - intent: list_all_courses_subject
   - action: utter_all_courses_of_subject
+  - action: action_q4
 
 - story: recommended materials
   steps:
   - intent: recommended_materials
   - action: utter_recommended_materials
+  - action: action_q5
 
 
 - story:  course credits
   steps:
   - intent: credits
   - action: utter_credits
+  - action: action_q6
 
 - story: additional resources
   steps:
   - intent: additional_resources
   - action: utter_additional_resources
+  - action: action_q7
 
 - story: detail content
   steps:
   - intent: detail_content
   - action: utter_detail_content
+  - action: action_q8
 
 - story: reading materials
   steps:
   - intent: reading_materials
   - action: utter_reading_materials
+  - action: action_q9
 
 - story: competencies gained
   steps:
   - intent: competencies_gained
   - action: utter_competencies_gained
+  - action: action_q10
 
 
 - story: get student grades
   steps:
   - intent: grades_achieved
   - action: utter_grades
+  - action: action_q11
 
 - story: students completed course
   steps:
   - intent: students_completed_course
   - action: utter_students_completed_course
+  - action: action_q12
 
 - story: print transcript
   steps:
   - intent: transcript
   - action: utter_transcript
+  - action: action_q13
 
 
 
