@@ -28,20 +28,6 @@ intents:
 
 
 slots:
-  student_first_name:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: student_first_name
-  
-  student_last_name:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: student_last_name
-  
   student_id:
     type: text
     influence_conversation: false
@@ -63,20 +49,6 @@ slots:
     - type: from_entity
       entity: topic
 
-  course_name:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: course_name
-
-  course_number:
-    type: text
-    influence_conversation: false
-    mappings:
-    - type: from_entity
-      entity: course_number
-
   course:
     type: text
     influence_conversation: false
@@ -84,14 +56,14 @@ slots:
     - type: from_entity
       entity: course    
 
-  lecture_number:
+  lecture:
     type: text
     influence_conversation: false
     mappings:
     - type: from_entity
-      entity: lecture_number
+      entity: lecture
   
-    subject:
+  subject:
     type: text
     influence_conversation: false
     mappings:
@@ -105,19 +77,14 @@ slots:
 
 
 entities:
-- student_first_name
-- student_last_name
 - student_id
 - university_name
 - topic
-- course_name
-- course_number
 - course
-- lecture_number
+- lecture
 - subject
 
 actions:
-#  - action_utter_all_courses
   - action_q1
   - action_q2
   - action_q3
@@ -132,8 +99,8 @@ actions:
   - action_q12
   - action_q13
   - action_q14
-#  - action_q15
-#  - action_q16
+  - action_q15
+  - action_q16
 
 
 
@@ -157,7 +124,7 @@ responses:
 
 #Q3
   utter_topics_covered:
-  - text: "These topics are covered in {lecture_number} in {course}"
+  - text: "These topics are covered in {lecture} in {course}"
 
 #Q4
   utter_all_courses_of_subject:
@@ -177,7 +144,7 @@ responses:
 
 #Q8
   utter_detail_content:
-  - text: "These slides are covered in this {lecture_number} of {course} "
+  - text: "These slides are covered in this {lecture} of {course} "
 
 
 #Q9

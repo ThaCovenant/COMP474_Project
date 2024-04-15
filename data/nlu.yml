@@ -38,11 +38,15 @@ nlu:
       - in which courses is [KnowledgeGraph](topic) discussed ?
       - [KnowledgeGraph](topic) is discussed in which courses?
 
+#      - which topics are covered in [COMP474](course) during [Lecture2](lecture) ?
+#      - in [COMP474](course) [lecture 2](lecture) , what topics are covered ?
 #Q3
 - intent: topics_covered
   examples: |
-      - which [topics] are covered in [COMP](course_name) [474](course_id) during [lecture 2](lecture_number) ?
-      - in [COMP474](course) [lecture 2](lecture_number) , what [topics] are covered ?
+      - which topics are covered in [COMP474Lecture1](lecture) ?
+      - in [COMP474Lecture1](lecture) , what topics are covered ?
+
+
 
 #Q4
 - intent: list_all_courses_subject
@@ -70,20 +74,20 @@ nlu:
 #Q8
 - intent: detail_content
   examples: |
-      - detail the content available for [lecture 2](lecture_number) in [COMP474](course)
-      - in [COMP474](course) , detail the content available for [lecture 2](lecture_number)
+      - detail the content available for [lecture2](lecture) in [COMP474](course)
+      - in [COMP474](course) , detail the content available for [lecture2](lecture)
 
 #9
 - intent: reading_materials 
   examples: |
-      - what reading materials are recommended for studying [Neural Network](topic) in [COMP474](course) ?
-      - for [Neural Network](topic) in [COMP474](course) , what reading materials are recommended ?
+      - what reading materials are recommended for studying [KnowldgeGraph](topic) in [COMP474](course) ?
+      - for [KnowldgeGraph](topic) in [COMP474](course) , what reading materials are recommended ?
 
 #Q10
 - intent: competencies_gained
   examples: |
       - what competencies does a student gain after completing [COMP474](course) ?
-      - after completing [COMP474](course)) , what competencies does a student gain ?
+      - after completing [COMP474](course) , what competencies does a student gain ?
 
 #Q11
 - intent: grades_achieved
@@ -124,15 +128,15 @@ nlu:
 
 #Q15
 - intent: course_event
-  example:  |
-      - which topics are covered in [COMP474Lecture1](lecture_number) ?
-      - in [COMP474Lecture1](lecture_number), which topics are covered ?
+  examples:  |
+      - which topics are covered in [COMP474Lecture1](lecture) ?
+      - in [COMP474Lecture1](lecture), which topics are covered ?
 
 
 
 #Q16
 - intent: lecture_cover_topics
-  example:  |
+  examples:  |
       - which course events cover [KnowldgeGraph](topic)
       - which lectures cover [KnowledgeGraph](topic)
 
