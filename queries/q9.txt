@@ -1,5 +1,6 @@
 #Query 9 (list all materials of a course filtered by topic)
 #example: <http://example.org/course/COMP474>
+#example: <http://example.org/topic/KnowledgeGraph>
 SELECT ?content
   WHERE{
 <http://example.org/course/{course}> <http://example.org/course/hasLecture> ?lectures.

@@ -27,6 +27,7 @@
 #         return []
 
 
+# Q4, Q7, Q12
 
 """
 
@@ -104,7 +105,7 @@ class ActionListCoursesByUniversity(Action):
 
 
 
-#Q2
+#Q2 WORKS
 class ActionCoursesByTopic(Action):
     def name(self) -> Text:
         return "action_q2"
@@ -119,7 +120,7 @@ class ActionCoursesByTopic(Action):
         if topic:
             courses = self.execute_sparql_query_for_courses(topic)
             if courses:
-                dispatcher.utter_message(text=f"The courses discussing {topic} are: {', '.join(courses)}")
+                dispatcher.utter_message(text=f"The courses discussing {topic} are: {courses}")
             else:
                 dispatcher.utter_message(text=f"Sorry, I couldn't find any courses discussing {topic}.")
         else:
@@ -152,7 +153,7 @@ class ActionCoursesByTopic(Action):
 
 
 
-#Q3
+#Q3 WORKS
 class ActionTopicsOfCourseLecture(Action):
     def name(self) -> Text:
         return "action_q3"
@@ -174,7 +175,7 @@ class ActionTopicsOfCourseLecture(Action):
             topics = self.execute_sparql_query_for_topics(lecture)
             if topics:
                 #dispatcher.utter_message(text=f"The topics covered in {course_name} {course_number} during lecture {lecture} are: {', '.join(topics)}")
-                dispatcher.utter_message(text=f"The topics covered during lecture {lecture} are: {', '.join(topics)}")
+                dispatcher.utter_message(text=f"The topics covered during lecture {lecture} are: \n {topics}")
             else:
                 #dispatcher.utter_message(text=f"Sorry, I couldn't find any topics covered in {course_name} {course_number} during lecture {lecture}.")
                 dispatcher.utter_message(text=f"Sorry, I couldn't find any topics covered during lecture {lecture}.")
@@ -225,6 +226,7 @@ class ActionCoursesByUniversityAndSubject(Action):
         university_name = tracker.get_slot("university_name")
         subject = tracker.get_slot("subject")
 
+        print(subject)
 
         if university_name and subject:
         #if university_name:
@@ -443,7 +445,7 @@ class ActionAdditionalResourcesForCourse(Action):
 
 
 
-#Q8
+#Q8 WORKS
 class ActionContentForLecture(Action):
     def name(self) -> Text:
         return "action_q8"
@@ -503,7 +505,7 @@ class ActionContentForLecture(Action):
 
 
 
-#Q9
+#Q9 WORKS
 class ActionReadingMaterials(Action):
     def name(self) -> Text:
         return "action_q9"
@@ -518,34 +520,32 @@ class ActionReadingMaterials(Action):
 
         
         course = tracker.get_slot("course")
+        topic = tracker.get_slot("topic")
 
         
         #if topic and course_name and course_number:
             #materials = self.execute_sparql_query_for_competencies(topic, course_name, course_number)
-        if course:
-            materials = self.execute_sparql_query_for_reading_materials(course)
+        if course and topic:
+            materials = self.execute_sparql_query_for_reading_materials(course, topic)
             if materials:
                 #dispatcher.utter_message(text=f"The competencies gained after completing {course_name} {course_number} are: {competencies}")
-                dispatcher.utter_message(text=f"The competencies gained after completing {course} are: {materials}")
+                dispatcher.utter_message(text=f"To study {topic} in {course}, the following reading materials are suggested: {materials}")
             else:
                 #dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course_name} {course_number}.")
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any materials for {course} {topic}.")
         else:
-            dispatcher.utter_message(text="Please provide both the course name and course number.")
+            dispatcher.utter_message(text="Please provide both valid course and topic.")
         
         return []
 
     #def execute_sparql_query_for_reading_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
-    def execute_sparql_query_for_reading_materials(self, course: Text) -> Text:
+    def execute_sparql_query_for_reading_materials(self, course: Text, topic: Text) -> Text:
         with open("queries/q9.txt", "r") as file:
             sparql_query = file.read()
 
-        # Replace placeholders in the query with actual values
-        #sparql_query = sparql_query.replace("{topic}", topic)
-        #sparql_query = sparql_query.replace("{course_name}", course_name)
-        #sparql_query = sparql_query.replace("{course_number}", course_number)
         
         sparql_query = sparql_query.replace("{course}", course.upper())
+        sparql_query = sparql_query.replace("{topic}", topic)
 
 
 
@@ -571,7 +571,7 @@ class ActionReadingMaterials(Action):
 
 
 
-#Q10
+#Q10 WORKS
 class ActionCompetenciesForCourse(Action):
     def name(self) -> Text:
         return "action_q10"
@@ -745,47 +745,7 @@ class ActionStudentsCompletedCourse(Action):
 
 
 
-#Q13
-"""
-class ActionPrintTranscript(Action):
-    def name(self) -> Text:
-        #return "action_print_transcript"
-        return "utter_transcript"
-
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        student_name = next(tracker.get_latest_entity_values("student_name"), None)
-        transcript = self.execute_sparql_query_for_transcript(student_name)
-        
-        if transcript:
-            dispatcher.utter_message(text=f"Transcript for {student_name}:\n{transcript}")
-        else:
-            dispatcher.utter_message(text=f"Sorry, I couldn't find a transcript for {student_name}.")
-        
-        return []
-
-
-
-    
-    def execute_sparql_query_for_transcript(self, student_name: Text, student_id: Text, transcript: Text) -> Text:
-        with open("queries/q13.txt", "r") as file:
-            sparql_query = file.read()
-
-        # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{student_name}", student_name)
-        sparql_query = sparql_query.replace("{student_id}", student_id)
-        sparql_query = sparql_query.replace("{transcript}", transcript)
-        # Execute SPARQL query to fetch transcript for the specified student
-        # Example:
-        # result = execute_query("SELECT ?course ?grade WHERE { ... }")
-        # transcript = [(row["course"], row["grade"]) for row in result]
-        # return "\n".join([f"{course}: {grade}" for course, grade in transcript])
-
-
-        #return "Course 1: A\nCourse 2: B\nCourse 3: C"  # Dummy data for demonstration
-"""
+#Q13 WORKS
 
 
 
@@ -834,7 +794,7 @@ class ActionPrintTranscript(Action):
 
 
 
-#Query 14
+#Query 14 WORKS
 class ActionPrintTranscript(Action):
     def name(self) -> Text:
         return "action_q14"
@@ -876,7 +836,7 @@ class ActionPrintTranscript(Action):
             return None
         
 
-#Query 15
+#Query 15 WORKS
 class ActionPrintTranscript(Action):
     def name(self) -> Text:
         return "action_q15"
@@ -920,7 +880,7 @@ class ActionPrintTranscript(Action):
             return None
         
 
-#Query 16
+#Query 16 WORKS
 class ActionPrintTranscript(Action):
     def name(self) -> Text:
         return "action_q16"
