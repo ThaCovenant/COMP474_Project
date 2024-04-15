@@ -99,14 +99,6 @@ class ActionListCoursesByUniversity(Action):
         else:
             return None
         
-        # Execute SPARQL query to fetch courses offered by the specified university
-        # Example:
-        # result = execute_query("SELECT ?course WHERE { ... }")
-        # courses = [row["course"] for row in result]
-        # return ", ".join(courses)
-        #return "Course 1, Course 2, Course 3"  # Dummy data for demonstration
-
-
 
 
 
@@ -121,7 +113,8 @@ class ActionCoursesByTopic(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        topic = next(tracker.get_latest_entity_values("topic"), None)
+        #topic = next(tracker.get_latest_entity_values("topic"), None)
+        topic = tracker.get_slot("topic")
 
         if topic:
             courses = self.execute_sparql_query_for_courses(topic)
@@ -148,18 +141,11 @@ class ActionCoursesByTopic(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['course_name']['value']}: {binding['course_id']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['course_name']['value']}: {binding['course_id']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
-
-        
-        # Execute SPARQL query to fetch courses discussing the specified topic
-        # Example:
-        # result = execute_query("SELECT ?courseName ?courseNumber WHERE { ... }")
-        # courses = [(row["courseName"], row["courseNumber"]) for row in result]
-        # return courses
-        #return ["Course A", "Course B", "Course C"]  # Dummy data for demonstration
 
 
 
@@ -175,28 +161,37 @@ class ActionTopicsOfCourseLecture(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
-        lecture_number = next(tracker.get_latest_entity_values("lecture_number"), None)
+        #course_name = next(tracker.get_latest_entity_values("course_name"), None)
+        #course_number = next(tracker.get_latest_entity_values("course_number"), None)
+        #lecture_number = next(tracker.get_latest_entity_values("lecture_number"), None)
 
-        if course_name and course_number and lecture_number:
-            topics = self.execute_sparql_query_for_topics(course_name, course_number, lecture_number)
+        course = tracker.get_slot("course")
+        lecture_number = tracker.get_slot("lecture_number")
+
+        #if course_name and course_number and lecture_number:
+        if course and lecture_number:
+            #topics = self.execute_sparql_query_for_topics(course_name, course_number, lecture_number)
+            topics = self.execute_sparql_query_for_topics(course, lecture_number)
             if topics:
-                dispatcher.utter_message(text=f"The topics covered in {course_name} {course_number} during lecture {lecture_number} are: {', '.join(topics)}")
+                #dispatcher.utter_message(text=f"The topics covered in {course_name} {course_number} during lecture {lecture_number} are: {', '.join(topics)}")
+                dispatcher.utter_message(text=f"The topics covered in {course} during lecture {lecture_number} are: {', '.join(topics)}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any topics covered in {course_name} {course_number} during lecture {lecture_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find any topics covered in {course_name} {course_number} during lecture {lecture_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any topics covered in {course} during lecture {lecture_number}.")
         else:
             dispatcher.utter_message(text="Please provide the course name, course number, and lecture number.")
 
         return []
 
-    def execute_sparql_query_for_topics(self, course_name: Text, course_number: Text, lecture_number: Text) -> List[Text]:
+    #def execute_sparql_query_for_topics(self, course_name: Text, course_number: Text, lecture_number: Text) -> List[Text]:
+    def execute_sparql_query_for_topics(self, course: Text, lecture_number: Text) -> List[Text]:
         with open("queries/q3.txt", "r") as file:
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+        #sparql_query = sparql_query.replace("{course_name}", course_name)
+        #sparql_query = sparql_query.replace("{course_number}", course_number)
+        sparql_query = sparql_query.replace("{course}", course.upper())
         sparql_query = sparql_query.replace("{lecture_number}", lecture_number)
 
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
@@ -205,18 +200,11 @@ class ActionTopicsOfCourseLecture(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['topic']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['topic']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
-        # Execute SPARQL query to fetch topics covered during the specified lecture in the course
-        # Example:
-        # result = execute_query("SELECT ?topic WHERE { ... }")
-        # topics = [row["topic"] for row in result]
-        # return topics
-        #return ["Topic A", "Topic B", "Topic C"]
-
-
 
 
 
@@ -231,11 +219,17 @@ class ActionCoursesByUniversityAndSubject(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        university_name = next(tracker.get_latest_entity_values("university_name"), None)
-        subject = next(tracker.get_latest_entity_values("subject"), None)
+        #university_name = next(tracker.get_latest_entity_values("university_name"), None)
+        #subject = next(tracker.get_latest_entity_values("subject"), None)
+
+        university_name = tracker.get_slot("university_name")
+        subject = tracker.get_slot("subject")
+
 
         if university_name and subject:
+        #if university_name:
             courses = self.execute_sparql_query_for_courses(university_name, subject)
+            #courses = self.execute_sparql_query_for_courses(university_name, subject)
             if courses:
                 dispatcher.utter_message(text=f"The courses offered by {university_name} within {subject} are: {courses}")
             else:
@@ -250,8 +244,8 @@ class ActionCoursesByUniversityAndSubject(Action):
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{university_name}", university_name)
-        sparql_query = sparql_query.replace("{subject}", subject)
+        sparql_query = sparql_query.replace("{university_name}", university_name.lower())
+        sparql_query = sparql_query.replace("{subject}", subject.upper())
 
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
@@ -259,17 +253,13 @@ class ActionCoursesByUniversityAndSubject(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['course_name']['value']}: {binding['course_id']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['course_name']['value']}: {binding['course_id']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
 
-        # Execute SPARQL query to fetch courses offered by the specified university within the subject
-        # Example:
-        # result = execute_query("SELECT ?course WHERE { ... }")
-        # courses = [row["course"] for row in result]
-        # return ", ".join(courses)
-        #return "Course 1, Course 2, Course 3"  # Dummy data for demonstration
+
 
 
 
@@ -285,29 +275,40 @@ class ActionRecommendedMaterialsForTopic(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        topic = next(tracker.get_latest_entity_values("topic"), None)
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
+        #topic = next(tracker.get_latest_entity_values("topic"), None)
+        #course_name = next(tracker.get_latest_entity_values("course_name"), None)
+        #course_number = next(tracker.get_latest_entity_values("course_number"), None)
 
-        if topic and course_name and course_number:
-            materials = self.execute_sparql_query_for_recommended_materials(topic, course_name, course_number)
+
+        #topic = tracker.get_slot("topic")
+        course = tracker.get_slot("course")
+
+        #if topic and course_name and course_number:
+        if course:
+            #materials = self.execute_sparql_query_for_recommended_materials(topic, course_name, course_number)
+            materials = self.execute_sparql_query_for_recommended_materials(course)
             if materials:
-                dispatcher.utter_message(text=f"The recommended materials for studying {topic} in {course_name} {course_number} are: {materials}")
+                #dispatcher.utter_message(text=f"The recommended materials for studying {topic} in {course_name} {course_number} are: {materials}")
+                dispatcher.utter_message(text=f"The recommended materials for studying in {course} are: {materials}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any recommended materials for studying {topic} in {course_name} {course_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find any recommended materials for studying {topic} in {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any recommended materials for studying in {course}.")
         else:
             dispatcher.utter_message(text="Please provide the topic, course name, and course number.")
 
         return []
 
-    def execute_sparql_query_for_recommended_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
+    #def execute_sparql_query_for_recommended_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
+    def execute_sparql_query_for_recommended_materials(self, course: Text) -> Text:
         with open("queries/q5.txt", "r") as file:
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{topic}", topic)
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+        #sparql_query = sparql_query.replace("{topic}", topic)
+        #sparql_query = sparql_query.replace("{course_name}", course_name)
+        #sparql_query = sparql_query.replace("{course_number}", course_number)
+
+        sparql_query = sparql_query.replace("{course}", course.upper())
 
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
@@ -316,17 +317,13 @@ class ActionRecommendedMaterialsForTopic(Action):
             data = response.json()
             # Extract and format results
             #results = "\n".join([f"{binding['slides']['value']}: {binding['worksheets']['value']}" for binding in data['results']['bindings']])
-            results = "\n".join([f"{binding['material']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['material']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
         
-        # Execute SPARQL query to fetch recommended materials for the specified topic in the course
-        # Example:
-        # result = execute_query("SELECT ?material WHERE { ... }")
-        # materials = [row["material"] for row in result]
-        # return ", ".join(materials)
-        #return "Recommended materials"  # Dummy data for demonstration
+
 
 
 
@@ -346,27 +343,31 @@ class ActionCreditsForCourse(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
 
-        if course_name and course_number:
-            credits = self.execute_sparql_query_for_credits(course_name, course_number)
+        course = tracker.get_slot("course")
+
+        #if course_name and course_number:
+        if course:
+            #credits = self.execute_sparql_query_for_credits(course_name, course_number)
+            credits = self.execute_sparql_query_for_credits(course)
             if credits is not None:
-                dispatcher.utter_message(text=f"The number of credits for {course_name} {course_number} is: {credits}")
+                #dispatcher.utter_message(text=f"The number of credits for {course_name} {course_number} is: {credits}")
+                dispatcher.utter_message(text=f"The number of credits for {course} is: {credits}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find the number of credits for {course_name} {course_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find the number of credits for {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find the number of credits for {course}.")
         else:
             dispatcher.utter_message(text="Please provide both the course name and course number.")
 
         return []
 
-    def execute_sparql_query_for_credits(self, course_name: Text, course_number: Text) -> Optional[int]:
+    #def execute_sparql_query_for_credits(self, course_name: Text, course_number: Text) -> Optional[int]:
+    def execute_sparql_query_for_credits(self, course: Text) -> Optional[int]:
         with open("queries/q6.txt", "r") as file:
             sparql_query = file.read()
 
-        # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+
+        sparql_query = sparql_query.replace("{course}", course.upper())
 
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
@@ -374,17 +375,11 @@ class ActionCreditsForCourse(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['credits']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['credits']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
-
-        # Execute SPARQL query to fetch the number of credits for the specified course
-        # Example:
-        # result = execute_query("SELECT ?credits WHERE { ... }")
-        # credits = result[0]["credits"] if result else None
-        # return credits
-        #return 3  # Dummy data for demonstration
 
 
 
@@ -399,27 +394,31 @@ class ActionAdditionalResourcesForCourse(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
+
+        course = tracker.get_slot("course")
         
-        if course_name and course_number:
-            resources = self.execute_sparql_query_for_additional_resources(course_name, course_number)
+        #if course_name and course_number:
+        if course:
+            #resources = self.execute_sparql_query_for_additional_resources(course_name, course_number)
+            resources = self.execute_sparql_query_for_additional_resources(course)
             if resources:
-                dispatcher.utter_message(text=f"The additional resources available for {course_name} {course_number} are: {resources}")
+                #dispatcher.utter_message(text=f"The additional resources available for {course_name} {course_number} are: {resources}")
+                dispatcher.utter_message(text=f"The additional resources available for {course} are: {resources}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any additional resources for {course_name} {course_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find any additional resources for {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any additional resources for {course}.")
         else:
             dispatcher.utter_message(text="Please provide both the course name and course number.")
         
         return []
 
-    def execute_sparql_query_for_additional_resources(self, course_name: Text, course_number: Text) -> Text:
+    #def execute_sparql_query_for_additional_resources(self, course_name: Text, course_number: Text) -> Text:
+    def execute_sparql_query_for_additional_resources(self, course: Text) -> Text:
         with open("queries/q7.txt", "r") as file:
             sparql_query = file.read()
 
-        # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+
+        sparql_query = sparql_query.replace("{course}", course.upper)
 
 
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
@@ -428,17 +427,12 @@ class ActionAdditionalResourcesForCourse(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['link']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['link']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
 
-        # Execute SPARQL query to fetch additional resources for the specified course
-        # Example:
-        # result = execute_query("SELECT ?resource WHERE { ... }")
-        # resources = [row["resource"] for row in result]
-        # return ", ".join(resources)
-        #return "Additional resources"  # Dummy data for demonstration
 
 
 
@@ -458,29 +452,37 @@ class ActionContentForLecture(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        lecture_number = next(tracker.get_latest_entity_values("lecture_number"), None)
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
+        #lecture_number = next(tracker.get_latest_entity_values("lecture_number"), None)
+        #course_name = next(tracker.get_latest_entity_values("course_name"), None)
+        #course_number = next(tracker.get_latest_entity_values("course_number"), None)
+
+        lecture_number = tracker.get_slot("lecture_number")
+        course = tracker.get_slot("course")
         
-        if lecture_number and course_name and course_number:
-            content = self.execute_sparql_query_for_content(lecture_number, course_name, course_number)
+        #if lecture_number and course_name and course_number:
+        if lecture_number and course:
+            #content = self.execute_sparql_query_for_content(lecture_number, course_name, course_number)
+            content = self.execute_sparql_query_for_content(lecture_number, course)
             if content:
-                dispatcher.utter_message(text=f"The content available for lecture {lecture_number} in {course_name} {course_number} is: {content}")
+                #dispatcher.utter_message(text=f"The content available for lecture {lecture_number} in {course_name} {course_number} is: {content}")
+                dispatcher.utter_message(text=f"The content available for lecture {lecture_number} in {course} is: {content}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any content for lecture {lecture_number} in {course_name} {course_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find any content for lecture {lecture_number} in {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any content for lecture {lecture_number} in {course}.")
         else:
             dispatcher.utter_message(text="Please provide the lecture number, course name, and course number.")
         
         return []
 
-    def execute_sparql_query_for_content(self, lecture_number: Text, course_name: Text, course_number: Text) -> Text:
+    #def execute_sparql_query_for_content(self, lecture_number: Text, course_name: Text, course_number: Text) -> Text:
+    def execute_sparql_query_for_content(self, lecture_number: Text, course: Text) -> Text:
         with open("queries/q8.txt", "r") as file:
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{lecture_number}", lecture_number)
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+        sparql_query = sparql_query.replace("{course}", course.upper())
+
         
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
@@ -488,17 +490,13 @@ class ActionContentForLecture(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['lecture']['value']}: {binding['material']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['lecture']['value']}: {binding['material']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
         
-        # Execute SPARQL query to fetch content for the specified lecture in the course
-        # Example:
-        # result = execute_query("SELECT ?content WHERE { ... }")
-        # content = [row["content"] for row in result]
-        # return ", ".join(content)
-        #return "Content from PDF files"  # Dummy data for demonstration
+
 
 
 
@@ -514,29 +512,40 @@ class ActionReadingMaterials(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        topic = next(tracker.get_latest_entity_values("topic"), None)
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
+        #topic = next(tracker.get_latest_entity_values("topic"), None)
+        #course_name = next(tracker.get_latest_entity_values("course_name"), None)
+        #course_number = next(tracker.get_latest_entity_values("course_number"), None)
+
         
-        if topic and course_name and course_number:
-            materials = self.execute_sparql_query_for_competencies(topic, course_name, course_number)
+        course = tracker.get_slot("course")
+
+        
+        #if topic and course_name and course_number:
+            #materials = self.execute_sparql_query_for_competencies(topic, course_name, course_number)
+        if course:
+            materials = self.execute_sparql_query_for_competencies(course)
             if materials:
-                dispatcher.utter_message(text=f"The competencies gained after completing {course_name} {course_number} are: {competencies}")
+                #dispatcher.utter_message(text=f"The competencies gained after completing {course_name} {course_number} are: {competencies}")
+                dispatcher.utter_message(text=f"The competencies gained after completing {course} are: {competencies}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course_name} {course_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course}.")
         else:
             dispatcher.utter_message(text="Please provide both the course name and course number.")
         
         return []
 
-    def execute_sparql_query_for_reading_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
+    #def execute_sparql_query_for_reading_materials(self, topic: Text, course_name: Text, course_number: Text) -> Text:
+    def execute_sparql_query_for_reading_materials(self, course: Text) -> Text:
         with open("queries/q9.txt", "r") as file:
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{topic}", topic)
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+        #sparql_query = sparql_query.replace("{topic}", topic)
+        #sparql_query = sparql_query.replace("{course_name}", course_name)
+        #sparql_query = sparql_query.replace("{course_number}", course_number)
+        
+        sparql_query = sparql_query.replace("{course}", course.upper())
 
 
 
@@ -547,16 +556,12 @@ class ActionReadingMaterials(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['topic']['value']}: {binding['material']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['topic']['value']}: {binding['material']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
-        # Execute SPARQL query to fetch reading materials for the specified topic in the course
-        # Example:
-        # result = execute_query("SELECT ?material WHERE { ... }")
-        # materials = [row["material"] for row in result]
-        # return ", ".join(materials)
-        #return "Lecture slides, Worksheets"  # Dummy data for demonstration
+
 
 
 
@@ -575,27 +580,31 @@ class ActionCompetenciesForCourse(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
+
+        course = tracker.get_slot("course")
         
-        if course_name and course_number:
-            competencies = self.execute_sparql_query_for_competencies(course_name, course_number)
+        #if course_name and course_number:
+        #    competencies = self.execute_sparql_query_for_competencies(course_name, course_number)
+        if course:
+            competencies = self.execute_sparql_query_for_competencies(course)
             if competencies:
-                dispatcher.utter_message(text=f"The competencies gained after completing {course_name} {course_number} are: {competencies}")
+                #dispatcher.utter_message(text=f"The competencies gained after completing {course_name} {course_number} are: {competencies}")
+                dispatcher.utter_message(text=f"The competencies gained after completing {course} are: {competencies}")
             else:
-                dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course_name} {course_number}.")
+                #dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, I couldn't find any competencies for {course}.")
         else:
             dispatcher.utter_message(text="Please provide both the course name and course number.")
         
         return []
 
-    def execute_sparql_query_for_competencies(self, course_name: Text, course_number: Text) -> Text:
+    #def execute_sparql_query_for_competencies(self, course_name: Text, course_number: Text) -> Text:
+    def execute_sparql_query_for_competencies(self, course: Text) -> Text:
         with open("queries/q10.txt", "r") as file:
             sparql_query = file.read()
 
-        # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
+
+        sparql_query = sparql_query.replace("{course}", course.upper())
 
 
 
@@ -605,17 +614,11 @@ class ActionCompetenciesForCourse(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['topic']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['topic']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
-        # Execute SPARQL query to fetch competencies for the specified course
-        # Example:
-        # result = execute_query("SELECT ?competency WHERE { ... }")
-        # competencies = [row["competency"] for row in result]
-        # return ", ".join(competencies)
-        #return "Competency 1, Competency 2, Competency 3"  # Dummy data for demonstration
-
 
 
 
@@ -630,55 +633,40 @@ class ActionGetGrades(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        student_name = next(tracker.get_latest_entity_values("student_name"), None)
-        student_id = next(tracker.get_latest_entity_values("student_id"), None)
+        #student_name = next(tracker.get_latest_entity_values("student_name"), None)
+        #student_id = next(tracker.get_latest_entity_values("student_id"), None)
+
+        student_id = tracker.get_slot("student_id")
+        course = tracker.get_slot("course")
+
         
-        if student_name:
-            grades = self.execute_sparql_query_for_grades_by_name(student_name)
-        elif student_id:
-            grades = self.execute_sparql_query_for_grades_by_id(student_id)
+        if student_id and course:
+            grades = self.execute_sparql_query_for_grades_by_name(student_id, course)
+            if grades:
+                dispatcher.utter_message(text=f"The grades of {student_id} are: {grades}")
+            else:
+                dispatcher.utter_message(text="Sorry, I couldn't find grades for the specified student.")
+        #elif student_id:
+        #    grades = self.execute_sparql_query_for_grades_by_id(student_id)
         else:
-            dispatcher.utter_message(text="Please provide a student name or ID.")
-            return []
+            dispatcher.utter_message(text="Please provide a student ID and course.")
         
-        if grades:
-            dispatcher.utter_message(text=f"The grades of {student_name} are: {grades}")
-        else:
-            dispatcher.utter_message(text="Sorry, I couldn't find grades for the specified student.")
+        #if grades:
+        #    dispatcher.utter_message(text=f"The grades of {student_name} are: {grades}")
+        #else:
+        #    dispatcher.utter_message(text="Sorry, I couldn't find grades for the specified student.")
         
         return []
 
-    def execute_sparql_query_for_grades_by_name(self, student_name: Text) -> Text:
+ 
+    
+    def execute_sparql_query_for_grades_by_id(self, student_id: Text, course: Text) -> Text:
         with open("queries/q11.txt", "r") as file:
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{student_name}", student_name)
-
-
-        fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
-        response = requests.post(fuseki_url, data={'query': sparql_query})
-
-        if response.status_code == 200:
-            data = response.json()
-            # Extract and format results
-            results = "\n".join([f"{binding['student_name']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
-            return results
-        else:
-            return None
-        # Execute SPARQL query to fetch grades for the specified student by name
-        # Example:
-        # result = execute_query("SELECT ?grade WHERE { ... }")
-        # grades = [row["grade"] for row in result]
-        # return ", ".join(grades)
-        #return "A, B, C"  # Dummy data for demonstration
-    
-    def execute_sparql_query_for_grades_by_id(self, student_id: Text) -> Text:
-        with open("queries/q8.txt", "r") as file:
-            sparql_query = file.read()
-
-        # Replace placeholders in the query with actual values
         sparql_query = sparql_query.replace("{student_id}", student_id)
+        sparql_query = sparql_query.replace("{course}", course.upper())
 
 
 
@@ -690,16 +678,12 @@ class ActionGetGrades(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['student_id']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['student_id']['value']}: {binding['grade']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
-        # Execute SPARQL query to fetch grades for the specified student by ID
-        # Example:
-        # result = execute_query("SELECT ?grade WHERE { ... }")
-        # grades = [row["grade"] for row in result]
-        # return ", ".join(grades)
-        #return "A, B, C"  # Dummy data for demonstration
+
 
 
 
@@ -715,32 +699,25 @@ class ActionStudentsCompletedCourse(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        course_name = next(tracker.get_latest_entity_values("course_name"), None)
-        course_number = next(tracker.get_latest_entity_values("course_number"), None)
+        course = tracker.get_slot("course")
         
-        if course_name and course_number:
-            students = self.execute_sparql_query_for_students_completed_course(course_name, course_number)
+        if course and course:
+            students = self.execute_sparql_query_for_students_completed_course(course)
             if students:
-                dispatcher.utter_message(text=f"The following students have completed {course_name} {course_number}: {students}")
+                dispatcher.utter_message(text=f"The following students have completed {course}: {students}")
             else:
-                dispatcher.utter_message(text=f"Sorry, no students have completed {course_name} {course_number}.")
+                dispatcher.utter_message(text=f"Sorry, no students have completed {course}.")
         else:
             dispatcher.utter_message(text="Please provide both the course name and course number.")
         
         return []
 
-    def execute_sparql_query_for_students_completed_course(self, course_name: Text, course_number: Text) -> Text:
+    def execute_sparql_query_for_students_completed_course(self, course: Text) -> Text:
         with open("queries/q12.txt", "r") as file:
             sparql_query = file.read()
 
         # Replace placeholders in the query with actual values
-        sparql_query = sparql_query.replace("{course_name}", course_name)
-        sparql_query = sparql_query.replace("{course_number}", course_number)
-        # Execute SPARQL query to fetch students who have completed the specified course
-        # Example:
-        # result = execute_query("SELECT ?student WHERE { ... }")
-        # students = [row["student"] for row in result]
-        # return ", ".join(students)
+        sparql_query = sparql_query.replace("{course}", course.upper())
 
         fuseki_url = "http://localhost:3030/ds/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
@@ -748,14 +725,13 @@ class ActionStudentsCompletedCourse(Action):
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
-            results = "\n".join([f"{binding['student_id']['value']}" for binding in data['results']['bindings']])
-            return results
+            #results = "\n".join([f"{binding['student_id']['value']}" for binding in data['results']['bindings']])
+            #return results
+            return data
         else:
             return None
 
 
-
-        #return "Student 1, Student 2, Student 3"  # Dummy data for demonstration
     
 
         
@@ -850,6 +826,7 @@ class ActionPrintTranscript(Action):
             return data
         else:
             return None
+
 
 
 

@@ -4,9 +4,10 @@ SELECT ?course
   WHERE{
 	 ?course <http://example.org/course/offeredBy> <https://www.{university_name}.ca/>.
   	?course <http://example.org/course/courseSubject> ?subject
-  FILTER (?subject = "COMP")
+  FILTER (?subject = "{subject}")
   }
 	LIMIT 100
 
 
 #   ?course <http://example.org/course/offeredBy> [university_name].
+#  FILTER (?subject = "COMP")
