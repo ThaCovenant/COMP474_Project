@@ -8,7 +8,6 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
-#  - weathers
   
 
 
@@ -27,6 +26,62 @@ intents:
   - transcript
 
 
+slots:
+  student_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: student_name
+  
+  student_id:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: student_id
+
+  university_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: university_name
+
+  topic:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: topic
+
+  course_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: course_name
+
+  course_number:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: course_number
+
+  lecture_number:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: lecture_number
+
+
+
+
+
+
+
 entities:
 - student_name
 - student_id
@@ -35,6 +90,25 @@ entities:
 - course_name
 - course_number
 - lecture_number
+
+actions:
+#  - action_utter_all_courses
+  - action_q1
+  - action_q2
+  - action_q3
+  - action_q4
+  - action_q5
+  - action_q6
+  - action_q7
+  - action_q8
+  - action_q9
+  - action_q10
+  - action_q11
+  - action_q12
+  - action_q13
+
+
+
 
 
 responses:

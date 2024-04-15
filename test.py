@@ -2,6 +2,8 @@ pip install rasa
 rasa init --no-prompt
 rasa train
 rasa shell
+rasa run actions --debug
+rasa interactive
 
 class QueryFuseki(Action):
     def name(self) -> Text:
