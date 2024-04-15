@@ -1,11 +1,11 @@
-#Query 8 (list all material covered in the course filtered by lecture number)(**doesnt filter by topic)(all materials are linked to all lectures)
-#example: <http://example.org/course/COMP335> <http://example.org/lecture/COMP335Lecture2>
-SELECT ?subject
+#Query 8 (list all material covered in the course filtered by lecture number)
+#example: <http://example.org/course/COMP474> <http://example.org/lecture/COMP474Lecture3>
+SELECT ?content
   WHERE{
-<http://example.org/course/{course}> <http://example.org/course/hasLecture> ?lectures.
-  FILTER(?lectures = <http://example.org/lecture/{lecture_number}>)
+[course] <http://example.org/course/hasLecture> ?lectures.
 ?lectures <http://example.org/lecture/hasContent> ?content.
-?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
+FILTER(?lectures = [lecture]).
+#?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.
   }
 	LIMIT 100
 

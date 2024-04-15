@@ -1,7 +1,8 @@
 #Query 2 (list all courses that have a specific topic)
 #example: <http://example.org/topic/KnowledgeGraph>
-SELECT ?subject
+SELECT DISTINCT ?subject
   WHERE{
- <http://example.org/{topic}/KnowledgeGraph> <http://example.org/topic/topicProvenanceInformation> ?lecture.
-?subject <http://example.org/course/hasLecture>	?lecture
+ [topic] <http://example.org/topic/topicProvenanceInformation> ?content.
+ ?lecture <http://example.org/lecture/hasContent> ?content.
+?subject <http://example.org/course/hasLecture>	?lecture.
   }

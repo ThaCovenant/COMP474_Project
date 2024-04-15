@@ -1,8 +1,9 @@
  #Query3 (list all topics related to specific lecture in a course)
  #example: <http://example.org/lecture/COMP474Lecture1>
- SELECT ?subject
+ SELECT DISTINCT ?topic
   WHERE{
-?subject <http://example.org/topic/topicProvenanceInformation> <http://example.org/lecture/{lecture_number}>.
+  [lecture] <http://example.org/lecture/hasContent> ?content.
+?topic <http://example.org/topic/topicProvenanceInformation> ?content.
   }
 
 #?subject <http://example.org/topic/topicProvenanceInformation> [lecture].
