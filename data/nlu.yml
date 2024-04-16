@@ -101,7 +101,7 @@ nlu:
 
 
 #Q12
-- intent: stutends_completed_course
+- intent: students_completed_course
   examples: |
       - which students have completed [COEN311](course) ?
       - for [COEN311](course) , which students have completed it ?

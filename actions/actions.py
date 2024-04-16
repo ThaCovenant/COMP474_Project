@@ -27,7 +27,7 @@
 #         return []
 
 
-#Q7, Q12
+#Q7
 
 """
 
@@ -387,7 +387,7 @@ class ActionCreditsForCourse(Action):
 
 
 
-#Q7
+#Q7 WORKS
 class ActionAdditionalResourcesForCourse(Action):
     def name(self) -> Text:
         return "action_q7"
@@ -419,13 +419,14 @@ class ActionAdditionalResourcesForCourse(Action):
         with open("queries/q7.txt", "r") as file:
             sparql_query = file.read()
 
-
-        sparql_query = sparql_query.replace("{course}", course.upper)
-
+        print(course)
+        sparql_query = sparql_query.replace("{course}", course.upper())
+        print(sparql_query)
 
         fuseki_url = "http://localhost:3030/test/query"  # Adjust the endpoint URL accordingly
         response = requests.post(fuseki_url, data={'query': sparql_query})
 
+        print(response)
         if response.status_code == 200:
             data = response.json()
             # Extract and format results
@@ -694,7 +695,7 @@ class ActionGetGrades(Action):
 
 
 
-#Q12
+#Q12 WORKS
 class ActionStudentsCompletedCourse(Action):
     def name(self) -> Text:
         return "action_q12"
