@@ -5,8 +5,6 @@ SELECT ?content
 <http://example.org/course/{course}> <http://example.org/course/hasLecture> ?lectures.
 ?lectures <http://example.org/lecture/hasContent> ?content.
 ?topic <http://example.org/topic/topicProvenanceInformation> ?content.
-  FILTER(?topic = <http://example.org/topic/KnowledgeGraph>)
+  FILTER(?topic = <http://example.org/topic/KnowledgeGraphs>)
   }
 	LIMIT 100
-
-  #[course] <http://example.org/course/hasLecture> ?lectures.

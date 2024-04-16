@@ -7,6 +7,3 @@ WHERE {
 ?student_id <http://example.org/student/hasFirstName> ?firstName.
 ?student_id <http://example.org/student/hasLastName> ?lastName
 }
-
-
-#?student <http://example.org/student/hasCompletedCourse> [course]

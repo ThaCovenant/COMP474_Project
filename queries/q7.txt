@@ -4,5 +4,3 @@ SELECT ?link
 WHERE {
   <http://example.org/course/{course}> <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?link.
 }
-
-#[course] <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?link.

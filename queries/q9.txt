@@ -9,5 +9,3 @@ SELECT ?content
   FILTER(?topic = <http://example.org/topic/{topic}>)
   }
 	LIMIT 100
-
-  #[course] <http://example.org/course/hasLecture> ?lectures.

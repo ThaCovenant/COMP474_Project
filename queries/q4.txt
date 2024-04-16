@@ -7,7 +7,3 @@ SELECT ?course
   FILTER (?subject = "{subject}")
   }
 	LIMIT 100
-
-
-#   ?course <http://example.org/course/offeredBy> [university_name].
-#  FILTER (?subject = "COMP")

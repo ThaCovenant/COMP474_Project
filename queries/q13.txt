@@ -1,9 +1,10 @@
 #Query 13 list all courses and grades of a student 
 #example: <http://example.org/student/40157540>
-SELECT DISTINCT ?firstName ?lastName ?courses ?grade
+SELECT DISTINCT ?firstName ?lastName ?class ?grade 
 WHERE {
  <http://example.org/student/{student_id}> <http://example.org/student/hasFirstName> ?firstName.
  <http://example.org/student/{student_id}> <http://example.org/student/hasLastName> ?lastName.
  <http://example.org/student/{student_id}> <http://example.org/student/hasCompletedCourse> ?courses.
+  ?courses <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class.
   ?courses <http://example.org/student/hasGrade> ?grade
 }

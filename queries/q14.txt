@@ -5,5 +5,3 @@ SELECT ?desc
 	<http://example.org/course/{course}> <http://example.org/course/courseDescription> ?desc
   }
 	LIMIT 100
-
-#[course] <http://example.org/course/courseDescription> ?desc

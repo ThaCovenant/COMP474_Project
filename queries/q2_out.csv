@@ -1,4 +1,2 @@
-"course"
-<http://example.org/course#COMP474>
-<http://example.org/course#COMP335>
-
+"subject"
+"http://example.org/course/COMP474"

@@ -7,9 +7,3 @@ SELECT ?content
 FILTER(?lectures = <http://example.org/lecture/{lecture}>).
   }
 	LIMIT 100
-
-
- # [course] <http://example.org/course/hasLecture> ?lectures.
- # FILTER(?lectures = [lecture])
-#?lectures <http://example.org/lecture/hasContent> ?content.
-#?subject <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?content.

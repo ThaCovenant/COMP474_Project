@@ -6,5 +6,3 @@ SELECT DISTINCT ?topic
   ?lecture <http://example.org/lecture/hasContent> ?material.
  ?topic <http://example.org/topic/topicProvenanceInformation> ?material
   }
-
- #[course] <http://example.org/course/hasLecture> ?lecture.

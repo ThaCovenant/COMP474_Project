@@ -4,5 +4,3 @@ SELECT ?credit
 WHERE {
  <http://example.org/course/{course}> <http://example.org/course/courseCredit> ?credit.
 }
-
-#[course] <http://example.org/course/courseCredit> ?credit.

@@ -8,11 +8,3 @@ SELECT ?grade
   FILTER(?class = <http://example.org/course/{course}>)
   }
 	LIMIT 100
-
-
-
-
-#[student] <http://example.org/student/hasCompletedCourse> ?courses.
-#?courses <http://example.org/student/hasGrade> ?grade.
-# ?courses <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?class
-#  FILTER(?class = [course])
