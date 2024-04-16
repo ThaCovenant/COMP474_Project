@@ -17,4 +17,13 @@ Build an intelligent agent that can answer university course and student related
 - Run the "Roboprof.py" file
 
 
+## steps to setup Fuseki Jena
+- Run the exe file for the server.
+- Upload dataset from project to the server. Dataset can befound in folder Triples>MergedTriples.ttl
+
+## steps to execute RASA chatbot
+- In terminal, enter "rasa train" to train the model.
+- In another terminal enter "rasa run actions"
+- Enter "rasa shell" to start communicating with the chatbot.
+
 
